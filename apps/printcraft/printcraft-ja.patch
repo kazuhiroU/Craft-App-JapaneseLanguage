@@ -1,0 +1,888 @@
+diff --git a/Cargo.lock b/Cargo.lock
+index a6efac4..bb88de7 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -1599,8 +1599,6 @@ dependencies = [
+ [[package]]
+ name = "epaint"
+ version = "0.36.2"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "a0ec0308dc23130fc1a7d4623a8534c2ed069c6dc84e258ee4f3de99615aa1a3"
+ dependencies = [
+  "ahash",
+  "bytemuck",
+diff --git a/Cargo.toml b/Cargo.toml
+index c94309e..2438436 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -89,3 +89,4 @@ hayro = { path = "vendor/hayro" }
+ hayro-syntax = { path = "vendor/hayro-syntax" }
+ hayro-jbig2 = { path = "vendor/hayro-jbig2" }
+ lopdf = { path = "vendor/lopdf" }
++epaint = { path = "vendor/epaint" }
+diff --git a/crates/ui-egui/src/chrome.rs b/crates/ui-egui/src/chrome.rs
+index cb73760..e7f6815 100644
+--- a/crates/ui-egui/src/chrome.rs
++++ b/crates/ui-egui/src/chrome.rs
+@@ -153,25 +153,24 @@ pub fn mode_bar(app: &mut PrintCraftApp, ui: &mut egui::Ui) {
+ }
+ 
+ fn main_menu(app: &mut PrintCraftApp, ui: &mut egui::Ui) {
+-    let language = app.language;
+     let t = Tokens::get(ui.ctx());
+-    let resp = widgets::ghost_button(ui, "panel-left", language.tr("Menu"));
++    let resp = widgets::ghost_button(ui, "panel-left", "Menu");
+     egui::Popup::menu(&resp).show(|ui| {
+         ui.set_min_width(230.0);
+-        ui.menu_button(language.tr("File"), |ui| crate::commands::registry_menu(app, ui, "File"));
+-        ui.menu_button(language.tr("Edit"), |ui| crate::commands::registry_menu(app, ui, "Edit"));
+-        ui.menu_button(language.tr("Pages"), |ui| crate::commands::registry_menu(app, ui, "Pages"));
+-        ui.menu_button(language.tr("View"), |ui| {
++        ui.menu_button("File", |ui| crate::commands::registry_menu(app, ui, "File"));
++        ui.menu_button("Edit", |ui| crate::commands::registry_menu(app, ui, "Edit"));
++        ui.menu_button("Pages", |ui| crate::commands::registry_menu(app, ui, "Pages"));
++        ui.menu_button("View", |ui| {
+             if let Some(i) = app.active {
+                 let v = &mut app.views[i];
+                 ui.label(egui::RichText::new("Zoom").color(t.text_faint).small());
+-                if widgets::menu_item(ui, language.tr("Actual size"), "⌘1").clicked() {
++                if widgets::menu_item(ui, "Actual size", "⌘1").clicked() {
+                     v.set_zoom(1.0);
+                 }
+-                if widgets::menu_item(ui, language.tr("Zoom to page level"), "⌘0").clicked() {
++                if widgets::menu_item(ui, "Zoom to page level", "⌘0").clicked() {
+                     v.fit = Fit::Page;
+                 }
+-                if widgets::menu_item(ui, language.tr("Fit to width"), "⌘2").clicked() {
++                if widgets::menu_item(ui, "Fit to width", "⌘2").clicked() {
+                     v.fit = Fit::Width;
+                 }
+                 if widgets::menu_item(ui, "Fit to height", "").clicked() {
+@@ -219,7 +218,7 @@ fn main_menu(app: &mut PrintCraftApp, ui: &mut egui::Ui) {
+                 ui.separator();
+             }
+             crate::commands::registry_menu(app, ui, "View");
+-            ui.menu_button(language.tr("Display theme"), |ui| {
++            ui.menu_button("Display theme", |ui| {
+                 let ctx = ui.ctx().clone();
+                 if ui.radio(app.follow_system_theme, "Use system setting").clicked() {
+                     app.follow_system_theme = true;
+@@ -233,7 +232,7 @@ fn main_menu(app: &mut PrintCraftApp, ui: &mut egui::Ui) {
+                     app.set_theme(&ctx, ThemeKind::Dark);
+                 }
+             });
+-            ui.menu_button(language.tr("Side panels"), |ui| {
++            ui.menu_button("Side panels", |ui| {
+                 for (p, label) in [
+                     (RightPanel::Comments, "Comments"),
+                     (RightPanel::Bookmarks, "Bookmarks"),
+@@ -252,7 +251,7 @@ fn main_menu(app: &mut PrintCraftApp, ui: &mut egui::Ui) {
+                 }
+             });
+         });
+-        ui.menu_button(language.tr("Help"), |ui| crate::commands::registry_menu(app, ui, "Help"));
++        ui.menu_button("Help", |ui| crate::commands::registry_menu(app, ui, "Help"));
+     });
+ }
+ 
+diff --git a/crates/ui-egui/src/cjk_fonts.rs b/crates/ui-egui/src/cjk_fonts.rs
+new file mode 100644
+index 0000000..8e9eda3
+--- /dev/null
++++ b/crates/ui-egui/src/cjk_fonts.rs
+@@ -0,0 +1,69 @@
++//! Japanese (CJK) fallback font for the UI.
++//!
++//! The bundled Inter / JetBrains Mono have no kana or kanji (unless the craft-fonts faces are built in; then this is a no-op). When the UI language is Japanese a
++//! system font that has them is read once (they are 10-20 MB, so never at startup for English)
++//! and registered at the lowest priority in every family, so Latin text keeps Inter.
++
++use std::path::PathBuf;
++
++use egui::epaint::text::{FontInsert, FontPriority, InsertFontFamily};
++use egui::{FontData, FontFamily};
++
++/// Candidate files in preference order: (path, face index).
++fn candidates() -> Vec<(PathBuf, u32)> {
++    let mut v: Vec<(PathBuf, u32)> = Vec::new();
++    if let Ok(p) = std::env::var("PRINTCRAFT_CJK_FONT") {
++        v.push((PathBuf::from(p), 0));
++    }
++    for p in [
++        // macOS: Hiragino Kaku Gothic (face 0 is the Japanese design)
++        "/System/Library/Fonts/ヒラギノ角ゴシック W3.ttc",
++        "/System/Library/Fonts/ヒラギノ角ゴシック W4.ttc",
++        "/System/Library/Fonts/ヒラギノ角ゴシック W2.ttc",
++        "/Library/Fonts/Arial Unicode.ttf",
++        // Windows
++        "C:\\Windows\\Fonts\\YuGothR.ttc",
++        "C:\\Windows\\Fonts\\meiryo.ttc",
++        "C:\\Windows\\Fonts\\msgothic.ttc",
++        // Linux
++        "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
++        "/usr/share/fonts/noto-cjk/NotoSansCJK-Regular.ttc",
++        "/usr/share/fonts/google-noto-cjk/NotoSansCJK-Regular.ttc",
++        "/usr/share/fonts/truetype/noto/NotoSansCJK-Regular.ttc",
++        "/usr/share/fonts/opentype/ipafont-gothic/ipag.ttf",
++        "/usr/share/fonts/truetype/fonts-japanese-gothic.ttf",
++    ] {
++        v.push((PathBuf::from(p), 0));
++    }
++    v
++}
++
++/// Register a CJK fallback font (once per process run of the flag).
++pub fn ensure_loaded(ctx: &egui::Context, loaded: &mut bool) {
++    if *loaded {
++        return;
++    }
++    *loaded = true;
++    // The optional craft-fonts build input already puts Japanese faces into every family.
++    if !printcraft_fonts::ui_japanese_fonts().is_empty() {
++        return;
++    }
++    for (path, index) in candidates() {
++        let Ok(meta) = std::fs::metadata(&path) else { continue };
++        if !meta.is_file() || meta.len() == 0 || meta.len() > (128 << 20) {
++            continue;
++        }
++        let Ok(bytes) = std::fs::read(&path) else { continue };
++        let mut data = FontData::from_owned(bytes);
++        data.index = index;
++        log::info!("UI font fallback: {}", path.display());
++        let families = [FontFamily::Proportional, FontFamily::Monospace, FontFamily::Name("semibold".into()), FontFamily::Name("medium".into())]
++            .into_iter()
++            .map(|family| InsertFontFamily { family, priority: FontPriority::Lowest })
++            .collect();
++        ctx.add_font(FontInsert { name: "system-cjk".into(), data, families });
++        ctx.request_repaint();
++        return;
++    }
++    log::warn!("no Japanese UI font found; set PRINTCRAFT_CJK_FONT to a .ttf/.ttc path");
++}
+diff --git a/crates/ui-egui/src/commands.rs b/crates/ui-egui/src/commands.rs
+index c1a0e8b..c94947a 100644
+--- a/crates/ui-egui/src/commands.rs
++++ b/crates/ui-egui/src/commands.rs
+@@ -500,7 +500,7 @@ pub(crate) fn registry_menu(app: &mut PrintCraftApp, ui: &mut egui::Ui, menu: &s
+     let mac = cfg!(target_os = "macos") || cfg!(target_arch = "wasm32");
+     for spec in commands::menu(menu) {
+         let label = commands::current_label(spec, &app.session, app.active_ids().map(|(_, id)| id));
+-        let label = app.language.tr(&label);
++        let label = label;
+         let shortcut = spec.shortcut.map(|s| s.label(mac)).unwrap_or_default();
+         let enabled = app.command_enabled(spec);
+         let resp = ui.add_enabled(enabled, egui::Button::new(label).shortcut_text(shortcut));
+diff --git a/crates/ui-egui/src/i18n.rs b/crates/ui-egui/src/i18n.rs
+deleted file mode 100644
+index 56fc4bb..0000000
+--- a/crates/ui-egui/src/i18n.rs
++++ /dev/null
+@@ -1,124 +0,0 @@
+-//! Interface translations. Command ids, document text and file names remain stable.
+-//! Untranslated labels fall back to English so coverage can grow incrementally.
+-
+-#[derive(Clone, Copy, Debug, Default, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+-#[serde(rename_all = "lowercase")]
+-pub enum Language {
+-    #[default]
+-    En,
+-    Ja,
+-}
+-
+-impl Language {
+-    pub const ALL: [Self; 2] = [Self::En, Self::Ja];
+-
+-    pub fn name(self) -> &'static str {
+-        match self {
+-            Self::En => "English",
+-            Self::Ja => "日本語",
+-        }
+-    }
+-
+-    pub fn parse(code: &str) -> Option<Self> {
+-        match code {
+-            "en" => Some(Self::En),
+-            "ja" => Some(Self::Ja),
+-            _ => None,
+-        }
+-    }
+-
+-    pub fn tr(self, text: &str) -> &str {
+-        if self == Self::Ja
+-            && let Some((_, japanese)) = JAPANESE.iter().find(|(english, _)| *english == text)
+-        {
+-            return japanese;
+-        }
+-        text
+-    }
+-}
+-
+-const JAPANESE: &[(&str, &str)] = &[
+-    ("Menu", "メニュー"),
+-    ("File", "ファイル"),
+-    ("Edit", "編集"),
+-    ("Pages", "ページ"),
+-    ("View", "表示"),
+-    ("Help", "ヘルプ"),
+-    ("Preferences", "環境設定"),
+-    ("Preferences…", "環境設定…"),
+-    ("Interface language", "表示言語"),
+-    ("Identity", "個人情報"),
+-    ("Name on new comments", "新しい注釈の作成者名"),
+-    ("Open…", "開く…"),
+-    ("New blank PDF", "空白の PDF を作成"),
+-    ("Create PDF from file…", "ファイルから PDF を作成…"),
+-    ("Create PDF from images…", "画像から PDF を作成…"),
+-    ("Create PDF from clipboard", "クリップボードから PDF を作成"),
+-    ("Combine files…", "ファイルを結合…"),
+-    ("Save", "保存"),
+-    ("Save as…", "別名で保存…"),
+-    ("Close file", "ファイルを閉じる"),
+-    ("Close all", "すべて閉じる"),
+-    ("Revert", "保存済みの状態に戻す"),
+-    ("Print…", "印刷…"),
+-    ("Document properties…", "文書のプロパティ…"),
+-    ("Undo", "取り消し"),
+-    ("Redo", "やり直し"),
+-    ("Find…", "検索…"),
+-    ("Advanced search…", "高度な検索…"),
+-    ("Copy pages", "ページをコピー"),
+-    ("Cut pages", "ページを切り取り"),
+-    ("Paste pages", "ページを貼り付け"),
+-    ("Fit visible", "表示範囲に合わせる"),
+-    ("Marquee zoom", "範囲指定ズーム"),
+-    ("Take a snapshot", "スナップショットを作成"),
+-    ("Full screen mode", "全画面表示"),
+-    ("Read mode", "閲覧モード"),
+-    ("Switch light / dark theme", "明るい／暗いテーマを切り替え"),
+-    ("Comments panel", "コメントパネル"),
+-    ("Form fields panel", "フォームフィールドパネル"),
+-    ("Clear form", "フォームをクリア"),
+-    ("Find tools and commands…", "ツールとコマンドを検索…"),
+-    ("Zoom", "ズーム"),
+-    ("Actual size", "実際のサイズ"),
+-    ("Zoom to page level", "ページ全体を表示"),
+-    ("Fit to width", "幅に合わせる"),
+-    ("Display theme", "表示テーマ"),
+-    ("Side panels", "サイドパネル"),
+-    ("Enable Acrobat JavaScript", "Acrobat JavaScript を有効にする"),
+-    ("OK", "OK"),
+-];
+-
+-#[cfg(test)]
+-mod tests {
+-    use super::*;
+-
+-    #[test]
+-    fn translations_are_unique_and_preserve_unknown_text() {
+-        for (i, (en, ja)) in JAPANESE.iter().enumerate() {
+-            assert!(!ja.is_empty());
+-            assert!(JAPANESE.iter().take(i).all(|(other, _)| en != other));
+-            assert_eq!(Language::En.tr(en), *en);
+-        }
+-        assert_eq!(Language::Ja.tr("File"), "ファイル");
+-        assert_eq!(Language::Ja.tr("日本語の文書.pdf"), "日本語の文書.pdf");
+-        assert_eq!(Language::parse("xx"), None);
+-    }
+-
+-    #[test]
+-    fn language_persists_and_invalid_input_keeps_current_language() {
+-        let mut app = crate::PrintCraftApp::default();
+-        app.set_option("language", "ja").unwrap();
+-        assert_eq!(app.language, Language::Ja);
+-        assert!(app.set_option("language", "xx").is_err());
+-        assert_eq!(app.language, Language::Ja);
+-        let mut restored = crate::PrintCraftApp::default();
+-        restored.restore(&app.persist());
+-        assert_eq!(restored.language, Language::Ja);
+-        restored.restore(r#"{"language":"xx"}"#);
+-        assert_eq!(restored.language, Language::Ja);
+-        let mut legacy = crate::PrintCraftApp::default();
+-        legacy.restore("{}");
+-        assert_eq!(legacy.language, Language::En);
+-    }
+-}
+diff --git a/crates/ui-egui/src/i18n/mod.rs b/crates/ui-egui/src/i18n/mod.rs
+new file mode 100644
+index 0000000..76f7e62
+--- /dev/null
++++ b/crates/ui-egui/src/i18n/mod.rs
+@@ -0,0 +1,482 @@
++//! UI localisation.
++//!
++//! Strings in code stay English and are the lookup keys. Instead of wrapping every call site,
++//! one hook installed into the (vendored) text layout (`epaint::text::set_text_translator`)
++//! maps each laid-out piece of text through the catalog of the current language, so menus,
++//! panels, dialogs, tool names, effect and property names (which come from data tables in the
++//! engine and effects crates) are all covered. A string without a translation is shown in English.
++//! Command ids, the control channel, the CLI and MCP never see translated text.
++//!
++//! Catalog format (`ja.tsv`, same as the other Craft apps): `context<TAB>source<TAB>translation`.
++//! - empty context: a plain string, matched exactly
++//! - `@pattern`: a template with `{name}` placeholders matching any text (dynamic strings such as
++//!   `{n} items` or `Delete "{name}"?`); the placeholders are copied into the translation
++//!
++//! Language: preference `appearance.language` (`auto`, `en`, `ja`); `auto` follows the system
++//! locale. The environment variable `PRINTCRAFT_LANG` overrides it. `PRINTCRAFT_I18N_DUMP=path`
++//! appends every untranslated string that was drawn to that file (to find gaps).
++
++use std::collections::HashMap;
++use std::sync::atomic::{AtomicU8, Ordering};
++use std::sync::{Mutex, OnceLock};
++
++/// The interface-language setting: follow the system, or a fixed language. Persisted in the
++/// app settings as `auto`, `en` or `ja`.
++#[derive(Clone, Copy, Debug, Default, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
++#[serde(rename_all = "lowercase")]
++pub enum Language {
++    #[default]
++    Auto,
++    En,
++    Ja,
++}
++
++impl Language {
++    pub const ALL: [Self; 3] = [Self::Auto, Self::En, Self::Ja];
++
++    /// Name shown in the language chooser (the language names themselves stay untranslated).
++    pub fn name(self) -> &'static str {
++        match self {
++            Self::Auto => "Auto (System)",
++            Self::En => "English",
++            Self::Ja => "日本語",
++        }
++    }
++
++    pub fn parse(code: &str) -> Option<Self> {
++        match code.trim().to_ascii_lowercase().as_str() {
++            "auto" => Some(Self::Auto),
++            "en" => Some(Self::En),
++            "ja" => Some(Self::Ja),
++            _ => None,
++        }
++    }
++
++    pub fn code(self) -> &'static str {
++        match self {
++            Self::Auto => "auto",
++            Self::En => "en",
++            Self::Ja => "ja",
++        }
++    }
++
++    /// The language to draw in (`PRINTCRAFT_LANG` overrides the setting).
++    pub fn resolve(self) -> Lang {
++        Lang::from_pref(self.code())
++    }
++}
++
++/// A UI language.
++#[derive(Clone, Copy, Debug, PartialEq, Eq)]
++pub enum Lang {
++    En,
++    Ja,
++}
++
++impl Lang {
++    pub fn code(self) -> &'static str {
++        match self {
++            Lang::En => "en",
++            Lang::Ja => "ja",
++        }
++    }
++
++    pub fn from_code(code: &str) -> Option<Lang> {
++        match code.trim().to_ascii_lowercase().as_str() {
++            "en" => Some(Lang::En),
++            "ja" => Some(Lang::Ja),
++            _ => None,
++        }
++    }
++
++    /// Resolve `interface language` preference: a code, or `auto` (and anything unknown) for the
++    /// system language.
++    pub fn from_pref(pref: &str) -> Lang {
++        if let Some(l) = std::env::var("PRINTCRAFT_LANG").ok().and_then(|v| Lang::from_code(&v)) {
++            return l;
++        }
++        Lang::from_code(pref).unwrap_or_else(system_lang)
++    }
++}
++
++/// Language for a locale tag such as `ja_JP.UTF-8` or `ja-JP`.
++pub fn lang_from_tag(tag: &str) -> Option<Lang> {
++    let base = tag.split(['.', '@']).next().unwrap_or("").replace('_', "-").to_ascii_lowercase();
++    let primary = base.split('-').next().unwrap_or("");
++    match primary {
++        "ja" => Some(Lang::Ja),
++        "en" | "c" | "posix" => Some(Lang::En),
++        _ => None,
++    }
++}
++
++/// The system language (cached). English when it can't be determined.
++pub fn system_lang() -> Lang {
++    static SYSTEM: OnceLock<Lang> = OnceLock::new();
++    *SYSTEM.get_or_init(detect_system_lang)
++}
++
++#[cfg(not(target_arch = "wasm32"))]
++fn detect_system_lang() -> Lang {
++    for var in ["LC_ALL", "LC_MESSAGES", "LANG"] {
++        if let Some(l) = std::env::var(var).ok().filter(|v| !v.is_empty()).and_then(|v| lang_from_tag(&v)) {
++            return l;
++        }
++    }
++    // Apps started from the Finder don't inherit LANG: use the macOS preferred-languages list.
++    #[cfg(target_os = "macos")]
++    if let Ok(out) = std::process::Command::new("/usr/bin/defaults").args(["read", "-g", "AppleLanguages"]).output()
++        && out.status.success()
++        && let Some(l) = first_supported(&String::from_utf8_lossy(&out.stdout))
++    {
++        return l;
++    }
++    Lang::En
++}
++
++#[cfg(target_arch = "wasm32")]
++fn detect_system_lang() -> Lang {
++    Lang::En
++}
++
++/// The first supported language in a `defaults read` list like `(\n    "ja-JP",\n    "en-US"\n)`.
++#[cfg_attr(not(target_os = "macos"), allow(dead_code))]
++fn first_supported(list: &str) -> Option<Lang> {
++    list.split(['(', ')', ',', '"', '\n']).map(str::trim).filter(|s| !s.is_empty()).find_map(lang_from_tag)
++}
++
++// ---------------------------------------------------------------------------------------------
++// Catalog
++
++#[derive(Default)]
++struct Pattern {
++    /// literal pieces between placeholders (`pieces.len() == names.len() + 1`)
++    pieces: Vec<String>,
++    names: Vec<String>,
++    translation: String,
++}
++
++#[derive(Default)]
++struct Catalog {
++    plain: HashMap<String, String>,
++    patterns: Vec<Pattern>,
++    /// memo of lookups, including misses (cleared when it grows large: timecodes etc.)
++    memo: Mutex<HashMap<String, Option<String>>>,
++}
++
++fn unescape(s: &str) -> String {
++    let mut out = String::with_capacity(s.len());
++    let mut it = s.chars();
++    while let Some(c) = it.next() {
++        if c != '\\' {
++            out.push(c);
++            continue;
++        }
++        match it.next() {
++            Some('n') => out.push('\n'),
++            Some('t') => out.push('\t'),
++            Some('\\') => out.push('\\'),
++            Some(o) => {
++                out.push('\\');
++                out.push(o);
++            }
++            None => out.push('\\'),
++        }
++    }
++    out
++}
++
++/// Entries of a catalog file as (context, source, translation) plus line errors.
++pub fn parse_entries(text: &str) -> (Vec<(String, String, String)>, Vec<String>) {
++    let mut entries = Vec::new();
++    let mut errors = Vec::new();
++    for (n, line) in text.lines().enumerate() {
++        if line.trim().is_empty() || line.starts_with('#') {
++            continue;
++        }
++        let mut cols = line.split('\t');
++        match (cols.next(), cols.next(), cols.next(), cols.next()) {
++            (Some(ctx), Some(src), Some(tr), None) if !src.is_empty() && !tr.is_empty() => {
++                entries.push((unescape(ctx), unescape(src), unescape(tr)));
++            }
++            _ => errors.push(format!("line {}: expected `context<TAB>source<TAB>translation`", n + 1)),
++        }
++    }
++    (entries, errors)
++}
++
++/// `{name}` placeholders of a template, in order.
++#[cfg(test)]
++fn placeholders(s: &str) -> Vec<&str> {
++    let mut out = Vec::new();
++    let mut rest = s;
++    while let Some(a) = rest.find('{') {
++        let after = &rest[a + 1..];
++        match after.find('}') {
++            Some(b) => {
++                out.push(&after[..b]);
++                rest = &after[b + 1..];
++            }
++            None => break,
++        }
++    }
++    out
++}
++
++fn split_template(src: &str) -> (Vec<String>, Vec<String>) {
++    let mut pieces = Vec::new();
++    let mut names = Vec::new();
++    let mut rest = src;
++    loop {
++        match rest.find('{').and_then(|a| rest[a..].find('}').map(|b| (a, a + b))) {
++            Some((a, b)) => {
++                pieces.push(rest[..a].to_string());
++                names.push(rest[a + 1..b].to_string());
++                rest = &rest[b + 1..];
++            }
++            None => {
++                pieces.push(rest.to_string());
++                break;
++            }
++        }
++    }
++    (pieces, names)
++}
++
++impl Catalog {
++    fn parse(text: &str) -> Catalog {
++        let mut c = Catalog::default();
++        for (ctx, src, tr) in parse_entries(text).0 {
++            match ctx.as_str() {
++                "@pattern" => {
++                    let (pieces, names) = split_template(&src);
++                    c.patterns.push(Pattern { pieces, names, translation: tr });
++                }
++                // contexts other than plain/pattern: keep the plain form as a fallback
++                _ => {
++                    c.plain.entry(src).or_insert(tr);
++                }
++            }
++        }
++        // Longer literal text first so the most specific pattern wins.
++        c.patterns.sort_by_key(|p| std::cmp::Reverse(p.pieces.iter().map(String::len).sum::<usize>()));
++        c
++    }
++
++    fn lookup(&self, s: &str) -> Option<String> {
++        if let Some(t) = self.plain.get(s) {
++            return Some(t.clone());
++        }
++        // Numbers, timecodes and other symbol-only strings are never translated.
++        if !s.chars().any(|c| c.is_alphabetic()) {
++            return None;
++        }
++        // Trailing/leading whitespace and bullets are kept around the translated core.
++        let trimmed = s.trim();
++        if trimmed.len() != s.len() && !trimmed.is_empty() {
++            let lead = &s[..s.len() - s.trim_start().len()];
++            let trail = &s[s.trim_end().len()..];
++            if let Some(t) = self.lookup(trimmed) {
++                return Some(format!("{lead}{t}{trail}"));
++            }
++        }
++        for p in &self.patterns {
++            if let Some(caps) = match_pattern(p, s) {
++                let mut out = p.translation.clone();
++                for (name, val) in p.names.iter().zip(caps) {
++                    // A captured value that is itself a known string is translated too.
++                    let shown = self.plain.get(val).map(String::as_str).unwrap_or(val);
++                    out = out.replace(&format!("{{{name}}}"), shown);
++                }
++                return Some(out);
++            }
++        }
++        None
++    }
++
++    fn translate(&self, s: &str) -> Option<String> {
++        {
++            let memo = self.memo.lock().ok()?;
++            if let Some(hit) = memo.get(s) {
++                return hit.clone();
++            }
++        }
++        let r = self.lookup(s);
++        if let Ok(mut memo) = self.memo.lock() {
++            if memo.len() > 20_000 {
++                memo.clear();
++            }
++            memo.insert(s.to_string(), r.clone());
++        }
++        r
++    }
++}
++
++/// Placeholders that stand for counts, times and sizes only match text with a digit in it, so a
++/// pattern such as `Layer {l}` doesn't swallow an unrelated `Layer Styles`.
++fn is_numeric_name(name: &str) -> bool {
++    name.starts_with("num")
++        || matches!(name, "n" | "k" | "i" | "pc" | "ms" | "fps" | "kbps" | "w" | "h" | "b" | "yy" | "threads" | "need" | "fit" | "started" | "done" | "copied" | "failed" | "rq")
++}
++
++fn match_pattern<'a>(p: &Pattern, s: &'a str) -> Option<Vec<&'a str>> {
++    let first = p.pieces.first()?;
++    let last = p.pieces.last()?;
++    if !s.starts_with(first.as_str()) || s.len() < first.len() + last.len() || !s[first.len()..].ends_with(last.as_str()) {
++        return None;
++    }
++    let end = s.len() - last.len();
++    let mut pos = first.len();
++    let mut caps = Vec::with_capacity(p.names.len());
++    for i in 0..p.names.len() {
++        let next = &p.pieces[i + 1];
++        let is_last = i + 1 == p.names.len();
++        let cap_end = if is_last {
++            end
++        } else {
++            let from = pos + 1; // a placeholder matches at least one character
++            let found = s.get(from..end)?.find(next.as_str())?;
++            from + found
++        };
++        if cap_end <= pos {
++            return None;
++        }
++        let cap = s.get(pos..cap_end)?;
++        if is_numeric_name(&p.names[i]) && !cap.chars().any(|c| c.is_ascii_digit()) {
++            return None;
++        }
++        caps.push(cap);
++        pos = cap_end + if is_last { 0 } else { next.len() };
++    }
++    if p.names.is_empty() && s != first {
++        return None;
++    }
++    Some(caps)
++}
++
++static JA: OnceLock<Catalog> = OnceLock::new();
++
++fn ja() -> &'static Catalog {
++    JA.get_or_init(|| Catalog::parse(include_str!("ja.tsv")))
++}
++
++// ---------------------------------------------------------------------------------------------
++// Current language and the text hook
++
++static CURRENT: AtomicU8 = AtomicU8::new(0);
++
++/// Select the UI language for drawing (call when the preference changes) and switch the text hook.
++pub fn set_current(lang: Lang) {
++    CURRENT.store(lang as u8, Ordering::Relaxed);
++    static INSTALLED: OnceLock<()> = OnceLock::new();
++    INSTALLED.get_or_init(|| egui::epaint::text::set_text_translator(hook));
++    // Translation stays on in English too when the dump is requested (to list the gaps).
++    egui::epaint::text::set_text_translation_enabled(lang != Lang::En || dump_path().is_some());
++}
++
++pub fn current() -> Lang {
++    if CURRENT.load(Ordering::Relaxed) == Lang::Ja as u8 { Lang::Ja } else { Lang::En }
++}
++
++/// Translate an English UI string into the current language; unknown strings come back as they were.
++pub fn t(s: &str) -> String {
++    translate(current(), s).unwrap_or_else(|| s.to_string())
++}
++
++pub fn translate(lang: Lang, s: &str) -> Option<String> {
++    match lang {
++        Lang::En => None,
++        Lang::Ja => ja().translate(s),
++    }
++}
++
++fn hook(s: &str) -> Option<String> {
++    let lang = current();
++    let r = translate(lang, s);
++    if r.is_none() {
++        dump(s);
++    }
++    r
++}
++
++fn dump_path() -> Option<&'static str> {
++    static P: OnceLock<Option<String>> = OnceLock::new();
++    P.get_or_init(|| std::env::var("PRINTCRAFT_I18N_DUMP").ok().filter(|v| !v.is_empty())).as_deref()
++}
++
++fn dump(s: &str) {
++    let Some(path) = dump_path() else { return };
++    if !s.chars().any(|c| c.is_alphabetic()) || s.len() > 200 {
++        return;
++    }
++    static SEEN: OnceLock<Mutex<std::collections::HashSet<String>>> = OnceLock::new();
++    let seen = SEEN.get_or_init(Default::default);
++    let Ok(mut seen) = seen.lock() else { return };
++    if seen.len() < 50_000 && seen.insert(s.to_string()) {
++        use std::io::Write;
++        if let Ok(mut f) = std::fs::OpenOptions::new().create(true).append(true).open(path) {
++            let _ = writeln!(f, "{}", s.replace('\\', "\\\\").replace('\n', "\\n").replace('\t', "\\t"));
++        }
++    }
++}
++
++#[cfg(test)]
++mod tests {
++    use super::*;
++
++    #[test]
++    fn bundled_catalog_is_well_formed() {
++        let (entries, errors) = parse_entries(include_str!("ja.tsv"));
++        assert!(errors.is_empty(), "{errors:?}");
++        let mut seen = std::collections::HashSet::new();
++        for (ctx, src, tr) in &entries {
++            assert!(seen.insert((ctx.clone(), src.clone())), "duplicate {ctx:?} {src:?}");
++            let (mut want, mut got) = (placeholders(src), placeholders(tr));
++            want.sort_unstable();
++            got.sort_unstable();
++            assert_eq!(want, got, "placeholders differ in {src:?}");
++        }
++    }
++
++    #[test]
++    fn patterns_capture_and_substitute() {
++        let c = Catalog::parse("@pattern\tDelete \"{name}\"?\t\u{300c}{name}\u{300d}\u{3092}\u{524a}\u{9664}\u{3057}\u{307e}\u{3059}\u{304b}?\n\tLayer\tレイヤー\n");
++        assert_eq!(c.translate("Delete \"Layer\"?").as_deref(), Some("\u{300c}レイヤー\u{300d}を削除しますか?"));
++        assert_eq!(c.translate("Delete \"x\"?").as_deref(), Some("\u{300c}x\u{300d}を削除しますか?"));
++        assert_eq!(c.translate(" Layer ").as_deref(), Some(" レイヤー "));
++        assert_eq!(c.translate("00:01"), None);
++    }
++
++    #[test]
++    fn language_setting_round_trips() {
++        for l in Language::ALL {
++            assert_eq!(Language::parse(l.code()), Some(l));
++        }
++        assert_eq!(Language::parse("xx"), None);
++        assert_eq!(Language::default(), Language::Auto);
++    }
++
++    #[test]
++    fn language_persists_and_invalid_input_keeps_current_language() {
++        let mut app = crate::PrintCraftApp::default();
++        app.set_option("language", "ja").unwrap();
++        assert_eq!(app.language, Language::Ja);
++        assert!(app.set_option("language", "xx").is_err());
++        assert_eq!(app.language, Language::Ja);
++        let mut restored = crate::PrintCraftApp::default();
++        restored.restore(&app.persist());
++        assert_eq!(restored.language, Language::Ja);
++        restored.restore(r#"{"language":"xx"}"#);
++        assert_eq!(restored.language, Language::Ja);
++        let mut legacy = crate::PrintCraftApp::default();
++        legacy.restore("{}");
++        assert_eq!(legacy.language, Language::Auto);
++    }
++
++    #[test]
++    fn tags() {
++        assert_eq!(lang_from_tag("ja_JP.UTF-8"), Some(Lang::Ja));
++        assert_eq!(lang_from_tag("fr_FR"), None);
++        assert_eq!(first_supported("(\n    \"ja-JP\",\n    \"en-US\"\n)\n"), Some(Lang::Ja));
++    }
++}
+diff --git a/crates/ui-egui/src/js_ui.rs b/crates/ui-egui/src/js_ui.rs
+index 719df3e..cb7fbb8 100644
+--- a/crates/ui-egui/src/js_ui.rs
++++ b/crates/ui-egui/src/js_ui.rs
+@@ -225,9 +225,9 @@ pub(crate) fn document_js_body(ui: &mut egui::Ui, app: &mut PrintCraftApp, t: &T
+ 
+ /// Preferences: interface language, identity and JavaScript. Returns `true` to close.
+ pub(crate) fn preferences_body(ui: &mut egui::Ui, app: &mut PrintCraftApp, t: &Tokens) -> bool {
+-    ui.label(egui::RichText::new(app.language.tr("Preferences")).font(theme::semibold(18.0)));
++    ui.label(egui::RichText::new("Preferences").font(theme::semibold(18.0)));
+     ui.horizontal(|ui| {
+-        ui.label(app.language.tr("Interface language"));
++        ui.label("Interface language");
+         egui::ComboBox::from_id_salt("interface-language").selected_text(app.language.name()).show_ui(ui, |ui| {
+             for language in crate::i18n::Language::ALL {
+                 ui.selectable_value(&mut app.language, language, language.name());
+@@ -236,9 +236,9 @@ pub(crate) fn preferences_body(ui: &mut egui::Ui, app: &mut PrintCraftApp, t: &T
+     });
+     ui.add_space(8.0);
+     // Identity: the author of new comments (Acrobat: Preferences ▸ Identity).
+-    ui.label(egui::RichText::new(app.language.tr("Identity")).font(theme::semibold(13.0)));
++    ui.label(egui::RichText::new("Identity").font(theme::semibold(13.0)));
+     ui.horizontal(|ui| {
+-        let label = ui.label(app.language.tr("Name on new comments"));
++        let label = ui.label("Name on new comments");
+         ui.add(egui::TextEdit::singleline(&mut app.comment_prefs.author).desired_width(220.0).char_limit(crate::MAX_AUTHOR_CHARS))
+             .labelled_by(label.id);
+     });
+@@ -247,7 +247,7 @@ pub(crate) fn preferences_body(ui: &mut egui::Ui, app: &mut PrintCraftApp, t: &T
+     egui::Frame::new().fill(t.hover).corner_radius(egui::CornerRadius::same(6)).inner_margin(egui::Margin::same(10)).show(ui, |ui| {
+         ui.set_width(ui.available_width());
+         let mut on = app.session.javascript();
+-        if ui.checkbox(&mut on, app.language.tr("Enable Acrobat JavaScript")).changed() {
++        if ui.checkbox(&mut on, "Enable Acrobat JavaScript").changed() {
+             app.session.set_javascript(on);
+         }
+         ui.label(
+diff --git a/crates/ui-egui/src/lib.rs b/crates/ui-egui/src/lib.rs
+index a1e3419..ba51727 100644
+--- a/crates/ui-egui/src/lib.rs
++++ b/crates/ui-egui/src/lib.rs
+@@ -57,6 +57,7 @@ mod print_ui;
+ pub use print_ui::{Handling as PrintHandling, PrintDraft, Which as PrintWhich};
+ mod redact_ui;
+ pub use redact_ui::{HiddenDraft, PagesDraft as RedactPagesDraft, RedactPrefs, SearchDraft as RedactSearchDraft};
++pub mod cjk_fonts;
+ pub mod i18n;
+ 
+ /// The longest author name kept (Preferences ▸ Identity, restored settings).
+@@ -401,6 +402,9 @@ pub struct PrintCraftApp {
+     pending_theme: Option<ThemeKind>,
+     styled: bool,
+     fonts_ready: bool,
++    cjk_loaded: bool,
++    /// Language the text hook is currently set to.
++    shown_lang: Option<i18n::Lang>,
+     /// The window title last sent to the platform.
+     pub window_title: String,
+     /// The UI control channel, when enabled (`--control`; off by default).
+@@ -540,6 +544,8 @@ impl PrintCraftApp {
+             pending_theme: None,
+             styled: false,
+             fonts_ready: false,
++            cjk_loaded: false,
++            shown_lang: None,
+             control: None,
+             bookmark_rename: None,
+             last_opened_url: None,
+@@ -915,7 +921,7 @@ impl PrintCraftApp {
+         let view = self.active.and_then(|i| self.views.get_mut(i));
+         match (key, view) {
+             ("language", _) => {
+-                self.language = i18n::Language::parse(value).ok_or("language must be en or ja")?;
++                self.language = i18n::Language::parse(value).ok_or("language must be auto, en or ja")?;
+             }
+             ("theme", _) => {
+                 self.follow_system_theme = value == "system";
+@@ -1135,6 +1141,17 @@ impl eframe::App for PrintCraftApp {
+             self.styled = true;
+         } else {
+             self.fonts_ready = true;
++            // Interface language: switch the text hook; the Japanese fallback font is loaded
++            // once, after the base fonts (set_fonts replaces the whole set).
++            let lang = self.language.resolve();
++            if self.shown_lang != Some(lang) {
++                self.shown_lang = Some(lang);
++                i18n::set_current(lang);
++                if lang == i18n::Lang::Ja {
++                    cjk_fonts::ensure_loaded(ctx, &mut self.cjk_loaded);
++                }
++                ctx.request_repaint();
++            }
+         }
+         if let Some(k) = self.pending_theme.take() {
+             self.set_theme(ctx, k);

@@ -1,0 +1,632 @@
+diff --git a/Cargo.lock b/Cargo.lock
+index e5ae303..721a226 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -1392,8 +1392,6 @@ dependencies = [
+ [[package]]
+ name = "epaint"
+ version = "0.36.2"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "a0ec0308dc23130fc1a7d4623a8534c2ed069c6dc84e258ee4f3de99615aa1a3"
+ dependencies = [
+  "ahash",
+  "bytemuck",
+diff --git a/Cargo.toml b/Cargo.toml
+index b78f952..ca60158 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -90,3 +90,7 @@ opt-level = 3
+ lto = "thin"
+ codegen-units = 16
+ debug = 0
++
++# DesignCraft i18n: epaint with a text-translator hook in Fonts::layout_job (vendor/epaint).
++[patch.crates-io]
++epaint = { path = "vendor/epaint" }
+diff --git a/apps/designcraft/src/main.rs b/apps/designcraft/src/main.rs
+index 2fb3a1f..34f44c1 100644
+--- a/apps/designcraft/src/main.rs
++++ b/apps/designcraft/src/main.rs
+@@ -222,7 +222,13 @@ fn main() -> eframe::Result {
+             if let Some(n) = recovered.as_ref().and_then(|r| r["opened"].as_array()).map(Vec::len).filter(|n| *n > 0) {
+                 app.status(format!("Recovered {n} unsaved document{} from the last session.", if n == 1 { "" } else { "s" }));
+             }
++            let first_run = prefs_path().is_none_or(|p| !p.exists());
+             load_prefs(&mut app);
++            // Interface language: the system's on first run (Edit > Interface Language afterwards;
++            // it is remembered); `DESIGNCRAFT_LANG=en|ja` always wins.
++            if first_run || std::env::var_os("DESIGNCRAFT_LANG").is_some() {
++                app.ui.language = designcraft_ui_egui::i18n::catalog::initial_language().to_string();
++            }
+             app.integrated_titlebar = cfg!(target_os = "macos");
+             if let Some(port) = control_port {
+                 let rx = control_server::start(port, cc.egui_ctx.clone());
+diff --git a/crates/ui-egui/src/cjk_fonts.rs b/crates/ui-egui/src/cjk_fonts.rs
+new file mode 100644
+index 0000000..8d9401d
+--- /dev/null
++++ b/crates/ui-egui/src/cjk_fonts.rs
+@@ -0,0 +1,72 @@
++//! Japanese (CJK) fallback font for the UI.
++//!
++//! The bundled Source Sans / JetBrains Mono have no kana or kanji. When the UI language is Japanese a
++//! system font that has them is read once (they are 10-20 MB, so never at startup for English)
++//! and registered at the lowest priority in every family, so Latin text keeps Inter.
++
++use std::path::PathBuf;
++
++use egui::epaint::text::{FontInsert, FontPriority, InsertFontFamily};
++use egui::{FontData, FontFamily};
++
++/// Candidate files in preference order: (path, face index).
++fn candidates() -> Vec<(PathBuf, u32)> {
++    let mut v: Vec<(PathBuf, u32)> = Vec::new();
++    if let Ok(p) = std::env::var("DESIGNCRAFT_CJK_FONT") {
++        v.push((PathBuf::from(p), 0));
++    }
++    for p in [
++        // macOS: Hiragino Kaku Gothic (face 0 is the Japanese design)
++        "/System/Library/Fonts/ヒラギノ角ゴシック W3.ttc",
++        "/System/Library/Fonts/ヒラギノ角ゴシック W4.ttc",
++        "/System/Library/Fonts/ヒラギノ角ゴシック W2.ttc",
++        "/Library/Fonts/Arial Unicode.ttf",
++        // Windows
++        "C:\\Windows\\Fonts\\YuGothR.ttc",
++        "C:\\Windows\\Fonts\\meiryo.ttc",
++        "C:\\Windows\\Fonts\\msgothic.ttc",
++        // Linux
++        "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
++        "/usr/share/fonts/noto-cjk/NotoSansCJK-Regular.ttc",
++        "/usr/share/fonts/google-noto-cjk/NotoSansCJK-Regular.ttc",
++        "/usr/share/fonts/truetype/noto/NotoSansCJK-Regular.ttc",
++        "/usr/share/fonts/opentype/ipafont-gothic/ipag.ttf",
++        "/usr/share/fonts/truetype/fonts-japanese-gothic.ttf",
++    ] {
++        v.push((PathBuf::from(p), 0));
++    }
++    v
++}
++
++/// The first usable system CJK font, read once and kept for the process (the UI fonts are
++/// reinstalled whenever the interface language changes).
++fn system_cjk() -> Option<&'static (&'static [u8], u32)> {
++    static FONT: std::sync::OnceLock<Option<(&'static [u8], u32)>> = std::sync::OnceLock::new();
++    FONT.get_or_init(|| {
++        for (path, index) in candidates() {
++            let Ok(meta) = std::fs::metadata(&path) else { continue };
++            if !meta.is_file() || meta.len() == 0 || meta.len() > (128 << 20) {
++                continue;
++            }
++            let Ok(bytes) = std::fs::read(&path) else { continue };
++            log::info!("UI font fallback: {}", path.display());
++            return Some((&*Box::leak(bytes.into_boxed_slice()), index));
++        }
++        log::warn!("no Japanese UI font found; set DESIGNCRAFT_CJK_FONT to a .ttf/.ttc path");
++        None
++    })
++    .as_ref()
++}
++
++/// Register the system CJK fallback at the lowest priority (after `theme::install_fonts`, which
++/// already adds the craft-fonts faces when the build embeds them).
++pub fn ensure_loaded(ctx: &egui::Context) {
++    let Some(&(bytes, index)) = system_cjk() else { return };
++    let mut data = FontData::from_static(bytes);
++    data.index = index;
++    let families = [FontFamily::Proportional, FontFamily::Monospace, FontFamily::Name("semibold".into())]
++        .into_iter()
++        .map(|family| InsertFontFamily { family, priority: FontPriority::Lowest })
++        .collect();
++    ctx.add_font(FontInsert { name: "system-cjk".into(), data, families });
++}
+diff --git a/crates/ui-egui/src/i18n.rs b/crates/ui-egui/src/i18n.rs
+index 60fae75..f416ab9 100644
+--- a/crates/ui-egui/src/i18n.rs
++++ b/crates/ui-egui/src/i18n.rs
+@@ -2,6 +2,7 @@
+ //! menu items and panel names. Untranslated strings stay English. The translations are our own.
+ 
+ mod ar;
++pub mod catalog;
+ 
+ /// Supported interface languages: (code, name in that language).
+ pub const LANGUAGES: &[(&str, &str)] =
+@@ -2643,10 +2644,15 @@ pub fn tr<'a>(lang: &str, s: &'a str) -> &'a str {
+         return ar::TABLE.iter().find(|(en, _)| *en == s).map_or(s, |(_, t)| *t);
+     }
+     let Some(c) = column(lang) else { return s };
+-    match TABLE.iter().find(|(en, _)| *en == s) {
++    let hit = match TABLE.iter().find(|(en, _)| *en == s) {
+         Some((_, t)) => t[c],
+         None => s,
++    };
++    // Japanese: the catalog (`i18n/ja.tsv`) covers what the hand-written table doesn't.
++    if lang == "ja" && hit == s {
++        return catalog::ja_plain(s).unwrap_or(s);
+     }
++    hit
+ }
+ 
+ /// Localize reserved built-in style names only; user-defined names are document data.
+diff --git a/crates/ui-egui/src/i18n/catalog.rs b/crates/ui-egui/src/i18n/catalog.rs
+new file mode 100644
+index 0000000..ad0a9c5
+--- /dev/null
++++ b/crates/ui-egui/src/i18n/catalog.rs
+@@ -0,0 +1,426 @@
++//! Catalog-based UI localisation (Japanese), layered on top of the hand-written `tr()` tables.
++//!
++//! Strings in code stay English and are the lookup keys. Instead of wrapping every call site,
++//! one hook installed into the (vendored) text layout (`epaint::text::set_text_translator`)
++//! maps each laid-out piece of text through the catalog of the current language, so menus,
++//! panels, dialogs, tool names, effect and property names (which come from data tables in the
++//! engine and effects crates) are all covered. A string without a translation is shown in English.
++//! Command ids, the control channel, the CLI and MCP never see translated text.
++//!
++//! Catalog format (`ja.tsv`, same as PhotoCraft): `context<TAB>source<TAB>translation`.
++//! - empty context: a plain string, matched exactly
++//! - `@pattern`: a template with `{name}` placeholders matching any text (dynamic strings such as
++//!   `{n} items` or `Delete "{name}"?`); the placeholders are copied into the translation
++//!
++//! Language: Edit > Interface Language (`ui.language == "ja"`); the app starts in the system language
++//! (`DESIGNCRAFT_LANG=en|ja` overrides). `DESIGNCRAFT_I18N_DUMP=path`
++//! appends every untranslated string that was drawn to that file (to find gaps).
++
++use std::collections::HashMap;
++use std::sync::atomic::{AtomicU8, Ordering};
++use std::sync::{Mutex, OnceLock};
++
++/// A UI language.
++#[derive(Clone, Copy, Debug, PartialEq, Eq)]
++pub enum Lang {
++    En,
++    Ja,
++}
++
++impl Lang {
++    pub fn code(self) -> &'static str {
++        match self {
++            Lang::En => "en",
++            Lang::Ja => "ja",
++        }
++    }
++
++    pub fn from_code(code: &str) -> Option<Lang> {
++        match code.trim().to_ascii_lowercase().as_str() {
++            "en" => Some(Lang::En),
++            "ja" => Some(Lang::Ja),
++            _ => None,
++        }
++    }
++}
++
++/// Language for a locale tag such as `ja_JP.UTF-8` or `ja-JP`.
++pub fn lang_from_tag(tag: &str) -> Option<Lang> {
++    let base = tag.split(['.', '@']).next().unwrap_or("").replace('_', "-").to_ascii_lowercase();
++    let primary = base.split('-').next().unwrap_or("");
++    match primary {
++        "ja" => Some(Lang::Ja),
++        "en" | "c" | "posix" => Some(Lang::En),
++        _ => None,
++    }
++}
++
++/// Language the app starts in: `DESIGNCRAFT_LANG` (`en`/`ja`), else the system language.
++/// Returns the `ui.language` code (`""` for English, `"ja"`).
++pub fn initial_language() -> &'static str {
++    let l = std::env::var("DESIGNCRAFT_LANG").ok().and_then(|v| Lang::from_code(&v)).unwrap_or_else(system_lang);
++    if l == Lang::Ja { "ja" } else { "" }
++}
++
++/// The system language (cached). English when it can't be determined.
++pub fn system_lang() -> Lang {
++    static SYSTEM: OnceLock<Lang> = OnceLock::new();
++    *SYSTEM.get_or_init(detect_system_lang)
++}
++
++#[cfg(not(target_arch = "wasm32"))]
++fn detect_system_lang() -> Lang {
++    for var in ["LC_ALL", "LC_MESSAGES", "LANG"] {
++        if let Some(l) = std::env::var(var).ok().filter(|v| !v.is_empty()).and_then(|v| lang_from_tag(&v)) {
++            return l;
++        }
++    }
++    // Apps started from the Finder don't inherit LANG: use the macOS preferred-languages list.
++    #[cfg(target_os = "macos")]
++    if let Ok(out) = std::process::Command::new("/usr/bin/defaults").args(["read", "-g", "AppleLanguages"]).output()
++        && out.status.success()
++        && let Some(l) = first_supported(&String::from_utf8_lossy(&out.stdout))
++    {
++        return l;
++    }
++    Lang::En
++}
++
++#[cfg(target_arch = "wasm32")]
++fn detect_system_lang() -> Lang {
++    Lang::En
++}
++
++/// The first supported language in a `defaults read` list like `(\n    "ja-JP",\n    "en-US"\n)`.
++#[cfg_attr(not(target_os = "macos"), allow(dead_code))]
++fn first_supported(list: &str) -> Option<Lang> {
++    list.split(['(', ')', ',', '"', '\n']).map(str::trim).filter(|s| !s.is_empty()).find_map(lang_from_tag)
++}
++
++// ---------------------------------------------------------------------------------------------
++// Catalog
++
++#[derive(Default)]
++struct Pattern {
++    /// literal pieces between placeholders (`pieces.len() == names.len() + 1`)
++    pieces: Vec<String>,
++    names: Vec<String>,
++    translation: String,
++}
++
++#[derive(Default)]
++struct Catalog {
++    plain: HashMap<String, String>,
++    patterns: Vec<Pattern>,
++    /// memo of lookups, including misses (cleared when it grows large: timecodes etc.)
++    memo: Mutex<HashMap<String, Option<String>>>,
++}
++
++fn unescape(s: &str) -> String {
++    let mut out = String::with_capacity(s.len());
++    let mut it = s.chars();
++    while let Some(c) = it.next() {
++        if c != '\\' {
++            out.push(c);
++            continue;
++        }
++        match it.next() {
++            Some('n') => out.push('\n'),
++            Some('t') => out.push('\t'),
++            Some('\\') => out.push('\\'),
++            Some(o) => {
++                out.push('\\');
++                out.push(o);
++            }
++            None => out.push('\\'),
++        }
++    }
++    out
++}
++
++/// Entries of a catalog file as (context, source, translation) plus line errors.
++pub fn parse_entries(text: &str) -> (Vec<(String, String, String)>, Vec<String>) {
++    let mut entries = Vec::new();
++    let mut errors = Vec::new();
++    for (n, line) in text.lines().enumerate() {
++        if line.trim().is_empty() || line.starts_with('#') {
++            continue;
++        }
++        let mut cols = line.split('\t');
++        match (cols.next(), cols.next(), cols.next(), cols.next()) {
++            (Some(ctx), Some(src), Some(tr), None) if !src.is_empty() && !tr.is_empty() => {
++                entries.push((unescape(ctx), unescape(src), unescape(tr)));
++            }
++            _ => errors.push(format!("line {}: expected `context<TAB>source<TAB>translation`", n + 1)),
++        }
++    }
++    (entries, errors)
++}
++
++/// `{name}` placeholders of a template, in order.
++#[cfg(test)]
++fn placeholders(s: &str) -> Vec<&str> {
++    let mut out = Vec::new();
++    let mut rest = s;
++    while let Some(a) = rest.find('{') {
++        let after = &rest[a + 1..];
++        match after.find('}') {
++            Some(b) => {
++                out.push(&after[..b]);
++                rest = &after[b + 1..];
++            }
++            None => break,
++        }
++    }
++    out
++}
++
++fn split_template(src: &str) -> (Vec<String>, Vec<String>) {
++    let mut pieces = Vec::new();
++    let mut names = Vec::new();
++    let mut rest = src;
++    loop {
++        match rest.find('{').and_then(|a| rest[a..].find('}').map(|b| (a, a + b))) {
++            Some((a, b)) => {
++                pieces.push(rest[..a].to_string());
++                names.push(rest[a + 1..b].to_string());
++                rest = &rest[b + 1..];
++            }
++            None => {
++                pieces.push(rest.to_string());
++                break;
++            }
++        }
++    }
++    (pieces, names)
++}
++
++impl Catalog {
++    fn parse(text: &str) -> Catalog {
++        let mut c = Catalog::default();
++        for (ctx, src, tr) in parse_entries(text).0 {
++            match ctx.as_str() {
++                "@pattern" => {
++                    let (pieces, names) = split_template(&src);
++                    c.patterns.push(Pattern { pieces, names, translation: tr });
++                }
++                // contexts other than plain/pattern: keep the plain form as a fallback
++                _ => {
++                    c.plain.entry(src).or_insert(tr);
++                }
++            }
++        }
++        // Longer literal text first so the most specific pattern wins.
++        c.patterns.sort_by_key(|p| std::cmp::Reverse(p.pieces.iter().map(String::len).sum::<usize>()));
++        c
++    }
++
++    fn lookup(&self, s: &str) -> Option<String> {
++        if let Some(t) = self.plain.get(s) {
++            return Some(t.clone());
++        }
++        // A menu path drops the trailing ellipsis of a command label: `Export HTML` for `Export HTML…`.
++        if !s.ends_with('…') {
++            if let Some(t) = self.plain.get(&format!("{s}…")) {
++                return Some(t.trim_end_matches('…').to_string());
++            }
++        }
++        // Numbers, timecodes and other symbol-only strings are never translated.
++        if !s.chars().any(|c| c.is_alphabetic()) {
++            return None;
++        }
++        // Trailing/leading whitespace and bullets are kept around the translated core.
++        let trimmed = s.trim();
++        if trimmed.len() != s.len() && !trimmed.is_empty() {
++            let lead = &s[..s.len() - s.trim_start().len()];
++            let trail = &s[s.trim_end().len()..];
++            if let Some(t) = self.lookup(trimmed) {
++                return Some(format!("{lead}{t}{trail}"));
++            }
++        }
++        for p in &self.patterns {
++            if let Some(caps) = match_pattern(p, s) {
++                let mut out = p.translation.clone();
++                for (name, val) in p.names.iter().zip(caps) {
++                    // A captured value that is itself a known string is translated too.
++                    let shown = self.plain.get(val).map(String::as_str).unwrap_or(val);
++                    out = out.replace(&format!("{{{name}}}"), shown);
++                }
++                return Some(out);
++            }
++        }
++        None
++    }
++
++    fn translate(&self, s: &str) -> Option<String> {
++        {
++            let memo = self.memo.lock().ok()?;
++            if let Some(hit) = memo.get(s) {
++                return hit.clone();
++            }
++        }
++        let r = self.lookup(s);
++        if let Ok(mut memo) = self.memo.lock() {
++            if memo.len() > 20_000 {
++                memo.clear();
++            }
++            memo.insert(s.to_string(), r.clone());
++        }
++        r
++    }
++}
++
++/// Placeholders that stand for counts, times and sizes only match text with a digit in it, so a
++/// pattern such as `Layer {l}` doesn't swallow an unrelated `Layer Styles`.
++fn is_numeric_name(name: &str) -> bool {
++    name.starts_with("num")
++        || matches!(name, "n" | "k" | "i" | "pc" | "ms" | "fps" | "kbps" | "w" | "h" | "b" | "yy" | "threads" | "need" | "fit" | "started" | "done" | "copied" | "failed" | "rq")
++}
++
++fn match_pattern<'a>(p: &Pattern, s: &'a str) -> Option<Vec<&'a str>> {
++    let first = p.pieces.first()?;
++    let last = p.pieces.last()?;
++    if !s.starts_with(first.as_str()) || s.len() < first.len() + last.len() || !s[first.len()..].ends_with(last.as_str()) {
++        return None;
++    }
++    let end = s.len() - last.len();
++    let mut pos = first.len();
++    let mut caps = Vec::with_capacity(p.names.len());
++    for i in 0..p.names.len() {
++        let next = &p.pieces[i + 1];
++        let is_last = i + 1 == p.names.len();
++        let cap_end = if is_last {
++            end
++        } else {
++            let from = pos + 1; // a placeholder matches at least one character
++            let found = s.get(from..end)?.find(next.as_str())?;
++            from + found
++        };
++        if cap_end <= pos {
++            return None;
++        }
++        let cap = s.get(pos..cap_end)?;
++        if is_numeric_name(&p.names[i]) && !cap.chars().any(|c| c.is_ascii_digit()) {
++            return None;
++        }
++        caps.push(cap);
++        pos = cap_end + if is_last { 0 } else { next.len() };
++    }
++    if p.names.is_empty() && s != first {
++        return None;
++    }
++    Some(caps)
++}
++
++static JA: OnceLock<Catalog> = OnceLock::new();
++
++fn ja() -> &'static Catalog {
++    JA.get_or_init(|| Catalog::parse(include_str!("ja.tsv")))
++}
++
++// ---------------------------------------------------------------------------------------------
++// Current language and the text hook
++
++static CURRENT: AtomicU8 = AtomicU8::new(0);
++
++/// Select the UI language for drawing (call when the preference changes) and switch the text hook.
++pub fn set_current(lang: Lang) {
++    CURRENT.store(lang as u8, Ordering::Relaxed);
++    static INSTALLED: OnceLock<()> = OnceLock::new();
++    INSTALLED.get_or_init(|| egui::epaint::text::set_text_translator(hook));
++    // Translation stays on in English too when the dump is requested (to list the gaps).
++    egui::epaint::text::set_text_translation_enabled(lang != Lang::En || dump_path().is_some());
++}
++
++pub fn current() -> Lang {
++    if CURRENT.load(Ordering::Relaxed) == Lang::Ja as u8 { Lang::Ja } else { Lang::En }
++}
++
++/// Translate an English UI string into the current language; unknown strings come back as they were.
++pub fn t(s: &str) -> String {
++    translate(current(), s).unwrap_or_else(|| s.to_string())
++}
++
++/// Plain (exact) catalog entry for Japanese with a `'static` lifetime, for callers that hand out `&str`
++/// (native menus). The catalog is leaked once on first use.
++pub fn ja_plain(s: &str) -> Option<&'static str> {
++    static M: OnceLock<HashMap<&'static str, &'static str>> = OnceLock::new();
++    M.get_or_init(|| {
++        let c = ja();
++        c.plain.iter().map(|(k, v)| (&*Box::leak(k.clone().into_boxed_str()), &*Box::leak(v.clone().into_boxed_str()))).collect()
++    })
++    .get(s)
++    .copied()
++}
++
++pub fn translate(lang: Lang, s: &str) -> Option<String> {
++    match lang {
++        Lang::En => None,
++        Lang::Ja => ja().translate(s),
++    }
++}
++
++fn hook(s: &str) -> Option<String> {
++    let lang = current();
++    let r = translate(lang, s);
++    if r.is_none() {
++        dump(s);
++    }
++    r
++}
++
++fn dump_path() -> Option<&'static str> {
++    static P: OnceLock<Option<String>> = OnceLock::new();
++    P.get_or_init(|| std::env::var("DESIGNCRAFT_I18N_DUMP").ok().filter(|v| !v.is_empty())).as_deref()
++}
++
++fn dump(s: &str) {
++    let Some(path) = dump_path() else { return };
++    if !s.chars().any(|c| c.is_alphabetic()) || s.len() > 200 {
++        return;
++    }
++    static SEEN: OnceLock<Mutex<std::collections::HashSet<String>>> = OnceLock::new();
++    let seen = SEEN.get_or_init(Default::default);
++    let Ok(mut seen) = seen.lock() else { return };
++    if seen.len() < 50_000 && seen.insert(s.to_string()) {
++        use std::io::Write;
++        if let Ok(mut f) = std::fs::OpenOptions::new().create(true).append(true).open(path) {
++            let _ = writeln!(f, "{}", s.replace('\\', "\\\\").replace('\n', "\\n").replace('\t', "\\t"));
++        }
++    }
++}
++
++#[cfg(test)]
++mod tests {
++    use super::*;
++
++    #[test]
++    fn bundled_catalog_is_well_formed() {
++        let (entries, errors) = parse_entries(include_str!("ja.tsv"));
++        assert!(errors.is_empty(), "{errors:?}");
++        let mut seen = std::collections::HashSet::new();
++        for (ctx, src, tr) in &entries {
++            assert!(seen.insert((ctx.clone(), src.clone())), "duplicate {ctx:?} {src:?}");
++            let (mut want, mut got) = (placeholders(src), placeholders(tr));
++            want.sort_unstable();
++            got.sort_unstable();
++            assert_eq!(want, got, "placeholders differ in {src:?}");
++        }
++    }
++
++    #[test]
++    fn patterns_capture_and_substitute() {
++        let c = Catalog::parse("@pattern\tDelete \"{name}\"?\t\u{300c}{name}\u{300d}\u{3092}\u{524a}\u{9664}\u{3057}\u{307e}\u{3059}\u{304b}?\n\tLayer\tレイヤー\n");
++        assert_eq!(c.translate("Delete \"Layer\"?").as_deref(), Some("\u{300c}レイヤー\u{300d}を削除しますか?"));
++        assert_eq!(c.translate("Delete \"x\"?").as_deref(), Some("\u{300c}x\u{300d}を削除しますか?"));
++        assert_eq!(c.translate(" Layer ").as_deref(), Some(" レイヤー "));
++        assert_eq!(c.translate("00:01"), None);
++    }
++
++    #[test]
++    fn tags() {
++        assert_eq!(lang_from_tag("ja_JP.UTF-8"), Some(Lang::Ja));
++        assert_eq!(lang_from_tag("fr_FR"), None);
++        assert_eq!(first_supported("(\n    \"ja-JP\",\n    \"en-US\"\n)\n"), Some(Lang::Ja));
++    }
++}
+diff --git a/crates/ui-egui/src/lib.rs b/crates/ui-egui/src/lib.rs
+index 10a6000..a38320c 100644
+--- a/crates/ui-egui/src/lib.rs
++++ b/crates/ui-egui/src/lib.rs
+@@ -8,6 +8,7 @@
+ 
+ pub mod about;
+ pub mod canvas;
++pub mod cjk_fonts;
+ pub mod chrome;
+ pub mod control;
+ pub mod dialogs;
+@@ -573,6 +574,20 @@ impl DesignApp {
+         self.ui.flyout = None;
+     }
+ 
++    /// Install the UI fonts for the current interface language and switch the text hook
++    /// (Japanese: the catalog translates every string that is drawn; a system CJK font backs up the
++    /// bundled faces when the build has no craft-fonts).
++    fn install_fonts_and_i18n(&mut self, ctx: &egui::Context) {
++        theme::install_fonts(ctx, &self.ui.language);
++        self.fonts_lang = self.ui.language.clone();
++        let ja = self.ui.language == "ja";
++        i18n::catalog::set_current(if ja { i18n::catalog::Lang::Ja } else { i18n::catalog::Lang::En });
++        if ja {
++            cjk_fonts::ensure_loaded(ctx);
++        }
++        ctx.request_repaint();
++    }
++
+     /// Per-frame logic before layout.
+     pub fn logic(&mut self, ctx: &egui::Context) {
+         if !self.color_applied {
+@@ -586,14 +601,12 @@ impl DesignApp {
+             ctx.set_zoom_factor(scale);
+         }
+         if !self.styled {
+-            theme::install_fonts(ctx, &self.ui.language);
+-            self.fonts_lang = self.ui.language.clone();
++            self.install_fonts_and_i18n(ctx);
+             self.styled = true;
+             self.restyle = true;
+         } else {
+             if self.fonts_lang != self.ui.language {
+-                theme::install_fonts(ctx, &self.ui.language);
+-                self.fonts_lang = self.ui.language.clone();
++                self.install_fonts_and_i18n(ctx);
+             }
+             self.fonts_ready = true;
+         }

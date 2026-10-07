@@ -1,0 +1,89 @@
+--- a/src/text/fonts.rs
++++ b/src/text/fonts.rs
+@@ -694,6 +694,58 @@
+ }
+ 
+ // ----------------------------------------------------------------------------
++
++/// VectorCraft: UI text translator. Given the English text of a label it returns the display
++/// text, or `None` to keep it. Installed once by the application.
++pub type TextTranslator = fn(&str) -> Option<Cow<'static, str>>;
++
++static TEXT_TRANSLATOR: std::sync::OnceLock<TextTranslator> = std::sync::OnceLock::new();
++
++/// Install the UI text translator (first call wins).
++pub fn set_text_translator(f: TextTranslator) {
++    let _ = TEXT_TRANSLATOR.set(f);
++}
++
++/// Translate the text of a layout job in place (single section: the whole text; several
++/// sections: each section on its own).
++fn translate_job(job: &mut LayoutJob) {
++    let Some(tr) = TEXT_TRANSLATOR.get() else { return };
++    if job.text.is_empty() {
++        return;
++    }
++    if job.sections.len() <= 1 {
++        if let Some(new) = tr(&job.text) {
++            job.text = new.into_owned();
++            let end = crate::text::ByteIndex(job.text.len());
++            if let Some(sec) = job.sections.first_mut() {
++                sec.byte_range = crate::text::ByteIndex(0)..end;
++            }
++        }
++        return;
++    }
++    let mut changed = false;
++    let mut text = String::with_capacity(job.text.len());
++    let mut ranges = Vec::with_capacity(job.sections.len());
++    for sec in &job.sections {
++        let (a, b) = (sec.byte_range.start.0, sec.byte_range.end.0);
++        let Some(src) = job.text.get(a..b) else { return };
++        let start = text.len();
++        match tr(src) {
++            Some(new) => {
++                changed = true;
++                text.push_str(&new);
++            }
++            None => text.push_str(src),
++        }
++        ranges.push(start..text.len());
++    }
++    if changed {
++        for (sec, r) in job.sections.iter_mut().zip(ranges) {
++            sec.byte_range = crate::text::ByteIndex(r.start)..crate::text::ByteIndex(r.end);
++        }
++        job.text = text;
++    }
++}
+ 
+ /// The collection of fonts used by `epaint`.
+ ///
+@@ -887,7 +939,15 @@
+     ///
+     /// The implementation uses memoization so repeated calls are cheap.
+     #[inline]
+-    pub fn layout_job(&mut self, job: LayoutJob) -> Arc<Galley> {
++    pub fn layout_job(&mut self, mut job: LayoutJob) -> Arc<Galley> {
++        translate_job(&mut job);
++        self.layout_job_untranslated(job)
++    }
++
++    /// Like [`Self::layout_job`] but never runs the text through the UI translator
++    /// (used for text that is being edited).
++    #[inline]
++    pub fn layout_job_untranslated(&mut self, job: LayoutJob) -> Arc<Galley> {
+         let allow_split_paragraphs = true; // Optimization for editing text with many paragraphs.
+         self.galley_cache.layout(
+             self.fonts,
+--- a/src/text/mod.rs
++++ b/src/text/mod.rs
+@@ -11,7 +11,7 @@
+     fonts::{
+         FontData, FontDefinitions, FontFamily, FontId, FontInsert, FontPriority, FontTweak,
+         FontVariationAxis, Fonts, FontsImpl, FontsView, HintingTarget, InsertFontFamily,
+-        SmoothHinting,
++        SmoothHinting, TextTranslator, set_text_translator,
+     },
+     index::{ByteIndex, ByteRange, ByteRangeExt, CharIndex, CharRange, CharRangeExt},
+     text_layout::*,

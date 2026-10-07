@@ -1,0 +1,1699 @@
+	File	ファイル
+	Edit	編集
+	Layout	レイアウト
+	Type	書式
+	Object	オブジェクト
+	Table	表
+	View	表示
+	Window	ウィンドウ
+	Help	ヘルプ
+	New	新規
+	New Document…	新規ドキュメント…
+	Open…	開く…
+	Close	閉じる
+	Save	保存
+	Save As…	別名で保存…
+	Save a Copy…	コピーを保存…
+	Revert	復帰
+	Place…	配置…
+	Export PDF…	PDF を書き出し…
+	Print…	プリント…
+	Document Setup…	ドキュメント設定…
+	Package…	パッケージ…
+	Undo	取り消し
+	Redo	やり直し
+	Cut	カット
+	Copy	コピー
+	Paste	ペースト
+	Clear	消去
+	Duplicate	複製
+	Select All	すべてを選択
+	Deselect All	すべての選択を解除
+	Find/Change…	検索と置換…
+	Check Spelling…	スペルチェック…
+	Preferences…	環境設定…
+	Keyboard Shortcuts…	キーボードショートカット…
+	Interface Language	インターフェイスの言語
+	Pages	ページ
+	Margins and Columns…	マージン・段組…
+	Create Guides…	ガイドを作成…
+	Numbering & Section Options…	ノンブルとセクション設定…
+	Story Direction	組み方向
+	Horizontal	横書き
+	Vertical	縦書き
+	Tate-Chu-Yoko	縦中横
+	Ruby…	ルビ…
+	Kenten	圏点
+	Font	フォント
+	Size	サイズ
+	Character	文字
+	Paragraph	段落
+	Tabs	タブ
+	Glyphs	字形
+	Story	ストーリー
+	Character Styles	文字スタイル
+	Paragraph Styles	段落スタイル
+	Create Outlines	アウトラインを作成
+	Show Hidden Characters	制御文字を表示
+	Transform	変形
+	Arrange	重ね順
+	Group	グループ
+	Ungroup	グループ解除
+	Lock	ロック
+	Hide	隠す
+	Effects	効果
+	Fitting	オブジェクトサイズの調整
+	Text Frame Options…	テキストフレーム設定…
+	Insert Table…	表を挿入…
+	Merge Cells	セルを結合
+	Unmerge Cells	セルの結合解除
+	Insert	挿入
+	Delete	削除
+	Zoom In	ズームイン
+	Zoom Out	ズームアウト
+	Fit Page in Window	ページ全体
+	Fit Spread in Window	スプレッド全体
+	Actual Size	100%
+	Screen Mode	スクリーンモード
+	Grids & Guides	グリッドとガイド
+	Show Rulers	定規を表示
+	Snap to Guides	ガイドにスナップ
+	Snap to Document Grid	ドキュメントグリッドにスナップ
+	Smart Guides	スマートガイド
+	Align to Object Edges	オブジェクトの端に揃える
+	Align to Object Centers	オブジェクトの中心に揃える
+	Smart Dimensions	スマートサイズ
+	Smart Spacing	スマート間隔
+	Snap to Zone	スナップゾーン
+	Properties	プロパティ
+	Layers	レイヤー
+	Links	リンク
+	Swatches	スウォッチ
+	Color	カラー
+	Stroke	線
+	Gradient	グラデーション
+	Align	整列
+	Pathfinder	パスファインダー
+	Info	情報
+	Library	ライブラリ
+	Book	ブック
+	Index	索引
+	Hyperlinks	ハイパーリンク
+	Bookmarks	ブックマーク
+	Articles	アーティクル
+	Tags	タグ
+	Media	メディア
+	Object States	オブジェクトステート
+	Buttons and Forms	ボタンとフォーム
+	Liquid Layout	リキッドレイアウト
+	Workspace	ワークスペース
+	Split Window	ウィンドウを分割
+	New Window	新規ウィンドウ
+	Show All Menu Items	すべてのメニュー項目を表示
+	for	に対して
+@pattern	page {pg}	{pg} ページ
+	New file	新規ファイル
+	Open	開く
+	Open sample magazine	サンプル雑誌を開く
+	(auto)	(自動)
+	min	分
+	(Text Color)	(テキストのカラー)
+	(Top Level)	(最上位)
+	(any)	(すべて)
+	(import)	(読み込み)
+	(unchanged)	(変更なし)
+	1 to 4 topic levels	トピックのレベル 1～4
+	90° CCW	90°反時計回り
+	90° CW	90°時計回り
+	About DesignCraft	DesignCraft について
+	Absolute Numbering (instead of Section Numbering)	絶対ページ番号(セクション番号を使用しない)
+	Accept	承諾
+	Accept All	すべて承諾
+	Accept All Changes	すべての変更を承諾
+	Accept Change	変更を承諾
+	Activate Document	ドキュメントをアクティブにする
+	Add	追加
+	Add Anchor	アンカーを追加
+	Add Anchor Point	アンカーポイントを追加
+	Add Anchor Point Tool	アンカーポイントの追加ツール
+	Add Document	ドキュメントを追加
+	Add Document…	ドキュメントを追加…
+	Add Hyphenation Exception	ハイフネーション例外を追加
+	Add Item	項目を追加
+	Add Page to Spread	スプレッドにページを追加
+	Add Selection	選択範囲を追加
+	Add Selection to Article	選択範囲を記事に追加
+	Add Unnamed Colors	名前のないカラーを追加
+	Add and remove pages as the primary text frame's story grows and shrinks	プライマリテキストフレームのストーリーの増減に合わせてページを追加・削除する
+	Add the selection	選択範囲を追加
+	Add to Dictionary	辞書に追加
+	Add to Previous Spread	前のスプレッドに追加
+	Add to Swatches	スウォッチに追加
+	Added	追加済み
+	Added Text (highlighted)	追加されたテキスト(ハイライト)
+	Adjust Layout	レイアウト調整
+	Adjust Layout (objects follow the new page size)	レイアウト調整(オブジェクトを新しいページサイズに追従させる)
+	Advanced	詳細
+	Advanced Type	高度な文字設定
+	After	後
+	After First:	最初の次:
+	Align Center	中央揃え
+	Align From:	整列の基準:
+	Align Left	左揃え
+	Align Right	右揃え
+	Align Stroke:	線の位置:
+@pattern	Align To: {to}	整列の基準: {to}
+	Align bottom edges	下揃え
+	Align horizontal centers	水平方向中央に整列
+	Align left edges	左揃え
+	Align right edges	右揃え
+	Align to Key Object	キーオブジェクトに整列
+	Align to Margins	マージンに整列
+	Align to Page	ページに整列
+	Align to Selection	選択範囲に整列
+	Align to Spread	スプレッドに整列
+	Align to baseline grid	ベースライングリッドに整列
+	Align top edges	上揃え
+	Align vertical centers	垂直方向中央に整列
+	Alignment:	整列:
+	All	すべて
+	All Caps	すべて大文字
+	All Spots to Process	すべてのスポットをプロセスに
+	Allow Selected Spread to Shuffle	選択したスプレッドのシャッフルを許可
+	Allow Spread to Shuffle	スプレッドのシャッフルを許可
+	Alpha Channel	アルファチャンネル
+	Alternate	代替
+@pattern	Alternate layout: {e}	代替レイアウト: {e}
+	Alternating Row Fills	行の交互塗り
+	Anchored Object	アンカー付きオブジェクト
+	Anchored Object Options…	アンカー付きオブジェクトオプション…
+	Anchored Objects	アンカー付きオブジェクト
+	Angle	角度
+	Angle:	角度:
+	Appearance	外観
+	Appearance of Black	ブラックの表示
+	Applies to fill	塗りに適用
+	Applies to text	テキストに適用
+	Apply	適用
+	Apply Attributes (Eyedropper)	属性を適用(スポイト)
+	Apply Cell Style	セルスタイルを適用
+	Apply Character Style	文字スタイルを適用
+	Apply Color	カラーを適用
+	Apply Condition	条件を適用
+	Apply Gradient	グラデーションを適用
+	Apply None	なしを適用
+	Apply None (/)	なしを適用 (/)
+	Apply Normal	通常を適用
+	Apply Object Style	オブジェクトスタイルを適用
+	Apply Paragraph Style	段落スタイルを適用
+	Apply Parent	親ページを適用
+	Apply Parent to Pages…	親ページをページに適用…
+	Apply Style:	スタイルを適用:
+	Apply Subscript	下付きを適用
+	Apply Superscript	上付きを適用
+	Apply Table Style	表スタイルを適用
+	Apply to All Spreads	すべてのスプレッドに適用
+	Apply to Stroke	線に適用
+	Art	アート
+	Article Options	記事オプション
+@pattern	Article {i}	記事 {i}
+	Ascent	アセント
+	At Least	最小
+	Attributes	属性
+	Auto Rename	自動で名前を変更
+	Auto-Fit	自動調整
+	Autocorrect	自動修正
+	Based On:	基準:
+	Baseline	ベースライン
+	Baseline Grid	ベースライングリッド
+	Basic Character Formats	基本文字形式
+	Basic Feather	基本ぼかし
+	Before	前
+	Before Last:	最後の前:
+	Bevel	ベベル
+	Bevel and Emboss	ベベルとエンボス
+	Beveled Rectangle	角丸(ベベル)長方形
+	Binding:	綴じ方:
+	Black	ブラック
+	Bleed	裁ち落とし
+	Bleed and Slug	裁ち落としと印刷情報エリア
+	Bleed:	裁ち落とし:
+	Body Rows	本文行
+	Bold	太字
+@pattern	Book: {e}	ブック: {e}
+	Border	境界線
+	Both	両方
+	Bottom	下
+	Bottom:	下:
+	Break Link to Style	スタイルへのリンクを解除
+	Bring Forward	前面へ
+	Bring to Front	最前面へ
+	Bullet Character	箇条書き文字
+	Bulleted List	箇条書きリスト
+	Bulleted and Numbered Lists	箇条書きと番号付きリスト
+	Bullets and Numbering	箇条書きと段落番号
+	Business Card	名刺
+	Butt	平底
+	Buttons	ボタン
+	Buttons act in interactive PDF export.	ボタンはインタラクティブ PDF の書き出しで動作します。
+@pattern	Buttons: {e}	ボタン: {e}
+	Cancel	キャンセル
+	Cap Height	キャップハイト
+	Cap:	線端:
+	Captions	キャプション
+	Case sensitive	大文字と小文字を区別
+	Cell Number:	セル番号:
+	Cell Options	セルオプション
+	Cell Style	セルスタイル
+	Cell Style 1	セルスタイル 1
+	Cell Style Options…	セルスタイルオプション…
+	Cell Text	セルのテキスト
+	Cell Type	セルの種類
+	Center	中央
+	Center Content	コンテンツを中央に
+	Change	置換
+	Change All	すべて置換
+	Change All (Object)	すべて置換(オブジェクト)
+	Change Case	大文字/小文字の変更
+	Change fill to:	塗りの置換後:
+	Change to:	置換後:
+	Changes	変更
+	Character Color	文字カラー
+	Character Formatting	文字の書式
+	Character Settings	文字設定
+	Character Style	文字スタイル
+	Character Style 1	文字スタイル 1
+	Character Style Options…	文字スタイルオプション…
+	Character Style:	文字スタイル:
+	Character Styles panel	文字スタイルパネル
+	Characters	文字
+	Check Box	チェックボックス
+	Checked by default	初期状態でオン
+	Chinese	中国語
+	Choices	選択肢
+	Choose Image…	画像を選択…
+	Choose a destination paragraph or text anchor.	参照先の段落またはテキストアンカーを選択します。
+	Choose a link.	リンクを選択します。
+	Class:	クラス:
+	Clear Conveyor	コンベアを消去
+	Clear Rotation	回転をクリア
+	Clear Transformations	変形をクリア
+	Clear overrides	オーバーライドを消去
+	Clipping Path	クリッピングパス
+	Clipping Path…	クリッピングパス…
+	Close Book	ブックを閉じる
+	Close Library	ライブラリを閉じる
+	Close Path	パスを閉じる
+	Closed Path	閉じたパス
+	Col ←	列 ←
+	Collect	収集
+	Collect objects with the Content Collector (B); place them with the Content Placer.	コンテンツ収集ツール (B) でオブジェクトを収集し、コンテンツ配置ツールで配置します。
+	Color Blindness – Deuteranopia	色覚特性 – 緑色弱(D型)
+	Color Blindness – Protanopia	色覚特性 – 赤色弱(P型)
+	Color Group Options	カラーグループオプション
+@pattern	Color Group {i}	カラーグループ {i}
+	Color Picker	カラーピッカー
+	Color Settings	カラー設定
+@pattern	Color Settings: {e}	カラー設定: {e}
+	Color Settings…	カラー設定…
+	Color Theme Tool	カラーテーマツール
+	Color:	カラー:
+	Column Break	段抜き区切り
+	Column Width	列幅
+	Columns	列
+	Columns:	列数:
+	Combo Box	コンボボックス
+	Community & Project Links	コミュニティとプロジェクトのリンク
+	Composer	組版エンジン
+	Composer:	組版エンジン:
+	Composition	組版
+	Condition Options…	条件オプション…
+	Conditional Text	条件付きテキスト
+@pattern	Conditional Text: {e}	条件付きテキスト: {e}
+	Conditions	条件
+	Constrain proportions for width and height	幅と高さの比率を固定
+	Container	コンテナー
+	Content	コンテンツ
+	Content Collector Tool	コンテンツ収集ツール
+	Content Fitting	コンテンツの調整
+	Content Placer Tool	コンテンツ配置ツール
+	Contents	目次
+	Contextual Task Bar	コンテキストタスクバー
+	Control	コントロール
+	Convert Cell Type	セルの種類を変換
+	Convert Cell to Graphic Cell	セルをグラフィックセルに変換
+	Convert Cell to Graphic Cell…	セルをグラフィックセルに変換…
+	Convert Cell to Text Cell	セルをテキストセルに変換
+	Convert Color	カラーを変換
+	Convert Direction Point	方向点を切り替え
+	Convert Direction Point Tool	アンカーポイントの切り替えツール
+	Convert Note to Text	ノートをテキストに変換
+	Convert Selection to Multi-State Object	選択範囲をマルチステートオブジェクトに変換
+	Convert Shape	オブジェクトの形状を変換
+@pattern	Convert Shape: {e}	オブジェクトの形状を変換: {e}
+	Convert Table to Text	表をテキストに変換
+	Convert Text to Table	テキストを表に変換
+	Convert to Button	ボタンに変換
+	Convert to Form Field	フォームフィールドに変換
+	Convert to Liquid Guide	リキッドガイドに変換
+	Convert to Object	オブジェクトに変換
+	Convert to Text	テキストに変換
+	Conveyor	コンベア
+	Copies:	部数:
+	Copy Link(s) To…	リンクのコピー先…
+	Copyright Symbol	著作権記号
+	Corner	コーナー
+	Corner Options…	コーナーオプション…
+@pattern	Couldn't write recovery data: {e}	復旧データを書き込めませんでした: {e}
+	Count	数
+	Create	作成
+	Create Alternate Layout	代替レイアウトを作成
+	Create Alternate Layout…	代替レイアウトを作成…
+	Create Frame	フレームを作成
+	Create Line	線を作成
+	Create Merged Document…	結合ドキュメントを作成…
+	Create New Layer	新規レイヤーを作成
+	Create New Style from Selection	選択範囲から新規スタイルを作成
+	Create Path	パスを作成
+	Create Table	表を作成
+	Create Table…	表を作成…
+	Create new style	新規スタイルを作成
+	Crop	トリミング
+	Crop Amount	トリミング量
+	Crop to:	トリミング範囲:
+	Cross-Reference Format	相互参照の形式
+	Cross-Reference Formats	相互参照の形式
+	Cross-References	相互参照
+	Current Page Number	現在のページ番号
+	Cursor Key:	カーソルキー:
+	Custom	カスタム
+	Custom Tracking/Kerning	カスタムトラッキング/カーニング
+	Cyan	シアン
+	Czech	チェコ語
+	Danish	デンマーク語
+	Dark	ダーク
+	Dashed	破線
+	Data Merge	データ結合
+	Data Merge Fields	データ結合フィールド
+	Decrease Point Size	ポイントサイズを小さく
+	Default	初期設定
+	Default Fill and Stroke (D)	初期設定の塗りと線 (D)
+	Default View:	初期表示:
+	Define Cross-Reference Format…	相互参照の形式を定義…
+	Define Lists…	リストを定義…
+	Define Text Variable…	テキスト変数を定義…
+	Delete All Guides on Spread	スプレッド上のすべてのガイドを削除
+	Delete Anchor Point	アンカーポイントを削除
+	Delete Anchor Point Tool	アンカーポイントの削除ツール
+	Delete Article	記事を削除
+	Delete Bookmark	ブックマークを削除
+	Delete Column	列を削除
+	Delete Condition	条件を削除
+	Delete DTD	DTD を削除
+	Delete Endnote	文末脚注を削除
+	Delete Footnote	脚注を削除
+	Delete Guide	ガイドを削除
+	Delete Hyperlink	ハイパーリンクを削除
+	Delete Item	項目を削除
+	Delete Layer	レイヤーを削除
+	Delete List	リストを削除
+	Delete Note	ノートを削除
+	Delete Page	ページを削除
+	Delete Pages	ページを削除
+	Delete Paragraph Style	段落スタイルを削除
+	Delete Row	行を削除
+	Delete Stroke Style	線スタイルを削除
+	Delete Swatch	スウォッチを削除
+	Delete Table	表を削除
+	Delete Tag	タグを削除
+	Delete Text	テキストを削除
+	Delete Text Variable	テキスト変数を削除
+	Delete Type from Path	パス上文字を削除
+	Delete Unused Layers	未使用のレイヤーを削除
+	Delete Workspace	ワークスペースを削除
+	Delete Workspace…	ワークスペースを削除…
+	Deleted	削除済み
+	DesignCraft Website…	DesignCraft ウェブサイト…
+	DesignCraft on GitHub…	GitHub の DesignCraft…
+	DesignCraft page	DesignCraft のページ
+	Desired	最適
+	Detach All Objects from Parent	すべてのオブジェクトを親から分離
+	Detect Edges	エッジを検出
+	Dialog	ダイアログ
+	Dictionary	辞書
+	Digital Publishing	デジタル出版
+	Digits	数字
+	Dimensions Include Stroke Weight	寸法に線幅を含める
+	Direct Selection Tool	ダイレクト選択ツール
+	Direction	方向
+	Directional Feather	方向性ぼかし
+	Discretionary Hyphen	任意ハイフン
+	Display All Blacks Accurately	すべてのブラックを正確に表示
+	Display All Blacks as Rich Black	すべてのブラックをリッチブラックで表示
+	Display Performance	表示パフォーマンス
+	Distance	距離
+	Distribute	分布
+	Distribute Columns Evenly	列の幅を均等に
+	Distribute ↔	分布 ↔
+	Distribute ↕	分布 ↕
+	Dock	ドック
+	Dock Panel	パネルをドックに収納
+	Dock panel	パネルをドックに収納
+	Document	ドキュメント
+	Document CMYK	ドキュメント CMYK
+	Document Endnote Options…	ドキュメントの文末脚注オプション…
+	Document Footnote Options…	ドキュメントの脚注オプション…
+	Document Grid	ドキュメントグリッド
+	Document Preferences	ドキュメント環境設定
+	Document Presets	ドキュメントプリセット
+	Document RGB	ドキュメント RGB
+	Document Recovery Data	ドキュメント復旧データ
+	Document Setup	ドキュメント設定
+	Document…	ドキュメント…
+	Dotted	点線
+	Double Left Quotation Marks	二重左引用符
+	Double Right Quotation Marks	二重右引用符
+	Drag Rows or Columns	行または列をドラッグ
+	Drop Caps and Nested Styles	ドロップキャップと先頭文字スタイル
+	Drop Shadow	ドロップシャドウ
+	Duplicate Spread	スプレッドを複製
+	Dutch: 2005 Reform	オランダ語: 2005年改訂
+	Dynamic Spelling	動的スペルチェック
+	Email	メール
+	EMAIL	メール
+	EPUB and HTML	EPUB と HTML
+	Edit Endnote	文末脚注を編集
+	Edit Note	ノートを編集
+	Edit Page	ページを編集
+	Edit Parents	親ページを編集
+	Edit Story	ストーリーを編集
+	Edit in Story Editor	ストーリーエディターで編集
+	Effects: Drop Shadow	効果: ドロップシャドウ
+	Ellipse	楕円形
+	Ellipse Frame Tool	楕円形フレームツール
+	Ellipse Tool	楕円形ツール
+	Ellipsis	省略記号
+	Em Dash	全角ダッシュ
+	Em Space	全角スペース
+	Email Address:	メールアドレス:
+	Email:	メール:
+	Embed	埋め込み
+	Embed Link	リンクを埋め込み
+	Embedded	埋め込み済み
+	Empty text frame	空のテキストフレーム
+	En Dash	半角ダッシュ
+	En Space	半角スペース
+	Enable Autocorrect	自動修正を有効にする
+	Enable Dynamic Spelling (underline misspelled words)	動的スペルチェックを有効にする(スペルミスに下線を表示)
+	Endnotes	文末脚注
+	English	英語
+	English: Canadian	英語: カナダ
+	English: UK	英語: 英国
+	English: USA	英語: 米国
+	Entire Pasteboard	ペースボード全体
+	Erase	消去
+	Erase Tool	消しゴムツール
+	Essentials	基本
+	Exactly	固定
+	Exclude Overlap	中マド
+	Export	書き出し
+	Export Book to PDF…	ブックを PDF に書き出し…
+	Export EPUB (Fixed Layout)…	EPUB(固定レイアウト)を書き出し…
+	Export EPUB (Reflowable)…	EPUB(リフロー可能)を書き出し…
+	Export EPUB…	EPUB を書き出し…
+	Export HTML…	HTML を書き出し…
+	Export IDML…	IDML を書き出し…
+	Export PDF (Interactive)…	PDF(インタラクティブ)を書き出し…
+	Export Page as PNG…	ページを PNG で書き出し…
+	Export Selection as Snippet	選択範囲をスニペットとして書き出し
+	Export Tagging	書き出しのタグ付け
+	Export Text…	テキストを書き出し…
+	Export XML…	XML を書き出し…
+	Extend Text Selection	テキスト選択範囲を拡張
+	Eyedropper Tool	スポイトツール
+	Facing Pages	見開きページ
+	Farsi	ペルシア語
+	Fast	高速
+	Fast Display	高速表示
+	Favorites	お気に入り
+	Figure Space	数字幅スペース
+	File Handling	ファイル処理
+	Fill	塗り
+	Fill (X)	塗り (X)
+	Fill Frame Proportionally	フレームの比率に合わせて塗りつぶす
+	Fill with Placeholder Text	ダミーテキストで流し込み
+@pattern	Fill: {sw}	塗り: {sw}
+	Find	検索
+	Find All	すべて検索
+	Find Next	次を検索
+	Find Object	オブジェクトを検索
+	Find by Script Label	スクリプトラベルで検索
+	Find fill:	検索する塗り:
+	Find what:	検索文字列:
+	Find/Change	検索/置換
+	Find/Replace Font	フォントを検索/置換
+	Find/Replace Font…	フォントを検索/置換…
+	Finnish	フィンランド語
+	First	最初
+	First Baseline	最初のベースライン
+	First Line Indent:	1行目インデント:
+	First Object Above	上の最初のオブジェクト
+	First Spread	最初のスプレッド
+	Fit Content Proportionally	縦横比を保ってコンテンツを合わせる
+	Fit Content to Frame	コンテンツをフレームに合わせる
+	Fit Frame to Content	フレームをコンテンツに合わせる
+	Fit Selection in Window	選択範囲をウィンドウに合わせる
+	Fit Text	テキストを合わせる
+	Fit frame height to text	フレームの高さをテキストに合わせる
+	Fitting:	調整:
+	Fixed	固定
+	Flattener Preview	透明の分割・統合プレビュー
+	Flip	反転
+	Flip Horizontal	水平方向に反転
+	Flip Vertical	垂直方向に反転
+	Float Panel	パネルをフローティング
+	Float panel	パネルをフローティング
+	Flush Space	行末揃えスペース
+	Font Family:	フォントファミリ:
+	Font Size:	フォントサイズ:
+	Font Style:	フォントスタイル:
+	Fonts in Document	ドキュメント内のフォント
+@pattern	Fonts in Document: {count}    Missing: {missing}	ドキュメント内のフォント: {count}    欠落: {missing}
+	Footer Rows	フッター行
+	Footnote Formatting	脚注の書式
+	Footnote Options	脚注オプション
+	Footnote Reference	脚注参照
+	Footnote Reference Number in Text	本文中の脚注参照番号
+	Footnote Text	脚注テキスト
+	Footnotes	脚注
+	Forced Line Break	強制改行
+	Form Field	フォームフィールド
+	Form Fields	フォームフィールド
+	Format:	形式:
+	Formatting affects container (J)	書式をコンテナーに適用 (J)
+	Formatting affects text (J)	書式をテキストに適用 (J)
+	Found	検出
+	Frame Break	フレーム区切り
+	Frame Fitting	フレームの調整
+	Frame Fitting Options	フレーム調整オプション
+	Frame Fitting Options…	フレーム調整オプション…
+	Free Transform Tool	自由変形ツール
+	French	フランス語
+	French: Canadian	フランス語: カナダ
+	Full Paragraph & Page Number	段落全体とページ番号
+	GREP Style	GREP スタイル
+	GREP Styles	GREP スタイル
+	Gap Color:	間隔のカラー:
+	Gap Tool	間隔ツール
+	General	一般
+	Generate Index…	索引を生成…
+	Generate Live Caption	ライブキャプションを生成
+	Generate QR Code	QR コードを生成
+	Generate QR Code…	QR コードを生成…
+	Generate Static Caption	静的キャプションを生成
+	German: 2006 Reform	ドイツ語: 2006年改訂
+	German: Swiss 2006 Reform	ドイツ語: スイス 2006年改訂
+	Get Story	ストーリーを取得
+	Get Table	表を取得
+	Get help, share your layouts and shape what we build next.	サポートを受け、レイアウトを共有し、次の開発に意見を届けましょう。
+	Global Light…	グローバル光源…
+	Glyph Scaling:	グリフの拡大縮小:
+@pattern	Glyphs: {e}	グリフ: {e}
+	Go To	移動
+	Go To First Page	最初のページへ移動
+	Go To Last Page	最後のページへ移動
+	Go To Link	リンクへ移動
+	Go To Next Page	次のページへ移動
+	Go To Page	ページへ移動
+	Go To Previous Page	前のページへ移動
+	Go To Source	ソースへ移動
+	Go To URL	URL へ移動
+	Go to Footnote Reference	脚注参照へ移動
+	Go to Page	ページへ移動
+	Go to Page…	ページへ移動…
+	Gradient Feather	グラデーションぼかし
+	Gradient Feather Tool	グラデーションぼかしツール
+	Gradient Swatch Tool	グラデーションスウォッチツール
+	Graphic…	グラフィック…
+	Gray	グレー
+	Greek	ギリシャ語
+	Gridify	グリッド状に整列
+	Grids	グリッド
+	Grids in Back	グリッドを背面に表示
+	Group Transparency	グループの透明
+	Guide-based	ガイドベース
+	Guides	ガイド
+	Guides & Pasteboard	ガイドとペースボード
+	Gutter	段間
+	H&J Violations	禁則・字詰めの違反
+	Hair Space	ヘアスペース
+	Hand Tool	手のひらツール
+	Header Rows	ヘッダー行
+	Hebrew	ヘブライ語
+	Height	高さ
+	Height Only	高さのみ
+	Height and Width	高さと幅
+	Height:	高さ:
+	Hide Bar	バーを隠す
+	Hide Menu Item	メニュー項目を隠す
+	Hide Others	ほかを隠す
+	Hide/Lock Others	ほかを隠す/ロック
+	High Contrast	ハイコントラスト
+	High Quality	高品質
+	High Quality Display	高品質表示
+	High Resolution	高解像度
+	Highlight	ハイライト
+	Hindi	ヒンディー語
+	History	履歴
+	Home	ホーム
+	Horizontal Gridline Every:	水平グリッド線の間隔:
+	Horizontal Margins:	水平マージン:
+	Horizontal:	水平:
+	Hungarian	ハンガリー語
+	Hyperlink Options…	ハイパーリンクオプション…
+	Hyperlink from the selected text or frames	選択したテキストまたはフレームからハイパーリンクを作成
+	Hyperlinks & Cross-References	ハイパーリンクと相互参照
+@pattern	Hyperlinks: {e}	ハイパーリンク: {e}
+	Hyphen Limit:	ハイフン連続数の上限:
+	Hyphenate	ハイフネーション
+	Hyphenation	ハイフネーション
+	Hyphenation Exceptions	ハイフネーション例外
+	Image	画像
+	Import File	ファイルを読み込み
+	Import Options	読み込みオプション
+	Import Options: Styles	読み込みオプション: スタイル
+@pattern	Import XML: {e}	XML を読み込み: {e}
+	Import XML…	XML を読み込み…
+	In justified Arabic text	均等配置のアラビア語テキスト内
+	Include Bleed	裁ち落としを含める
+	Include Stroke Weight	線幅を含める
+	Include when exporting	書き出しに含める
+	Increase Point Size	ポイントサイズを大きく
+	Increment Every:	増分の間隔:
+	Indent to Here	ここまでインデント
+	Indents and Spacing	インデントと間隔
+	Index Level	索引レベル
+	Index Level 1	索引レベル 1
+	Index Level 2	索引レベル 2
+	Index Level 3	索引レベル 3
+	Index Level 4	索引レベル 4
+	Index Page References	索引のページ参照
+	Index Section Head	索引のセクション見出し
+	Index Title	索引タイトル
+	Ink Limit 300%	インク総量制限 300%
+	Ink Manager	インキ管理
+	Inner Glow	光彩(内側)
+	Inner Shadow	シャドウ(内側)
+	Insert Anchored Object…	アンカー付きオブジェクトを挿入…
+	Insert Column	列を挿入
+	Insert Column Left	左に列を挿入
+	Insert Column Right	右に列を挿入
+	Insert Cross-Reference…	相互参照を挿入…
+	Insert Endnote	文末脚注を挿入
+	Insert Footnote	脚注を挿入
+	Insert Kashidas:	カシーダを挿入:
+	Insert Math Expression…	数式を挿入…
+	Insert Page	ページを挿入
+	Insert Page After	後ろにページを挿入
+	Insert Pages…	ページを挿入…
+	Insert Row	行を挿入
+	Insert Row Above	上に行を挿入
+	Insert Row Below	下に行を挿入
+	Insert Variable	変数を挿入
+	Inset spacing	インセット間隔
+	Inside	内側
+	Inspect Document	ドキュメントを検査
+	Intent:	意図:
+	Interactive	インタラクティブ
+	Interactive for PDF	PDF 用インタラクティブ
+	Interface	インターフェイス
+	Interface Color Theme	インターフェイスのカラーテーマ
+	Internet Standard RGB (sRGB)	インターネット標準 RGB (sRGB)
+	Intersect	交差
+	Inverse Rounded Rectangle	角丸(内向き)長方形
+	Invert	反転
+	Inward	内向き
+	Italian	イタリア語
+	Italic	斜体
+	Japanese	日本語
+	Join our Discord	Discord に参加する
+	Join:	角:
+	Jump Object	オブジェクトを飛ばす
+	Jump to Next Column	次の段へ飛ばす
+	Justification	行揃え
+	Justify	均等配置
+	Justify All	全体を均等配置
+	Justify Left	最終行左揃え
+	Keep Violations	段落規則の違反
+	Keyboard Increments	キーボード増分
+	Keyboard Shortcuts	キーボードショートカット
+	Kind:	種類:
+	Korean	韓国語
+	Landscape	横置き
+	Language	言語
+	Last	最後
+	Last Object Below	下の最後のオブジェクト
+	Last Spread	最後のスプレッド
+	Layer Options…	レイヤーオプション…
+	Leading	行送り
+	Leading:	行送り:
+	Left	左
+	Left Indent:	左インデント:
+	Left to Right	左から右
+	Left:	左:
+	Legacy Macintosh RGB	旧 Macintosh RGB
+	Legal	リーガル
+	Legal - Half	リーガル - 半分
+	Letter	レター
+	Letter - Half	レター - 半分
+	Letter Spacing:	文字間隔:
+	Library Contents	ライブラリの内容
+	Library Items	ライブラリ項目
+@pattern	Library: {e}	ライブラリ: {e}
+	Light	ライト
+	Line	線
+	Line Tool	線ツール
+	Linear	線形
+	Link To:	リンク先:
+	Linked Stories	リンクされたストーリー
+	Liquid Page Rule	リキッドページルール
+	Liquid guides	リキッドガイド
+	List Box	リストボックス
+	List Documents	ドキュメント一覧
+	List Styles	スタイル一覧
+	List Tools	ツール一覧
+@pattern	Load DTD: {e}	DTD を読み込み: {e}
+	Load DTD…	DTD を読み込み…
+	Load Place Cursor	配置カーソルに読み込み
+	Load Profile…	プロファイルを読み込み…
+	Load Swatches…	スウォッチを読み込み…
+	Load…	読み込み…
+	Location:	場所:
+	Lock Guides	ガイドをロック
+	Lock Others	ほかをロック
+	Loop	ループ
+	Low Resolution	低解像度
+	Magenta	マゼンタ
+	Make Compound	複合に変換
+	Make Compound Path	複合パスを作成
+	Make all settings the same	すべての設定を同じにする
+	Map Styles to Tags	スタイルをタグに対応付け
+	Margins	マージン
+	Margins:	マージン:
+	Math	数式
+	Math Expression SVG	数式 SVG
+	Max	最大
+	Maximum	最大
+	Measure Tool	検尺ツール
+	Media Options	メディアオプション
+@pattern	Media: {e}	メディア: {e}
+	Medium Dark	ミディアムダーク
+	Medium Light	ミディアムライト
+	Medium Resolution	中解像度
+	Menu Customization	メニューのカスタマイズ
+	Menus…	メニュー…
+	Merge Layers	レイヤーを統合
+	Merge into Active Layer	アクティブなレイヤーに統合
+	Message:	メッセージ:
+	Metrics	メトリクス
+	Min	最小
+	Min:	最小:
+	Minimum	最小
+	Minimum Space Before First Footnote:	最初の脚注の前の最小スペース:
+	Minus Back	前面オブジェクトで型抜き
+@pattern	Missing font: {f}	フォントが見つかりません: {f}
+	Missing graphic	グラフィックが見つかりません
+	Miter	マイター
+	Miter Limit:	マイター制限:
+	Mobile	モバイル
+	Monitor RGB	モニター RGB
+	More Options	その他のオプション
+	Move	移動
+	Move Anchors	アンカーを移動
+	Move Caret	キャレットを移動
+	Move Column	列を移動
+	Move Gap	間隔を移動
+	Move Guide	ガイドを移動
+	Move Layer	レイヤーを移動
+	Move Pages…	ページを移動…
+	Move Row	行を移動
+	Move Selection Here	選択範囲をここへ移動
+	Move to Color Group	カラーグループへ移動
+	Move to Group	グループへ移動
+	Move to Layer	レイヤーへ移動
+	Multiline	複数行
+	Multiple Objects	複数のオブジェクト
+	Name	名前
+	Name:	名前:
+	Native	ネイティブ
+	Nested Line Styles	行スタイル(入れ子)
+	Nested Styles	先頭文字スタイル
+	Never (continuous)	しない(連続)
+	New Article	新規記事
+	New Article from Selection	選択範囲から新規記事
+	New Book	新規ブック
+	New Bookmark	新規ブックマーク
+	New Bookmark for This Page	このページの新規ブックマーク
+	New Book…	新規ブック…
+	New Cell Style…	新規セルスタイル…
+	New Character Style…	新規文字スタイル…
+	New Color Group	新規カラーグループ
+	New Color Group with Swatch	スウォッチ付き新規カラーグループ
+	New Color Swatch…	新規カラースウォッチ…
+	New Condition…	新規条件…
+	New Cross-Reference	新規相互参照
+	New Document	新規ドキュメント
+	New GREP Style	新規 GREP スタイル
+	New Guide	新規ガイド
+	New Hyperlink Destination…	新規ハイパーリンク先…
+	New Hyperlink…	新規ハイパーリンク…
+	New Layer…	新規レイヤー…
+	New Library	新規ライブラリ
+	New Library…	新規ライブラリ…
+	New Line Style	新規行スタイル
+	New Nested Style	新規先頭文字スタイル
+	New Note	新規ノート
+	New Note at Cursor	カーソル位置に新規ノート
+	New Object Style…	新規オブジェクトスタイル…
+	New Page Reference…	新規ページ参照…
+	New Paragraph Style…	新規段落スタイル…
+	New Parent…	新規親ページ…
+	New Stroke Style…	新規線スタイル…
+	New Swatch	新規スウォッチ
+	New Table Style…	新規表スタイル…
+	New Tag	新規タグ
+	New Workspace	新規ワークスペース
+	New Workspace…	新規ワークスペース…
+	New condition name	新しい条件名
+	New group…	新規グループ…
+	New tag	新規タグ
+@pattern	New {label}	新規{label}
+	Next Cell	次のセル
+	Next Document	次のドキュメント
+	Next Object Above	上の次のオブジェクト
+	Next Object Below	下の次のオブジェクト
+	Next Object in Group	グループ内の次のオブジェクト
+	Next Page Number	次のページ番号
+	Next Spread	次のスプレッド
+	No Selection	選択なし
+	No Text Wrap	テキストの回り込みなし
+	No articles: exports follow page order.	記事がありません: 書き出しはページ順になります。
+	No book open.	開いているブックがありません。
+	No bookmarks. They become the PDF outline.	ブックマークがありません。ブックマークは PDF のしおりになります。
+	No changes.	変更はありません。
+	No conditions. Create one, then select text and click it to apply.	条件がありません。作成してから、テキストを選択してクリックすると適用されます。
+	No conflicts	競合なし
+	No document open	開いているドキュメントがありません
+	No document.	ドキュメントがありません。
+	No errors	エラーなし
+	No hyperlinks. Select text or a frame, type a URL and click New.	ハイパーリンクがありません。テキストまたはフレームを選択し、URL を入力して「新規」をクリックします。
+	No library open.	開いているライブラリがありません。
+	No matches	一致なし
+	No notes in this document.	このドキュメントにノートはありません。
+	No placed graphics.	配置されたグラフィックがありません。
+	No scripts. Add one below.	スクリプトがありません。下で追加してください。
+	No spot inks	スポットインキなし
+@pattern	No style named {name}	{name} という名前のスタイルはありません
+	No text anchors in this document.	このドキュメントにテキストアンカーはありません。
+	No text selected	テキストが選択されていません
+	Nonbreaking Hyphen	分割禁止ハイフン
+	Nonbreaking Space	分割禁止スペース
+	None	なし
+	None (keep transparency)	なし(透明を保持)
+	Nonprinting	非印刷
+	Normal	通常
+	Normal (W)	標準 (W)
+	Norwegian: Bokmål	ノルウェー語: ブークモール
+	Not a button	ボタンではありません
+	Not a form field	フォームフィールドではありません
+	Note Tool	ノートツール
+	Note text	ノートのテキスト
+	Notes	ノート
+@pattern	Notes: {e}	ノート: {e}
+	Number of Pages:	ページ数:
+	Number of Sides:	辺の数:
+	Number of columns	列数
+	Number the pages	ページに番号を付ける
+	Numbered List	番号付きリスト
+	Numbering	番号
+	Numbering and Formatting	番号と書式
+	OK changes all: text and paragraph/character styles.	「OK」を押すとすべて変更されます: テキストと段落/文字スタイル。
+	OVERSET	あふれ
+	Object & Layout	オブジェクトとレイアウト
+	Object Export Options	オブジェクト書き出しオプション
+	Object Export Options…	オブジェクト書き出しオプション…
+	Object Layer Options	オブジェクトレイヤーオプション
+	Object Layer Options…	オブジェクトレイヤーオプション…
+	Object Layers	オブジェクトレイヤー
+	Object Liquid Settings	オブジェクトのリキッド設定
+@pattern	Object States: {e}	オブジェクトステート: {e}
+	Object Style	オブジェクトスタイル
+	Object Style 1	オブジェクトスタイル 1
+	Object-based	オブジェクトベース
+	Off	オフ
+	Offset	オフセット
+	Offset:	オフセット:
+	Offsets	オフセット
+	On	オン
+	On Release	マウスボタンを放したとき
+	On Screen:	画面上:
+	Opacity	不透明度
+	Open Book	ブックを開く
+	Open Bytes	バイトを開く
+	Open IDML	IDML を開く
+	Open Library	ライブラリを開く
+	Open Path	開いたパス
+	Open source. No telemetry.	オープンソース。テレメトリーなし。
+	OpenType Superscript	OpenType 上付き
+	Optical	オプティカル
+	Options	オプション
+	Options for Black on RGB and Grayscale Devices	RGB およびグレースケールデバイスでのブラックのオプション
+	Organization:	組織:
+	Orientation:	向き:
+	Orthogonal Line	直角線
+	Outer Glow	光彩(外側)
+	Output	出力
+	Output All Blacks Accurately	すべてのブラックを正確に出力
+	Output All Blacks as Rich Black	すべてのブラックをリッチブラックで出力
+	Outside	外側
+	Overprint Fill	塗りをオーバープリント
+	Overprint Gap	間隔をオーバープリント
+	Overprint Preview	オーバープリントプレビュー
+	Overprint Stroke	線をオーバープリント
+	Override All Parent Page Items	すべての親ページアイテムをオーバーライド
+@pattern	Overset text: {n} characters	あふれたテキスト: {n} 文字
+	Page	ページ
+@pattern	Page (1–{count}):	ページ (1–{count}):
+	Page Break	ページ区切り
+	Page Numbering	ページ番号
+	Page Size	ページサイズ
+	Page Tool	ページツール
+	Page Transition	ページ切り替え効果
+	Page Transitions	ページ切り替え効果
+	Page · PPI	ページ · PPI
+	Pages:	ページ:
+	Panel	パネル
+	Panels	パネル
+	Paragraph Composer	段落コンポーザー
+	Paragraph Formatting	段落の書式
+	Paragraph Return	段落区切り
+	Paragraph Style	段落スタイル
+	Paragraph Style 1	段落スタイル 1
+	Paragraph Style Options	段落スタイルオプション
+	Paragraph Style Options…	段落スタイルオプション…
+	Paragraph Style:	段落スタイル:
+	Paragraph Styles panel	段落スタイルパネル
+	Paragraph Symbol	段落記号
+	Paragraph alignment	段落の整列
+	Parent	親ページ
+	Paste Into	内側にペースト
+	Paste in Place	同じ位置にペースト
+	Paste without Formatting	書式なしでペースト
+	Pasteboard Options	ペースボードオプション
+	Path	パス
+	Paths	パス
+	Pen Tool	ペンツール
+	Pencil Tool	鉛筆ツール
+	Phone:	電話:
+	Pick a file in the folder holding the moved graphics	移動したグラフィックが入っているフォルダー内のファイルを選択
+	Pin bottom	下に固定
+	Pin left	左に固定
+	Pin right	右に固定
+	Pin top	上に固定
+	Place	配置
+	Place Caret	キャレットを配置
+	Place Item	項目を配置
+	Place Loaded Graphic	読み込んだグラフィックを配置
+	Place PDF	PDF を配置
+	Place Snippet	スニペットを配置
+	Place and Link	配置してリンク
+	Place the insertion point in a table, or create one.	表内に挿入点を置くか、表を作成してください。
+	Place with Import Options…	読み込みオプションを指定して配置…
+	Plain Text	プレーンテキスト
+	Play on Page Load	ページ読み込み時に再生
+	Plays in EPUB export; print and PDF show the poster.	EPUB 書き出しで再生されます。印刷と PDF ではポスターが表示されます。
+	Polish	ポーランド語
+	Polygon	多角形
+	Polygon Frame Tool	多角形フレームツール
+	Polygon Settings	多角形の設定
+	Polygon Settings…	多角形の設定…
+	Polygon Tool	多角形ツール
+	Portrait	縦置き
+	Portuguese	ポルトガル語
+	Portuguese: Brazilian	ポルトガル語: ブラジル
+	Position	位置
+	Position:	位置:
+	Poster	ポスター
+	Preferences	環境設定
+	Prefix:	接頭辞:
+	Preflight	プリフライト
+	Preflight Document	ドキュメントをプリフライト
+	Presentation	プレゼンテーション
+	Preset	プリセット
+	Press keys…	キーを押してください…
+	Preview	プレビュー
+	Preview (W)	プレビュー (W)
+	Previous Cell	前のセル
+	Previous Document	前のドキュメント
+	Previous Object in Group	グループ内の前のオブジェクト
+	Previous Page Number	前のページ番号
+	Previous Spread	前のスプレッド
+	Primary Text Frame	プライマリテキストフレーム
+	Print	プリント
+	Print Booklet…	小冊子をプリント…
+	Printer's Marks	トンボと塗り足し
+	Printer:	プリンター:
+	Printers	プリンター
+	Printing / Exporting:	プリント/書き出し:
+	Printing and Proofing	印刷と校正
+	Projecting	突出線端
+	Proof Colors	校正カラー
+	Proof Setup	校正設定
+	Properties Panel	プロパティパネル
+	Punctuation Space	句読点スペース
+	QR code:	QR コード:
+	Quarter Space	4分アキ
+	Quick Actions	クイックアクション
+	Quick Apply…	クイック適用…
+	Radial	円形
+	Range:	範囲:
+	Re-center	中央に戻す
+	Recently Used	最近使用した項目
+	Recover Documents	ドキュメントを復旧
+	Recovery Data	復旧データ
+	Rectangle	長方形
+	Rectangle Frame Tool	長方形フレームツール
+	Rectangle Tool	長方形ツール
+	Redefine Document Style	ドキュメントスタイルを再定義
+	Registered Trademark Symbol	登録商標記号
+	Regular	レギュラー
+	Reject	却下
+	Reject All	すべて却下
+	Reject All Changes	すべての変更を却下
+	Reject Change	変更を却下
+	Relative To:	基準:
+	Release	解除
+	Release Compound Path	複合パスを解除
+	Release State to Objects	ステートをオブジェクトに解除
+	Release to Objects	オブジェクトに解除
+	Relink to Folder…	フォルダーに再リンク…
+	Relink…	再リンク…
+	Remove	削除
+	Remove All Local Overrides	すべてのローカルオーバーライドを削除
+	Remove Conditions from Selection	選択範囲から条件を削除
+	Remove Document	ドキュメントを削除
+	Remove Hyphenation Exception	ハイフネーション例外を削除
+	Remove Styles and Formatting from Text and Tables	テキストと表からスタイルと書式を削除
+	Remove from Article	記事から削除
+	Remove styles and formatting	スタイルと書式を削除
+	Rename	名前を変更
+	Rename Bookmark	ブックマーク名を変更
+	Render	レンダリング
+	Repeat Header Rows	ヘッダー行を繰り返す
+	Replace With	置き換え後
+	Report an Issue…	問題を報告…
+	Report an issue	問題を報告
+	Required	必須
+	Reset	リセット
+	Reset All to Defaults	すべて初期設定に戻す
+	Reset Shortcuts	ショートカットをリセット
+	Reset Workspace	ワークスペースをリセット
+	Resize	サイズ変更
+	Resize height	高さを変更
+	Resize width	幅を変更
+	Restart Numbering Every:	番号を再開する間隔:
+	Reverse	逆順
+	Reverse the gradient	グラデーションを反転
+	Right	右
+	Right Indent Tab	右インデントタブ
+	Right Indent:	右インデント:
+	Right to Left	右から左
+	Right-click: stroke, groups	右クリック: 線、グループ
+	Right:	右:
+	Root	ルート
+	Rotate	回転
+	Rotate 90° Clockwise	90°時計回りに回転
+	Rotate 90° Counterclockwise	90°反時計回りに回転
+	Rotate Spread	スプレッドを回転
+	Rotate Tool	回転ツール
+	Rotation Angle	回転角度
+	Round	丸型
+	Rounded Rectangle	角丸長方形
+	Row Height	行の高さ
+	Row ↑	行 ↑
+	Row ↓	行 ↓
+	Rows	行
+	Ruby	ルビ
+	Ruby:	ルビ:
+	Rule Above	段落境界線(上)
+	Rule On	境界線を有効にする
+	Ruler Units	定規の単位
+	Rulers & Grids	定規とグリッド
+	Run	実行
+	Run Script	スクリプトを実行
+	Russian	ロシア語
+	Sample	サンプル
+	Sample Document	サンプルドキュメント
+	Satin	サテン
+	Save Recovery Data	復旧データを保存
+	Save Swatches for Exchange…	スウォッチを交換用に保存…
+	Save recovery data every:	復旧データを保存する間隔:
+	Saves which bars show and where the panels are.	表示するバーとパネルの位置を保存します。
+	Scale	拡大・縮小
+	Scale Tool	拡大・縮小ツール
+	Scale X Percentage	X 方向の拡大・縮小率
+	Scale Y Percentage	Y 方向の拡大・縮小率
+	Scissors Tool	はさみツール
+	Script	スクリプト
+	Script Label	スクリプトラベル
+	Scripts	スクリプト
+@pattern	Scripts: {e}	スクリプト: {e}
+	Search	検索
+	Search commands	コマンドを検索
+	Search fonts	フォントを検索
+	Search styles and commands…	スタイルとコマンドを検索…
+	Search:	検索:
+	Search: character or U+code	検索: 文字または U+コード
+	Section	セクション
+	Section Marker	セクションマーカー
+	Section Symbol	セクション記号
+	Select	選択
+	Select All on Layer	レイヤー上のすべてを選択
+	Select Cells	セルを選択
+	Select Column	列を選択
+	Select Frame	フレームを選択
+	Select Row	行を選択
+	Select Table	表を選択
+	Select Text	テキストを選択
+	Select Tool	選択ツール
+	Select Word	単語を選択
+	Select a placed video or sound (File › Place a .mp4, .mov, .mp3, .wav …).	配置したビデオまたはサウンドを選択してください(ファイル › 配置 で .mp4、.mov、.mp3、.wav など)。
+	Select an object to color its fill or stroke.	塗りまたは線のカラーを設定するオブジェクトを選択してください。
+	Select an object to give its fill a gradient.	塗りにグラデーションを設定するオブジェクトを選択してください。
+	Select an object to make it a button.	ボタンにするオブジェクトを選択してください。
+	Select an object.	オブジェクトを選択してください。
+	Select text or a text frame.	テキストまたはテキストフレームを選択してください。
+	Select text to apply a condition	条件を適用するテキストを選択
+	Select two or more objects (or a group) to make a multi-state object.	マルチステートオブジェクトにするには、2つ以上のオブジェクト(またはグループ)を選択してください。
+	Selection Attributes	選択範囲の属性
+	Selection Tool	選択ツール
+	Send Backward	背面へ
+	Send to Back	最背面へ
+	Sentence case	文頭のみ大文字
+	Separated by commas	カンマ区切り
+	Separations Preview	分版プレビュー
+	Separator:	区切り:
+	Serialize	シリアライズ
+	Set	設定
+	Set Active Layer	アクティブレイヤーを設定
+	Set Cross-Reference Format	相互参照の形式を設定
+	Set Footnote Text	脚注テキストを設定
+	Set Shortcut	ショートカットを設定
+	Set Story Text	ストーリーのテキストを設定
+	Set Visibility / Lock	表示/ロックを設定
+	Set over the selected text; empty removes it.	選択したテキストの上に付けます。空にすると削除されます。
+	Shading	網掛け
+	Share	共有
+	Shear	シアー
+	Shear Tool	シアーツール
+	Shear X Angle	シアー X 角度
+	Show	表示
+	Show / hide text with this condition	この条件のテキストを表示/非表示
+	Show All Layers	すべてのレイヤーを表示
+	Show All on Spread	スプレッド上のすべてを表示
+	Show Baseline Grid	ベースライングリッドを表示
+	Show Controls	コントロールを表示
+	Show Document Grid	ドキュメントグリッドを表示
+	Show Favorites Only	お気に入りのみ表示
+	Show Guides	ガイドを表示
+	Show Note Anchors in Layout View	レイアウト表示でノートのアンカーを表示
+	Show Panel	パネルを表示
+	Show Prefix/Suffix in:	接頭辞/接尾辞を表示する場所:
+	Show State	ステートを表示
+	Show Tag Markers	タグマーカーを表示
+	Show in the text	テキスト内に表示
+	Show/Hide Baseline Grid	ベースライングリッドの表示/非表示
+	Show/Hide Frame Edges	フレームエッジの表示/非表示
+	Show/Hide Guides	ガイドの表示/非表示
+	Show/Hide Hidden Characters	制御文字の表示/非表示
+	Show/Hide Panels	パネルの表示/非表示
+	Show/Hide Panels Except Tools	ツール以外のパネルの表示/非表示
+	Show/Hide Rulers	定規の表示/非表示
+	Show/Hide Tagged Frames	タグ付きフレームの表示/非表示
+	Show/Hide Text Threads	テキストスレッドの表示/非表示
+	Signature	署名
+	Signature Field	署名フィールド
+	Simulate Paper Color	紙色をシミュレート
+	Single Left Quotation Mark	一重左引用符
+	Single Right Quotation Mark	一重右引用符
+	Single-line	1行
+	Single-line Composer	1行コンポーザー
+	Sixth Space	6分アキ
+	Size:	サイズ:
+	Slug	印刷情報エリア
+	Slug:	印刷情報エリア:
+	Small Caps	スモールキャップ
+	Smart Guide Options	スマートガイドオプション
+	Smart Text Reflow	スマートテキストリフロー
+	Smooth	スムーズ
+	Smooth Tool	スムーズツール
+	Solid	実線
+	Sort	並べ替え
+	Space After:	後のアキ:
+	Space Before:	前のアキ:
+	Space Between Footnotes:	脚注間のスペース:
+	Spacing Options	間隔オプション
+	Span Footnotes Across Columns	脚注を段にまたがらせる
+	Spanish	スペイン語
+	Speed	速度
+	Spelling	スペルチェック
+	Split Cell Horizontally	セルを水平分割
+	Split Cell Vertically	セルを垂直分割
+	Split Path	パスを分割
+	Spread	スプレッド
+	Spreads	スプレッド
+	Spreads of up to 10 pages	最大10ページのスプレッド
+	Star Inset:	星型の比率:
+	Start Page #:	開始ページ番号:
+	Start a new document	新規ドキュメントを開始
+	Start at:	開始番号:
+	Start/End:	開始/終了:
+	Start:	開始:
+	State Options	ステートオプション
+@pattern	State {i}	ステート {i}
+	Status	状態
+	Step and Repeat…	繰り返し複製…
+	Stop Color:	分岐点のカラー:
+	Story Editor	ストーリーエディター
+	Story Editor Display	ストーリーエディター表示
+	Straight Double Quotation Marks	直線二重引用符
+	Straight Single Quotation Mark (Apostrophe)	直線一重引用符(アポストロフィ)
+	Strikethrough	取り消し線
+	Strikethrough Options	取り消し線オプション
+	Stroke (X)	線 (X)
+	Stroke Styles	線スタイル
+	Structure	構造
+	Style	スタイル
+	Style Mapping	スタイルの対応付け
+	Style Name Conflicts	スタイル名の競合
+	Style Name:	スタイル名:
+	Style Source	スタイルソース
+	Style source	スタイルソース
+	Style:	スタイル:
+	Styles panel	スタイルパネル
+	Stylistic Sets	スタイルセット
+	Subdivisions:	分割数:
+	Subject:	件名:
+	Subscript:	下付き:
+	Substituted Fonts	置換されたフォント
+	Subtract	型抜き
+	Suffix:	接尾辞:
+	Superscript	上付き
+	Superscript:	上付き:
+	Swap Fill and Stroke (Shift+X)	塗りと線を入れ替え (Shift+X)
+	Swedish	スウェーデン語
+	Synchronize	同期
+	Synchronize Book	ブックを同期
+	System default	システムの初期設定
+	TOC Level n	目次レベル n
+@pattern	TOC Level {l}	目次レベル {l}
+	TOC Title	目次タイトル
+	Tab	タブ
+	Table Dimensions	表の寸法
+	Table Options	表オプション
+	Table Panel	表パネル
+	Table Style	表スタイル
+	Table Style 1	表スタイル 1
+	Table Style Options…	表スタイルオプション…
+	Table of Contents Entries	目次項目
+	Table of Contents…	目次…
+@pattern	Table: {e}	表: {e}
+	Tablet H	タブレット(横)
+	Tabloid	タブロイド
+	Tag Frame	フレームにタグ付け
+	Tag Text	テキストにタグ付け
+	Tag the selection	選択範囲にタグ付け
+	Tag:	タグ:
+@pattern	Tags: {e}	タグ: {e}
+	Text	テキスト
+	Text Anchor	テキストアンカー
+	Text Anchors	テキストアンカー
+	Text Display Options	テキスト表示オプション
+	Text Field	テキストフィールド
+	Text Frame	テキストフレーム
+	Text Frame Options	テキストフレーム設定
+	Text Message	テキストメッセージ
+	Text Style	テキストスタイル
+	Text Variables	テキスト変数
+	Text Wrap	テキストの回り込み
+	Text:	テキスト:
+	The fill isn't a gradient.	塗りはグラデーションではありません。
+	The library is empty. Select objects and Add Selection.	ライブラリは空です。オブジェクトを選択して「選択範囲を追加」を実行してください。
+	The structure is valid.	構造は有効です。
+	Thick - Thick	太 - 太
+	Thick - Thin	太 - 細
+	Thin - Thick	細 - 太
+	Thin - Thin	細 - 細
+	Thin Space	極細スペース
+	Third Space	3分アキ
+	This PDF has no layers.	この PDF にはレイヤーがありません。
+	Title Case	各単語の先頭を大文字
+	To Text:	テキストへ:
+	Toggle Normal/Preview	標準/プレビューの切り替え
+	Toggle Selection	選択を切り替え
+	Toggle double column	2段組を切り替え
+	Tools: Double Column	ツール: 2列表示
+	Top	上
+	Top Margin	上マージン
+	Top of Page	ページの上端
+	Top:	上:
+	Track Changes	変更履歴
+	Track Changes in All Stories	すべてのストーリーで変更履歴を記録
+	Tracking	トラッキング
+	Tracking:	トラッキング:
+	Trademark Symbol	商標記号
+	Transform Again	変形の繰り返し
+	Transform Again Individually	個別に変形の繰り返し
+	Transform Panel	変形パネル
+	Transform Sequence Again	連続変形の繰り返し
+	Transform Sequence Again Individually	個別に連続変形の繰り返し
+	Transform Values	変形値
+	Transformations are Totals	変形値を累計で表示
+	Transitions play in interactive PDF (full-screen mode).	切り替え効果はインタラクティブ PDF(フルスクリーンモード)で再生されます。
+	Transparency Blend Space	透明の混合空間
+	Transparency Flattener Presets	透明の分割・統合プリセット
+	Triangle	三角形
+	Trim	断ち落とし
+	Turkish	トルコ語
+	Two-column grid	2列グリッド
+	Type & Tables	文字と表
+	Type Options	文字オプション
+	Type Tool	文字ツール
+	Type on a Path	パス上文字
+	Type on a Path Options…	パス上文字オプション…
+	Type on a Path Tool	パス上文字ツール
+	Type:	種類:
+	Typical	標準
+	Typical Display	通常表示
+	Typography	タイポグラフィ
+	UI Scaling	UI の拡大率
+	UI Size:	UI サイズ:
+	UPPERCASE	すべて大文字
+	Ukrainian	ウクライナ語
+	Underline	下線
+	Underline Options	下線オプション
+	Ungroup Color Group	カラーグループを解除
+	Units & Increments	単位と増減値
+	Unlink	リンク解除
+	Unlock	ロック解除
+	Unlock All Layers	すべてのレイヤーのロックを解除
+	Unlock All on Spread	スプレッド上のすべてのロックを解除
+	Unmerge	結合解除
+	Untag Selection	選択範囲のタグ付けを解除
+	Update	更新
+	Update Index	索引を更新
+	Update Link	リンクを更新
+	Update Numbering	番号を更新
+	Update Table of Contents	目次を更新
+	Use Black Point Compensation	ブラックポイント補正を使用
+	Use Document Style Definition	ドキュメントのスタイル定義を使用
+	Use Global Light	グローバル光源を使用
+	Use Typographer's Quotes	引用符を自動的に変換
+	User Dictionary	ユーザー辞書
+	User Dictionary (this document)	ユーザー辞書(このドキュメント)
+	User Dictionary Words	ユーザー辞書の単語
+@pattern	User Dictionary: {e}	ユーザー辞書: {e}
+	User Dictionary…	ユーザー辞書…
+	Utilities	ユーティリティ
+	Validate	検証
+	Validate from Root Element	ルート要素から検証
+	Variable Font	バリアブルフォント
+	Version	バージョン
+	Vertical Gridline Every:	垂直グリッド線の間隔:
+	Vertical Margins:	垂直マージン:
+	Vertical Type Tool	縦書き文字ツール
+	Vertical Type on a Path Tool	縦書きパス上文字ツール
+	Vertical justification	縦方向の行揃え
+	Vertical:	垂直:
+	View Threshold:	表示しきい値:
+	Web Hyperlink	Web ハイパーリンク
+	Weight	線幅
+	Weight:	線幅:
+	Welcome to DesignCraft	DesignCraft へようこそ
+	When Scaling	拡大・縮小時
+	Whole word	単語全体
+	Width	幅
+	Width Only	幅のみ
+	Width:	幅:
+	Word Spacing:	単語間隔:
+	Words with at Least:	最小文字数:
+	Words, one per line:	単語(1行に1つ):
+	Working CMYK	作業用 CMYK
+	Wrap Around Bounding Box	バウンディングボックスで回り込み
+	Wrap Around Object Shape	オブジェクトの形状で回り込み
+	Yellow	イエロー
+	Zoom To	ズーム
+	Zoom Tool	ズームツール
+	a document needs at least one layer	ドキュメントには少なくとも1つのレイヤーが必要です
+	a gradient needs at least two stops	グラデーションには少なくとも2つの分岐点が必要です
+	a path needs at least two anchors	パスには少なくとも2つのアンカーが必要です
+	a stop needs a color	分岐点にはカラーが必要です
+	a text frame can't become a line	テキストフレームを線にすることはできません
+	a text frame needs a closed path	テキストフレームには閉じたパスが必要です
+	angle required	角度が必要です
+@pattern	autoflow stopped after {max_pages} pages	自動流し込みは {max_pages} ページで停止しました
+	back into the dock	ドックに戻す
+@pattern	bad GREP: {e}	GREP が正しくありません: {e}
+	bad color	カラーが正しくありません
+@pattern	bad page {n}	ページ {n} が正しくありません
+@pattern	bad page {x}	ページ {x} が正しくありません
+	based-on would create a cycle	基準スタイルが循環してしまいます
+	books need a file system	ブックにはファイルシステムが必要です
+	built-in styles can't be deleted	組み込みスタイルは削除できません
+	can't read that PDF page	その PDF ページを読み込めません
+@pattern	cell range out of bounds ({nr}×{nc} table)	セル範囲が表の外です({nr}×{nc} の表)
+	clipboard is empty	クリップボードが空です
+	could not anchor the paragraph	段落をアンカー付けできませんでした
+	cross-references go in story text (not table cells or footnotes yet)	相互参照はストーリーのテキスト内に挿入します(表のセルや脚注にはまだ挿入できません)
+	degenerate source rect	元の矩形が不正です
+	edit text or select a text frame	テキストを編集するか、テキストフレームを選択してください
+	empty CSV	CSV が空です
+	empty path	パスが空です
+	empty search	検索文字列が空です
+	empty spread	空のスプレッド
+@pattern	endnote {id} has no reference in the text	文末脚注 {id} に対応する本文中の参照がありません
+	endnotes go in story text, not tables or footnotes	文末脚注はストーリーのテキスト内に挿入します(表や脚注内には挿入できません)
+	float this panel	このパネルをフローティングにする
+	footnote not found	脚注が見つかりません
+	footnotes can't be inserted in table cells or other footnotes	脚注は表のセルや他の脚注内には挿入できません
+	frame not found	フレームが見つかりません
+	german: swiss	ドイツ語: スイス
+	image editing	画像編集
+	index markers go in story text	索引マーカーはストーリーのテキスト内に挿入します
+	insert failed	挿入に失敗しました
+	load a DTD first	先に DTD を読み込んでください
+	lowercase	すべて小文字
+	missing anchor	アンカーがありません
+	missing asset	アセットがありません
+	missing color	カラーがありません
+	missing definition	定義がありません
+	missing family	ファミリがありません
+	missing format	形式がありません
+	missing frame	フレームがありません
+	missing height	高さがありません
+	missing id	ID がありません
+	missing ids	ID がありません
+	missing index	インデックスがありません
+	missing item	項目がありません
+	missing name	名前がありません
+	missing or bad color	カラーがないか、正しくありません
+	missing page	ページがありません
+	missing path	パスがありません
+	missing position	位置がありません
+	missing rect	矩形がありません
+	missing spread	スプレッドがありません
+	missing story	ストーリーがありません
+	missing swatch	スウォッチがありません
+	missing width	幅がありません
+	missing word	単語がありません
+	motion graphics and visual effects	モーショングラフィックスとビジュアルエフェクト
+	needs a file picker	ファイル選択ダイアログが必要です
+	nested items can't be detached	入れ子の項目は分離できません
+	no DTD loaded	DTD が読み込まれていません
+	no anchor	アンカーがありません
+@pattern	no anchor {a}	アンカー {a} がありません
+	no anchored object at the insertion point	挿入点にアンカー付きオブジェクトがありません
+	no book open	開いているブックがありません
+@pattern	no bookmark {i}	ブックマーク {i} がありません
+	no canvas yet	キャンバスがまだありません
+	no caret	キャレットがありません
+	no cell	セルがありません
+	no change there	そこに変更はありません
+	no changes since the last save	最後の保存以降に変更はありません
+	no destination chosen	保存先が選択されていません
+	no dialog open	開いているダイアログがありません
+	no document	ドキュメントがありません
+	no document open	開いているドキュメントがありません
+@pattern	no document {i}	ドキュメント {i} がありません
+@pattern	no endnote {id}	文末脚注 {id} がありません
+	no entries	項目がありません
+	no file system on the web	Web 版ではファイルシステムを利用できません
+@pattern	no footnote {id}	脚注 {id} がありません
+	no frame was presented (screen locked or window hidden); use ui.render	フレームが表示されませんでした(画面ロックまたはウィンドウ非表示)。ui.render を使用してください
+	no free article name	使用できる記事名がありません
+	no free group name	使用できるグループ名がありません
+	no gap there	そこに間隔がありません
+@pattern	no hyperlink {id}	ハイパーリンク {id} がありません
+	no index	索引がありません
+	no insertion point	挿入点がありません
+@pattern	no item {i}	項目 {i} がありません
+	no layers	レイヤーがありません
+	no library open	開いているライブラリがありません
+	no mark	マークがありません
+@pattern	no note {id}	ノート {id} がありません
+@pattern	no page {page}	ページ {page} がありません
+	no records	レコードがありません
+	no recovery folder on the web	Web 版には復旧フォルダーがありません
+	no selection	選択範囲がありません
+	no spread	スプレッドがありません
+@pattern	no spread {si}	スプレッド {si} がありません
+@pattern	no state {i}	ステート {i} がありません
+	no story	ストーリーがありません
+	no story selected	ストーリーが選択されていません
+	no such anchor	そのアンカーはありません
+	no such anchored object	そのアンカー付きオブジェクトはありません
+	no such cross-reference	その相互参照はありません
+	no such frame	そのフレームはありません
+	no such graphic	そのグラフィックはありません
+	no such group	そのグループはありません
+	no such guide	そのガイドはありません
+	no such item	その項目はありません
+	no such layer	そのレイヤーはありません
+	no such object	そのオブジェクトはありません
+	no such page	そのページはありません
+	no such paragraph	その段落はありません
+	no such spread	そのスプレッドはありません
+	no such story	そのストーリーはありません
+	no such style	そのスタイルはありません
+	no such subpath	そのサブパスはありません
+	no system default	システムの初期設定がありません
+	no table	表がありません
+	no table of contents	目次がありません
+@pattern	no table {table}	表 {table} がありません
+@pattern	no table {tid}	表 {tid} がありません
+	no text	テキストがありません
+	no text insertion point	テキストの挿入点がありません
+	no text selected	テキストが選択されていません
+	no transform to repeat	繰り返す変形がありません
+	no writer	書き込み先がありません
+	no writer configured	書き込み先が設定されていません
+@pattern	not a book: {e}	ブックではありません: {e}
+@pattern	not a library: {e}	ライブラリではありません: {e}
+	not a multi-state object	マルチステートオブジェクトではありません
+	not a placed PDF	配置された PDF ではありません
+	not a text frame	テキストフレームではありません
+	not a video or sound	ビデオまたはサウンドではありません
+	not in a cell	セル内ではありません
+	not in a table cell	表のセル内ではありません
+	not in footnote text	脚注テキスト内ではありません
+	not on the path	パス上ではありません
+	not type on a path	パス上文字ではありません
+@pattern	not well-formed XML: {e}	XML が整形式ではありません: {e}
+	notes go in story text	ノートはストーリーのテキスト内に挿入します
+	nothing loaded in the place cursor	配置カーソルに何も読み込まれていません
+	nothing selected	何も選択されていません
+	nothing to align	整列するものがありません
+	nothing to caption	キャプションを付けるものがありません
+	nothing to encode	エンコードするものがありません
+	nothing to redo	やり直す操作がありません
+	nothing to trace (the image is empty at this threshold)	トレースするものがありません(このしきい値では画像が空です)
+	nothing to undo	取り消す操作がありません
+	only empty paths and frames can be cut	空のパスとフレームのみ切り取れます
+	page insert failed	ページの挿入に失敗しました
+	page timings couldn't be set	ページのタイミングを設定できませんでした
+	page transitions couldn't be added to this PDF	この PDF にページ切り替え効果を追加できませんでした
+@pattern	page {page} has no objects	ページ {page} にオブジェクトがありません
+	parent spreads don't turn	親スプレッドは回転できません
+	photo library and raw development	フォトライブラリと RAW 現像
+	place the insertion point in a table	表内に挿入点を置いてください
+	place the insertion point in a text frame to create a table	表を作成するには、テキストフレーム内に挿入点を置いてください
+	place the insertion point in text	テキスト内に挿入点を置いてください
+	place the insertion point in text to insert a cross-reference	相互参照を挿入するには、テキスト内に挿入点を置いてください
+	printing isn't available on the web: export a PDF and print it	Web 版ではプリントできません。PDF を書き出してプリントしてください
+	reading, organizing and protecting PDFs	PDF の閲覧・整理・保護
+	revert isn't available on the web	Web 版では復帰できません
+	scale too small	拡大縮小率が小さすぎます
+	select a frame with a placed graphic	グラフィックが配置されたフレームを選択してください
+	select a multi-state object	マルチステートオブジェクトを選択してください
+	select a placed PDF	配置された PDF を選択してください
+	select a text frame	テキストフレームを選択してください
+	select a text frame or place the cursor in text	テキストフレームを選択するか、テキスト内にカーソルを置いてください
+	select a video or sound	ビデオまたはサウンドを選択してください
+	select at least three objects	3つ以上のオブジェクトを選択してください
+	select at least two objects	2つ以上のオブジェクトを選択してください
+	select objects to tag	タグ付けするオブジェクトを選択してください
+	select some text	テキストを選択してください
+	select text or a text frame	テキストまたはテキストフレームを選択してください
+	select text or frames first	先にテキストまたはフレームを選択してください
+	select text outside tables	表の外のテキストを選択してください
+	select two or more objects (or a group)	2つ以上のオブジェクト(またはグループ)を選択してください
+	select two or more paths	2つ以上のパスを選択してください
+	select two or more shapes	2つ以上のシェイプを選択してください
+	select two or more shapes on one spread (not text frames or groups)	同じスプレッド上の2つ以上のシェイプを選択してください(テキストフレームやグループは不可)
+	select type on a path	パス上文字を選択してください
+	special swatches are already listed	特殊スウォッチはすでに一覧にあります
+	special swatches can't be deleted	特殊スウォッチは削除できません
+	tables can't be nested in cells	セル内に表を入れ子にはできません
+	text frames can't be anchored yet	テキストフレームはまだアンカー付けできません
+	that's an end point	そこは端点です
+	the EPS has no bounding box	EPS にバウンディングボックスがありません
+@pattern	the PDF has {count} page(s)	この PDF は {count} ページです
+	the PDF view options couldn't be set	PDF の表示オプションを設定できませんでした
+	the book is empty	ブックは空です
+	the conveyor is empty	コンベアは空です
+	the default printer	既定のプリンター
+	the document has never been saved	ドキュメントはまだ保存されていません
+	the document has no index	ドキュメントに索引がありません
+	the document has no table of contents	ドキュメントに目次がありません
+@pattern	the document has {n} page(s)	ドキュメントは {n} ページです
+	the drag didn't touch the path	ドラッグがパスに触れませんでした
+	the endnote frame lists the endnotes	文末脚注フレームに文末脚注が一覧表示されます
+	the graphic isn't placed	グラフィックが配置されていません
+	the guide is locked	ガイドはロックされています
+	the insertion point is not in a table	挿入点が表内にありません
+	the insertion point is not in footnote text	挿入点が脚注テキスト内にありません
+	the object already holds text	オブジェクトにはすでにテキストがあります
+	the object has no path	オブジェクトにパスがありません
+	the page has no parent	ページに親ページがありません
+	the paths must be on one spread	パスは同じスプレッド上にある必要があります
+	the poster isn't a readable image	ポスターを画像として読み込めません
+	the selection contains a table	選択範囲に表が含まれています
+	the shapes don't overlap: nothing is left	シェイプが重なっていないため、何も残りません
+	the snippet is empty	スニペットが空です
+	the story has no frame	ストーリーにフレームがありません
+	the transparency blend space couldn't be set	透明の混合空間を設定できませんでした
+	too many variables	変数が多すぎます
+	too much content for a QR code	QR コードに収まらない量の内容です
+@pattern	transparency flattened: {n} region(s) rasterised	透明を分割・統合しました: {n} 個の領域をラスタライズ
+	type goes on empty paths, lines and shapes	文字は空のパス、線、シェイプ上に入力できます
+@pattern	unknown dialog {other}	不明なダイアログ {other}
+@pattern	unknown kind {k}	不明な種類 {k}
+@pattern	unknown option {k}	不明なオプション {k}
+@pattern	unknown preference {k}	不明な環境設定 {k}
+	unknown transform	不明な変形
+	unsupported or corrupt image	サポートされていない、または破損した画像です
+	up to	最大
+	use file.openBytes on the web	Web 版では file.openBytes を使用してください
+	vector illustration	ベクターイラスト
+	video editing, color and sound	動画編集、カラー、サウンド
+	x Height	エックスハイト
+	⌥-click clears overrides	⌥クリックでオーバーライドを消去
+	⚠ out of date	⚠ 古くなっています
+	Points	ポイント
+	Misspelled word → Correction (one per line):	スペルミスの単語 → 修正後(1行に1組):
+	Type a word with ~ at each allowed break (ex~am~ple); without ~ the word is never hyphenated.	分割を許可する位置に ~ を入れて単語を入力します(ex~am~ple)。~ がない単語はハイフネーションされません。
+	document	ドキュメント
+	Graphic	グラフィック
+	Unassigned	未指定
+	Grids, type and color	グリッド、文字、カラー
+	No style named	該当するスタイルがありません

@@ -1,0 +1,27 @@
+Craft-App-JapaneseLanguage
+Copyright (c) 2026 kazuhiroU and contributors.
+Licensed under the MIT License or the Apache License, Version 2.0, at your option
+(LICENSE-MIT, LICENSE-APACHE).
+
+This is an unofficial, community project. It is not affiliated with, endorsed by, or
+sponsored by storytold or the ArtCraft Team.
+
+Upstream material
+- The patches in this repository are modifications of the source code of the upstream projects
+  (https://github.com/storytold/<app>), which are licensed under MIT OR Apache-2.0
+  (Copyright (c) 2026 ArtCraft Team and the respective project contributors). Patch hunks
+  contain lines from those files; the upstream licenses and copyright notices apply to them.
+- Some entries of the ja.tsv catalogs, and parts of the translation module
+  (crates/ui-egui/src/i18n, cjk_fonts.rs) added by the patches, are adapted from the Japanese
+  catalog and i18n code of the upstream projects (PhotoCraft and others), under the same
+  MIT OR Apache-2.0 terms (Copyright (c) 2026 ArtCraft Team and the project contributors).
+- epaint-hook.patch / egui-vendor.patch are modifications of egui / epaint 0.36.2
+  (https://github.com/emilk/egui), MIT OR Apache-2.0, Copyright Emil Ernerfeldt
+  and the egui contributors. This repository does not contain egui or epaint source code;
+  scripts/apply.sh fetches the original from crates.io and applies the patch locally.
+
+Not included
+- No application binaries, no upstream source trees, and no ArtCraft names, wordmarks or logos.
+  The ArtCraft marks are trademarks of the ArtCraft Team and are not covered by any license
+  here. If you build and distribute a modified version, follow the upstream brand license
+  (docs/brand/LICENSE-brand.txt in the upstream repository).

@@ -1,0 +1,519 @@
+diff --git a/Cargo.lock b/Cargo.lock
+index 1952f5c..c245515 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -1153,8 +1153,6 @@ dependencies = [
+ [[package]]
+ name = "epaint"
+ version = "0.36.2"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "a0ec0308dc23130fc1a7d4623a8534c2ed069c6dc84e258ee4f3de99615aa1a3"
+ dependencies = [
+  "ahash",
+  "bytemuck",
+diff --git a/Cargo.toml b/Cargo.toml
+index b1882f9..113998d 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -135,3 +135,7 @@ jpeg-decoder = { opt-level = 3 }
+ jpeg-encoder = { opt-level = 3 }
+ png = { opt-level = 3 }
+ miniz_oxide = { opt-level = 3 }
++
++# i18n: epaint with a text-translator hook in Fonts::layout_job (vendor/epaint).
++[patch.crates-io]
++epaint = { path = "vendor/epaint" }
+diff --git a/crates/ui-egui/src/cjk_fonts.rs b/crates/ui-egui/src/cjk_fonts.rs
+new file mode 100644
+index 0000000..ef78e47
+--- /dev/null
++++ b/crates/ui-egui/src/cjk_fonts.rs
+@@ -0,0 +1,65 @@
++//! Japanese (CJK) fallback font for the UI.
++//!
++//! The bundled Inter / JetBrains Mono have no kana or kanji. When the UI language is Japanese a
++//! system font that has them is read once (they are 10-20 MB, so never at startup for English)
++//! and registered at the lowest priority in every family, so Latin text keeps Inter.
++
++use std::path::PathBuf;
++
++use egui::epaint::text::{FontInsert, FontPriority, InsertFontFamily};
++use egui::{FontData, FontFamily};
++
++/// Candidate files in preference order: (path, face index).
++fn candidates() -> Vec<(PathBuf, u32)> {
++    let mut v: Vec<(PathBuf, u32)> = Vec::new();
++    if let Ok(p) = std::env::var("LIGHTCRAFT_CJK_FONT") {
++        v.push((PathBuf::from(p), 0));
++    }
++    for p in [
++        // macOS: Hiragino Kaku Gothic (face 0 is the Japanese design)
++        "/System/Library/Fonts/ヒラギノ角ゴシック W3.ttc",
++        "/System/Library/Fonts/ヒラギノ角ゴシック W4.ttc",
++        "/System/Library/Fonts/ヒラギノ角ゴシック W2.ttc",
++        "/Library/Fonts/Arial Unicode.ttf",
++        // Windows
++        "C:\\Windows\\Fonts\\YuGothR.ttc",
++        "C:\\Windows\\Fonts\\meiryo.ttc",
++        "C:\\Windows\\Fonts\\msgothic.ttc",
++        // Linux
++        "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
++        "/usr/share/fonts/noto-cjk/NotoSansCJK-Regular.ttc",
++        "/usr/share/fonts/google-noto-cjk/NotoSansCJK-Regular.ttc",
++        "/usr/share/fonts/truetype/noto/NotoSansCJK-Regular.ttc",
++        "/usr/share/fonts/opentype/ipafont-gothic/ipag.ttf",
++        "/usr/share/fonts/truetype/fonts-japanese-gothic.ttf",
++    ] {
++        v.push((PathBuf::from(p), 0));
++    }
++    v
++}
++
++/// Register a CJK fallback font (once per process run of the flag).
++pub fn ensure_loaded(ctx: &egui::Context, loaded: &mut bool) {
++    if *loaded {
++        return;
++    }
++    *loaded = true;
++    for (path, index) in candidates() {
++        let Ok(meta) = std::fs::metadata(&path) else { continue };
++        if !meta.is_file() || meta.len() == 0 || meta.len() > (128 << 20) {
++            continue;
++        }
++        let Ok(bytes) = std::fs::read(&path) else { continue };
++        let mut data = FontData::from_owned(bytes);
++        data.index = index;
++        log::info!("UI font fallback: {}", path.display());
++        let families = [FontFamily::Proportional, FontFamily::Monospace, FontFamily::Name(crate::theme::FONT_SEMIBOLD.into())]
++            .into_iter()
++            .map(|family| InsertFontFamily { family, priority: FontPriority::Lowest })
++            .collect();
++        ctx.add_font(FontInsert { name: "system-cjk".into(), data, families });
++        ctx.request_repaint();
++        return;
++    }
++    log::warn!("no Japanese UI font found; set LIGHTCRAFT_CJK_FONT to a .ttf/.ttc path");
++}
+diff --git a/crates/ui-egui/src/i18n.rs b/crates/ui-egui/src/i18n.rs
+index 0e2389a..59d656c 100644
+--- a/crates/ui-egui/src/i18n.rs
++++ b/crates/ui-egui/src/i18n.rs
+@@ -1,4 +1,6 @@
+ //! Presentation-only localization. Command ids, user names and catalog data remain unchanged.
++pub mod hook;
++
+ use std::{cell::Cell, collections::BTreeMap, sync::OnceLock};
+ 
+ use serde::{Deserialize, Serialize};
+@@ -38,12 +40,43 @@ thread_local! {
+     static LANGUAGE: Cell<Language> = const { Cell::new(Language::En) };
+ }
+ 
++/// `LIGHTCRAFT_LANGUAGE` (`ja` / `en`) wins; otherwise the system language (Japanese or English).
+ pub fn default_language() -> Language {
+-    if std::env::var("LIGHTCRAFT_LANGUAGE").as_deref() == Ok("ja") { Language::Ja } else { Language::En }
++    if let Some(l) = std::env::var("LIGHTCRAFT_LANGUAGE").ok().and_then(|v| Language::parse(v.trim())) {
++        return l;
++    }
++    static SYSTEM: OnceLock<Language> = OnceLock::new();
++    *SYSTEM.get_or_init(system_language)
++}
++
++fn system_language() -> Language {
++    let ja = |tag: &str| tag.to_ascii_lowercase().starts_with("ja");
++    for var in ["LC_ALL", "LC_MESSAGES", "LANG"] {
++        if let Some(v) = std::env::var(var).ok().filter(|v| !v.is_empty()) {
++            return if ja(&v) { Language::Ja } else { Language::En };
++        }
++    }
++    // Apps started from the Finder don't inherit LANG: use the macOS preferred-languages list.
++    #[cfg(target_os = "macos")]
++    if let Ok(out) = std::process::Command::new("/usr/bin/defaults").args(["read", "-g", "AppleLanguages"]).output()
++        && out.status.success()
++    {
++        let text = String::from_utf8_lossy(&out.stdout);
++        if let Some(first) = text.split(['(', ')', ',', '"', '\n']).map(str::trim).find(|s| !s.is_empty()) {
++            return if ja(first) { Language::Ja } else { Language::En };
++        }
++    }
++    Language::En
+ }
+ 
+ pub fn set_language(language: Language) {
+     LANGUAGE.with(|value| value.set(language));
++    hook::set_enabled(language == Language::Ja);
++}
++
++/// Exact-key lookup in the call-site catalog, for the text hook.
++pub(crate) fn json_lookup(source: &str) -> Option<String> {
++    japanese().get(source).cloned()
+ }
+ 
+ pub fn is_japanese() -> bool {
+@@ -103,7 +136,7 @@ mod tests {
+     #[test]
+     fn preferences_round_trip_and_old_settings_remain_readable() {
+         let old: crate::state::UiState = serde_json::from_str("{}").unwrap();
+-        assert_eq!(old.language, Language::En);
++        assert_eq!(old.language, default_language());
+         let settings = crate::state::UiState { language: Language::Ja, ..old };
+         let saved = serde_json::to_string(&settings).unwrap();
+         let restored: crate::state::UiState = serde_json::from_str(&saved).unwrap();
+diff --git a/crates/ui-egui/src/i18n/hook.rs b/crates/ui-egui/src/i18n/hook.rs
+new file mode 100644
+index 0000000..5ad0d36
+--- /dev/null
++++ b/crates/ui-egui/src/i18n/hook.rs
+@@ -0,0 +1,310 @@
++//! Gap-filler translation hook. LightCraft's own call-site catalog (`../locales/ja.json`, applied
++//! with `tr` / `tr_format!`) keeps priority; every other string that reaches egui's text layout
++//! (data-table labels, tool names, tooltips ...) goes through `epaint::text::set_text_translator`
++//! (vendor/epaint) and is looked up here: first in `ja.json`, then in `ja.tsv`.
++//!
++//! Catalog format (`ja.tsv`): `context<TAB>source<TAB>translation`.
++//! - empty context: a plain string, matched exactly
++//! - `@pattern`: a template with `{name}` placeholders matching any text (dynamic strings such as
++//!   `{n} items`); the placeholders are copied into the translation
++//!
++//! `LIGHTCRAFT_I18N_DUMP=path` appends every untranslated string that was drawn to that file.
++
++use std::collections::HashMap;
++use std::sync::{Mutex, OnceLock};
++
++
++// ---------------------------------------------------------------------------------------------
++// Catalog
++
++#[derive(Default)]
++struct Pattern {
++    /// literal pieces between placeholders (`pieces.len() == names.len() + 1`)
++    pieces: Vec<String>,
++    names: Vec<String>,
++    translation: String,
++}
++
++#[derive(Default)]
++struct Catalog {
++    plain: HashMap<String, String>,
++    patterns: Vec<Pattern>,
++    /// memo of lookups, including misses (cleared when it grows large: timecodes etc.)
++    memo: Mutex<HashMap<String, Option<String>>>,
++}
++
++fn unescape(s: &str) -> String {
++    let mut out = String::with_capacity(s.len());
++    let mut it = s.chars();
++    while let Some(c) = it.next() {
++        if c != '\\' {
++            out.push(c);
++            continue;
++        }
++        match it.next() {
++            Some('n') => out.push('\n'),
++            Some('t') => out.push('\t'),
++            Some('\\') => out.push('\\'),
++            Some(o) => {
++                out.push('\\');
++                out.push(o);
++            }
++            None => out.push('\\'),
++        }
++    }
++    out
++}
++
++/// Entries of a catalog file as (context, source, translation) plus line errors.
++pub fn parse_entries(text: &str) -> (Vec<(String, String, String)>, Vec<String>) {
++    let mut entries = Vec::new();
++    let mut errors = Vec::new();
++    for (n, line) in text.lines().enumerate() {
++        if line.trim().is_empty() || line.starts_with('#') {
++            continue;
++        }
++        let mut cols = line.split('\t');
++        match (cols.next(), cols.next(), cols.next(), cols.next()) {
++            (Some(ctx), Some(src), Some(tr), None) if !src.is_empty() && !tr.is_empty() => {
++                entries.push((unescape(ctx), unescape(src), unescape(tr)));
++            }
++            _ => errors.push(format!("line {}: expected `context<TAB>source<TAB>translation`", n + 1)),
++        }
++    }
++    (entries, errors)
++}
++
++/// `{name}` placeholders of a template, in order.
++fn placeholders(s: &str) -> Vec<&str> {
++    let mut out = Vec::new();
++    let mut rest = s;
++    while let Some(a) = rest.find('{') {
++        let after = &rest[a + 1..];
++        match after.find('}') {
++            Some(b) => {
++                out.push(&after[..b]);
++                rest = &after[b + 1..];
++            }
++            None => break,
++        }
++    }
++    out
++}
++
++fn split_template(src: &str) -> (Vec<String>, Vec<String>) {
++    let mut pieces = Vec::new();
++    let mut names = Vec::new();
++    let mut rest = src;
++    loop {
++        match rest.find('{').and_then(|a| rest[a..].find('}').map(|b| (a, a + b))) {
++            Some((a, b)) => {
++                pieces.push(rest[..a].to_string());
++                names.push(rest[a + 1..b].to_string());
++                rest = &rest[b + 1..];
++            }
++            None => {
++                pieces.push(rest.to_string());
++                break;
++            }
++        }
++    }
++    (pieces, names)
++}
++
++impl Catalog {
++    fn parse(text: &str) -> Catalog {
++        let mut c = Catalog::default();
++        for (ctx, src, tr) in parse_entries(text).0 {
++            match ctx.as_str() {
++                "@pattern" => {
++                    let (pieces, names) = split_template(&src);
++                    c.patterns.push(Pattern { pieces, names, translation: tr });
++                }
++                // contexts other than plain/pattern: keep the plain form as a fallback
++                _ => {
++                    c.plain.entry(src).or_insert(tr);
++                }
++            }
++        }
++        // Longer literal text first so the most specific pattern wins.
++        c.patterns.sort_by_key(|p| std::cmp::Reverse(p.pieces.iter().map(String::len).sum::<usize>()));
++        c
++    }
++
++    fn lookup(&self, s: &str) -> Option<String> {
++        if let Some(t) = self.plain.get(s) {
++            return Some(t.clone());
++        }
++        // Numbers, timecodes and other symbol-only strings are never translated.
++        if !s.chars().any(|c| c.is_alphabetic()) {
++            return None;
++        }
++        // Trailing/leading whitespace and bullets are kept around the translated core.
++        let trimmed = s.trim();
++        if trimmed.len() != s.len() && !trimmed.is_empty() {
++            let lead = &s[..s.len() - s.trim_start().len()];
++            let trail = &s[s.trim_end().len()..];
++            if let Some(t) = self.lookup(trimmed) {
++                return Some(format!("{lead}{t}{trail}"));
++            }
++        }
++        for p in &self.patterns {
++            if let Some(caps) = match_pattern(p, s) {
++                let mut out = p.translation.clone();
++                for (name, val) in p.names.iter().zip(caps) {
++                    // A captured value that is itself a known string is translated too.
++                    let shown = self.plain.get(val).map(String::as_str).unwrap_or(val);
++                    out = out.replace(&format!("{{{name}}}"), shown);
++                }
++                return Some(out);
++            }
++        }
++        None
++    }
++
++    fn translate(&self, s: &str) -> Option<String> {
++        {
++            let memo = self.memo.lock().ok()?;
++            if let Some(hit) = memo.get(s) {
++                return hit.clone();
++            }
++        }
++        let r = self.lookup(s);
++        if let Ok(mut memo) = self.memo.lock() {
++            if memo.len() > 20_000 {
++                memo.clear();
++            }
++            memo.insert(s.to_string(), r.clone());
++        }
++        r
++    }
++}
++
++/// Placeholders that stand for counts, times and sizes only match text with a digit in it, so a
++/// pattern such as `Layer {l}` doesn't swallow an unrelated `Layer Styles`.
++fn is_numeric_name(name: &str) -> bool {
++    name.starts_with("num")
++        || matches!(name, "n" | "k" | "i" | "pc" | "ms" | "fps" | "kbps" | "w" | "h" | "b" | "yy" | "threads" | "need" | "fit" | "started" | "done" | "copied" | "failed" | "rq")
++}
++
++fn match_pattern<'a>(p: &Pattern, s: &'a str) -> Option<Vec<&'a str>> {
++    let first = p.pieces.first()?;
++    let last = p.pieces.last()?;
++    if !s.starts_with(first.as_str()) || s.len() < first.len() + last.len() || !s[first.len()..].ends_with(last.as_str()) {
++        return None;
++    }
++    let end = s.len() - last.len();
++    let mut pos = first.len();
++    let mut caps = Vec::with_capacity(p.names.len());
++    for i in 0..p.names.len() {
++        let next = &p.pieces[i + 1];
++        let is_last = i + 1 == p.names.len();
++        let cap_end = if is_last {
++            end
++        } else {
++            let from = pos + 1; // a placeholder matches at least one character
++            let found = s.get(from..end)?.find(next.as_str())?;
++            from + found
++        };
++        if cap_end <= pos {
++            return None;
++        }
++        let cap = s.get(pos..cap_end)?;
++        if is_numeric_name(&p.names[i]) && !cap.chars().any(|c| c.is_ascii_digit()) {
++            return None;
++        }
++        caps.push(cap);
++        pos = cap_end + if is_last { 0 } else { next.len() };
++    }
++    if p.names.is_empty() && s != first {
++        return None;
++    }
++    Some(caps)
++}
++
++static JA: OnceLock<Catalog> = OnceLock::new();
++
++fn ja() -> &'static Catalog {
++    JA.get_or_init(|| Catalog::parse(include_str!("ja.tsv")))
++}
++
++// ---------------------------------------------------------------------------------------------
++// Switch and the text hook
++
++static ENABLED: std::sync::atomic::AtomicBool = std::sync::atomic::AtomicBool::new(false);
++
++/// Turn the text hook on (Japanese) or off (English); installs it on first use.
++pub fn set_enabled(on: bool) {
++    static INSTALLED: OnceLock<()> = OnceLock::new();
++    INSTALLED.get_or_init(|| egui::epaint::text::set_text_translator(hook));
++    ENABLED.store(on, std::sync::atomic::Ordering::Relaxed);
++    // Translation stays on in English too when the dump is requested (to list the gaps).
++    egui::epaint::text::set_text_translation_enabled(on || dump_path().is_some());
++}
++
++/// Translate an English string with the gap-filler catalog; `None` when unknown.
++pub fn translate(s: &str) -> Option<String> {
++    ja().translate(s)
++}
++
++fn hook(s: &str) -> Option<String> {
++    if !ENABLED.load(std::sync::atomic::Ordering::Relaxed) {
++        dump(s);
++        return None;
++    }
++    // The call-site catalog first (exact keys only), then the gap-filler.
++    let r = super::json_lookup(s).or_else(|| translate(s));
++    if r.is_none() {
++        dump(s);
++    }
++    r
++}
++
++fn dump_path() -> Option<&'static str> {
++    static P: OnceLock<Option<String>> = OnceLock::new();
++    P.get_or_init(|| std::env::var("LIGHTCRAFT_I18N_DUMP").ok().filter(|v| !v.is_empty())).as_deref()
++}
++
++fn dump(s: &str) {
++    let Some(path) = dump_path() else { return };
++    if !s.chars().any(|c| c.is_alphabetic()) || s.len() > 200 {
++        return;
++    }
++    static SEEN: OnceLock<Mutex<std::collections::HashSet<String>>> = OnceLock::new();
++    let seen = SEEN.get_or_init(Default::default);
++    let Ok(mut seen) = seen.lock() else { return };
++    if seen.len() < 50_000 && seen.insert(s.to_string()) {
++        use std::io::Write;
++        if let Ok(mut f) = std::fs::OpenOptions::new().create(true).append(true).open(path) {
++            let _ = writeln!(f, "{}", s.replace('\\', "\\\\").replace('\n', "\\n").replace('\t', "\\t"));
++        }
++    }
++}
++
++#[cfg(test)]
++mod tests {
++    use super::*;
++
++    #[test]
++    fn bundled_catalog_is_well_formed() {
++        let (entries, errors) = parse_entries(include_str!("ja.tsv"));
++        assert!(errors.is_empty(), "{errors:?}");
++        let mut seen = std::collections::HashSet::new();
++        for (ctx, src, tr) in &entries {
++            assert!(seen.insert((ctx.clone(), src.clone())), "duplicate {ctx:?} {src:?}");
++            let (mut want, mut got) = (placeholders(src), placeholders(tr));
++            want.sort_unstable();
++            got.sort_unstable();
++            assert_eq!(want, got, "placeholders differ in {src:?}");
++        }
++    }
++
++    #[test]
++    fn patterns_capture_and_substitute() {
++        let c = Catalog::parse("@pattern\tDelete \"{name}\"?\t\u{300c}{name}\u{300d}\u{3092}\u{524a}\u{9664}\u{3057}\u{307e}\u{3059}\u{304b}?\n\tLayer\tレイヤー\n");
++        assert_eq!(c.translate("Delete \"Layer\"?").as_deref(), Some("\u{300c}レイヤー\u{300d}を削除しますか?"));
++        assert_eq!(c.translate("Delete \"x\"?").as_deref(), Some("\u{300c}x\u{300d}を削除しますか?"));
++        assert_eq!(c.translate(" Layer ").as_deref(), Some(" レイヤー "));
++        assert_eq!(c.translate("00:01"), None);
++    }
++}
+diff --git a/crates/ui-egui/src/lib.rs b/crates/ui-egui/src/lib.rs
+index 8addc61..d5269e6 100644
+--- a/crates/ui-egui/src/lib.rs
++++ b/crates/ui-egui/src/lib.rs
+@@ -6,6 +6,7 @@
+ #![forbid(unsafe_code)]
+ #![deny(clippy::unwrap_used, clippy::expect_used, clippy::panic, clippy::unimplemented, clippy::todo, clippy::unreachable)]
+ 
++pub mod cjk_fonts;
+ pub mod control;
+ pub mod export_task;
+ pub mod headless;
+@@ -158,6 +159,7 @@ pub struct LightcraftApp {
+     synthetic_mods_release: bool,
+     styled: bool,
+     fonts_ready: bool,
++    cjk_loaded: bool,
+     last_time: f64,
+     /// Rect of the photo canvas and the displayed image (screen points) from the last frame.
+     pub canvas_rect: Option<egui::Rect>,
+@@ -224,6 +226,7 @@ impl LightcraftApp {
+             synthetic_mods_release: false,
+             styled: false,
+             fonts_ready: false,
++            cjk_loaded: false,
+             last_time: 0.0,
+             canvas_rect: None,
+             image_rect: None,
+@@ -500,6 +503,13 @@ impl LightcraftApp {
+         } else {
+             self.fonts_ready = true;
+         }
++        // Without the craft-fonts build input there is no Japanese face: borrow a system one.
++        if self.fonts_ready
++            && self.ui.language == i18n::Language::Ja
++            && lightcraft_engine::fonts::japanese(lightcraft_engine::CRAFT_FONTS).next().is_none()
++        {
++            cjk_fonts::ensure_loaded(ctx, &mut self.cjk_loaded);
++        }
+         panels::notices::logic(self);
+         // closing the window (or Quit) with changes only in memory: retry, else ask first
+         if ctx.input(|i| i.viewport().close_requested()) && !panels::notices::may_close(self) {

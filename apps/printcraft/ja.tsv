@@ -1,0 +1,1797 @@
+# Japanese (ja) catalog. Columns, separated by a TAB:  context <TAB> source <TAB> translation
+#
+#   context  empty        a plain UI string; `source` is the English text shown by the code
+#            @pattern     `source` is a template with {name} placeholders that match any text (a
+#                         dynamic string such as `Undo {x}`); the placeholders are copied into the
+#                         translation. Names n, k, i, pc, ms, fps, w, h ... and num* only match text
+#                         containing a digit.
+#   escapes  \n  \t  \\  inside a column. `{name}` placeholders must appear in both columns.
+#   lines starting with # and blank lines are ignored.
+#
+# Clean-room: every entry was written from the plain meaning of the English label using ordinary
+# Japanese computing vocabulary (ページ, しおり, 墨消し, 透かし ...). No proprietary localisation
+# resource, string table or product UI was consulted or copied. Entries whose English text is
+# identical to one in the sister apps (EffectCraft, PhotoCraft, VectorCraft; same author, same
+# vocabulary policy) were taken from their ja.tsv. Product and technology names stay in Latin
+# letters; the trailing "..." / "…" of dialog commands is kept.
+
+	Attach a file	ファイルを添付
+	Add a sticky note	付箋コメントを追加
+	Add a text box	テキストボックスを追加
+	Add a callout	引き出し線付きテキストを追加
+	Insert text	テキストを挿入
+	Replace text	テキストを置換
+	Comments panel	コメントパネル
+	Protect using password…	パスワードで保護…
+	Keyboard shortcuts	キーボードショートカット
+	Fit visible	表示範囲に合わせる
+	Hide all comments	すべてのコメントを非表示
+	Import comments…	コメントを読み込む…
+	PrintCraft web page	PrintCraft のウェブページ
+	PrintCraft on GitHub	GitHub の PrintCraft
+	Insert blank page	空白ページを挿入
+	Remove header & footer	ヘッダーとフッターを削除
+	Remove watermark	透かしを削除
+	Remove background	背景を削除
+	Remove all links	すべてのリンクを削除
+	New blank PDF	空白の PDF を作成
+	Copy pages	ページをコピー
+	Cut pages	ページを切り取り
+	Paste pages	ページを貼り付け
+	Create PDF from file…	ファイルから PDF を作成…
+	Create PDF from images…	画像から PDF を作成…
+	Create PDF from clipboard	クリップボードから PDF を作成
+	Combine files…	ファイルを結合…
+	Save as…	別名で保存…
+	Close file	ファイルを閉じる
+	Close all	すべて閉じる
+	Document properties…	文書のプロパティ…
+	Find…	検索…
+	Advanced search…	高度な検索…
+	Find tools and commands…	ツールとコマンドを検索…
+	Marquee zoom	範囲指定ズーム
+	Take a snapshot	スナップショットを作成
+	Full screen mode	全画面表示
+	Read mode	閲覧モード
+	Switch light / dark theme	明るい／暗いテーマを切り替え
+	Underline text	テキストに下線を引く
+	Strikethrough text	テキストに取り消し線を引く
+	Squiggly underline text	テキストに波線を引く
+	Draw a line	線を描く
+	Draw an arrow	矢印を描く
+	Draw a rectangle	四角形を描く
+	Draw an oval	楕円を描く
+	Draw a polygon	多角形を描く
+	Draw connected lines	連続した線を描く
+	Draw a cloud	雲形を描く
+	Erase drawings	描画を消去
+	Form fields panel	フォームフィールドパネル
+	Export all comments to data file…	すべてのコメントをデータファイルに書き出す…
+	Summarize comments	コメントを要約
+	Import form data…	フォームデータを読み込む…
+	Export form data…	フォームデータを書き出す…
+	PDF/A…	PDF/A…
+	Action Wizard…	アクションウィザード…
+	Prepare for distribution…	配布の準備…
+	Optimize scanned documents…	スキャン文書を最適化…
+	Compare files…	ファイルを比較…
+	Merge data files into spreadsheet…	データファイルをスプレッドシートに統合…
+	Tab order: by rows	タブ順序: 行方向
+	Tab order: by columns	タブ順序: 列方向
+	Tab order: by document structure	タブ順序: 文書構造順
+	Add or edit links	リンクを追加または編集
+	Create links from URLs	URL からリンクを作成
+	Add Bates numbering…	ベイツ番号を追加…
+	Add image…	画像を追加…
+	Redact pages…	ページを墨消し…
+	Find text and redact…	テキストを検索して墨消し…
+	Redaction properties…	墨消しのプロパティ…
+	Apply redactions…	墨消しを適用…
+	Clear redaction marks	墨消しマークを消去
+	Remove hidden information…	隠し情報を削除…
+	Sanitize document…	文書を無害化…
+	Field properties…	フィールドのプロパティ…
+	Add a text field	テキストフィールドを追加
+	Add a checkbox	チェックボックスを追加
+	Add a radio button	ラジオボタンを追加
+	Add a drop-down list	ドロップダウンリストを追加
+	Add a list box	リストボックスを追加
+	Add a button	ボタンを追加
+	Add an image field	画像フィールドを追加
+	Add a date field	日付フィールドを追加
+	Add a digital signature field	デジタル署名フィールドを追加
+	Signatures panel	署名パネル
+	Fill & Sign: add text	入力と署名: テキストを追加
+	Fill & Sign: checkmark	入力と署名: チェックマーク
+	Fill & Sign: cross	入力と署名: バツ印
+	Fill & Sign: dot	入力と署名: ドット
+	Fill & Sign: line	入力と署名: 線
+	Fill & Sign: date	入力と署名: 日付
+	Fill & Sign: sign	入力と署名: 署名
+	Fill & Sign: initials	入力と署名: イニシャル
+	Export to image…	画像に書き出す…
+	Reduce file size…	ファイルサイズを縮小…
+	Optimize PDF…	PDF を最適化…
+	Export to text…	テキストに書き出す…
+	Export to Word…	Word に書き出す…
+	Export to HTML…	HTML に書き出す…
+	Export to RTF…	RTF に書き出す…
+	JavaScript console…	JavaScript コンソール…
+	Document JavaScripts…	文書の JavaScript…
+	Recognize text…	テキストを認識…
+	Recognize text in multiple files…	複数ファイルのテキストを認識…
+	Check for accessibility…	アクセシビリティをチェック…
+	Change reading options…	読み上げオプションを変更…
+	Add alternate text…	代替テキストを追加…
+	Export all images…	すべての画像を書き出す…
+	Add header & footer…	ヘッダーとフッターを追加…
+	Update header & footer…	ヘッダーとフッターを更新…
+	Add watermark…	透かしを追加…
+	Update watermark…	透かしを更新…
+	Add background…	背景を追加…
+	Update background…	背景を更新…
+	Security properties…	セキュリティのプロパティ…
+	New bookmark	新しいしおり
+	Rotate pages clockwise	ページを右に回転
+	Rotate pages counterclockwise	ページを左に回転
+	Rotate pages…	ページを回転…
+	Set page boxes…	ページボックスを設定…
+	Insert pages from file…	ファイルからページを挿入…
+	Replace pages…	ページを置換…
+	Extract pages…	ページを抽出…
+	Split document…	文書を分割…
+	Number pages…	ページ番号を付ける…
+	Check for updates…	アップデートを確認…
+	About PrintCraft	PrintCraft について
+@pattern	Undo {l}	「{l}」を取り消し
+@pattern	Redo {l}	「{l}」をやり直し
+	Save as PDF/A	PDF/A として保存
+	Check for accessibility	アクセシビリティをチェック
+	Document JavaScripts	文書の JavaScript
+	JavaScript	JavaScript
+	Find text and redact	テキストを検索して墨消し
+	Import data	データを読み込む
+	Text field	テキストフィールド
+	Radio button	ラジオボタン
+	Drop-down list	ドロップダウンリスト
+	List box	リストボックス
+	Button	ボタン
+	Image field	画像フィールド
+	Date field	日付フィールド
+	Digital signature	デジタル署名
+	Date	日付
+	Add text	テキストを追加
+	Checkmark	チェックマーク
+	Cross	バツ印
+	Dot	ドット
+	Initials	イニシャル
+	Images	画像
+	Fields	フィールド
+	Compare	比較
+	Squiggly underline	波線
+	Arrow	矢印
+	Oval	楕円
+	Cloud	雲形
+	Attach file	ファイルを添付
+	Sticky note	付箋
+	Text box	テキストボックス
+	Fill & Sign	入力と署名
+	Remove security	セキュリティを解除
+	Extract pages	ページを抽出
+	Action Wizard	アクションウィザード
+	Optional	任意
+	Combine files	ファイルを結合
+	Combine	結合
+	Drawing	描画
+	Stamp	スタンプ
+	Redact	墨消し
+	Console	コンソール
+	Set page boxes	ページボックスを設定
+	Protect with password	パスワードで保護
+	Export a PDF	PDF を書き出す
+	Export to	書き出し形式
+	Microsoft Word (.docx)	Microsoft Word (.docx)
+	Spreadsheet (.xlsx)	スプレッドシート (.xlsx)
+	Presentation (.pptx)	プレゼンテーション (.pptx)
+	Image (PNG)	画像 (PNG)
+	Export all images	すべての画像を書き出す
+	HTML web page	HTML ウェブページ
+	Rich Text Format (.rtf)	リッチテキスト形式 (.rtf)
+	Text (plain)	テキスト (プレーン)
+	PostScript / EPS	PostScript / EPS
+	Signature	署名
+	Edit a PDF	PDF を編集
+	Modify page	ページを変更
+	Rotate pages	ページを回転
+	Insert pages	ページを挿入
+	Delete pages	ページを削除
+	Organize pages	ページを整理
+	Add content	コンテンツを追加
+	Edit text & images	テキストと画像を編集
+	Header and footer	ヘッダーとフッター
+	Watermark	透かし
+	Bates numbering	ベイツ番号
+	Create a PDF	PDF を作成
+	Create from	作成元
+	Single file	単一のファイル
+	Multiple files	複数のファイル
+	Blank page	空白ページ
+	Add files to combine	結合するファイルを追加
+	Page options	ページオプション
+	Page grid	ページグリッド
+	Insert	挿入
+	Crop pages	ページをトリミング
+	Duplicate pages	ページを複製
+	Page labels	ページラベル
+	Page transitions	ページ切り替え効果
+	Add comments	コメントを追加
+	Markup	マークアップ
+	Highlight text	テキストを強調表示
+	Draw freehand	フリーハンドで描画
+	Comment list	コメント一覧
+	Scan & OCR	スキャンと OCR
+	In this file	このファイル内
+	In multiple files	複数のファイル内
+	Enhance scanned file	スキャンしたファイルを補正
+	Correct recognized text	認識したテキストを修正
+	Protect a PDF	PDF を保護
+	Protect	保護
+	Advanced options	詳細オプション
+	Encrypt with certificate	証明書で暗号化
+	Security properties	セキュリティのプロパティ
+	Redact a PDF	PDF を墨消し
+	Redact text and images	テキストと画像を墨消し
+	Redact pages	ページを墨消し
+	Set properties	プロパティを設定
+	Compress a PDF	PDF を圧縮
+	Optimize	最適化
+	Advanced optimization	詳細な最適化
+	Audit space usage	容量の使用状況を調査
+	Prepare a form	フォームを作成
+	Field list	フィールド一覧
+	Field properties	フィールドのプロパティ
+	Tab order by rows	タブ順序 (行方向)
+	Tab order by columns	タブ順序 (列方向)
+	Export data	データを書き出す
+	Add form components	フォーム部品を追加
+	Add a stamp	スタンプを追加
+	Stamps	スタンプ
+	Stamp palette	スタンプパレット
+	Use a certificate	証明書を使用
+	Certificates	証明書
+	Digitally sign	デジタル署名
+	Timestamp	タイムスタンプ
+	Validate all signatures	すべての署名を検証
+	Certify (visible signature)	認証 (表示される署名)
+	Certify (invisible signature)	認証 (表示されない署名)
+	Use print production	印刷工程を使用
+	Print production	印刷工程
+	Output preview	出力プレビュー
+	Preflight	プリフライト
+	Convert colors	色を変換
+	Add printer marks	トンボを追加
+	Fix hairlines	ヘアラインを修正
+	Measure objects	オブジェクトを計測
+	Measure	計測
+	Measuring tool	計測ツール
+	Geospatial location	地理空間情報
+	Select files to compare	比較するファイルを選択
+	Use guided actions	ガイド付きアクションを使用
+	Actions list	アクション一覧
+	Make accessible	アクセシブルにする
+	Prepare for distribution	配布の準備
+	Optimize scanned documents	スキャン文書を最適化
+	Archive documents	文書をアーカイブ
+	Prepare for accessibility	アクセシビリティの準備
+	Accessibility	アクセシビリティ
+	Automatically tag PDF	PDF に自動でタグ付け
+	Change reading options	読み上げオプションを変更
+	Open accessibility report	アクセシビリティレポートを開く
+	Add alternate text	代替テキストを追加
+	Fix reading order	読み上げ順序を修正
+	Apply PDF standards	PDF 標準を適用
+	Standards	規格
+	Save as PDF/X	PDF/X として保存
+	Save as PDF/UA	PDF/UA として保存
+	Add search index	検索インデックスを追加
+	Manage embedded index	埋め込みインデックスを管理
+	Use JavaScript	JavaScript を使用
+	Document actions	文書アクション
+	AI assistant	AI アシスタント
+	Bring your own model (off by default)	独自のモデルを使用 (初期設定ではオフ)
+	Summarize	要約
+	Ask about this document	この文書について質問
+	Translate	翻訳
+	Actual size	実際のサイズ
+	All tools	すべてのツール
+	Comments	コメント
+	Bookmarks	しおり
+	Attachments	添付ファイル
+	Signatures	署名
+	Accessibility Checker	アクセシビリティチェッカー
+	Form fields	フォームフィールド
+	Zoom to page level	ページ全体を表示
+	Fit to width	幅に合わせる
+	Open a PDF (⌘O)	PDF を開く (⌘O)
+	Dark gray theme	ダークグレーのテーマ
+	Light theme	ライトテーマ
+@pattern	{name} (edited)	{name} (編集済み)
+@pattern	{name} — unsaved changes	{name} — 未保存の変更あり
+	Read	閲覧
+	E-Sign	電子署名
+	Print (⌘P)	印刷 (⌘P)
+	Document properties (⌘D)	文書のプロパティ (⌘D)
+	Find tools and commands	ツールとコマンドを検索
+	Fit to height	高さに合わせる
+	Rotate view clockwise	表示を右に回転
+	Rotate view counterclockwise	表示を左に回転
+	Page navigation	ページ移動
+	Previous view	前の表示
+	Next view	次の表示
+	Page display	ページ表示
+	Continuous scrolling	連続スクロール
+	Two-page view	2 ページ表示
+	Single page	1 ページ表示
+	Show cover page in two-page view	2 ページ表示で表紙を単独表示
+	Display theme	表示テーマ
+	Use system setting	システム設定を使用
+	Side panels	サイドパネル
+	Page thumbnails	ページサムネール
+	Zoom out (⌘−)	縮小 (⌘−)
+	Zoom in (⌘+)	拡大 (⌘+)
+	Rotate view clockwise (⇧⌘+)	表示を右に回転 (⇧⌘+)
+	Toggle fit page / fit width	ページ全体／幅に合わせるを切り替え
+	Current page — type a page number or label (such as iv) and press Enter	現在のページ — ページ番号またはラベル (iv など) を入力して Enter を押します
+	Open a document first	先に文書を開いてください
+@pattern	That didn't work: an internal error stopped it ({m}). Your documents are unchanged.	処理できませんでした。内部エラーで中断されました ({m})。文書は変更されていません。
+	Nothing to undo	取り消す操作はありません
+	Nothing to redo	やり直す操作はありません
+	This document has no form fields you can fill in	この文書には入力できるフォームフィールドがありません
+	This document has no comments to flatten	この文書には統合するコメントがありません
+	This document has no form fields to flatten	この文書には統合するフォームフィールドがありません
+	There are no redaction marks (mark text, areas or pages first)	墨消しマークがありません (先にテキスト・範囲・ページにマークを付けてください)
+	header or footer	ヘッダーまたはフッター
+	This document isn't password-protected	この文書はパスワードで保護されていません
+	Only the document's owner can change its security (open it with the permissions password)	セキュリティを変更できるのは文書の所有者のみです (権限パスワードで開いてください)
+	The document's security settings don't allow this change	文書のセキュリティ設定ではこの変更はできません
+	Security will be removed when you save	保存時にセキュリティが解除されます
+	Click text or an image to edit it	テキストまたは画像をクリックして編集します
+	Drag a rectangle to create a link; double-click a link to edit it	ドラッグして四角形のリンクを作成します。リンクをダブルクリックすると編集できます
+	There are no redaction marks to apply	適用する墨消しマークがありません
+	Drag to draw the area where the signature should appear.	ドラッグして署名を表示する範囲を指定します。
+	Drag a rectangle around the area to copy	コピーする範囲をドラッグで囲みます
+	Drag a rectangle on a page to crop it; double-click a page for Set Page Boxes	ページ上でドラッグしてトリミングします。ページをダブルクリックするとページボックスの設定を開きます
+	Search tools and commands…	ツールとコマンドを検索…
+	No matching tools	一致するツールがありません
+@pattern	of {pages}	/ {pages}
+	Export certificate	証明書を書き出す
+	Keywords	キーワード
+	Document Properties	文書のプロパティ
+	Initial View	初期表示
+	PDF producer	PDF 作成元
+	Layout and Magnification	レイアウトと拡大率
+	Navigation tab	ナビゲーションタブ
+	Page Only	ページのみ
+	Pages Panel and Page	ページパネルとページ
+	Bookmarks Panel and Page	しおりパネルとページ
+	Attachments Panel and Page	添付ファイルパネルとページ
+	Layers Panel and Page	レイヤーパネルとページ
+	Page layout	ページレイアウト
+	Single Page	1 ページ
+	Single Page Continuous	1 ページ (連続)
+	Two-Up (Facing)	2 ページ (見開き)
+	Two-Up Continuous (Facing)	2 ページ (見開き・連続)
+	Two-Up (Cover Page)	2 ページ (表紙あり)
+	Two-Up Continuous (Cover Page)	2 ページ (表紙あり・連続)
+	Fit Page	ページ全体
+	Fit Width	幅に合わせる
+	Fit Height	高さに合わせる
+	Fit Visible	表示範囲に合わせる
+	Open to page	開くページ
+	Window Options	ウィンドウオプション
+	Resize window to initial page	ウィンドウを最初のページに合わせる
+	Center window on screen	ウィンドウを画面中央に表示
+	Open in Full Screen mode	全画面モードで開く
+	File Name	ファイル名
+	Document Title	文書のタイトル
+	User Interface Options	ユーザーインターフェイスオプション
+	Hide menu bar	メニューバーを隠す
+	Hide toolbars	ツールバーを隠す
+	Hide window controls	ウィンドウコントロールを隠す
+	Security method	セキュリティ方式
+	No security	セキュリティなし
+	Restrictions	制限
+	None — everything is allowed	なし — すべて許可
+	Password security	パスワードセキュリティ
+	Encryption	暗号化
+	Opened with	開いた方法
+	— (protection is applied when you save)	— (保護は保存時に適用されます)
+	Owner password (no restrictions apply)	所有者パスワード (制限なし)
+	User password	ユーザーパスワード
+	Change settings…	設定を変更…
+	Allowed	許可
+	Not allowed	不許可
+	Printing	印刷
+	High resolution	高解像度
+	Low resolution	低解像度
+	Changing the document	文書の変更
+	Document assembly	文書の組み立て
+	Content copying	コンテンツのコピー
+	Content copying for accessibility	アクセシビリティのためのコンテンツのコピー
+	Commenting	コメント
+	Filling of form fields	フォームフィールドへの入力
+	No fonts are referenced by the pages.	ページから参照されているフォントはありません。
+	 · Embedded subset	・埋め込み (サブセット)
+	 · Embedded	・埋め込み
+	 · Not embedded (substituted)	・埋め込みなし (代替)
+	PDF version	PDF バージョン
+	File size	ファイルサイズ
+	Page size	ページサイズ
+	Number of pages	ページ数
+	Tagged PDF	タグ付き PDF
+	Revisions	リビジョン
+@pattern	View revision {n}	リビジョン {n} を表示
+	Open the file as it was saved then	その時点で保存された状態のファイルを開く
+	Binding	綴じ方
+	e.g. en-US	例: ja-JP
+	Repairs	修復
+	Repair log	修復ログ
+	Split document	文書を分割
+	Pages per file	ファイルあたりのページ数
+	At most	最大
+	Before each selected page (select pages in Organize)	選択した各ページの前 (整理で選択)
+@pattern	Top-level bookmarks ({n})	最上位のしおり ({n})
+@pattern	Creates {f} files from {n} pages.	{n} ページから {f} 個のファイルを作成します。
+@pattern	Creates {f} file from {n} pages.	{n} ページから {f} 個のファイルを作成します。
+@pattern	Each file holds as many of the {n} pages as fit.	各ファイルには {n} ページのうち収まる分を入れます。
+	Replace Pages	ページを置換
+@pattern	Original: replace pages	元のファイル: 置換するページ
+@pattern	Replacement: pages of {name}	置換用: {name} のページ
+@pattern	to {n}	{n} まで
+@pattern	of {n}	/ {n}
+	Only the page content changes: links, comments, form fields and bookmarks on the original pages stay.	変更されるのはページの内容のみです。元のページのリンク、コメント、フォームフィールド、しおりはそのまま残ります。
+	The replacement file doesn't have that many pages.	置換用ファイルにそれだけのページ数がありません。
+@pattern	{count} pages selected.	{count} ページを選択中。
+@pattern	{count} page selected.	{count} ページを選択中。
+	Delete pages after extracting	抽出後にページを削除
+	Extract pages as separate files	ページを個別のファイルとして抽出
+	Rotate Pages	ページを回転
+	Direction:	方向:
+	Counterclockwise 90 degrees	左に 90 度
+	180 degrees	180 度
+	Clockwise 90 degrees	右に 90 度
+	Pages:	ページ:
+	Even and Odd Pages	偶数ページと奇数ページ
+	Even Pages Only	偶数ページのみ
+	Odd Pages Only	奇数ページのみ
+	Landscape and Portrait Pages	横向きと縦向きのページ
+	Landscape Pages	横向きのページ
+	Portrait Pages	縦向きのページ
+	Duplicate Field	フィールドを複製
+@pattern	Duplicate "{name}" onto:	「{name}」の複製先:
+	Summarize Options	要約オプション
+	Choose a layout:	レイアウトを選択:
+	Comments only	コメントのみ
+	Sort comments by:	コメントの並べ替え:
+	Create PDF Comment Summary	コメント要約の PDF を作成
+@pattern	Revert to the previously saved version of "{name}"? Changes since then can't be undone afterwards.	「{name}」を前回保存した状態に戻しますか? それ以降の変更は元に戻せません。
+	None (prefix only)	なし (接頭辞のみ)
+	Prefix	接頭辞
+@pattern	Labels: {preview}. Later pages keep their labels.	ラベル: {preview}。以降のページのラベルは変わりません。
+	Recover unsaved documents?	未保存の文書を復元しますか?
+	PrintCraft didn't shut down normally. These documents had changes that were autosaved:	PrintCraft は正常に終了しませんでした。次の文書には自動保存された変更があります:
+	just now	たった今
+@pattern	{mins} min ago	{mins} 分前
+@pattern	{h} h ago	{h} 時間前
+	 · password-protected	・パスワード保護
+	Next / previous match	次／前の検索結果
+	Copy selected text	選択したテキストをコピー
+	Select a word	単語を選択
+	Clear selection / close find	選択解除／検索を閉じる
+	Zoom in / out (also pinch or ⌘-scroll)	拡大／縮小 (ピンチや ⌘+スクロールも可)
+	Rotate view	表示を回転
+	First / last page	最初／最後のページ
+	Previous / next page	前／次のページ
+	Delete selected pages (Organize)	選択したページを削除 (整理)
+	Select all pages (Organize)	すべてのページを選択 (整理)
+@pattern	Version {v}	バージョン {v}
+	A clean-room, open-source PDF application written in Rust. MIT OR Apache-2.0.	Rust で書かれた、クリーンルーム方式のオープンソース PDF アプリケーション。MIT OR Apache-2.0。
+	Rendering: hayro (bootstrap) · UI: egui · Icons: Lucide (ISC) · Fonts: Inter, JetBrains Mono, Dancing Script (OFL)	レンダリング: hayro (暫定) ・UI: egui ・アイコン: Lucide (ISC) ・フォント: Inter, JetBrains Mono, Dancing Script (OFL)
+	Part of	提供:
+	Recover	復元
+@pattern	Removed {n} hidden items. Save to remove them from the file.	隠し項目を {n} 件削除しました。保存するとファイルから取り除かれます。
+@pattern	Removed {n} hidden item. Save to remove them from the file.	隠し項目を {n} 件削除しました。保存するとファイルから取り除かれます。
+	Document sanitized. Save to finish: saving rewrites the whole file.	文書を無害化しました。保存して完了します (保存時にファイル全体が書き直されます)。
+@pattern	Applied {marks} redaction marks. Save to remove the content from the file.	墨消しマークを {marks} 件適用しました。保存するとコンテンツがファイルから取り除かれます。
+@pattern	Applied {marks} redaction mark. Save to remove the content from the file.	墨消しマークを {marks} 件適用しました。保存するとコンテンツがファイルから取り除かれます。
+	Password protection will be applied when you save	パスワード保護は保存時に適用されます
+	Change document properties	文書のプロパティを変更
+@pattern	Save changes to “{name}” before closing?	閉じる前に「{name}」への変更を保存しますか?
+	Don't save	保存しない
+	No	いいえ
+	Password required	パスワードが必要です
+@pattern	“{name}” is protected. Enter a password to open it.	「{name}」は保護されています。開くにはパスワードを入力してください。
+	Digital IDs	デジタル ID
+@pattern	{reference}: Keychain identities are only available on macOS	{reference}: キーチェーンの ID は macOS でのみ利用できます
+@pattern	The Keychain's digital IDs couldn't be listed: {e}	キーチェーンのデジタル ID を一覧表示できませんでした: {e}
+	nothing to create	作成するものがありません
+	Enter a name.	名前を入力してください。
+	The password must have at least 6 characters.	パスワードは 6 文字以上にしてください。
+	The passwords do not match.	パスワードが一致しません。
+	There is no folder to save the digital ID in.	デジタル ID を保存するフォルダーがありません。
+	no free file name for the digital ID	デジタル ID に使えるファイル名がありません
+	nothing to import	読み込むものがありません
+	The password is incorrect.	パスワードが正しくありません。
+	nothing to sign	署名するものがありません
+	Choose a digital ID.	デジタル ID を選択してください。
+@pattern	Signed and saved to {path}	署名して {path} に保存しました
+@pattern	Couldn't open revision {n}: {e}	リビジョン {n} を開けませんでした: {e}
+@pattern	{name} (signed version)	{name} (署名済みバージョン)
+@pattern	Couldn't open the signed version: {e}	署名済みバージョンを開けませんでした: {e}
+	Sign with a Digital ID	デジタル ID で署名
+	Choose the digital ID that you want to use for signing:	署名に使用するデジタル ID を選択してください:
+@pattern	Issued by: {a}, Expires: {b}	発行者: {a}、有効期限: {b}
+@pattern	{a}Issued by: {b}, Expires: {c}	{a}発行者: {b}、有効期限: {c}
+	Keychain  ·  	キーチェーン  ·
+	No digital IDs yet.	デジタル ID はまだありません。
+	Configure New Digital ID	新しいデジタル ID を設定
+	Continue	続ける
+	Configure a Digital ID for Signing	署名用のデジタル ID を設定
+	Use a Digital ID from a file	ファイルのデジタル ID を使用
+	Create a new Digital ID (self-signed, saved to a password-protected file)	新しいデジタル ID を作成 (自己署名、パスワード保護ファイルに保存)
+	Organizational Unit	部署名
+	Organization Name	組織名
+	Email Address	メールアドレス
+	Country/Region	国／地域
+	Key Algorithm	鍵アルゴリズム
+	Confirm Password	パスワードの確認
+	Valid for 5 years, for digital signatures. Self-signed IDs are usually not trusted by others.	有効期間は 5 年間、デジタル署名用です。自己署名 ID は通常、他者には信頼されません。
+	File (.p12, .pfx)	ファイル (.p12, .pfx)
+	Digital ID	デジタル ID
+@pattern	Digitally signed by {name}	署名者: {name} (デジタル署名)
+	Reason: 	理由:
+	Location: 	場所:
+	Date: 	日付:
+	(the signing time)	(署名時刻)
+	Certify	認証
+	Reason	理由
+	Distinguished name	識別名
+	The signature will be invisible.	署名は表示されません。
+	Permitted actions after certifying	認証後に許可する操作
+	No changes allowed	変更を許可しない
+	Annotations, form fill-in, and digital signatures	注釈、フォーム入力、デジタル署名
+	Form fill-in and digital signatures	フォーム入力とデジタル署名
+	The key is in the macOS Keychain, which may ask to allow PrintCraft to use it.	鍵は macOS キーチェーンにあります。PrintCraft の使用を許可するよう求められる場合があります。
+	Digital ID password	デジタル ID のパスワード
+	an unknown issuer	不明な発行者
+@pattern	Certified by {name}	認証者: {name}
+	At least one signature is invalid.	無効な署名が 1 つ以上あります。
+	Signed and all signatures are valid.	署名済みで、すべての署名が有効です。
+	At least one signature has problems.	問題のある署名が 1 つ以上あります。
+	Validate all	すべて検証
+	This document has no signatures.	この文書には署名がありません。
+	Certified	認証済み
+	Signed	署名済み
+	an unknown signer	不明な署名者
+@pattern	Unsigned signature field: {name}	未署名の署名フィールド: {name}
+	Sign this field…	このフィールドに署名…
+	Signature is valid:	署名は有効です:
+	Signature validity is UNKNOWN:	署名の有効性は不明です:
+	Signature is INVALID:	署名は無効です:
+	Signature Details	署名の詳細
+	Signing time	署名日時
+	Algorithm	アルゴリズム
+	Signer	署名者
+	Issued by	発行者
+	Valid	有効
+@pattern	Field: {a} on page {n}	フィールド: {a} (ページ {n})
+	Field	フィールド
+	Add to trusted certificates	信頼済み証明書に追加
+	View signed version	署名済みバージョンを表示
+	Show certificate…	証明書を表示…
+	Export certificate…	証明書を書き出す…
+	Digital Signature	デジタル署名
+	Non-Repudiation	否認防止
+	Key Encipherment	鍵の暗号化
+	Data Encipherment	データの暗号化
+	Key Agreement	鍵合意
+	Certificate Signing	証明書の署名
+	CRL Signing	CRL の署名
+	Encipher Only	暗号化のみ
+	Decipher Only	復号のみ
+	Certificate Viewer	証明書ビューア
+	This dialog shows the details of a certificate and its chain.	このダイアログには証明書とその証明書チェーンの詳細が表示されます。
+	Trust	信頼
+	Issued to	発行先
+	Valid from	有効期間の開始
+	Valid to	有効期間の終了
+	Intended usage	用途
+	Any	すべて
+	Serial number	シリアル番号
+	Issuer	発行者
+	Validity starts	有効期間の開始日
+	Validity ends	有効期間の終了日
+	Public key	公開鍵
+	Basic constraints	基本制約
+	Certificate authority	認証局
+	End entity	エンドエンティティ
+	Key usage	鍵の用途
+	Not present	なし
+	Self-signed	自己署名
+	SHA-1 digest	SHA-1 ダイジェスト
+	SHA-256 digest	SHA-256 ダイジェスト
+	This certificate is in your list of trusted certificates.	この証明書は信頼済み証明書の一覧に含まれています。
+	This certificate is trusted through a certificate above it in the chain.	この証明書は、チェーン上位の証明書を通じて信頼されています。
+	This certificate is not trusted. Signatures made with it show an unknown identity.	この証明書は信頼されていません。この証明書による署名は ID が不明と表示されます。
+	Add to Trusted Certificates	信頼済み証明書に追加
+	Align fields	フィールドを整列
+	Distribute fields	フィールドを等間隔に配置
+	Match field sizes	フィールドのサイズを揃える
+@pattern	Delete {n} fields	{n} 個のフィールドを削除
+	Open a web link	ウェブリンクを開く
+	Reset a form	フォームをリセット
+	Execute a menu item	メニュー項目を実行
+	Show a field	フィールドを表示
+	Hide a field	フィールドを非表示
+	Submit a form	フォームを送信
+	Enter a page number	ページ番号を入力
+	Enter a URL	URL を入力
+	Enter the field names	フィールド名を入力
+	Text Field Properties	テキストフィールドのプロパティ
+	Check Box Properties	チェックボックスのプロパティ
+	Radio Button Properties	ラジオボタンのプロパティ
+	Dropdown Properties	ドロップダウンのプロパティ
+	List Box Properties	リストボックスのプロパティ
+	Button Properties	ボタンのプロパティ
+	Digital Signature Properties	デジタル署名のプロパティ
+	Validate	検証
+	Calculate	計算
+	This field is locked. Unlock it to change its properties.	このフィールドはロックされています。プロパティを変更するにはロックを解除してください。
+	Tooltip:	ツールチップ:
+	Common Properties	共通のプロパティ
+	Read Only	読み取り専用
+	Required	必須
+	Text Color:	文字色:
+	Borders and Colors	枠線と色
+	Border Color:	枠線の色:
+	Fill Color:	塗りつぶしの色:
+	No color	色なし
+	Points from the page's bottom-left corner.	ページの左下隅からのポイント数。
+	Default Value:	初期値:
+	Multi-line	複数行
+	Scroll long text	長いテキストをスクロール
+	Allow Rich Text Formatting	リッチテキスト書式を許可
+	Limit of	文字数制限:
+	Field is used for file selection	ファイル選択に使うフィールド
+	Check spelling	スペルチェック
+	Comb of	文字ごとのマス:
+@pattern	Export Value: {on}	書き出し値: {on}
+	Check box is checked by default	初期状態でチェックを入れる
+	Button is checked by default	初期状態で選択する
+	Check Box Style:	チェックボックスのスタイル:
+	Button Style:	ボタンのスタイル:
+	Buttons with the same name and value are selected in unison	名前と値が同じボタンは連動して選択されます
+	Item:	項目:
+	Item List	項目リスト
+@pattern	Delete {o}	{o} を削除
+	Add the choices people pick from.	選択肢を追加します。
+	Default:	初期値:
+	Sort items	項目を並べ替え
+	Allow user to enter custom text	ユーザーが任意のテキストを入力できるようにする
+	Multiple selection	複数選択
+	Commit selected value immediately	選択した値をすぐに確定
+	1,234.01 (red)	1,234.01 (赤)
+	(1,234.01) (red)	(1,234.01) (赤)
+	Zip Code	郵便番号
+	Zip Code + 4	郵便番号 + 4
+	Phone Number	電話番号
+	Social Security Number	社会保障番号
+	Arbitrary Mask	任意のマスク
+	Select format category:	書式の種類を選択:
+	Special	特殊
+	The value is shown as typed.	値は入力したとおりに表示されます。
+	Decimal places:	小数点以下の桁数:
+	Separator style:	区切り文字のスタイル:
+	Currency symbol:	通貨記号:
+	Before the number	数値の前
+	Negative number style:	負数のスタイル:
+	Custom:	カスタム:
+	Mask:	マスク:
+	9 digit, A letter, O letter or digit, X any character	9 は数字、A は文字、O は文字または数字、X は任意の文字
+@pattern	Example: {x}	例: {x}
+	Field value is not validated	フィールド値を検証しない
+	Field value is in range:	フィールド値が範囲内:
+	From:	開始:
+	To:	終了:
+	Add an Action	アクションを追加
+	Select Trigger:	トリガーを選択:
+	Select Action:	アクションを選択:
+	Fields to reset (comma-separated; empty: all)	リセットするフィールド (カンマ区切り、空欄ですべて)
+	Print, NextPage, PrevPage, FirstPage or LastPage	Print、NextPage、PrevPage、FirstPage、LastPage のいずれか
+	Field names (comma-separated)	フィールド名 (カンマ区切り)
+	URL to submit to	送信先 URL
+	Script:	スクリプト:
+	No actions	アクションなし
+	Value is not calculated	値を計算しない
+	Value is the	値は次のフィールドの
+	of the following fields:	計算結果:
+	Simplified field notation:	簡易フィールド表記:
+	Field names with + - * / and parentheses; put \\\\ before spaces in names.	+ - * / と括弧でフィールド名を結びます。名前の中の空白の前には \\\\ を付けます。
+	Rotate counterclockwise	左に回転
+	Rotate clockwise	右に回転
+	All pages	すべてのページ
+	Properties…	プロパティ…
+@pattern	Page {n}	ページ {n}
+	This document has no pages.	この文書にはページがありません。
+	This page couldn't be displayed.	このページを表示できませんでした。
+	Still rendering — this page is unusually complex…	まだ描画中です — このページは非常に複雑です…
+	Rendering…	描画中…
+@pattern	Go to page {n}	ページ {n} へ移動
+	Set Fields to Same Size	フィールドを同じサイズにする
+	Delete selected fields	選択したフィールドを削除
+@pattern	{name}: the {other} action isn't supported yet	{name}: {other} アクションにはまだ対応していません
+@pattern	{name} submits the form to {url}; PrintCraft doesn't send form data. Save the document to keep your entries.	{name} はフォームを {url} に送信します。PrintCraft はフォームデータを送信しません。入力内容を残すには文書を保存してください。
+	Find text	テキストを検索
+@pattern	Searching… {searched}/{pages}	検索中… {searched}/{pages}
+	No matches	一致なし
+@pattern	{n} of {k}	{n} / {k}
+	Previous (⇧⌘G)	前へ (⇧⌘G)
+	Next (⌘G)	次へ (⌘G)
+	Find options	検索オプション
+	Whole words only	単語全体で検索
+	Case-sensitive	大文字と小文字を区別
+	Close (Esc)	閉じる (Esc)
+	Signature panel	署名パネル
+	This document is secured. Some changes are restricted by its security settings.	この文書はセキュリティ設定で保護されています。一部の変更が制限されています。
+	This is a dynamic XFA form, which PrintCraft can't display yet. What you see is the file's placeholder page.	これは動的 XFA フォームで、PrintCraft はまだ表示できません。表示されているのはファイルのプレースホルダーページです。
+@pattern	This document contains {n} interactive form fields.	この文書には {n} 個のインタラクティブなフォームフィールドがあります。
+	This file was damaged and has been repaired. Saving keeps the repaired version.	このファイルは破損していたため修復されました。保存すると修復後の内容が保持されます。
+	Hide field highlights	フィールドの強調表示を隠す
+	Highlight fields	フィールドを強調表示
+	Security settings	セキュリティ設定
+	Details	詳細
+	Select (V)	選択 (V)
+	Hand (H)	手のひら (H)
+@pattern	Page {k} of {n}	ページ {k} / {n}
+	1 page selected	1 ページを選択中
+@pattern	{k} pages selected	{k} ページを選択中
+	Delete pages (Delete)	ページを削除 (Delete)
+	Insert a blank page after the selection	選択範囲の後ろに空白ページを挿入
+	Insert pages from a file…	ファイルからページを挿入…
+	Extract pages to a new document	ページを新しい文書に抽出
+	Split into files…	ファイルに分割…
+	Select pages	ページを選択
+	Odd pages	奇数ページ
+	Even pages	偶数ページ
+	Landscape pages	横向きのページ
+	Portrait pages	縦向きのページ
+	Move earlier	前へ移動
+	Move later	後ろへ移動
+	Back to the document	文書に戻る
+	Paste after	後ろに貼り付け
+@pattern	{n} pages	{n} ページ
+@pattern	{n} page	{n} ページ
+	Back to all tools	すべてのツールに戻る
+	Close panel	パネルを閉じる
+	View less	表示を減らす
+	View more	もっと見る
+@pattern	Planned · {m}	予定 · {m}
+	Available	利用可能
+@pattern	Planned for milestone {m} — open to see what it will include	マイルストーン {m} で対応予定 — 開くと内容を確認できます
+	Optional: needs an AI provider you configure	任意: 設定した AI プロバイダーが必要です
+@pattern	Coming in milestone {m}. Items marked Ready work today.	マイルストーン {m} で提供予定です。「対応済み」の項目は現在でも使えます。
+	Edit fields	フィールドを編集
+	Try the form as people filling it in will see it	入力する人から見えるとおりにフォームを試す
+	Ready	対応済み
+	AI	AI
+@pattern	{marks} marks	墨消しマーク {marks} 件
+@pattern	{marks} mark	墨消しマーク {marks} 件
+	Redact all	すべて墨消し
+	Clear all	すべてクリア
+	Choose a stamp, then click on the page to place it.	スタンプを選んで、ページ上をクリックして配置します。
+	Dynamic	動的
+	Sign Here	ここに署名
+	Standard Business	標準ビジネス
+	By name at time, date	氏名・日時付き
+	Bookmark options	しおりオプション
+	Expand all bookmarks	すべてのしおりを展開
+	Expand top-level bookmarks	最上位のしおりを展開
+	Collapse all bookmarks	すべてのしおりを折りたたむ
+	New bookmark (⌘B)	新しいしおり (⌘B)
+	This document has no bookmarks.	この文書にはしおりがありません。
+	This document has no layers.	この文書にはレイヤーがありません。
+	Hide layer	レイヤーを非表示
+	Show layer	レイヤーを表示
+	This document has no attachments.	この文書には添付ファイルがありません。
+@pattern	{meta}  ·  on page {n}	{meta}  ·  ページ {n}
+	Save attachment…	添付ファイルを保存…
+	Open in a new tab	新しいタブで開く
+@pattern	Set to current page ({n})	現在のページに設定 ({n})
+	Indent	インデント
+	Outdent	インデント解除
+	This document has no form fields.	この文書にはフォームフィールドがありません。
+	Tab order: move a field with its arrows.	タブ順序: 矢印でフィールドを移動します。
+	Unplaced	未配置
+	Earlier in tab order	タブ順で前へ
+	Later in tab order	タブ順で後ろへ
+	All pages in range	範囲内のすべてのページ
+	Odd pages only	奇数ページのみ
+	Even pages only	偶数ページのみ
+	Page number	ページ番号
+	Subset	サブセット
+	Left Header Text	ヘッダー左のテキスト
+	Center Header Text	ヘッダー中央のテキスト
+	Right Header Text	ヘッダー右のテキスト
+	Left Footer Text	フッター左のテキスト
+	Center Footer Text	フッター中央のテキスト
+	Right Footer Text	フッター右のテキスト
+	Update	更新
+@pattern	{verb} Header and Footer	ヘッダーとフッターを{verb}
+@pattern	{verb} Watermark	透かしを{verb}
+@pattern	{verb} Background	背景を{verb}
+	Margins (in)	余白 (インチ)
+	Insert Page Number	ページ番号を挿入
+	Insert Date	日付を挿入
+	Start page number	開始ページ番号
+	Fit to page	ページに合わせる
+	Appear behind page	ページの背面に表示
+	Appear on top of page	ページの前面に表示
+	From colour	色の指定元
+	Page Range Options	ページ範囲オプション
+@pattern	Preview: page {k} of {n}	プレビュー: ページ {k} / {n}
+@pattern	Applies to {n} pages	{n} ページに適用
+@pattern	Applies to {n} page	{n} ページに適用
+	Replaces the existing one on those pages.	それらのページにある既存のものを置き換えます。
+	PDF or image	PDF または画像
+	No file chosen	ファイルが選択されていません
+	Scale relative to target page	対象ページに対する拡大率
+@pattern	Sent to {printer}	{printer} に送信しました
+@pattern	Sent to {printer}: {msg}	{printer} に送信しました: {msg}
+@pattern	Saved the print-ready PDF to {path}	印刷用 PDF を {path} に保存しました
+@pattern	Could not save: {e}	保存できませんでした: {e}
+@pattern	{name} (default)	{name} (既定)
+	Print in grayscale	グレースケールで印刷
+	Two-sided:	両面印刷:
+	Flip on long edge	長辺を綴じる
+	Flip on short edge	短辺を綴じる
+	Paper:	用紙:
+	Pages to Print	印刷するページ
+	More options:	その他のオプション:
+	Reverse pages	ページを逆順にする
+	Page Sizing & Handling	ページサイズと処理
+	Size	サイズ
+	Fit	合わせる
+	Multiple	複数
+	Booklet	小冊子
+	Shrink oversized pages	大きなページを縮小
+	Custom scale:	カスタム倍率:
+	Tile scale:	タイルの倍率:
+	Cut marks	断ち切りマーク
+	Pages per sheet:	1 枚あたりのページ数:
+	Page order:	ページ順:
+	Horizontal	横方向
+	Horizontal reversed	横方向 (逆順)
+	Vertical	縦方向
+	Vertical reversed	縦方向 (逆順)
+	Print page border	ページの枠線を印刷
+	Auto-rotate pages	ページを自動回転
+	Booklet subset:	小冊子の範囲:
+	Both sides	両面
+	Front side only	表面のみ
+	Back side only	裏面のみ
+	Binding:	綴じ方:
+	Auto portrait/landscape	縦横を自動選択
+	Comments & Forms	コメントとフォーム
+	Document and markups	文書とマークアップ
+	Document and stamps	文書とスタンプ
+	Form fields only	フォームフィールドのみ
+	Previous sheet	前のシート
+	No sheets	シートなし
+@pattern	Sheet {k} of {n}	シート {k} / {n}
+	Next sheet	次のシート
+	Accessibility Checker Options	アクセシビリティチェッカーのオプション
+	Report Options	レポートオプション
+	Create accessibility report	アクセシビリティレポートを作成
+	Page Range	ページ範囲
+	All pages in document	文書内のすべてのページ
+	Pages from	開始ページ
+@pattern	Checking Options ({on} of 32 in all categories)	チェックオプション (全カテゴリー 32 項目中 {on} 項目)
+	Category:	カテゴリー:
+	Show this dialog when the Checker starts	チェッカー開始時にこのダイアログを表示
+	Start Checking	チェックを開始
+	This document hasn't been checked yet.	この文書はまだチェックされていません。
+	No issues found	問題は見つかりませんでした
+@pattern	{failed} issues	{failed} 件の問題
+@pattern	{failed} issue	{failed} 件の問題
+	Check again	もう一度チェック
+	Show the accessibility report	アクセシビリティレポートを表示
+	Fix	修正
+	Skip Rule	ルールをスキップ
+	Explain	説明
+	Check Again	再チェック
+	Show Report	レポートを表示
+	Go to the page	ページへ移動
+	This document can't be checked: it couldn't be read for editing	この文書はチェックできません: 編集用に読み込めませんでした
+	The checker found no problems in this document.	チェッカーはこの文書に問題を検出しませんでした。
+@pattern	The checker found {failed} problems which may prevent the document from being fully accessible.	チェッカーは {failed} 件の問題を検出しました。文書が完全にアクセシブルにならない可能性があります。
+@pattern	The checker found {failed} problem which may prevent the document from being fully accessible.	チェッカーは {failed} 件の問題を検出しました。文書が完全にアクセシブルにならない可能性があります。
+	Save the accessibility report	アクセシビリティレポートを保存
+	Set Alternate Text	代替テキストを設定
+	This document has no tagged figures.	この文書にはタグ付きの図がありません。
+@pattern	 on page {n}	 (ページ {n})
+@pattern	Figure {k} of {n}	図 {k} / {n}
+	No preview	プレビューなし
+	Alternate text	代替テキスト
+	Describe the figure	図の内容を入力
+	Decorative figure	装飾的な図
+	Previous figure	前の図
+	Next figure	次の図
+	Save & Close	保存して閉じる
+@pattern	Couldn't use {name}: {e}	{name} を使用できませんでした: {e}
+@pattern	Couldn't extract pages: {e}	ページを抽出できませんでした: {e}
+	Choose a folder for the extracted pages	抽出したページの保存先フォルダーを選択
+@pattern	Extracted {n} page(s)	{n} ページを抽出しました
+@pattern	Couldn't write {name}: {e}	{name} を書き込めませんでした: {e}
+@pattern	Wrote {n} files to {path}	{n} 個のファイルを {path} に書き込みました
+@pattern	Wrote {n} file to {path}	{n} 個のファイルを {path} に書き込みました
+	No pages match those choices	条件に一致するページがありません
+@pattern	Couldn't split: {e}	分割できませんでした: {e}
+	Choose a folder for the split files	分割したファイルの保存先フォルダーを選択
+	Created a comment summary	コメントの要約を作成しました
+@pattern	Couldn't summarize comments: {e}	コメントを要約できませんでした: {e}
+@pattern	Couldn't open the result: {e}	結果を開けませんでした: {e}
+	Comment and form data	コメントとフォームのデータ
+	Importing data arrives on the web with file pickers for data files	データの読み込みは、ウェブ版でデータファイルの選択に対応した時点で利用できます
+@pattern	Exported to {path}	{path} に書き出しました
+	Select data files to merge	統合するデータファイルを選択
+	Form data and PDF forms	フォームデータと PDF フォーム
+	Merging data files needs the desktop app	データファイルの統合にはデスクトップアプリが必要です
+	Save the spreadsheet	スプレッドシートを保存
+@pattern	Merged {n} files into {path}	{n} 個のファイルを {path} に統合しました
+@pattern	Merged {n} file into {path}	{n} 個のファイルを {path} に統合しました
+	Export comments	コメントを書き出す
+	Export form data	フォームデータを書き出す
+	Bicubic downsampling to	バイキュービックでダウンサンプリング:
+	 ppi	ppi
+	for images above	対象: 次を超える画像
+	Retain existing	既存のまま
+	PDF Optimizer	PDF オプティマイザー
+	Discard Objects	オブジェクトの破棄
+	Discard User Data	ユーザーデータの破棄
+	Clean Up	クリーンアップ
+	Color Images	カラー画像
+	Grayscale Images	グレースケール画像
+	Each image is measured where pages draw it; an image is replaced only if the result is smaller.	各画像はページ上での描画サイズで評価され、結果が小さくなる場合にのみ置き換えられます。
+	Discard all links, actions and JavaScript	すべてのリンク、アクション、JavaScript を破棄
+	Discard alternate images	代替画像を破棄
+	Discard embedded page thumbnails	埋め込みページサムネールを破棄
+	Discard document tags	文書タグを破棄
+	Discard embedded print settings	埋め込み印刷設定を破棄
+	Discard bookmarks	しおりを破棄
+	Discard hidden layer content	非表示レイヤーの内容を破棄
+	Discard all comments, forms and multimedia	すべてのコメント、フォーム、マルチメディアを破棄
+	Discard document information and metadata	文書情報とメタデータを破棄
+	Discard all object data (file attachments)	すべてのオブジェクトデータ (添付ファイル) を破棄
+	Discard private data of other applications	他のアプリケーションの非公開データを破棄
+	Discard hidden text	隠しテキストを破棄
+	Use Flate to encode streams that are not encoded	エンコードされていないストリームを Flate で圧縮
+	Remove invalid links and bookmarks	無効なリンクとしおりを削除
+	Remove unreferenced named destinations	参照されていない名前付き宛先を削除
+	Compress document structure (object streams)	文書構造を圧縮 (オブジェクトストリーム)
+	Remove unused objects and merge identical ones	未使用のオブジェクトを削除し、同一のものを統合
+	Audit space usage…	容量の使用状況を調査…
+	Space Audit	容量の調査
+	Bytes	バイト
+	Total	合計
+@pattern	{n} images optimized	{n} 個の画像を最適化しました
+@pattern	{n} image optimized	{n} 個の画像を最適化しました
+@pattern	{discarded} items discarded	{discarded} 件の項目を破棄しました
+@pattern	{discarded} item discarded	{discarded} 件の項目を破棄しました
+	Incorrect password. Try again.	パスワードが正しくありません。もう一度入力してください。
+	the document could not be opened	文書を開けませんでした
+@pattern	Couldn't open {name}: {e}	{name} を開けませんでした: {e}
+@pattern	Couldn't save: {e}	保存できませんでした: {e}
+	Images and text (converted to PDF)	画像とテキスト (PDF に変換)
+	Images and text	画像とテキスト
+@pattern	{name} — PrintCraft	{name} — PrintCraft
+	Type a password.	パスワードを入力してください。
+	The passwords don't match.	パスワードが一致しません。
+	This compatibility level supports only plain ASCII passwords.	この互換性レベルでは、半角英数字 (ASCII) のパスワードのみ使用できます。
+	Weak	弱い
+	Medium	普通
+	Strong	強い
+	Protect Using Password	パスワードで保護
+	Requires user to enter a password for:	パスワードの入力を求める対象:
+	Viewing	表示
+	Editing	編集
+	Type Password	パスワードを入力
+@pattern	Strength: {s}	強度: {s}
+	Re-type Password	パスワードを再入力
+@pattern	Advanced Options {chevron}	詳細オプション {chevron}
+	Compatibility	互換性
+	Encrypt	暗号化
+	All document contents	文書のすべての内容
+	All document contents except metadata	メタデータを除く文書のすべての内容
+	Printing allowed	許可する印刷
+	Low Resolution (150 dpi)	低解像度 (150 dpi)
+	Changes allowed	許可する変更
+	Inserting, deleting, and rotating pages	ページの挿入、削除、回転
+	Filling in form fields and signing existing signature fields	フォームフィールドへの入力と既存の署名フィールドへの署名
+	Commenting, filling in form fields, and signing existing signature fields	コメント、フォームフィールドへの入力、既存の署名フィールドへの署名
+	Any except extracting pages	ページの抽出以外のすべて
+	Enable copying of text, images, and other content	テキスト、画像、その他の内容のコピーを許可
+	Enable text access for screen reader devices for the visually impaired	視覚障害者向けのスクリーンリーダーによるテキストアクセスを許可
+	Anyone opening the document will need this password. It's applied when you save.	文書を開く人にはこのパスワードが必要です。保存時に適用されます。
+	The document opens without a password; this password is needed to change the restrictions. It's applied when you save.	文書はパスワードなしで開けます。このパスワードは制限を変更するときに必要です。保存時に適用されます。
+	Remove hidden information	隠し情報を削除
+	Sanitize document	文書を無害化
+	Run a JavaScript	JavaScript を実行
+	Prepare for Distribution	配布の準備
+	Optimize Scanned Documents	スキャン文書を最適化
+	CONFIDENTIAL	社外秘
+	Recognize text	テキストを認識
+	Flatten form fields	フォームフィールドを統合
+	Reduce file size	ファイルサイズを縮小
+	Flatten comments	コメントを統合
+	Add watermark	透かしを追加
+	Add header	ヘッダーを追加
+	Add footer	フッターを追加
+	Set document title	文書のタイトルを設定
+	Detect form fields	フォームフィールドを検出
+	Remove hidden information and flatten comments and form fields, so recipients see only the pages.	隠し情報を削除し、コメントとフォームフィールドを統合して、受け取る人にはページだけが見えるようにします。
+	Make scans searchable, then make them smaller.	スキャンを検索可能にしてから、サイズを小さくします。
+	Add Page Numbers	ページ番号を追加
+	Number every page in the footer.	すべてのページのフッターに番号を付けます。
+	Mark as Confidential	社外秘として表示
+	A diagonal CONFIDENTIAL watermark on every page.	すべてのページに斜めの「CONFIDENTIAL」透かしを入れます。
+	Sanitize Documents	文書を無害化
+	Remove hidden information, metadata, scripts and embedded content, and rewrite the files.	隠し情報、メタデータ、スクリプト、埋め込みコンテンツを削除し、ファイルを書き直します。
+@pattern	Recognize text: {n} words	テキストを認識: {n} 語
+@pattern	Detect form fields: {n}	フォームフィールドを検出: {n}
+	the document was lost	文書が失われました
+@pattern	Couldn't read {name}: {e}	{name} を読み込めませんでした: {e}
+	Done adding text	テキストの追加を完了
+	Discard this text (Esc)	このテキストを破棄 (Esc)
+	Format text	テキストの書式
+@pattern	{size} pt	{size} pt
+	Centre	中央揃え
+	Justify	両端揃え
+	Standard fonts; text outside Windows-1252 isn't supported yet.	標準フォント。Windows-1252 の範囲外のテキストにはまだ対応していません。
+	Click on the page to add text; each click starts a new box, and ✓ finishes. Drag items to move them, drag a corner to resize, double-click text to edit it.	ページ上をクリックしてテキストを追加します。クリックするたびに新しいボックスが作られ、✓ で完了します。ドラッグで移動、角をドラッグでサイズ変更、テキストをダブルクリックで編集できます。
+	Choose an image	画像を選択
+	Adding images arrives on the web with file pickers for images	画像の追加は、ウェブ版で画像ファイルの選択に対応した時点で利用できます
+	Save image	画像を保存
+@pattern	Couldn't save the image: {e}	画像を保存できませんでした: {e}
+	Select Icon	アイコンを選択
+	Replacing images arrives on the web with image file pickers	画像の置換は、ウェブ版で画像ファイルの選択に対応した時点で利用できます
+	Edit image	画像を編集
+	Flip horizontal	左右反転
+	Flip vertical	上下反転
+	Crop (% trimmed from each side)	トリミング (各辺から切り取る割合 %)
+	Mark for redaction	墨消しをマーク
+	Mark pages for redaction	ページを墨消し用にマーク
+	Mark Page Range	ページ範囲をマーク
+	Single word or phrase	単語またはフレーズ
+	Text to find	検索するテキスト
+	Text in images isn't found; recognise text (OCR) first.	画像内のテキストは検索されません。先にテキスト認識 (OCR) を実行してください。
+@pattern	{n} match(es) marked for redaction.	{n} 件の一致を墨消し用にマークしました。
+	Mark all	すべてマーク
+	Redaction Tool Properties	墨消しツールのプロパティ
+	Redacted area fill colour:	墨消し領域の塗りつぶし色:
+	Use overlay text	オーバーレイテキストを使用
+	Custom text:	カスタムテキスト:
+	Font size:	フォントサイズ:
+	Auto-size text to fit redaction region	テキストを墨消し領域に合わせて自動調整
+	Font colour:	フォントの色:
+	Repeat overlay text	オーバーレイテキストを繰り返す
+	Text alignment:	テキストの配置:
+	Save the document afterwards: saving rewrites the whole file so no trace of the removed content stays in it.	適用後に文書を保存してください。保存時にファイル全体が書き直され、削除した内容の痕跡は残りません。
+	Select the items to remove from this document.	この文書から削除する項目を選択してください。
+	None found	見つかりません
+	Form fields are flattened: their values stay visible. Saving rewrites the whole file.	フォームフィールドは統合され、値は表示されたままになります。保存時にファイル全体が書き直されます。
+	Save the document afterwards; saving rewrites the whole file so nothing removed stays in it.	実行後に文書を保存してください。保存時にファイル全体が書き直され、削除した内容は残りません。
+	Sanitize	無害化
+	Type text	テキストを入力
+	Connected lines	連続線
+	Light blue	水色
+	Guest	ゲスト
+	Popup	ポップアップ
+	Inserted text	挿入テキスト
+	Replacement text	置換テキスト
+	Text to insert	挿入するテキスト
+	Post	投稿
+	Edit text…	テキストを編集…
+	Set status	ステータスを設定
+	Copy text	テキストをコピー
+	Make Current Properties Default	現在のプロパティを既定にする
+	Add a sticky note here	ここに付箋コメントを追加
+	Keep tool selected: on	ツールを選択したままにする: オン
+	Keep tool selected	ツールを選択したままにする
+	Line thickness	線の太さ
+	Accepted	承認
+	Rejected	却下
+	Cancelled	キャンセル
+	Export to Image	画像に書き出す
+	Export to Text	テキストに書き出す
+	Export All Images	すべての画像を書き出す
+@pattern	{dpi} pixels/inch	{dpi} ピクセル/インチ
+@pattern	One {x} file per page, named after the document.	ページごとに {x} ファイルを 1 つずつ、文書名を付けて書き出します。
+	Exclude images smaller than	除外する画像のサイズ:
+	No limit	制限なし
+@pattern	{n} pixels	{n} ピクセル
+	Each image once, named after the document and page. JPEG images are saved unchanged; others as PNG.	各画像を 1 回ずつ、文書名とページ番号を付けて書き出します。JPEG はそのまま、それ以外は PNG で保存されます。
+	Plain text in reading order; pages are separated by form feeds.	読み上げ順のプレーンテキスト。ページは改ページ文字で区切られます。
+@pattern	Export stopped: {e}	書き出しを中止しました: {e}
+@pattern	Exported {n} images	{n} 個の画像を書き出しました
+@pattern	Exported {n} image	{n} 個の画像を書き出しました
+@pattern	Exported {total} images	{total} 個の画像を書き出しました
+@pattern	Exported {total} image	{total} 個の画像を書き出しました
+@pattern	Exported the text of {total} pages	{total} ページのテキストを書き出しました
+@pattern	Exported the text of {total} page	{total} ページのテキストを書き出しました
+	Choose a folder for the exported files	書き出し先のフォルダーを選択
+@pattern	{msg} to {shown}	{msg} → {shown}
+@pattern	Exporting… {done} of {total}	書き出し中… {done} / {total}
+	No colour	色なし
+	Search comments	コメントを検索
+	Note	ノート
+	Attachment	添付
+	Checked	チェック済み
+	Unchecked	未チェック
+	No comments yet.	コメントはまだありません。
+	Pick a tool in the quick bar, or type above.	クイックバーでツールを選ぶか、上に入力してください。
+	No comments match.	一致するコメントはありません。
+	Unknown author	作成者不明
+	Add a reply	返信を追加
+	More options	その他のオプション
+	Sort by	並べ替え
+	Show all comments	すべてのコメントを表示
+	Create PDF comment summary…	コメント要約の PDF を作成…
+	Export all to data file…	すべてデータファイルに書き出す…
+	Filter comments	コメントを絞り込む
+	Show all	すべて表示
+@pattern	Couldn't download {name}: {e}	{name} をダウンロードできませんでした: {e}
+	the clipboard image is empty or malformed	クリップボードの画像が空か、形式が不正です
+	the new document could not be opened	新しい文書を開けませんでした
+@pattern	Couldn't create a PDF: {e}	PDF を作成できませんでした: {e}
+	The clipboard has no image or text	クリップボードに画像もテキストもありません
+	Choose images	画像を選択
+	On the web, open or drop an image to convert it	ウェブ版では、画像を開くかドロップして変換します
+@pattern	Couldn't optimize the file: {e}	ファイルを最適化できませんでした: {e}
+@pattern	Couldn't write {path}: {e}	{path} を書き込めませんでした: {e}
+	An action is already running	アクションはすでに実行中です
+	Choose a folder for the results	結果の保存先フォルダーを選択
+@pattern	Running action… file {n} of {k}	アクションを実行中… ファイル {n} / {k}
+	Steps	ステップ
+	New Action…	新しいアクション…
+	Edit Action	アクションを編集
+	New Action	新しいアクション
+	Action name:	アクション名:
+	Add the steps this action runs, in order.	このアクションで実行するステップを順番に追加します。
+	Add Step	ステップを追加
+	An action with this name already exists.	この名前のアクションはすでに存在します。
+@pattern	{label} failed: {e}	{label} に失敗しました: {e}
+	Undid	取り消しました
+	Redid	やり直しました
+	A document needs at least one page: copy instead	文書には少なくとも 1 ページ必要です。代わりにコピーしてください
+	Copied	コピーしました
+	Copy or cut pages first	先にページをコピーまたは切り取ってください
+@pattern	Couldn't save {name}: {e}	{name} を保存できませんでした: {e}
+@pattern	Couldn't save {dest}: {e}	{dest} を保存できませんでした: {e}
+	Saved, but reopening failed: {e}	保存しましたが、再度開けませんでした: {e}
+@pattern	Downloaded {name}	{name} をダウンロードしました
+	Reverted to the last saved version	前回保存した状態に戻しました
+	Current page	現在のページ
+	Recognize Text	テキストを認識
+	Document language	文書の言語
+	Searchable Image (Exact)	検索可能な画像 (正確)
+	Adds invisible text over each word; the page image is not changed	各単語の上に不可視のテキストを追加します。ページの画像は変更されません
+	Downsample to	ダウンサンプリング:
+@pattern	{v} dpi	{v} dpi
+	Text recognition isn't installed: its models are missing (run `cargo xtask models`, or set PRINTCRAFT_MODELS).	テキスト認識はインストールされていません: モデルがありません (`cargo xtask models` を実行するか、PRINTCRAFT_MODELS を設定してください)。
+	Text recognition is already running	テキスト認識はすでに実行中です
+	Choose a folder for the searchable files	検索可能ファイルの保存先フォルダーを選択
+@pattern	Recognized {words} words in {ok} files	{ok} 個のファイルで {words} 語を認識しました
+@pattern	Recognized {words} words in {ok} file	{ok} 個のファイルで {words} 語を認識しました
+@pattern	Recognizing text… file {n} of {k}	テキストを認識中… ファイル {n} / {k}
+@pattern	Recognizing text… page {n} of {k}	テキストを認識中… ページ {n} / {k}
+@pattern	Recognized {words} words on {read} pages	{read} ページで {words} 語を認識しました
+@pattern	Recognized {words} words on {read} page	{read} ページで {words} 語を認識しました
+@pattern	Recognized {words} word on {read} pages	{read} ページで {words} 語を認識しました
+@pattern	Recognized {words} word on {read} page	{read} ページで {words} 語を認識しました
+@pattern	; {skipped} pages already had text	; {skipped} ページには既にテキストがありました
+@pattern	; {skipped} page already had text	; {skipped} ページには既にテキストがありました
+@pattern	Error: {e}	エラー: {e}
+@pattern	The form asks to be submitted to {u}; PrintCraft doesn't send form data. Save the document to keep your entries.	フォームは {u} への送信を要求しましたが、PrintCraft はフォームデータを送信しません。入力内容を残すには文書を保存してください。
+	No form fields were detected	フォームフィールドは検出されませんでした
+@pattern	Detected {n} form fields	{n} 個のフォームフィールドを検出しました
+@pattern	Detected {n} form field	{n} 個のフォームフィールドを検出しました
+	JavaScript Console	JavaScript コンソール
+	JavaScript is turned off (Preferences ▸ JavaScript).	JavaScript はオフです (環境設定 ▸ JavaScript)。
+	Output appears here.	出力はここに表示されます。
+	JavaScript, e.g. getField("total").value	JavaScript (例: getField("total").value)
+	Script Name:	スクリプト名:
+	This document has no document-level scripts.	この文書には文書レベルのスクリプトがありません。
+	Interface language	表示言語
+	Identity	個人情報
+	Name on new comments	新しいコメントの作成者名
+	Auto (System)	自動 (システム設定)
+	No unlinked web addresses were found in the text	テキスト内にリンクされていないウェブアドレスは見つかりませんでした
+@pattern	Created {n} links	{n} 個のリンクを作成しました
+@pattern	Created {n} link	{n} 個のリンクを作成しました
+	Link Properties	リンクのプロパティ
+	Create Link	リンクを作成
+	Link Appearance	リンクの外観
+	Link Type:	リンクの種類:
+	Visible Rectangle	表示される四角形
+	Invisible Rectangle	表示されない四角形
+	Highlight Style:	強調表示スタイル:
+	Line Thickness:	線の太さ:
+	Thick	太い
+	Line Style:	線のスタイル:
+	Link Action	リンクアクション
+	Open a web page	ウェブページを開く
+	Go to a page view	ページビューへ移動
+	Type the web address.	ウェブアドレスを入力してください。
+	The document's security settings don't allow filling in form fields	文書のセキュリティ設定ではフォームフィールドへの入力が許可されていません
+@pattern	{name} is read-only	{name} は読み取り専用です
+@pattern	{name} has no action	{name} にはアクションがありません
+	Previous month	前の月
+	Next month	次の月
+	Su	日
+	Mo	月
+	Tu	火
+	We	水
+	Th	木
+	Fr	金
+	Sa	土
+	Compare Files	ファイルを比較
+	Old file:	旧ファイル:
+	Open the older version first	先に古いバージョンを開いてください
+	New file:	新ファイル:
+	Text is compared word by word; the differences are shown on the new file.	テキストは単語単位で比較され、差異は新しいファイル上に表示されます。
+	Compare this file with an older version: Compare files… in All tools.	このファイルを古いバージョンと比較するには、すべてのツールの「ファイルを比較…」を使います。
+	No differences in the text.	テキストに差異はありません。
+	Mark as comments	コメントとしてマーク
+	Report…	レポート…
+	The text is the same	テキストは同じです
+@pattern	{n} differences found	{n} 件の差異が見つかりました
+@pattern	{n} difference found	{n} 件の差異が見つかりました
+@pattern	Added {n} comments	{n} 件のコメントを追加しました
+@pattern	Added {n} comment	{n} 件のコメントを追加しました
+@pattern	The document now conforms to {s}; save it to keep the changes	文書は {s} に準拠しました。変更を残すには保存してください
+@pattern	Fixed what could be fixed; {left} problems remain	修正可能なものは修正しました。{left} 件の問題が残っています
+@pattern	Fixed what could be fixed; {left} problem remains	修正可能なものは修正しました。{left} 件の問題が残っています
+@pattern	Declared conformance: {shown}	宣言されている準拠: {shown}
+@pattern	Output intent: {s}	出力インテント: {s}
+	Conformance level:	準拠レベル:
+	Verify to see what the document needs.	検証して、文書に必要な対応を確認します。
+@pattern	No problems found: the document conforms to {s}.	問題は見つかりませんでした。文書は {s} に準拠しています。
+	  · not fixable here	・ここでは修正できません
+	Verify	検証
+	the update check stopped unexpectedly	アップデートの確認が予期せず中断されました
+	Check for updates	アップデートを確認
+	No check has run yet.	まだ確認していません。
+	Checking for a newer version…	新しいバージョンを確認中…
+@pattern	PrintCraft {version} is available.	PrintCraft {version} が利用できます。
+@pattern	You have version {current}. Download the new version from its release page.	現在のバージョンは {current} です。新しいバージョンはリリースページからダウンロードしてください。
+@pattern	PrintCraft {current} is up to date.	PrintCraft {current} は最新です。
+@pattern	Couldn't check for updates: {e}	アップデートを確認できませんでした: {e}
+@pattern	You have version {current}. All releases are listed at {RELEASES_PAGE}.	現在のバージョンは {current} です。すべてのリリースは {RELEASES_PAGE} に掲載されています。
+	Asks GitHub for the latest release. Nothing is downloaded or installed automatically.	GitHub に最新リリースを問い合わせます。自動でダウンロードやインストールは行いません。
+	Later	あとで
+	Welcome to PrintCraft	PrintCraft へようこそ
+	An open-source PDF workbench — local, private, and scriptable.	オープンソースの PDF ワークベンチ — ローカルで動作し、プライベートで、スクリプトから操作できます。
+	Get help, share feedback and follow development on Discord.	Discord でサポートを受けたり、フィードバックを共有したり、開発の様子を追えます。
+	Recommended tools	おすすめのツール
+	Use now	今すぐ使う
+	Open file	ファイルを開く
+	Files you open in PrintCraft appear here. Drop a PDF anywhere to open it.	PrintCraft で開いたファイルはここに表示されます。PDF をドロップするとどこからでも開けます。
+@pattern	{n} pages  ·  {size}	{n} ページ  ·  {size}
+	Privacy	プライバシー
+	PrintCraft works offline. No telemetry, no account, and no cloud processing unless you add a provider.	PrintCraft はオフラインで動作します。テレメトリー、アカウント、クラウド処理はありません (プロバイダーを追加した場合を除く)。
+@pattern	Couldn't recover {name}: {e}	{name} を復元できませんでした: {e}
+	Move up	上へ移動
+	Move down	下へ移動
+	Files are combined in this order. Leave Pages empty to take every page.	ファイルはこの順序で結合されます。「ページ」を空欄にするとすべてのページが対象になります。
+@pattern	Pages of {name} to combine, e.g. 1-3, 6	結合する {name} のページ (例: 1-3, 6)
+@pattern	Remove {name}	{name} を削除
+	Add files…	ファイルを追加…
+	Add at least two files	ファイルを 2 つ以上追加してください
+@pattern	Couldn't add {name}: {e}	{name} を追加できませんでした: {e}
+@pattern	Combined {count} files	{count} 個のファイルを結合しました
+@pattern	Couldn't combine files: {e}	ファイルを結合できませんでした: {e}
+	Create Custom Stamp	カスタムスタンプを作成
+@pattern	From {name}	元: {name}
+	e.g. My stamps	例: マイスタンプ
+	Delete stamp	スタンプを削除
+	Create custom stamp…	カスタムスタンプを作成…
+	From a PDF page or an image	PDF のページまたは画像から
+	Select a file for the stamp	スタンプに使うファイルを選択
+	Custom stamps arrive on the web with file pickers for images	カスタムスタンプは、ウェブ版で画像ファイルの選択に対応した時点で利用できます
+@pattern	{file} is too large for a stamp (at most {n} MB)	{file} はスタンプには大きすぎます (最大 {n} MB)
+	My stamps	マイスタンプ
+	Set Page Boxes	ページボックスを設定
+	Box	ボックス
+	Set to zero	0 に設定
+@pattern	Current page ({n})	現在のページ ({n})
+@pattern	New {kind} comments will look like this one	新しい{kind}コメントはこの見た目になります
+@pattern	{kind} Properties	{kind}のプロパティ
+	Review History	レビュー履歴
+	This comment's appearance can't be changed yet.	このコメントの外観はまだ変更できません。
+	Icon	アイコン
+	No status has been set.	ステータスは設定されていません。
+@pattern	page {n} does not exist	ページ {n} は存在しません
+	no text layer	テキストレイヤーなし
+	Line spacing	行間
+	Character spacing	文字間隔
+	Rotate Clockwise	右に回転
+	Rotate Counterclockwise	左に回転
+	Replace Image…	画像を置換…
+	Save Image As…	画像を別名で保存…
+	Sign	署名
+@pattern	Create {what}	{what}を作成
+@pattern	Type your {what}.	{what}を入力してください。
+	Your name	氏名
+@pattern	Draw your {what} below.	下に{what}を描いてください。
+	What word or phrase would you like to search for?	検索する単語またはフレーズを入力してください
+@pattern	Searching… {searched} of {pages} pages	検索中… {searched} / {pages} ページ
+@pattern	 (searching… {searched} of {pages} pages)	 (検索中… {searched} / {pages} ページ)
+@pattern	{n} instances	{n} 件
+@pattern	{n} instance	{n} 件
+	Go to this result	この結果へ移動
+	Compare Report	比較レポート
+@pattern	Replaced: "{a}" with "{b}"	置換: 「{a}」→「{b}」
+@pattern	Inserted: "{a}"	挿入: 「{a}」
+@pattern	Deleted: "{a}"	削除: 「{a}」
+	Mark differences	差異をマーク
+	JavaScript is turned off (Preferences ▸ JavaScript)	JavaScript はオフです (環境設定 ▸ JavaScript)
+	Mouse Up	マウスアップ
+	Run JavaScript	JavaScript を実行
+@pattern	The selected area has been copied ({w} × {h} pixels)	選択範囲をコピーしました ({w} × {h} ピクセル)
+@pattern	Couldn't take the snapshot: {e}	スナップショットを作成できませんでした: {e}
+	the area is too large at this zoom	この拡大率では範囲が大きすぎます
+	the page already contains text	このページにはすでにテキストがあります
+	the document could not be read	文書を読み込めませんでした
+	Author	作成者
+	Set alternate text	代替テキストを設定
+	Apply redactions	墨消しを適用
+	Replace image	画像を置換
+	Highlight	ハイライト
+	Edit comment	コメントを編集
+	Reply	返信
+	Remove checkmark	チェックマークを外す
+	Mark with checkmark	チェックマークを付ける
+	Number pages	ページ番号を付ける
+	Change comment properties	コメントのプロパティを変更
+	the document can't be read	文書を読み込めません
+	give the document language (for example en-US)	文書の言語を指定してください (例: ja-JP)
+	RC4, 40-bit	RC4 (40 ビット)
+	RC4, 128-bit	RC4 (128 ビット)
+	AES, 128-bit	AES (128 ビット)
+	AES, 256-bit	AES (256 ビット)
+	Attachments only	添付ファイルのみ
+	Protection	保護
+	enter a password to open the document, a permissions password, or both	文書を開くパスワード、権限パスワード、またはその両方を入力してください
+	the open password and the permissions password must be different	開くパスワードと権限パスワードは異なるものにしてください
+	passwords can't be empty	パスワードを空にはできません
+	Rotate page	ページを回転
+	Delete page	ページを削除
+	Move page	ページを移動
+	Duplicate page	ページを複製
+	Replace page	ページを置換
+	Crop page	ページをトリミング
+@pattern	Change {key}	{key} を変更
+@pattern	Insert pages from {name}	{name} からページを挿入
+	Add bookmark	しおりを追加
+	Rename bookmark	しおりの名前を変更
+	Delete bookmark	しおりを削除
+	Move bookmark	しおりを移動
+	Set bookmark destination	しおりの移動先を設定
+	Add stamp	スタンプを追加
+	Delete comment	コメントを削除
+	Lock comment	コメントをロック
+	Unlock comment	コメントのロックを解除
+	Move comment	コメントを移動
+	Resize comment	コメントのサイズを変更
+@pattern	Fill in {name}	{name} に入力
+@pattern	Set the image of {name}	{name} の画像を設定
+	Add field	フィールドを追加
+	Change field properties	フィールドのプロパティを変更
+	Delete field	フィールドを削除
+	Duplicate field	フィールドを複製
+	Set tab order	タブ順序を設定
+	Change initial view	初期表示を変更
+	Mark figure as decorative	図を装飾としてマーク
+@pattern	Edit script of {name}	{name} のスクリプトを編集
+	Delete document JavaScript	文書の JavaScript を削除
+	Edit document JavaScript	文書の JavaScript を編集
+	Edit text	テキストを編集
+	Move image	画像を移動
+	Rotate image	画像を回転
+	Flip image	画像を反転
+	Delete image	画像を削除
+	Add header & footer	ヘッダーとフッターを追加
+	Update header & footer	ヘッダーとフッターを更新
+	Update watermark	透かしを更新
+	Add background	背景を追加
+	Update background	背景を更新
+	Add image	画像を追加
+	Edit content	コンテンツを編集
+	Delete content	コンテンツを削除
+	Remove redaction marks	墨消しマークを削除
+@pattern	Import {name}	{name} を読み込む
+	Add link	リンクを追加
+	Change link properties	リンクのプロパティを変更
+	Delete link	リンクを削除
+	Create link	リンクを作成
+	Flatten	統合
+	sticky note	付箋
+	squiggly underline	波線
+	text box	テキストボックス
+	redaction mark	墨消しマーク
+	connected lines	連続線
+	inserted text	挿入テキスト
+	file attachment	ファイル添付
+	page changes	ページの変更
+	filling in form fields	フォームフィールドへの入力
+	changing security	セキュリティの変更
+	changes to the document	文書の変更
+@pattern	{name} is already on those pages	{name} はそれらのページにすでにあります
+	there is nothing to remove	削除するものがありません
+	that item is not an image	その項目は画像ではありません
+	there are no links to remove	削除するリンクがありません
+	no web addresses were found	ウェブアドレスは見つかりませんでした
+	the document isn't protected	文書は保護されていません
+	unknown error	不明なエラー
+@pattern	{name}: its security settings don't allow copying pages	{name}: セキュリティ設定によりページのコピーは許可されていません
+@pattern	{name}: it is password-protected	{name}: パスワードで保護されています
+@pattern	{name}: the file could not be read	{name}: ファイルを読み込めませんでした
+@pattern	this document can't be edited: {e}	この文書は編集できません: {e}
+@pattern	the document's security settings don't allow {what}; open it with the owner password to make this change	文書のセキュリティ設定では{what}は許可されていません。この変更を行うには所有者パスワードで開いてください
+@pattern	the edited document could not be written: {e}	編集した文書を書き込めませんでした: {e}
+@pattern	the edited document could not be reopened: {e}	編集した文書を再度開けませんでした: {e}
+@pattern	couldn't use {name}	{name} を使用できませんでした
+	nothing to undo	取り消す操作はありません
+	nothing to redo	やり直す操作はありません
+@pattern	{what} isn't possible in a signed document: it would rewrite the file and invalidate the signatures	署名済みの文書では{what}はできません。ファイルが書き直されて署名が無効になります
+	this document is signed: rewriting it would invalidate its signatures (save it incrementally instead)	この文書は署名済みです。書き直すと署名が無効になります (代わりに増分保存を使用してください)
+@pattern	the document has {n} revision(s)	文書には {n} 件のリビジョンがあります
+@pattern	{name} (revision {n}).pdf	{name} (リビジョン {n}).pdf
+@pattern	reading it failed unexpectedly ({m})	読み込みが予期せず失敗しました ({m})
+	the document structure could not be read for editing	編集のために文書構造を読み込めませんでした
+@pattern	{what} failed unexpectedly ({m}); the document was not changed	{what}が予期せず失敗しました ({m})。文書は変更されていません
+	the saved file can't be opened	保存したファイルを開けません
+	extracting pages	ページの抽出
+	splitting the document	文書の分割
+@pattern	Summary of Comments on {name}	{name} のコメントの要約
+	Sticky Note	付箋
+	Text Box	テキストボックス
+	Polygonal Line	折れ線
+	Inserted Text	挿入テキスト
+	File Attachment	ファイル添付
+	Sound	サウンド
+	Redaction	墨消し
+	This document has no comments.	この文書にはコメントがありません。
+	Clear form	フォームをクリア
+	Compare files	ファイルを比較
+	High Resolution	高解像度
+@pattern	Saved {x}	{x} を保存しました
+@pattern	Undid {x}	「{x}」を取り消しました
+@pattern	Redid {x}	「{x}」をやり直しました
+@pattern	Add {x}	{x}を追加
+@pattern	Set status {x}	ステータスを {x} に設定
+@pattern	Files for {x}	{x} のファイル
+@pattern	{name} ({issues} issues)	{name} ({issues} 件の問題)
+@pattern	{name} ({issues} issue)	{name} ({issues} 件の問題)
+@pattern	{name}: {ok} files done	{name}: {ok} 個のファイルを処理しました
+@pattern	{name}: {ok} file done	{name}: {ok} 個のファイルを処理しました
+@pattern	{n} actions run in the JavaScript engine (M6)	{n} 個のアクションが JavaScript エンジンで実行されます (M6)
+	Has JavaScript actions (run in M6)	JavaScript アクションあり (M6 で実行)
+@pattern	{x} Visual	{x} (視覚的な差異)
+@pattern	{name} · page {n}	{name} · ページ {n}
+@pattern	Reduce file size: {a} → {b} bytes	ファイルサイズを縮小: {a} → {b} バイト
+@pattern	{n} bytes	{n} バイト
+@pattern	Couldn't fit the visible content: {e}	表示範囲に合わせられませんでした: {e}
+	Font: Helvetica	フォント: Helvetica
+@pattern	Click on the page to add a {x}, or drag to set its size	ページ上をクリックして{x}を追加するか、ドラッグでサイズを指定します
+@pattern	This document has no {x} to change	この文書には変更する{x}がありません
+	Hide	非表示
+	Show	表示
+	Cancel	キャンセル
+	Close	閉じる
+	Apply	適用
+	Delete	削除
+	Open	開く
+	Remove	削除
+	Add	追加
+	Done	完了
+	Yes	はい
+	Name	名前
+	Page	ページ
+	Pages	ページ
+	EXPORT TO	書き出し形式
+	MODIFY PAGE	ページを変更
+	ADD CONTENT	コンテンツを追加
+	CREATE FROM	作成元
+	COMBINE	結合
+	PAGE OPTIONS	ページオプション
+	MORE	その他
+	MARKUP	マークアップ
+	DRAWING	描画
+	REVIEW	レビュー
+	RECOGNIZE TEXT	テキストを認識
+	PROTECT	保護
+	ADVANCED OPTIONS	詳細オプション
+	REDACT	墨消し
+	DYNAMIC	動的
+	APPROVED	承認済み
+	RECEIVED	受領済み
+	REVIEWED	レビュー済み
+	REVISED	改訂済み
+	SIGN HERE	ここに署名
+	ACCEPTED	承諾
+	INITIAL HERE	ここにイニシャル
+	REJECTED	却下
+	WITNESS	立会人
+	STANDARD BUSINESS	標準ビジネス
+	COMPLETED	完了
+	DRAFT	下書き
+	FINAL	最終版
+	FOR COMMENT	コメント用
+	FOR PUBLIC RELEASE	公開用
+	INFORMATION ONLY	参考情報
+	NOT APPROVED	未承認
+	NOT FOR PUBLIC RELEASE	非公開
+	PRELIMINARY RESULTS	暫定結果
+	VOID	無効
+	CUSTOM	カスタム
+	COMPARE	比較
+	ACTIONS LIST	アクション一覧
+	ACCESSIBILITY	アクセシビリティ
+	STANDARDS	規格
+	PAGES TO PRINT	印刷するページ
+	PAGE SIZING & HANDLING	ページサイズと処理
+	COMMENTS & FORMS	コメントとフォーム
+	Save as	別名で保存
+	Document properties	文書のプロパティ
+	Find	検索
+	Advanced search	高度な検索
+	JavaScript console	JavaScript コンソール
+	Home / End	Home / End
+@pattern	{w} × {h} in	{w} × {h} インチ
+	 MB	MB
+	US Letter	US レター
+	Phone Numbers	電話番号
+	Metadata	メタデータ
+	File attachments	添付ファイル
+	Comments and markups	コメントとマークアップ
+	Hidden text	隠しテキスト
+	Hidden layers	隠しレイヤー
+	Links, actions and JavaScripts	リンク、アクション、JavaScript
+	Private data of other applications	他のアプリケーションの非公開データ
+	Accessibility permission flag is set	アクセシビリティの権限フラグが設定されている
+	Document is not image-only PDF	文書が画像のみの PDF ではない
+	Document is tagged PDF	文書がタグ付き PDF である
+	Document structure provides a logical reading order	文書構造が論理的な読み上げ順序を提供している
+	Text language is specified	テキストの言語が指定されている
+	Document title is showing in title bar	文書のタイトルがタイトルバーに表示されている
+	Bookmarks are present in large documents	大きな文書にしおりがある
+	Document has appropriate color contrast	文書に適切な色のコントラストがある
+@pattern	{a} ({n} bytes)	{a} ({n} バイト)
+	Units	単位
+	Top	上
+	Bottom	下
+	Left	左
+	Right	右
+	All	すべて
+	From	開始
+	OK	OK
+	Command	コマンド
+	Tool	ツール
+	Download	ダウンロード
+	Print	プリント
+	Printer:	プリンター:
+	Save as PDF	PDF として保存
+	Copies:	部数:
+	Collate	丁合い
+	Off	オフ
+	Poster	ポスター
+	Overlap:	重なり:
+	Orientation:	方向:
+	Portrait	縦向き
+	Landscape	横向き
+	Document	ドキュメント
+	Appearance	外観
+	General	一般
+	Colour	カラー
+	Opacity	不透明度
+	Thickness	太さ
+	Subject	被写体
+	Modified	変更日
+	Locked	ロック
+	Select All	すべてを選択
+	Clear All	すべて消去
+	Report	レポート
+	Collapse	折りたたむ
+	Expand	展開
+	Options…	オプション…
+	January	1 月
+	February	2 月
+	March	3 月
+	April	4 月
+	May	5 月
+	June	6 月
+	July	7 月
+	August	8 月
+	September	9 月
+	October	10 月
+	November	11 月
+	December	12 月
+	Recent	最近
+	Cut	切り取り
+	no document	ドキュメントがありません
+	Untitled	名称未設定
+	Resolution	解像度
+	Format	形式
+	Quality	画質
+	Export	書き出し
+	Run	実行
+	Clear	消去
+	Save	保存
+	Preferences	環境設定
+	Thin	シン
+	Solid	平面
+	Dashed	破線
+	Underline	下線
+	Color:	カラー:
+	Patterns	パターン
+	No matches.	一致するものがありません。
+	Font:	フォント:
+	Center	中央
+	Text	テキスト
+	Checkbox	チェックボックス
+	Position	位置
+	Options	オプション
+	Actions	アクション
+	Name:	名前:
+	Font Size:	フォントサイズ:
+	Auto	自動
+	Left:	左:
+	Bottom:	下:
+	Width:	幅:
+	Height:	高さ:
+	Alignment:	配置:
+	Password	パスワード
+	Up	上
+	(none)	(なし)
+	None	なし
+	Number	数値
+	Percentage	パーセンテージ
+	Time	時間
+	Format:	形式:
+	Value:	値:
+	Line	線
+	Type	文字
+	Draw	描画
+	Bold	ボールド
+	Italic	イタリック
+	Align left	左揃え
+	Align right	右揃え
+	Preview	プレビュー
+	Layers	レイヤー
+	Search	検索
+	Rename	名前を変更
+	Source	ソース
+	File	ファイル
+	Rotation	回転
+	Location	場所
+	Browse…	参照…
+	Strikethrough	取り消し線
+	Rectangle	長方形
+	Polygon	多角形
+	Eraser	消しゴム
+	Yellow	イエロー
+	Orange	オレンジ
+	Red	赤
+	Pink	ピンク
+	Purple	紫
+	Blue	青
+	Green	緑
+	Gray	グレー
+	Black	黒
+	Ink	インキ
+	Square	正方形ピクセル
+	Circle	円
+	Erase	消去
+	Add a comment	コメントを追加
+	Align	整列
+	Vertically	垂直方向
+	Horizontally	水平方向
+	Distribute	分布
+	Height	高さ
+	Width	幅
+	Both	両方
+	Duplicate…	複製…
+	Dismiss	閉じる
+	Copy	コピー
+	Settings	設定
+	English	English
+	Output	出力
+	Title	タイトル
+	Description	説明
+	Security	セキュリティ
+	Fonts	フォント
+	Advanced	詳細
+	Application	アプリケーション
+	Default	既定
+	Magnification	拡大率
+	Actual Size	実寸
+	Show:	表示:
+	Left Edge	左のエッジ
+	Right Edge	右のエッジ
+	Language	言語
+	of {count}	/ {count}
+	Extract	抽出
+	Selection	選択範囲
+	Rotate:	回転:
+	Revert	復帰
+	Style	スタイル
+	Start	開始
+	Double-click	ダブルクリック
+	Esc	Esc
+	Discard	破棄
+	Split	スプリット
+	Your changes will be lost if you don't save them.	保存しないと変更内容は失われます。
+	Home	ホーム
+	Discord	Discord
+	Edit	編集
+	Convert	変換
+	Menu	メニュー
+	View	表示
+	Zoom	ズーム
+	Zoom in	拡大
+	Zoom out	縮小
+	Light gray	ライトグレー
+	Dark gray	ダークグレー
+	Help	ヘルプ
+	Next page	次のページ
+	Previous page	前のページ
+	Edit…	編集…
+	Description:	説明:
+	Back	背面
+	Labels	ラベル
+	Summary	概要
+	Version	バージョン
+	Export…	書き出し…
+	Clipboard	クリップボード
+	Compression	圧縮
+	Horizontal scale	水平比率
+	Flip Horizontal	水平方向に反転
+	Flip Vertical	垂直方向に反転
+	Join our Discord	Discord に参加
+	Custom	カスタム
+	Polyline	折れ線
+	Typewriter	タイプライター
+	More	その他
+	Status	状態
+	Info	情報
+	no such document	そのドキュメントはありません
+	Pencil	鉛筆
+	Fill	塗り
+	Image	画像
+	Link	リンク
+	Background	背景
+	Rotate	回転
+	Replace	置換
+	Review	レビュー
+	Index	インデックス
+	Ctrl	Ctrl
+	Shift	Shift
+	Open…	開く…
+	Print…	プリント…
+	Undo	取り消し
+	Redo	やり直し
+	Preferences…	環境設定…
+	End	終了
+	Draft	ドラフト
+	Intro	イントロ

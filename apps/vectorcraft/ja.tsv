@@ -1,0 +1,2781 @@
+# Japanese (ja) catalog. Columns, separated by a TAB:  context <TAB> source <TAB> translation
+#
+#   context  empty                a plain UI string; `source` is the English text shown by the app.
+#                                 A source with {} / {name} placeholders matches runtime-formatted
+#                                 text ("Delete {} layers"); `{}` in the translation are filled in
+#                                 order, `{1}` `{2}` pick a capture by position, `{name}` by name.
+#   escapes  \n  \t  \\  inside a column.
+#   lines starting with # and blank lines are ignored.
+#
+# Clean-room: every entry was written from the plain meaning of the English label using ordinary
+# Japanese computing vocabulary (レイヤー, ぼかし, 選択範囲 ...). No proprietary localisation
+# resource, string table or product UI was consulted or copied; add entries the same way.
+# Product and technology names (VectorCraft, SVG, PDF, CMYK, OpenType ...) stay in Latin letters;
+# the trailing "…" of dialog commands is kept.
+
+	Language	言語
+	Auto (System)	自動 (システム)
+	English	English
+	Appearance of Black	ブラックの表現
+	Hide	隠す
+	Units: {}	単位: {}
+	 — missing	— 見つかりません
+	 (printing isn't available here: the job was saved as a PDF)	(ここでは印刷できません。ジョブは PDF として保存されました)
+	 (spot)	(特色)
+	 ({missing} linked file(s) not found)	(リンクファイル {missing} 個が見つかりません)
+	 Tool	ツール
+	 across a selected object to set the gradient direction	して、選択したオブジェクトのグラデーション方向を設定
+	 for exact size	で正確なサイズを指定
+	 for exact values	で正確な値を指定
+	 keeps its proportions)	で縦横比を保持)
+	 on the canvas to create one	して作成
+	 the object to duplicate	して複製するオブジェクトを選択
+	 to add	で追加
+	 to exit editing	で編集を終了
+	 to finish	で完了
+	 to pan the view	で表示を移動
+	 to remove pins	でピンを削除
+	 to remove points	でポイントを削除
+	 to sample a color	で色をスポイト
+	 to scale in perspective	で遠近を保って拡大・縮小
+	 to search every command	ですべてのコマンドを検索
+	 to set spacing and orientation	で間隔と向きを設定
+	 to size the brush (	でブラシサイズを変更 (
+	 to zoom into an area	で領域を拡大表示
+	+ Add Scale	+ スケールを追加
+	0.2 (quality) to 100 (speed)	0.2 (品質優先) ~ 100 (速度優先)
+	1 Color Job	1色ジョブ
+	1 Color Job…	1色ジョブ…
+	2 Color Job	2色ジョブ
+	2 Color Job…	2色ジョブ…
+	3 Color Job	3色ジョブ
+	3 Color Job…	3色ジョブ…
+	1 star	1つ星
+	1 {s} on the artboard stands for {real} {s} in the scene.	アートボード上の 1 {s} は、シーン内の {real} {s} に相当します。
+	1 bit	1ビット
+	4 bit	4ビット
+	8 bit	8ビット
+	16 bit	16ビット
+	24 bit	24ビット
+	32 bit	32ビット
+	16 bits/pixel	16ビット/ピクセル
+	24 bits/pixel	24ビット/ピクセル
+	32 bits/pixel	32ビット/ピクセル
+	3 x 3 Average	3 x 3 平均
+	5 x 5 Average	5 x 5 平均
+	3D Ribbon	3D リボン
+	3D and Materials	3D とマテリアル
+	6 Colors	6色
+	< 1 sec	1秒未満
+	<Opacity Mask>	<不透明マスク>
+	<Opacity Mask>/Opacity Mask	<不透明マスク>/不透明マスク
+	A File…	ファイル…
+	A new preset starting from the selected one	選択したプリセットから始める新しいプリセット
+	A saved copy of the selected preset	選択したプリセットの保存済みコピー
+	About VectorCraft	VectorCraft について
+	Absolute Position	絶対位置
+	Abutting	突き合わせ
+	Action {n}	アクション {n}
+	Actions	アクション
+	Actual Size	実寸
+	Add	追加
+	Add Anchor Points	アンカーポイントを追加
+	Add New	新規追加
+	Add New Effect	新しい効果を追加
+	Add New Fill	新しい塗りを追加
+	Add New Stroke	新しい線を追加
+	Add Selected Artwork (Alt: as one asset)	選択したアートワークを追加 (Alt: 1つのアセットとして)
+	Add Selected Artwork as Multiple Assets	選択したアートワークを複数のアセットとして追加
+	Add Selected Artwork as One Asset	選択したアートワークを1つのアセットとして追加
+	Add Swatches	スウォッチを追加
+	Add Used Colors	使用色を追加
+	Add to Graphic Styles	グラフィックスタイルに追加
+	Add to Profiles…	プロファイルに追加…
+	Add to Swatches	スウォッチに追加
+	Adjust Adjoining Width Points	隣接する幅ポイントを調整
+	Adjust Color Balance…	カラーバランスを調整…
+	Adjust Colors	カラーを調整
+	Adjust Options:	調整オプション:
+	Advanced	詳細
+	Advanced Options	詳細オプション
+	Align	整列
+	Align Objects:	オブジェクトの整列:
+	Align On:	整列の基準:
+	Align Stroke to Center	線を中央に揃える
+	Align Stroke to Inside	線を内側に揃える
+	Align Stroke to Outside	線を外側に揃える
+	Align Stroke:	線の位置:
+	Align To:	整列の対象:
+	Align center	中央揃え
+	Align left	左揃え
+	Align right	右揃え
+	Align to Artboard	アートボードに整列
+	Align to Glyph Bounds	グリフの境界に整列
+	Align to Key Object	キーオブジェクトに整列
+	Align to Page	ページに整列
+	Align to Path	パスに整列
+	Align to Selection	選択範囲に整列
+	Align:	整列:
+	Alignment:	配置:
+	All	すべて
+	All Artwork Above	上にあるすべてのアートワーク
+	All Caps	すべて大文字
+	All Categories	すべてのカテゴリ
+	All Text Objects	すべてのテキストオブジェクト
+	All Tools	すべてのツール
+	All colours are within the CMYK gamut	すべての色が CMYK の色域内です
+	All on Active Artboard	アクティブなアートボード上のすべて
+	All on Same Layers	同じレイヤー上のすべて
+	All printer's marks	すべてのトンボと印刷マーク
+	All the art	すべてのアート
+	Alter Paths for Appearance	見た目に合わせてパスを変更
+	Amount	量
+	Amount:	量:
+	Anchor Point	アンカーポイント
+	Anchor Points	アンカーポイント
+	Angle	角度
+	Angle:	角度:
+	Anti-Alias	アンチエイリアス
+	Anti-alias	アンチエイリアス
+	Anti-alias Rasters	ラスターをアンチエイリアス
+	Anti-aliasing:	アンチエイリアス:
+	Appearance	アピアランス
+	Appearance Attribute	アピアランス属性
+	Appearance panel	アピアランスパネル
+	Applies when the linked file is relinked or updated.	リンクファイルを再リンクまたは更新したときに適用されます。
+	Apply Last Effect	前回の効果を適用
+	Apply SVG Filter…	SVG フィルターを適用…
+	Apply to All	すべてに適用
+	Apply to All ({} more missing)	すべてに適用 (ほか {} 個が見つかりません)
+	Area Text Objects	エリア内文字オブジェクト
+	Area Type Options	エリア内文字オプション
+	Area Type Options…	エリア内文字オプション…
+	Around Object	オブジェクトの周囲
+	Arrange	重ね順
+	Arrange: Bring to Front	重ね順: 最前面へ
+	Arrowheads:	矢印:
+	Art	アート
+	Art using a deleted global swatch keeps its colour.	削除したグローバルスウォッチを使っていたアートは、色がそのまま残ります。
+	Artboard Options	アートボードオプション
+	Artboard Options: edit with the Artboard tool	アートボードオプション: アートボードツールで編集
+	Artboard Options…	アートボードオプション…
+	Artboard {}	アートボード {}
+	Artboard:	アートボード:
+	Artboards	アートボード
+	As Multiple Assets	複数のアセットとして
+	As Single Asset	1つのアセットとして
+	Aspect Ratio	縦横比
+	Asset Export	アセットの書き出し
+	Assets	アセット
+	Assign	割り当て
+	Assign Profile…	プロファイルを割り当て…
+	Assign:	割り当て:
+	Attach to Active Plane	アクティブなプレーンに取り付け
+	Attributes	属性
+	Author Title:	作成者の肩書き:
+	Author:	作成者:
+	Auto	自動
+	Auto Spell Check	スペルを自動チェック
+	Auto-Rotate (turn the paper to each artboard)	自動回転 (アートボードごとに用紙を回転)
+	Automatic flatness	自動フラットネス
+	Automation	自動化
+	Average	平均
+	Average…	平均…
+	Axis:	軸:
+	BLANK DOCUMENT PRESETS	空白ドキュメントのプリセット
+	Background Color:	背景色:
+	Background Contents	背景の内容
+	Background Contents:	背景の内容:
+	Background:	背景:
+	Backspace	Backspace
+	Baseline Shift	ベースラインシフト
+	Basic Latin	基本ラテン文字
+	Begin Recording	記録を開始
+	Bend:	曲がり:
+	Bevel Join	ベベル結合
+	Bitmap	ビットマップ
+	Black	ブラック
+	Black and White	白黒
+	Black and White Logo	白黒ロゴ
+	Bleed	裁ち落とし
+	Bleed:	裁ち落とし:
+	Bleeds	裁ち落とし
+	Blend	ブレンド
+	Blend Front to Back	前面から背面へブレンド
+	Blend Horizontally	水平方向にブレンド
+	Blend Options	ブレンドオプション
+	Blend Options…	ブレンドオプション…
+	Blend Vertically	垂直方向にブレンド
+	Blending Mode	描画モード
+	Blue	ブルー
+	Blur	ぼかし
+	Bottom	下
+	Bottom in Front	下を前面に
+	Bottom:	下:
+	Bounds	境界
+	Bounds (Fill Proportionally)	境界 (縦横比を保って塗りつぶし)
+	Bounds (Fit Proportionally)	境界 (縦横比を保って収める)
+	Break Link to Graphic Style	グラフィックスタイルへのリンクを解除
+	Break Link to Symbol	シンボルへのリンクを解除
+	Brick Offset:	レンガのずらし:
+	Brick by Column	レンガ (列ごと)
+	Brick by Row	レンガ (行ごと)
+	Brightness	明るさ
+	Bring Forward	前面へ
+	Bring to Front	最前面へ
+	Bristle	剛毛
+	Bristle Brush Strokes	剛毛ブラシの線
+	Browser	ブラウザー
+	Brush Affects:	ブラシの影響:
+	Brush Libraries	ブラシライブラリ
+	Brush Libraries (on the roadmap)	ブラシライブラリ (開発予定)
+	Brush Strokes	ブラシストローク
+	Brushes	ブラシ
+	Built-in Libraries	組み込みライブラリ
+	Built-in presets are read-only: New… starts an editable copy.	組み込みのプリセットは読み取り専用です。「新規…」で編集可能なコピーを作成できます。
+	Built-in presets don't change: New makes a copy you can edit.	組み込みのプリセットは変更できません。「新規」で編集可能なコピーを作成できます。
+	Built-in presets don't change: New… starts an editable copy.	組み込みのプリセットは変更できません。「新規…」で編集可能なコピーを作成できます。
+	Bullet	箇条書き
+	Butt Cap	線端なし
+	Byte Order:	バイト順:
+	CMYK	CMYK
+	CMYK Color	CMYK カラー
+	CMYK Equivalents	CMYK 相当値
+	CMYK colours print with their own values; off, they go through the colour settings too.	CMYK カラーはその値のまま印刷されます。オフにすると、カラー設定も経由します。
+	CMYK profile in effect	有効な CMYK プロファイル
+	CMYK:	CMYK:
+	CRLF (Windows)	CRLF (Windows)
+	CSS Properties	CSS プロパティ
+	Calligraphic	カリグラフィ
+	Can't print these settings: see the Summary	この設定では印刷できません。概要を確認してください
+	Cancel	キャンセル
+	Cancel Key Object	キーオブジェクトを解除
+	Cap	線端
+	Cap:	線端:
+	Cascade	重ねて表示
+	Center Artwork	アートワークを中央に配置
+	Center on Artboard	アートボードの中央に配置
+	Center-Justified Tab	中央揃えタブ
+	Change	変更
+	Change All	すべて変更
+	Change Case	大文字/小文字の変換
+	Change Screen Mode (F)	スクリーンモードを変更 (F)
+	Change to Global Rulers	グローバルルーラーに変更
+	Change to Right-to-Left Layout	右から左のレイアウトに変更
+	Changed since the last Refresh.	前回の更新以降に変更されています。
+	Changes allowed:	許可する変更:
+	Changes made since it was last saved will be lost.	最後に保存した後の変更は失われます。
+	Changing these settings changes how raster effects look when exported, flattened or expanded.	この設定を変更すると、書き出し・統合・分割したときのラスター効果の見え方が変わります。
+	Channel	チャンネル
+	Character	文字
+	Character Rotation	文字回転
+	Character Set:	文字セット:
+	Character Style	文字スタイル
+	Character Styles	文字スタイル
+	Check Spelling…	スペルチェック…
+	Choose a folder	フォルダーを選択
+	Choose…	選択…
+	Circle	円
+	Classic Defaults	クラシックの初期設定
+	Clean Up…	クリーンアップ…
+	Clear	クリア
+	Clear All Tabs	すべてのタブをクリア
+	Clear Appearance	アピアランスをクリア
+	Clear Guides	ガイドを消去
+	Clear Overrides	オーバーライドをクリア
+	Clear Recent Files	最近使ったファイルをクリア
+	Click	クリック
+	Click an anchor point	アンカーポイントをクリック
+	Click or drag	クリックまたはドラッグ
+	Click the art with the Gradient tool to add or select points.	グラデーションツールでアートをクリックして、ポイントを追加または選択します。
+	Click the first point	最初のポイントをクリック
+	Click the ramp or a type button to apply a gradient.	グラデーションバーまたは種類ボタンをクリックして適用します。
+	Click to add a tab stop, drag to move it, drag it off the ruler to delete it	クリックでタブ位置を追加、ドラッグで移動、ルーラーの外へドラッグで削除
+	Click to choose a swatch, Shift-click to mix a colour	クリックでスウォッチを選択、Shift+クリックで色を混合
+	Click to edit the mask; Alt-click to view only the mask; Shift-click to disable or enable it	クリックでマスクを編集、Alt+クリックでマスクのみ表示、Shift+クリックで無効/有効を切り替え
+	Click to place each file at 100%, or drag to size it; arrow keys switch files, Esc skips one.	クリックで各ファイルを100%で配置、ドラッグでサイズ指定。矢印キーでファイルを切り替え、Esc でスキップします。
+	Click to select, double-click to edit	クリックで選択、ダブルクリックで編集
+	Click to toggle visibility	クリックで表示/非表示を切り替え
+	Click to zoom in, Alt-click to zoom out, drag to pan, double-click to fit	クリックで拡大、Alt+クリックで縮小、ドラッグで移動、ダブルクリックで全体表示
+	Client-side (.html)	クライアントサイド (.html)
+	Clip	クリップ
+	Clip Complex Regions	複雑な領域をクリップ
+	Clip to Art	アートにクリップ
+	Clip to Artboard	アートボードにクリップ
+	Clip to Bounding Box	バウンディングボックスにクリップ
+	Clipping Mask	クリッピングマスク
+	Clipping Masks	クリッピングマスク
+	Close	閉じる
+	Close All	すべて閉じる
+	Close Library	ライブラリを閉じる
+	Collate	丁合い
+	Collect Links in a Separate Folder	リンクを別フォルダーに集める
+	Collect for Export	書き出し用に集める
+	Collect in New Layer	新規レイヤーに集める
+	Color	カラー
+	Color Adjustments	カラー調整
+	Color Group	カラーグループ
+	Color Group:	カラーグループ:
+	Color Group: {n}	カラーグループ: {n}
+	Color Guide	カラーガイド
+	Color Guide Options	カラーガイドオプション
+	Color Guide Options…	カラーガイドオプション…
+	Color Library	カラーライブラリ
+	Color Library…	カラーライブラリ…
+	Color Management	カラーマネジメント
+	Color Mixer (Shift-click the chip)	カラーミキサー (チップを Shift+クリック)
+	Color Mode	カラーモード
+	Color Mode:	カラーモード:
+	Color Model:	カラーモデル:
+	Color Models	カラーモデル
+	Color Picker	カラーピッカー
+	Color Picker…	カラーピッカー…
+	Color Reduction:	減色:
+	Color Settings	カラー設定
+	Color Settings…	カラー設定…
+	Color Space	色空間
+	Color Swatches	カラースウォッチ
+	Color Table	カラーテーブル
+	Color Table ({} colors)	カラーテーブル ({} 色)
+	Color Theme	カラーテーマ
+	Color Themes	カラーテーマ
+	Color Type:	カラーの種類:
+	Color bars	カラーバー
+	Color blindness – Deuteranopia-type	色覚シミュレーション – 緑色弱タイプ
+	Color blindness – Protanopia-type	色覚シミュレーション – 赤色弱タイプ
+	Color conversion:	カラー変換:
+	Color images	カラー画像
+	Color:	カラー:
+	Colorize	カラー化
+	Colors	カラー
+	Colors:	カラー数:
+	Columns:	列数:
+	Column…	列…
+	Combine Slices	スライスを結合
+	Coming soon — tracked in the parity plan	近日対応 — 機能互換計画で管理中
+	Command Dialog	コマンドダイアログ
+	Community	コミュニティ
+	Compatibility:	互換性:
+	Compatible Gradient and Gradient Mesh Printing	互換性のあるグラデーション/グラデーションメッシュの印刷
+	Complement	補色
+	Complexity:	複雑さ:
+	Composite colours are converted to it; separations separate with it when it is a CMYK profile.	複合カラーはこれに変換されます。CMYK プロファイルの場合は色分解にも使われます。
+	Compound Path	複合パス
+	Compress (RLE)	圧縮 (RLE)
+	Compress text and line art	テキストとラインアートを圧縮
+	Compression	圧縮
+	Compression:	圧縮:
+	Condition identifier:	条件識別子:
+	Conflict {} of {count}	競合 {} / {count}
+	Consolidate All Windows	すべてのウィンドウを統合
+	Constrain Width and Height Proportions	幅と高さの比率を固定
+	Contextual Alternates	前後関係に依存する字形
+	Contextual Task Bar	コンテキストタスクバー
+	Contrast	コントラスト
+	Control	コントロール
+	Convert	変換
+	Convert All Spot Colors to Process	すべての特色をプロセスカラーに変換
+	Convert All Strokes to Outlines	すべての線をアウトラインに変換
+	Convert All Text to Outlines	すべての文字をアウトラインに変換
+	Convert Process to Global	プロセスをグローバルに変換
+	Convert To Area Type	エリア内文字に変換
+	Convert To Outlines	アウトラインに変換
+	Convert To Point Type	ポイント文字に変換
+	Convert text to outlines	文字をアウトラインに変換
+	Convert to Artboards	アートボードに変換
+	Convert to CMYK	CMYK に変換
+	Convert to Grayscale	グレースケールに変換
+	Convert to RGB	RGB に変換
+	Convert to Shape	シェイプに変換
+	Convert to sRGB	sRGB に変換
+	Copied the CSS of {rules} object(s)	オブジェクト {rules} 個の CSS をコピーしました
+	Copies:	部数:
+	Copy	コピー
+	Copy (make a transformed copy)	コピー (変形したコピーを作成)
+	Copy All Objects	すべてのオブジェクトをコピー
+	Copy All Styles	すべてのスタイルをコピー
+	Copy Color Value (Hex)	カラー値をコピー (16進)
+	Copy Fonts Used in the Document	ドキュメントで使用しているフォントをコピー
+	Copy Links	リンクをコピー
+	Copy Selected Style	選択したスタイルをコピー
+	Copyright	著作権
+	Copyright Info URL:	著作権情報の URL:
+	Copyright Notice:	著作権表示:
+	Copyright Status:	著作権の状態:
+	Copyright Symbol	著作権記号
+	Corner Radius:	角の半径:
+	Corner:	コーナー:
+	Corners	コーナー
+	Couldn't copy to the system clipboard: {e}	システムのクリップボードにコピーできませんでした: {e}
+	Couldn't paste from the clipboard: {e}	クリップボードから貼り付けできませんでした: {e}
+	Couldn't save recovery data: {e}	復元用データを保存できませんでした: {e}
+	Couldn't {} {name}: {e}	{name} を{}できませんでした: {e}
+	Create	作成
+	Create Clipping Mask	クリッピングマスクを作成
+	Create Document	ドキュメントを作成
+	Create From:	作成元:
+	Create Gradient Mesh…	グラデーションメッシュを作成…
+	Create New Layer	新規レイヤーを作成
+	Create New Sublayer	新規サブレイヤーを作成
+	Create New Swatch…	新規スウォッチを作成…
+	Create New {} Style	新規{}スタイルを作成
+	Create Object Mosaic…	オブジェクトモザイクを作成…
+	Create Outlines	アウトラインを作成
+	Create PDF layers from top-level layers	最上位レイヤーから PDF レイヤーを作成
+	Create PDF-Compatible File	PDF 互換ファイルを作成
+	Create Report	レポートを作成
+	Create Sub-folders	サブフォルダーを作成
+	Create Trim Marks	トリムマークを作成
+	Create from Guides	ガイドから作成
+	Create from Selection	選択範囲から作成
+	Created	作成日
+	Created:	作成日:
+	Crop	切り抜き
+	Crop Image	画像を切り抜き
+	Crop Marks	トリムマーク
+	Crop To	切り抜き範囲
+	Currency & Symbols	通貨と記号
+	Current Colors ({total})	現在のカラー ({total})
+	Custom	カスタム
+	Customize…	カスタマイズ…
+	Cut	カット
+	Cyan	シアン
+	DWG (use DXF)	DWG (DXF を使用)
+	DXF Import Options	DXF 読み込みオプション
+	DXF Options	DXF オプション
+	DXF Options Dialog	DXF オプションダイアログ
+	DXF {} · {}	DXF {} · {}
+	Dark	ダーク
+	Dash Pattern	破線パターン
+	Dashed	破線
+	Dashed Line	破線
+	Data…	データ…
+	Dates	日付
+	Decimal-Justified Tab	小数点揃えタブ
+	Decimal:	小数点:
+	Default	初期設定
+	Default Actions	初期設定のアクション
+	Default Figure	初期設定の数字
+	Default Fill and Stroke (D)	初期設定の塗りと線 (D)
+	Default Printer	既定のプリンター
+	Default Swatches	初期設定のスウォッチ
+	Define Grid…	グリッドを定義…
+	Define Perspective Grid	遠近グリッドを定義
+	Define Perspective Grid…	遠近グリッドを定義…
+	Delete	削除
+	Delete All	すべて削除
+	Delete Artboard	アートボードを削除
+	Delete Artboards	アートボードを削除
+	Delete Brush	ブラシを削除
+	Delete Empty Artboards	空のアートボードを削除
+	Delete Graphic Style	グラフィックスタイルを削除
+	Delete Graphic Style (Alt-click: without asking)	グラフィックスタイルを削除 (Alt+クリック: 確認なし)
+	Delete Layer	レイヤーを削除
+	Delete Point	ポイントを削除
+	Delete Profile	プロファイルを削除
+	Delete Selected Item	選択した項目を削除
+	Delete Selection	選択範囲を削除
+	Delete Stop	分岐点を削除
+	Delete Swatch	スウォッチを削除
+	Delete Symbol	シンボルを削除
+	Delete Tab	タブを削除
+	Delete Theme	テーマを削除
+	Delete Workspace	ワークスペースを削除
+	Delete theme	テーマを削除
+	Delete these {} graphic styles?	これらのグラフィックスタイル {} 個を削除しますか?
+	Delete these {} swatches and groups?	これらのスウォッチとグループ {} 個を削除しますか?
+	Delete this saved preset	この保存済みプリセットを削除
+	Delete {} Style	{}スタイルを削除
+	Delete “{n}”?	「{n}」を削除しますか?
+	Depth:	深さ:
+	Description	説明
+	Description:	説明:
+	Deselect	選択を解除
+	Design…	デザイン…
+	Destination:	出力先:
+	Detail:	詳細:
+	Dialog	ダイアログ
+	Diamond	ひし形
+	Differences from {DEFAULT_PRESET}:	{DEFAULT_PRESET} との違い:
+	Differences from {}:	{} との違い:
+	Dim Copies to:	コピーの不透明度:
+	Dimensions	寸法
+	Direction Handles	方向ハンドル
+	Disable Opacity Mask	不透明マスクを無効にする
+	Discard	破棄
+	Discard White Overprint in Output	出力時に白のオーバープリントを破棄
+	Discarded {} recovered document(s)	復元されたドキュメント {} 個を破棄しました
+	Discretionary Hyphen	ソフトハイフン
+	Discretionary Ligatures	任意の合字
+	Distort & Transform	変形
+	Distort Appearance	アピアランスを歪める
+	Distort Linear Gradients	線形グラデーションを歪める
+	Distort Pattern Fills	パターンの塗りを歪める
+	Distortion	歪み
+	Distribute Objects:	オブジェクトの分布:
+	Distribute Spacing:	間隔の分布:
+	Dither:	ディザ:
+	Divide	分割
+	Divide Horizontally Into	水平方向に分割
+	Divide Objects Below	下のオブジェクトを分割
+	Divide Slices	スライスを分割
+	Divide Slices…	スライスを分割…
+	Divide Vertically Into	垂直方向に分割
+	Do Not Move	移動しない
+	Do you want to save the changes you made to “{}”?	「{}」に加えた変更を保存しますか?
+	Document	ドキュメント
+	Document Color Mode	ドキュメントのカラーモード
+	Document Info	ドキュメント情報
+	Document Ink Options	ドキュメントのインキオプション
+	Document Raster Effects Settings	ドキュメントのラスター効果設定
+	Document Raster Effects Settings Dialog	ドキュメントのラスター効果設定ダイアログ
+	Document Raster Effects Settings…	ドキュメントのラスター効果設定…
+	Document Setup	ドキュメント設定
+	Document Setup…	ドキュメント設定…
+	Document Swatches	ドキュメントのスウォッチ
+	Document Title:	ドキュメントのタイトル:
+	Document open password	ドキュメントを開くパスワード
+	Document profile	ドキュメントのプロファイル
+	Documents you create appear here.	作成したドキュメントがここに表示されます。
+	Don't Save	保存しない
+	Don't Show Center	中心点を表示しない
+	Done	完了
+	Double Left Quotation Marks	左二重引用符
+	Double Quotes:	二重引用符:
+	Double Right Quotation Marks	右二重引用符
+	Double-click	ダブルクリック
+	Double-click to edit the characters' paint	ダブルクリックで文字のカラーを編集
+	Double-click to target the contents	ダブルクリックで内容を対象にする
+	Download	ダウンロード
+	Download:	ダウンロード:
+	Downloaded {what}	{what} をダウンロードしました
+	Downloaded {} file(s)	ファイル {} 個をダウンロードしました
+	Drag	ドラッグ
+	Drag a handle	ハンドルをドラッグ
+	Drag art here, or select it and click +. Hold Alt for one asset of several objects.	アートをここにドラッグするか、選択して + をクリックします。Alt を押すと、複数のオブジェクトを1つのアセットにします。
+	Drag art, colors and text styles here to reuse them across documents. Libraries are stored on this machine — no account required.	アート、カラー、文字スタイルをここにドラッグすると、ドキュメント間で再利用できます。ライブラリはこのコンピューターに保存され、アカウントは不要です。
+	Drag onto art to apply this appearance	アートの上にドラッグしてこのアピアランスを適用
+	Drag the art to move it on the paper	アートをドラッグして用紙上で移動
+	Draw	描画
+	Draw Behind	背面描画
+	Draw Inside	内側描画
+	Draw Normal	標準描画
+	Draw:	描画:
+	Duplicate	複製
+	Duplicate Artboards	アートボードを複製
+	Duplicate Brush	ブラシを複製
+	Duplicate Graphic Style	グラフィックスタイルを複製
+	Duplicate Item	項目を複製
+	Duplicate Layer	レイヤーを複製
+	Duplicate Selected Item	選択した項目を複製
+	Duplicate Slice	スライスを複製
+	Duplicate Swatch	スウォッチを複製
+	Duplicate Symbol	シンボルを複製
+	Duplicate and Offset 10 pt	複製して 10 pt ずらす
+	Duplicate {} Style	{}スタイルを複製
+	EPS Options	EPS オプション
+	EPS Options Dialog	EPS オプションダイアログ
+	Each page prints as one image, at the document's raster effects resolution.	各ページは、ドキュメントのラスター効果の解像度で1つの画像として印刷されます。
+	Edit	編集
+	Edit Artboards	アートボードを編集
+	Edit Clipping Path	クリッピングパスを編集
+	Edit Colors	カラーを編集
+	Edit Contents	内容を編集
+	Edit Custom Dictionary…	カスタム辞書を編集…
+	Edit Envelope	エンベロープを編集
+	Edit Gradient	グラデーションを編集
+	Edit Original	オリジナルを編集
+	Edit PDF Preset	PDF プリセットを編集
+	Edit Pattern	パターンを編集
+	Edit Print Preset	印刷プリセットを編集
+	Edit Selection…	選択範囲を編集…
+	Edit Symbol	シンボルを編集
+	Edit Text	テキストを編集
+	Edit Theme	テーマを編集
+	Edit Toolbar	ツールバーを編集
+	Edit Views	ビューを編集
+	Edit Views…	ビューを編集…
+	Edit or Apply Color Group	カラーグループを編集/適用
+	Edit or Apply Color Group…	カラーグループを編集/適用…
+	Edit or Apply Colors	カラーを編集/適用
+	Edit the applied effect, or add another one?	適用済みの効果を編集しますか、それとも別の効果を追加しますか?
+	Edit the selected point's colour in the Color panel	選択したポイントの色をカラーパネルで編集
+	Edit the stop	分岐点を編集
+	Edit theme	テーマを編集
+	Edit…	編集…
+	Effect	効果
+	Effective PPI	実効 PPI
+	Effect…	効果…
+	Ellipse	楕円形
+	Ellipsis	三点リーダー
+	Em Dash	全角ダッシュ
+	Em Space	全角スペース
+	Embed	埋め込み
+	Embed Fonts (Glyphs Used)	フォントを埋め込み (使用グリフ)
+	Embed Fonts (for other applications)	フォントを埋め込み (他のアプリケーション用)
+	Embed ICC Profile	ICC プロファイルを埋め込む
+	Embed ICC Profiles	ICC プロファイルを埋め込む
+	Embed Image(s)	画像を埋め込み
+	Embed page thumbnails	ページのサムネールを埋め込む
+	Embedded	埋め込み済み
+	Embedded Image	埋め込み画像
+	Embedded {n} image(s)	画像 {n} 個を埋め込みました
+	Embedded {n} image(s); {missing} missing: relink them first	画像 {n} 個を埋め込みました。{missing} 個が見つかりません。先に再リンクしてください
+	Emulsion:	乳剤面:
+	En Dash	半角ダッシュ
+	En Space	半角スペース
+	Enable Contextual Task Bar	コンテキストタスクバーを有効にする
+	Enable Opacity Mask	不透明マスクを有効にする
+	Enable copying of text, images and other content	テキスト、画像、その他の内容のコピーを許可
+	Enable plaintext metadata	プレーンテキストのメタデータを有効にする
+	Enable text access for screen readers	スクリーンリーダー用のテキストアクセスを有効にする
+	Encoding	エンコーディング
+	Encoding:	エンコーディング:
+	Encryption: {} (set by Compatibility)	暗号化: {} (互換性の設定による)
+	End arrowhead	終点の矢印
+	Enter	Enter
+	Entire Font	フォント全体
+	Envelope Distort	エンベロープ
+	Envelope Mesh	エンベロープ (メッシュ)
+	Envelope Options	エンベロープオプション
+	Envelope Options…	エンベロープオプション…
+	Error	エラー
+	Essentials	基本
+	Essentials Classic	基本 (クラシック)
+	Every option is at its default.	すべてのオプションが初期設定です。
+	Every option matches {base}.	すべてのオプションが {base} と同じです。
+	Every-line Composer	全行コンポーザー
+	Exact dash lengths	正確な破線の長さ
+	Exclude	中マド
+	Expand	分割・拡張
+	Expand Appearance	アピアランスを分割
+	Expand Brush Strokes	ブラシストロークを分割
+	Expand Compound Shape	複合シェイプを分割
+	Expand Gradient To	グラデーションの分割先
+	Expand Shape	シェイプを分割
+	Expand applies to compound shapes (Alt-click a shape mode) — on the roadmap	複合シェイプの分割 (シェイプモードを Alt+クリック) — 開発予定
+	Expand:	分割:
+	Expand…	分割…
+	Export	書き出し
+	Export All…	すべて書き出し…
+	Export Artboard	アートボードを書き出し
+	Export As	書き出し形式
+	Export As PNG…	PNG として書き出し…
+	Export As SVG…	SVG として書き出し…
+	Export Asset	アセットを書き出し
+	Export As…	書き出し形式…
+	Export CSS…	CSS を書き出し…
+	Export Keyboard Shortcuts…	キーボードショートカットを書き出し…
+	Export Option	書き出しオプション
+	Export Selected Art Only	選択したアートのみ書き出し
+	Export Selected CSS…	選択した CSS を書き出し…
+	Export Selection…	選択範囲を書き出し…
+	Export Settings	書き出し設定
+	Export and Clipboard Transparency Flattener Settings	書き出しとクリップボードの透明の分割・統合設定
+	Export for Screens	スクリーン用に書き出し
+	Export for Screens…	スクリーン用に書き出し…
+	Export the selected assets (else all of them)	選択したアセットを書き出し (未選択ならすべて)
+	Export to:	書き出し先:
+	Export {} Selected	選択した {} 個を書き出し
+	Export:	書き出し:
+	Exported {count} file(s) to {folder}	ファイル {count} 個を {folder} に書き出しました
+	Exported {path}	{path} に書き出しました
+	Exported {what}	{what} を書き出しました
+	Exported {what} with {} note(s): {first}	{what} を書き出しました (注意 {} 件: {first})
+	Exporting {}	{} を書き出し中
+	Export…	書き出し…
+	Extrude & Bevel…	押し出し・ベベル…
+	Eyedropper Applies:	スポイトの適用対象:
+	Eyedropper Options	スポイトオプション
+	Eyedropper Picks Up:	スポイトの取得対象:
+	Eyedropper: click the art to sample the stop's colour	スポイト: アートをクリックして分岐点の色を取得
+	Fewer <tspan> Elements	<tspan> 要素を少なくする
+	Fidelity:	精度:
+	Figure Space	数字幅スペース
+	Figure:	数字:
+	File	ファイル
+	File Dimensions	ファイルの寸法
+	File Format:	ファイル形式:
+	File Info	ファイル情報
+	File Info Dialog	ファイル情報ダイアログ
+	File Info…	ファイル情報…
+	File Name:	ファイル名:
+	File › Place… brings in an image, linked or embedded.	ファイル › 配置… で、画像をリンクまたは埋め込みで取り込めます。
+	Files	ファイル
+	Files of a PDF standard can't be password-protected.	PDF 規格のファイルにはパスワード保護を設定できません。
+	Files of this standard tag their colours with ICC profiles.	この規格のファイルでは、色に ICC プロファイルのタグが付きます。
+	Fill	塗り
+	Fill & Stroke	塗りと線
+	Fill (X), double-click for the Color Picker	塗り (X)。ダブルクリックでカラーピッカー
+	Fill Color	塗りの色
+	Fill with Placeholder Text	仮テキストで埋める
+	Fill:	塗り:
+	Fill: click for swatches, Shift-click for the color mixer	塗り: クリックでスウォッチ、Shift+クリックでカラーミキサー
+	Find	検索
+	Find Font	フォントを検索
+	Find Font…	フォントを検索…
+	Find Next	次を検索
+	Find and Replace…	検索と置換…
+	First Page	最初のページ
+	First-line Left Indent	1行目の左インデント
+	Fit All	すべてを表示
+	Fit All in Window	すべてをウィンドウに合わせる
+	Fit Artboard in Window	アートボードをウィンドウに合わせる
+	Fit Headline	見出しを合わせる
+	Fit dashes to corners and ends	破線をコーナーと端に合わせる
+	Fit in View	表示に合わせる
+	Fit in Window	ウィンドウに合わせる
+	Fit on Screen	画面に合わせる
+	Fit to Artwork Bounds	アートワークの境界に合わせる
+	Fit to Selected Art	選択したアートに合わせる
+	Flare Tool Options	光彩ツールオプション
+	Flat Image	統合画像
+	Flatness:	フラットネス:
+	Flatten Transparency	透明を分割・統合
+	Flatten Transparency…	透明を分割・統合…
+	Flattener Preview	分割・統合プレビュー
+	Flattener preset:	分割・統合プリセット:
+	Flattener presets	分割・統合プリセット
+	Flip Across	横方向に反転
+	Flip Along	縦方向に反転
+	Flip Along Horizontal Axis	水平軸に沿って反転
+	Flip Along Vertical Axis	垂直軸に沿って反転
+	Flip Horizontal	水平方向に反転
+	Flip Row Order	行の順序を反転
+	Flip Vertical	垂直方向に反転
+	Float in Window	ウィンドウ内にフロート
+	Focal Fill	焦点の塗り
+	Focal Stroke	焦点の線
+	Folder Name:	フォルダー名:
+	Font	フォント
+	Font Family	フォントファミリ
+	Font Family & Style	フォントファミリとスタイル
+	Font Family, Style & Size	フォントファミリ、スタイル、サイズ
+	Font Size	フォントサイズ
+	Font:	フォント:
+	Fonts	フォント
+	Fonts in Document: {}	ドキュメント内のフォント: {}
+	Fonts whose licence doesn't allow embedding are not copied.	ライセンス上埋め込みが許可されていないフォントはコピーされません。
+	Forced Line Break	強制改行
+	Format	形式
+	Format Settings	形式の設定
+	Format:	形式:
+	Formats:	形式:
+	Fractional Widths	小数点以下の文字幅
+	Fractions	分数
+	Free	自由
+	Freeform Gradient	フリーグラデーション
+	Frequencies and angles are the output device's to apply.	線数と角度は出力デバイス側で適用されます。
+	Frequency	線数
+	Full Document	ドキュメント全体
+	Full Screen Mode	フルスクリーンモード
+	Full Screen Mode with Menu Bar	メニューバー付きフルスクリーンモード
+	GPL palettes keep solid colours only, as RGB.	GPL パレットは、べた塗りの色のみ RGB として保持されます。
+	Gamma	ガンマ
+	Gamut Check	色域チェック
+	Gap Options…	ギャップオプション…
+	General	一般
+	Generate CSS	CSS を生成
+	Generate CSS: the whole document's CSS while nothing is selected	CSS を生成: 何も選択していない場合はドキュメント全体の CSS
+	Global	グローバル
+	Global Brush Dimensions	ブラシ全体の寸法
+	Global Process Color	グローバルプロセスカラー
+	Glyphs	グリフ
+	Go To Link	リンクへ移動
+	Gradient	グラデーション
+	Gradient Fill: click to apply, drag onto art	グラデーションの塗り: クリックで適用、アートにドラッグ
+	Gradient Mesh	グラデーションメッシュ
+	Gradient across stroke	線に対して垂直にグラデーション
+	Gradient along stroke	線に沿ってグラデーション
+	Gradient and Mesh Resolution:	グラデーションとメッシュの解像度:
+	Gradient swatches	グラデーションスウォッチ
+	Gradient within stroke	線の内側にグラデーション
+	Gradients	グラデーション
+	Graph	グラフ
+	Graph Data	グラフデータ
+	Graph Type	グラフの種類
+	Graphic Style	グラフィックスタイル
+	Graphic Style Libraries	グラフィックスタイルライブラリ
+	Graphic Style Libraries Menu	グラフィックスタイルライブラリメニュー
+	Graphic Style Library	グラフィックスタイルライブラリ
+	Graphic Style Options	グラフィックスタイルオプション
+	Graphic Style Options…	グラフィックスタイルオプション…
+	Graphic Styles	グラフィックスタイル
+	Graphics	グラフィックス
+	Gravity	重力
+	Grays	グレー
+	Grayscale	グレースケール
+	Grayscale images	グレースケール画像
+	Greek & Cyrillic	ギリシャ文字とキリル文字
+	Green	グリーン
+	Grid	グリッド
+	Grid Color & Opacity	グリッドの色と不透明度
+	Grid Colors:	グリッドの色:
+	Grid Size:	グリッドサイズ:
+	Gridline every:	グリッド線の間隔:
+	Group	グループ
+	Guides	ガイド
+	Guides & Grid	ガイドとグリッド
+	H Spacing:	水平間隔:
+	Hair Space	極細スペース
+	Harmony Rules:	ハーモニールール:
+	Height	高さ
+	Height:	高さ:
+	Help	ヘルプ
+	Help › Search Commands…	ヘルプ › コマンドを検索…
+	Hex by Column	六角形 (列ごと)
+	Hex by Row	六角形 (行ごと)
+	Hide Artboards	アートボードを隠す
+	Hide Bounding Box	バウンディングボックスを隠す
+	Hide Code	コードを隠す
+	Hide Contextual Task Bar	コンテキストタスクバーを隠す
+	Hide Corner Widget	コーナーウィジェットを隠す
+	Hide Edges	エッジを隠す
+	Hide Gradient Annotator	グラデーションアノテーターを隠す
+	Hide Grid	グリッドを隠す
+	Hide Guides	ガイドを隠す
+	Hide Hidden Characters	制御文字を隠す
+	Hide Note	メモを隠す
+	Hide Options	オプションを隠す
+	Hide Print Tiling	印刷分割を隠す
+	Hide Rulers	ルーラーを隠す
+	Hide Slices	スライスを隠す
+	Hide Text Threads	テキストスレッドを隠す
+	Hide Thumbnail	サムネールを隠す
+	Hide Thumbnails	サムネールを隠す
+	Hide Transparency Grid	透明グリッドを隠す
+	High	高
+	High (300 ppi)	高 (300 ppi)
+	Highlight Substituted Fonts	代替フォントをハイライト
+	Highlight Substituted Glyphs	代替グリフをハイライト
+	History	履歴
+	History Options…	履歴オプション…
+	Home	ホーム
+	Horizon Height:	水平線の高さ:
+	Horizontal	水平
+	Horizontal %	水平 %
+	Horizontal Align Center	水平方向中央に整列
+	Horizontal Align Left	水平方向左に整列
+	Horizontal Align Right	水平方向右に整列
+	Horizontal Distribute Center	水平方向中央に分布
+	Horizontal Distribute Left	水平方向左に分布
+	Horizontal Distribute Right	水平方向右に分布
+	Horizontal Distribute Space	水平方向の間隔を分布
+	Horizontal Grid:	水平グリッド:
+	Horizontal Plane	水平プレーン
+	Horizontal Scale %	水平比率 %
+	Horizontal:	水平:
+	How colours outside the press's gamut are separated.	印刷機の色域外の色をどのように分版するか。
+	Hue	色相
+	Hyphenate	ハイフネーション
+	Hyphenation…	ハイフネーション…
+	ICC Profile	ICC プロファイル
+	ICC Profiles	ICC プロファイル
+	Ignore	無視
+	Ignore Artboards (all the art as one page)	アートボードを無視 (すべてのアートを1ページとして扱う)
+	Ignore White	白を無視
+	Image	画像
+	Image Map:	イメージマップ:
+	Image Size	画像サイズ
+	Image Trace	画像トレース
+	Image:	画像:
+	Images:	画像:
+	Import Keyboard Shortcuts…	キーボードショートカットを読み込み…
+	Import PDF	PDF を読み込み
+	Imported {what}: {}	{what} を読み込みました: {}
+	Import…	読み込み…
+	In Tangent Handles	内向きの接線ハンドル
+	In the selected objects	選択したオブジェクト内
+	Include Blacks with CMY:	CMY と合わせて含める黒:
+	Include Bleed	裁ち落としを含める
+	Include CMYK PostScript in RGB Files	RGB ファイルに CMYK PostScript を含める
+	Include Cmy Blacks	CMY のブラックを含める
+	Include Document Thumbnails	ドキュメントのサムネールを含める
+	Include Hidden Layers	非表示レイヤーを含める
+	Include Linked Files	リンクファイルを含める
+	Include Metadata	メタデータを含める
+	Include Swatches for Tints	濃淡用のスウォッチを含める
+	Include non-printing layers	印刷しないレイヤーを含める
+	Inflate…	膨張…
+	Info	情報
+	Ink	インキ
+	Input Black	入力の黒
+	Input White	入力の白
+	Insert Break Character	区切り文字を挿入
+	Insert Special Character	特殊文字を挿入
+	Insert Whitespace Character	空白文字を挿入
+	Install Plug-in…	プラグインをインストール…
+	Installed plug-in {}	プラグイン {} をインストールしました
+	Intensity:	強度:
+	Intent:	変換方式:
+	Interlaced	インターレース
+	Internal CSS	内部 CSS
+	Internet Standard RGB (sRGB)	インターネット標準 RGB (sRGB)
+	Intersect	交差
+	Inverse	反転
+	Invert	反転
+	Invert Colors	カラーを反転
+	Invert Mask	マスクを反転
+	Isolate	分離
+	Isolate Blending	描画の分離
+	Isolate Group	グループを分離
+	Join	結合
+	Join Our Discord	Discord に参加
+	Join our Discord	Discord に参加
+	Join the lines of each paragraph	各段落の行をつなげる
+	Justification…	行揃え…
+	Justify all lines	すべての行を均等配置
+	Justify with last line aligned center	最終行中央揃え均等配置
+	Justify with last line aligned left	最終行左揃え均等配置
+	Justify with last line aligned right	最終行右揃え均等配置
+	Keep Original	オリジナルを保持
+	Keep a link to an image file instead of only embedding it	埋め込むだけでなく画像ファイルへのリンクも保持
+	Keep both sides the same width	両側を同じ幅に保つ
+	Keep the pasted color as a new swatch with a numbered name.	貼り付けたカラーを、番号付きの名前で新しいスウォッチとして保持します。
+	Keep this row's colors (exclude)	この行のカラーを保持 (除外)
+	Keep:	保持:
+	Kerning (0 = Auto)	カーニング (0 = 自動)
+	Keyboard Increment	キーボード増減値
+	Keyboard Shortcut Conflicts	キーボードショートカットの競合
+	Keyboard Shortcut Set	キーボードショートカットセット
+	Keyboard Shortcuts…	キーボードショートカット…
+	Keywords:	キーワード:
+	Knockout Group	抜きグループ
+	LZW Compression	LZW 圧縮
+	Lab Spot Colors:	Lab 特色:
+	Lab Values	Lab 値
+	Landscape	横
+	Language:	言語:
+	Large List View	大きいリスト表示
+	Large Thumbnail View	大きいサムネール表示
+	Large Thumbnails	大きいサムネール
+	Last Effect: {}	前回の効果: {}
+	Last Effect…	前回の効果…
+	Last Page	最後のページ
+	Latin Extended	ラテン文字拡張
+	Latin-1 Supplement	ラテン1補助
+	Layer Names	レイヤー名
+	Layers	レイヤー
+	Layout	レイアウト
+	Layout:	レイアウト:
+	Leader:	リーダー:
+	Leading	行送り
+	Left	左
+	Left Grid:	左グリッド:
+	Left Indent	左インデント
+	Left Plane	左プレーン
+	Left in Front	左を前面に
+	Left-Justified Tab	左揃えタブ
+	Left:	左:
+	Legacy Macintosh RGB (Gamma 1.8)	旧 Macintosh RGB (ガンマ 1.8)
+	Less	少なく
+	Letter	レター
+	Libraries	ライブラリ
+	Ligatures are off while the text is tracked.	テキストにトラッキングが設定されている間、合字はオフになります。
+	Light	ライト
+	Lightness	明度
+	Limit Color Guide to Library	カラーガイドをライブラリに限定
+	Limit colors to swatch library	カラーをスウォッチライブラリに限定
+	Limit colors to swatch library: {name}	カラーをスウォッチライブラリに限定: {name}
+	Limit to Library:	ライブラリに限定:
+	Limit:	制限:
+	Line	線
+	Line Art and Text Resolution:	ラインアートとテキストの解像度:
+	Line Breaks	改行
+	Line Endings:	改行コード:
+	Line Segment Tool Options	直線ツールオプション
+	Linear Gradient	線形グラデーション
+	Lines: clicks add points joined by a line	直線: クリックでポイントを追加し、線でつなぐ
+	Link	リンク
+	Link Opacity Mask	不透明マスクをリンク
+	Link harmony colors	ハーモニーカラーをリンク
+	Link start and end arrowhead scales	始点と終点の矢印の倍率をリンク
+	Link the mask	マスクをリンク
+	Linked	リンク済み
+	Linked File	リンクファイル
+	Linked File Not Found	リンクファイルが見つかりません
+	Links	リンク
+	List Keyboard Shortcuts	キーボードショートカット一覧
+	List View	リスト表示
+	List Workspaces	ワークスペース一覧
+	Live Paint	ライブペイント
+	Load Profile…	プロファイルを読み込み…
+	Local Libraries	ローカルライブラリ
+	Locate Object	オブジェクトの位置を表示
+	Location	場所
+	Location:	場所:
+	Lock	ロック
+	Lock (⌘2)	ロック (⌘2)
+	Lock Grid	グリッドをロック
+	Lock Guides	ガイドをロック
+	Lock Slices	スライスをロック
+	Lock Station Point	ステーションポイントをロック
+	Lossless (lossy WebP isn't available yet)	ロスレス (非可逆 WebP はまだ使えません)
+	Lossy:	非可逆:
+	Low	低
+	Magenta	マゼンタ
+	Magic Wand	自動選択
+	Maintain Envelope Shape	エンベロープの形状を維持
+	Make	作成
+	Make Clipping Mask	クリッピングマスクを作成
+	Make Compound Shape	複合シェイプを作成
+	Make Envelope	エンベロープを作成
+	Make Guides	ガイドを作成
+	Make Mask	マスクを作成
+	Make Opacity Mask	不透明マスクを作成
+	Make Pixel Perfect	ピクセルに整合
+	Make a theme on Create and save it.	作成時にテーマを作成して保存します。
+	Make all bleed settings the same	裁ち落とし設定をすべて同じにする
+	Make and Expand…	作成して分割…
+	Make the bleed values differ	裁ち落とし値を個別に設定
+	Make with Mesh…	メッシュで作成…
+	Make with Top Object	最前面のオブジェクトで作成
+	Make with Warp…	ワープで作成…
+	Make/Release Clipping Mask	クリッピングマスクを作成/解除
+	Make…	作成…
+	Manage Workspaces	ワークスペースを管理
+	Manage Workspaces…	ワークスペースを管理…
+	Mark as trapped	トラップ済みとしてマーク
+	Marker…	マーカー…
+	Marks	トンボ
+	Marks and Bleed	トンボと裁ち落とし
+	Marks and Bleeds	トンボと裁ち落とし
+	Materials…	マテリアル…
+	Matte	マット
+	Matte:	マット:
+	Maximize	最大化
+	Maximum	最大
+	Maximum Editability	編集可能性を最大に
+	Media	メディア
+	Medium	中
+	Medium (150 ppi)	中 (150 ppi)
+	Medium Dark	ミディアムダーク
+	Medium Light	ミディアムライト
+	Medium Thumbnail View	中サムネール表示
+	Medium Thumbnails	中サムネール
+	Menu Dialog	メニューダイアログ
+	Merge	統合
+	Merge Graphic Styles	グラフィックスタイルを統合
+	Merge Graphic Styles…	グラフィックスタイルを統合…
+	Merge Layers	レイヤーを統合
+	Merge Swatches	スウォッチを統合
+	Merge colors into one row	カラーを1行に統合
+	Message:	メッセージ:
+	Metadata:	メタデータ:
+	Method:	方式:
+	Minify	圧縮 (最小化)
+	Minimal	最小
+	Minimize	最小化
+	Minus Back	背面オブジェクトで型抜き
+	Minus Front	前面オブジェクトで型抜き
+	Mirror	ミラー
+	Missing	見つかりません
+	Missing: {path}	見つかりません: {path}
+	Miter Join	マイター結合
+	Miter Limit	マイター制限
+	Mixed Appearances	混在するアピアランス
+	Mixed Objects	混在するオブジェクト
+	Mode:	モード:
+	Model	モデル
+	Modified	変更日
+	Modified since it was read: {path}	読み込み後に変更されています: {path}
+	Modified:	変更日:
+	Modify	変更
+	Monitor RGB	モニター RGB
+	Mono	モノ
+	Monochrome images	モノクロ画像
+	More	詳細
+	More Pathfinder options	その他のパスファインダーオプション
+	More Settings	その他の設定
+	Move	移動
+	Move All Objects	すべてのオブジェクトを移動
+	Move Down	下へ移動
+	Move Plane to Match Object	プレーンをオブジェクトに合わせて移動
+	Move Up	上へ移動
+	Move…	移動…
+	My Themes	マイテーマ
+	Name	名前
+	Name:	名前:
+	Navigate	ナビゲート
+	Navigator	ナビゲーター
+	Needs the desktop app	デスクトップアプリが必要です
+	New	新規
+	New Art Brush from Selection	選択範囲から新規絵筆ブラシ
+	New Art Has Basic Appearance	新規アートは基本アピアランスにする
+	New Artboard	新規アートボード
+	New Bristle Brush	新規剛毛ブラシ
+	New Calligraphic Brush	新規カリグラフィブラシ
+	New Color Group	新規カラーグループ
+	New Color Group…	新規カラーグループ…
+	New Graphic Style (Alt-click to name it)	新規グラフィックスタイル (Alt+クリックで名前を付ける)
+	New Graphic Style…	新規グラフィックスタイル…
+	New Layer…	新規レイヤー…
+	New Opacity Masks Are Clipping	新規不透明マスクをクリップに設定
+	New Opacity Masks Are Inverted	新規不透明マスクを反転に設定
+	New PDF Preset	新規 PDF プリセット
+	New Pattern Brush from Selection	選択範囲から新規パターンブラシ
+	New Print Preset	新規印刷プリセット
+	New Scatter Brush from Selection	選択範囲から新規散布ブラシ
+	New Sublayer…	新規サブレイヤー…
+	New Swatch	新規スウォッチ
+	New Swatch…	新規スウォッチ…
+	New Symbol	新規シンボル
+	New Symbol…	新規シンボル…
+	New View	新規ビュー
+	New View…	新規ビュー…
+	New Window	新規ウィンドウ
+	New Workspace	新規ワークスペース
+	New Workspace…	新規ワークスペース…
+	New file	新規ファイル
+	New from Template	テンプレートから新規
+	New from Template…	テンプレートから新規…
+	New theme from the current color	現在のカラーから新規テーマ
+	New {} Style…	新規{}スタイル…
+	New…	新規…
+	Next	次へ
+	Next Library	次のライブラリ
+	Next Object Above	上の次のオブジェクト
+	Next Object Below	下の次のオブジェクト
+	Next Page	次のページ
+	Next page	次のページ
+	No Break	分離禁止
+	No CSS	CSS なし
+	No Document	ドキュメントなし
+	No Selection	選択なし
+	No Thumbnails	サムネールなし
+	No actions. Press ● to record.	アクションがありません。● を押して記録します。
+	No assets	アセットなし
+	No assets yet. Collect art with Object › Collect for Export, or drag it into the Asset Export panel.	アセットはまだありません。オブジェクト › 書き出し用に集める でアートを集めるか、アセットの書き出しパネルにドラッグしてください。
+	No brushes	ブラシなし
+	No colors to recolor (preserved colors are left out).	再配色するカラーがありません (保持するカラーは除外されます)。
+	No document	ドキュメントなし
+	No document open	開いているドキュメントがありません
+	No document open.	開いているドキュメントがありません。
+	No filter plug-ins installed	フィルタープラグインがインストールされていません
+	No fonts are available.	使用できるフォントがありません。
+	No gradient swatches	グラデーションスウォッチなし
+	No graphic styles	グラフィックスタイルなし
+	No images	画像なし
+	No matches.	一致するものがありません。
+	No matching fonts	一致するフォントがありません
+	No options	オプションなし
+	No printer settings to open here	ここで開けるプリンター設定はありません
+	No saved themes	保存済みテーマなし
+	No selection	選択なし
+	No symbols in this document	このドキュメントにはシンボルがありません
+	No text selected	テキストが選択されていません
+	Noise	ノイズ
+	Nonbreaking Hyphen	分離禁止ハイフン
+	Nonbreaking Space	分離禁止スペース
+	None	なし
+	None (/)	なし (/)
+	None (keep transparency)	なし (透明を保持)
+	None.	なし。
+	Normal Screen Mode	標準スクリーンモード
+	Note:	注:
+	Nothing matches the Show filter.	表示フィルターに一致するものがありません。
+	Nothing to print	印刷するものがありません
+	Number of Artboards:	アートボード数:
+	Number of Colors:	カラー数:
+	OK	OK
+	Object	オブジェクト
+	Object IDs:	オブジェクト ID:
+	Objects	オブジェクト
+	Objects using them keep their look but are no longer linked.	これらを使用しているオブジェクトは見た目を保ちますが、リンクは解除されます。
+	Off	オフ
+	Offset Path	パスのオフセット
+	Offset Path…	パスのオフセット…
+	Offset:	オフセット:
+	On	オン
+	One Point	1点
+	One Point Perspective	1点透視図
+	One Point Perspective Preset 1	1点透視図プリセット 1
+	One Point Perspective Preset 2	1点透視図プリセット 2
+	One Point Perspective Preset 3	1点透視図プリセット 3
+	One Point Perspective Preset 4	1点透視図プリセット 4
+	One Point Perspective Preset 5	1点透視図プリセット 5
+	One file per artboard: <name>-<artboard>.{ext}	アートボードごとに1ファイル: <name>-<artboard>.{ext}
+	One page per artboard.	アートボードごとに1ページ。
+	Only Web Colors	Web セーフカラーのみ
+	Opacity	不透明度
+	Opacity & Mask Define Knockout Shape	不透明度とマスクで抜きシェイプを定義
+	Opacity:	不透明度:
+	Opacity: {}	不透明度: {}
+	Opaque	不透明
+	Open	開く
+	Open Graphic Style Library	グラフィックスタイルライブラリを開く
+	Open Location after Export	書き出し後に場所を開く
+	Open Paths	開いたパス
+	Open Recent Files	最近使ったファイルを開く
+	Open Swatch Library	スウォッチライブラリを開く
+	Open a document to edit its patterns.	ドキュメントを開くと、パターンを編集できます。
+	Open a document to navigate it.	ドキュメントを開くと、ナビゲートできます。
+	Open a document to preview its flattening.	ドキュメントを開くと、分割・統合をプレビューできます。
+	Open a document to preview its pages	ドキュメントを開くと、ページをプレビューできます
+	Open a document to see its artboards.	ドキュメントを開くと、アートボードが表示されます。
+	Open a document to see its graphic styles.	ドキュメントを開くと、グラフィックスタイルが表示されます。
+	Open a document to see its history.	ドキュメントを開くと、履歴が表示されます。
+	Open a document to see its swatches.	ドキュメントを開くと、スウォッチが表示されます。
+	Open password:	開くパスワード:
+	Open the URL in the web browser	URL を Web ブラウザーで開く
+	Opened with {} note(s): {}	開きました (注意 {} 件): {}
+	Open…	開く…
+	Optical Margin Alignment	オプティカルマージン補正
+	Optimize for fast web view	Web 表示用に最適化
+	Optimized	最適化
+	Options	オプション
+	Options:	オプション:
+	Options…	オプション…
+	Order:	順序:
+	Ordinals	序数
+	Orientation	方向
+	Orientation:	方向:
+	Original	オリジナル
+	Original: click to restore	オリジナル: クリックで元に戻す
+	Other	その他
+	Other Layers	その他のレイヤー
+	Other Libraries	その他のライブラリ
+	Other Library…	その他のライブラリ…
+	Other Script…	その他のスクリプト…
+	Out Tangent Handles	外向きの接線ハンドル
+	Out of Gamut Warning	色域外警告
+	Out of Web Color Warning	Web セーフカラー外警告
+	Outline	アウトライン
+	Outline Stroke	線のアウトライン
+	Outline Text	文字のアウトライン
+	Output	出力
+	Output Black	出力の黒
+	Output Intent	出力インテント
+	Output White	出力の白
+	Output condition:	出力条件:
+	Output intent profile:	出力インテントプロファイル:
+	Output:	出力:
+	Overlap:	重なり:
+	Overlapping	重なり
+	Overprint	オーバープリント
+	Overprint Black…	ブラックのオーバープリント…
+	Overprint Fill	塗りをオーバープリント
+	Overprint Preview	オーバープリントプレビュー
+	Overprint Preview (separations)	オーバープリントプレビュー (分版)
+	Overprint Stroke	線をオーバープリント
+	Overprint and Transparency Flattener	オーバープリントと透明の分割・統合
+	Overprint and Transparency Flattener Options	オーバープリントと透明の分割・統合オプション
+	Overprint:	オーバープリント:
+	Overprints:	オーバープリント:
+	Override Character Color	文字カラーを上書き
+	PDF 1.3 files have no transparency: the preset flattens it.	PDF 1.3 ファイルには透明がないため、プリセットで分割・統合されます。
+	PDF File	PDF ファイル
+	PDF Preset	PDF プリセット
+	PDF Preset:	PDF プリセット:
+	PDF Presets	PDF プリセット
+	PDF Presets…	PDF プリセット…
+	PDF presets	PDF プリセット
+	PDF settings are not an object	PDF 設定がオブジェクトではありません
+	PDF/A files carry their own output intent.	PDF/A ファイルは独自の出力インテントを持ちます。
+	PDF/X-1a files are CMYK: every colour is converted to the destination (blank: the output intent's CMYK profile), untagged.	PDF/X-1a ファイルは CMYK です。すべての色が出力先 (空欄: 出力インテントの CMYK プロファイル) に変換され、タグは付きません。
+	PPI	PPI
+	PRESET DETAILS	プリセットの詳細
+	Package	パッケージ
+	Package collects a saved document with its linked files and fonts.	パッケージは、保存済みドキュメントをリンクファイルとフォントごと1か所に集めます。
+	Package created	パッケージを作成しました
+	Packaged {n} file(s) in {folder}{note}	ファイル {n} 個を {folder} にパッケージしました{note}
+	Packaged {n} file(s){note}	ファイル {n} 個をパッケージしました{note}
+	Package…	パッケージ…
+	Page	ページ
+	Page Isolated Blending	ページ単位の描画分離
+	Page Knockout Group	ページ抜きグループ
+	Page information	ページ情報
+	Pages	ページ
+	Painting	ペイント
+	Panel Options…	パネルオプション…
+	Panel menu	パネルメニュー
+	Panels	パネル
+	Paragraph	段落
+	Paragraph Style	段落スタイル
+	Paragraph Styles	段落スタイル
+	Paragraph Symbol	段落記号
+	Password	パスワード
+	Paste	ペースト
+	Paste Remembers Layers	ペースト時にレイヤーを記憶
+	Paste in Back	背面にペースト
+	Paste in Front	前面にペースト
+	Paste in Place	同じ位置にペースト
+	Paste on All Artboards	すべてのアートボードにペースト
+	Paste without Formatting	書式なしでペースト
+	Pasted	ペーストしました
+	Path	パス
+	Pathfinder	パスファインダー
+	Pathfinder Options…	パスファインダーオプション…
+	Pathfinders:	パスファインダー:
+	Paths	パス
+	Paths: {p}    Anchors: {a}    Colors: {c}	パス: {p}    アンカー: {a}    カラー: {c}
+	Pattern	パターン
+	Pattern Options	パターンオプション
+	Pattern options are available in pattern editing mode.	パターンオプションは、パターン編集モードで使えます。
+	Percent:	パーセント:
+	Permissions	権限
+	Permissions password:	権限パスワード:
+	Perspective	遠近
+	Perspective Grid	遠近グリッド
+	Perspective Grid Options	遠近グリッドオプション
+	Perspective Grid Preset	遠近グリッドプリセット
+	Perspective Grid Presets	遠近グリッドプリセット
+	Perspective Grid Presets…	遠近グリッドプリセット…
+	Perspective Grid Settings	遠近グリッド設定
+	Perspective Plane Options…	遠近プレーンオプション…
+	Perspective grid presets	遠近グリッドプリセット
+	Phone 390×844	スマートフォン 390×844
+	Pixel Preview	ピクセルプレビュー
+	Place	配置
+	Place DXF	DXF を配置
+	Place PDF	PDF を配置
+	Place Symbol Instance	シンボルインスタンスを配置
+	Place onto a new locked, dimmed template layer below the current layer	現在のレイヤーの下の、ロックされ淡色表示の新しいテンプレートレイヤーに配置
+	Place the pages with the placement again	配置設定でページを再配置
+	Placement Options	配置オプション
+	Placement Options…	配置オプション…
+	Placement:	配置:
+	Place…	配置…
+	Platform:	プラットフォーム:
+	Play Current Selection	選択中のアクションを再生
+	Plug-ins	プラグイン
+	Plug-in…	プラグイン…
+	Point Sample	ポイントサンプル
+	Point Text Objects	ポイント文字オブジェクト
+	Points	ポイント
+	Points: clicks add free points	ポイント: クリックで自由な点を追加
+	Polygon	多角形
+	Polygon Properties:	多角形のプロパティ:
+	Portrait	縦
+	Position	位置
+	Postcard	はがき
+	Preferences	環境設定
+	Preferences…	環境設定…
+	Prefix:	接頭辞:
+	Presentation Attributes	プレゼンテーション属性
+	Presentation Mode	プレゼンテーションモード
+	Preserve Alpha Transparency	アルファ透明を保持
+	Preserve CMYK Numbers	CMYK の数値を保持
+	Preserve Editing Capabilities	編集機能を保持
+	Preserve Lightness	明度を保持
+	Preserve Overprints and Spot Colors	オーバープリントと特色を保持
+	Preserve Shape Using:	形状の保持方法:
+	Preserve Spot Colors	特色を保持
+	Preserve Text Appearance	テキストの見た目を保持
+	Preserve Text Editability	テキストの編集可能性を保持
+	Preserve editing capabilities	編集機能を保持
+	Preserve:	保持:
+	Preset Name	プリセット名
+	Preset name:	プリセット名:
+	Preset {}	プリセット {}
+	Preset:	プリセット:
+	Presets you save with the Save Preset button appear here.	「プリセットを保存」ボタンで保存したプリセットがここに表示されます。
+	Presets:	プリセット:
+	Preview	プレビュー
+	Preview Mode	プレビューモード
+	Preview in Browser	ブラウザーでプレビュー
+	Preview in Browser needs the desktop app (the web downloads files instead)	ブラウザーでプレビューにはデスクトップアプリが必要です (Web 版ではファイルがダウンロードされます)
+	Preview the document as it is now	ドキュメントの現在の状態をプレビュー
+	Previous	前へ
+	Previous Library	前のライブラリ
+	Previous Page	前のページ
+	Previous page	前のページ
+	Print	印刷
+	Print Layers:	印刷するレイヤー:
+	Print Preset	印刷プリセット
+	Print Preset:	印刷プリセット:
+	Print Presets	印刷プリセット
+	Print Presets…	印刷プリセット…
+	Print as Bitmap	ビットマップとして印刷
+	Print presets	印刷プリセット
+	Printer	プリンター
+	Printer Setup…	プリンター設定…
+	Printer mark type:	トンボの種類:
+	Printer profile:	プリンタープロファイル:
+	Printer:	プリンター:
+	Printers	プリンター
+	Printing allowed:	許可する印刷:
+	Printing and Proofing	印刷と校正
+	Print…	印刷…
+	Process Color	プロセスカラー
+	Profile inclusion:	プロファイルの含め方:
+	Profile:	プロファイル:
+	Progressive	プログレッシブ
+	Projecting Cap	突出線端
+	Proof Colors	校正用カラー
+	Proof Setup	校正設定
+	Properties	プロパティ
+	Proportional Oldstyle	プロポーショナルオールドスタイル
+	Punctuation	約物
+	Punctuation Space	句読点幅スペース
+	Quality {}	品質 {}
+	Quality:	品質:
+	Quarter Space	四分アキ
+	Quick Actions	クイックアクション
+	Quickly start a new file	すぐに新規ファイルを開始
+	Quit VectorCraft	VectorCraft を終了
+	RECENT	最近使用
+	RGB Color	RGB カラー
+	Radial	円形
+	Radial Gradient	円形グラデーション
+	Radius 1	半径 1
+	Radius 2	半径 2
+	Radius1	半径 1
+	Radius2	半径 2
+	Rainbow	虹
+	Random	ランダム
+	Randomly change color order	カラーの順序をランダムに変更
+	Randomly change saturation and brightness	彩度と明度をランダムに変更
+	Range:	範囲:
+	Raster Effects	ラスター効果
+	Raster File Format:	ラスターファイル形式:
+	Raster Sample Size:	ラスターサンプルサイズ:
+	Raster/Vector Balance:	ラスター/ベクトルのバランス:
+	Rasterize	ラスタライズ
+	Rasterize Unsupported Art	非対応のアートをラスタライズ
+	Rasterize…	ラスタライズ…
+	Rasters	ラスター
+	Rating:	評価:
+	Real World:	実世界:
+	Rearrange All Artboards (on the roadmap)	すべてのアートボードを再配置 (開発予定)
+	Rearrange All Artboards…	すべてのアートボードを再配置…
+	Recent	最近
+	Recent Colors	最近使ったカラー
+	Recent File	最近使ったファイル
+	Recent Files	最近使ったファイル
+	Recent Font	最近使ったフォント
+	Recent Fonts	最近使ったフォント
+	Recent URLs	最近使った URL
+	Recolor	再配色
+	Recolor Artwork	アートワークを再配色
+	Recolor Artwork…	アートワークを再配色…
+	Recolor this row	この行を再配色
+	Recolor with Preset	プリセットで再配色
+	Recover Documents	ドキュメントを復元
+	Rectangle	長方形
+	Rectangle Properties:	長方形のプロパティ:
+	Red	レッド
+	Redefine Graphic Style	グラフィックスタイルを再定義
+	Redefine Symbol	シンボルを再定義
+	Redefine {} Style	{}スタイルを再定義
+	Redo	やり直し
+	Redo {}	やり直し: {}
+	Reduce to Basic Appearance	基本アピアランスに戻す
+	Reduction:	削減:
+	Reference Point	基準点
+	Reflect	リフレクト
+	Reflect Horizontal	水平方向にリフレクト
+	Reflect X	X 軸でリフレクト
+	Reflect Y	Y 軸でリフレクト
+	Reflect…	リフレクト…
+	Refresh	更新
+	Refresh Font List	フォント一覧を更新
+	Registered Trademark Symbol	登録商標記号
+	Registration marks	見当トンボ
+	Registry name:	レジストリ名:
+	Regular	レギュラー
+	Release	解除
+	Release Compound Shape	複合シェイプを解除
+	Release Guides	ガイドを解除
+	Release Opacity Mask	不透明マスクを解除
+	Release Selection	選択を解除
+	Release with Perspective	遠近を解除
+	Relink Linked Files to the Document	リンクファイルをドキュメントに再リンク
+	Relink to Folder…	フォルダーに再リンク…
+	Relinked {n} image(s)	画像 {n} 個を再リンクしました
+	Relinked {n} image(s); not in that folder: {}	画像 {n} 個を再リンクしました。そのフォルダーにないもの: {}
+	Relinked {} image(s)	画像 {} 個を再リンクしました
+	Relink…	再リンク…
+	Reload Plug-ins	プラグインを再読み込み
+	Remove	削除
+	Remove Anchor Points	アンカーポイントを削除
+	Remove Brush Stroke	ブラシストロークを削除
+	Remove Item	項目を削除
+	Remove Selected Assets	選択したアセットを削除
+	Remove Threading	スレッドを解除
+	Remove blank lines between paragraphs	段落間の空行を削除
+	Remove “{k}”	「{k}」を削除
+	Rename	名前を変更
+	Rename Workspace	ワークスペースの名前を変更
+	Rendering intent:	レンダリングインテント:
+	Repeat	リピート
+	Repeat Options	リピートオプション
+	Repeat Pathfinder	パスファインダーを繰り返す
+	Repeat Tab	タブを繰り返し
+	Repeat {l}	{l} を繰り返す
+	Replace	置換
+	Replace Spine	スパインを置換
+	Replace Symbol	シンボルを置換
+	Replace With Font	フォントで置換
+	Replace it with another file, or ignore it: its images keep showing the preview saved with the document.	別のファイルに置き換えるか、無視してください。無視した場合、画像はドキュメントに保存されたプレビューのまま表示されます。
+	Replaces the saved preset of that name.	同じ名前の保存済みプリセットを置き換えます。
+	Replace…	置換…
+	Require a password to open the document	ドキュメントを開くのにパスワードを要求
+	Reselect	再選択
+	Reset	リセット
+	Reset Bounding Box	バウンディングボックスをリセット
+	Reset Envelope Mesh	エンベロープメッシュをリセット
+	Reset Envelope Shape	エンベロープの形状をリセット
+	Reset Essentials	基本をリセット
+	Reset Keyboard Shortcuts	キーボードショートカットをリセット
+	Reset OpenType Features	OpenType 機能をリセット
+	Reset Panel	パネルをリセット
+	Reset Preferences	環境設定をリセット
+	Reset Profiles	プロファイルをリセット
+	Reset Rotate View	ビューの回転をリセット
+	Reset the rows to the artwork's colors	行をアートワークのカラーにリセット
+	Reset to Default	初期設定にリセット
+	Reset to White, Black	白、黒にリセット
+	Reset with Mesh	メッシュでリセット
+	Reset with Mesh…	メッシュでリセット…
+	Reset with Warp	ワープでリセット
+	Reset with Warp…	ワープでリセット…
+	Reset {}	{} をリセット
+	Resolution:	解像度:
+	Responsive	レスポンシブ
+	Restore	復元
+	Restore every preference to its default (applied on OK)	すべての環境設定を初期値に戻します (OK で適用)
+	Restored documents open unsaved: save them to keep them.	復元したドキュメントは未保存の状態で開きます。保持するには保存してください。
+	Restored {} recovered document(s): save them to keep them	復元したドキュメント {} 個: 保持するには保存してください
+	Restrict printing, editing and other tasks	印刷、編集などの操作を制限
+	Reverse Front to Back	前面から背面へ反転
+	Reverse Gradient	グラデーションを反転
+	Reverse Order	順序を反転
+	Reverse Path Direction	パスの方向を反転
+	Reverse Path Direction Off	パスの方向を反転: オフ
+	Reverse Path Direction On	パスの方向を反転: オン
+	Reverse Spine	スパインを反転
+	Revert	復帰
+	Revert to the saved version of “{name}”?	「{name}」を保存済みのバージョンに戻しますか?
+	Revolve…	回転体…
+	Right	右
+	Right Grid:	右グリッド:
+	Right Indent	右インデント
+	Right Plane	右プレーン
+	Right in Front	右を前面に
+	Right-Justified Tab	右揃えタブ
+	Right:	右:
+	Roman Hanging Punctuation	欧文のぶら下がり約物
+	Rotate	回転
+	Rotate 90° CW	時計回りに 90° 回転
+	Rotate…	回転…
+	Rotation	回転
+	Round Cap	丸型線端
+	Round Join	ラウンド結合
+	Rounded Rectangle	角丸長方形
+	Rows:	行数:
+	Rule:	ルール:
+	Rulers	ルーラー
+	Rulers & Grids	ルーラーとグリッド
+	SAVED	保存済み
+	SVG Filters	SVG フィルター
+	SVG Interactivity	SVG インタラクティビティ
+	SVG Options	SVG オプション
+	SVG Profile:	SVG プロファイル:
+	Same	同じ
+	Same As Source	ソースと同じ
+	Saturate	彩度を上げる
+	Saturate…	彩度を上げる…
+	Saturation	彩度
+	Save	保存
+	Save As	別名で保存
+	Save As…	別名で保存…
+	Save Colors as Swatches	カラーをスウォッチとして保存
+	Save Document Info…	ドキュメント情報を保存…
+	Save Graphic Style Library	グラフィックスタイルライブラリを保存
+	Save Graphic Style Library…	グラフィックスタイルライブラリを保存…
+	Save Grid as Preset	グリッドをプリセットとして保存
+	Save Grid as Preset…	グリッドをプリセットとして保存…
+	Save PDF	PDF を保存
+	Save PDF Dialog	PDF 保存ダイアログ
+	Save Preset	プリセットを保存
+	Save Preset…	プリセットを保存…
+	Save Selection…	選択範囲を保存…
+	Save Swatch Library	スウォッチライブラリを保存
+	Save Swatch Library…	スウォッチライブラリを保存…
+	Save Theme	テーマを保存
+	Save To:	保存先:
+	Save Transparency Flattener Preset…	透明の分割・統合プリセットを保存…
+	Save a Copy	コピーを保存
+	Save a Copy…	コピーを保存…
+	Save as PDF…	PDF として保存…
+	Save as Template	テンプレートとして保存
+	Save as Template…	テンプレートとして保存…
+	Save as preset:	プリセットとして保存:
+	Save changes to {n}	{n} の変更を保存
+	Save color group to Swatch panel	カラーグループをスウォッチパネルに保存
+	Save each artboard to a separate file	アートボードごとに別のファイルとして保存
+	Save for Office Documents	Office ドキュメント用に保存
+	Save for Office Documents…	Office ドキュメント用に保存…
+	Save for Web	Web 用に保存
+	Save for Web (Legacy)…	Web 用に保存 (従来)…
+	Save selected colors as swatches	選択したカラーをスウォッチとして保存
+	Save the current layout under this name	現在のレイアウトをこの名前で保存
+	Save the document first?	先にドキュメントを保存しますか?
+	Save the selected preset to a file	選択したプリセットをファイルに保存
+	Save the settings as a preset	設定をプリセットとして保存
+	Save theme to My Themes	テーマをマイテーマに保存
+	Save these settings as a preset	この設定をプリセットとして保存
+	Save these settings as a print preset	この設定を印刷プリセットとして保存
+	Save to Swatches	スウォッチに保存
+	Saved	保存しました
+	Saved recovery data for {title}	{title} の復元用データを保存しました
+	Saved to User Defined: {}	ユーザー定義に保存しました: {}
+	Saved {n} files beside {path}	ファイル {n} 個を {path} の隣に保存しました
+	Saved {path}	{path} を保存しました
+	Saved {path} with {} note(s): {first}	{path} を保存しました (注意 {} 件: {first})
+	Saves the current bars, toolbar and panel layout.	現在のバー、ツールバー、パネルのレイアウトを保存します。
+	Save…	保存…
+	Saving	保存中
+	Saving recovery data for {}	{} の復元用データを保存中
+	Saving {}	{} を保存中
+	Scale	拡大・縮小
+	Scale Corners	角を拡大・縮小
+	Scale Lineweights	線幅を拡大・縮小
+	Scale Strokes & Effects	線幅と効果を拡大・縮小
+	Scale to Fit Artboard	アートボードに合わせて拡大・縮小
+	Scale:	拡大・縮小:
+	Scale…	拡大・縮小…
+	Scaling	拡大・縮小
+	Scaling:	拡大・縮小:
+	Scans:	スキャン:
+	Scatter	散布
+	Screen (72 ppi)	スクリーン (72 ppi)
+	Screen Mode	スクリーンモード
+	Screens	スクリーン
+	Scripts	スクリプト
+	Search	検索
+	Search All	すべて検索
+	Search Commands…	コマンドを検索…
+	Search commands and tools	コマンドとツールを検索
+	Search commands and tools…	コマンドとツールを検索…
+	Section Symbol	セクション記号
+	Security	セキュリティ
+	Select	選択
+	Select All	すべてを選択
+	Select All Assets	すべてのアセットを選択
+	Select All Instances	すべてのインスタンスを選択
+	Select All Pins	すべてのピンを選択
+	Select All Unused	未使用をすべて選択
+	Select Tool	選択ツール
+	Open Recent File {}	最近使ったファイルを開く {}
+	Recent Font {}	最近使ったフォント {}
+	Saved View {}	保存したビュー {}
+	Select a text object	テキストオブジェクトを選択してください
+	Select a text object to edit its character attributes.	テキストオブジェクトを選択すると、文字属性を編集できます。
+	Select a text object to edit its paragraph attributes.	テキストオブジェクトを選択すると、段落属性を編集できます。
+	Select a text object to set its tab stops.	テキストオブジェクトを選択すると、タブ位置を設定できます。
+	Select an image to see its Link Info.	画像を選択すると、リンク情報が表示されます。
+	Select an image to trace	トレースする画像を選択してください
+	Select art and choose Object › Pattern › Make.	アートを選択して、オブジェクト › パターン › 作成 を選びます。
+	Select art and click New Symbol to make one.	アートを選択して「新規シンボル」をクリックすると作成できます。
+	Select art and use New Brush to make one.	アートを選択して「新規ブラシ」を使うと作成できます。
+	Select objects to see their CSS, or Generate CSS for the whole document.	オブジェクトを選択すると CSS が表示されます。ドキュメント全体は「CSS を生成」を使います。
+	Select styled art and click New Graphic Style.	スタイルを設定したアートを選択して「新規グラフィックスタイル」をクリックします。
+	Select text	テキストを選択
+	Select text or click into text with the Type tool to insert glyphs	グリフを挿入するには、テキストを選択するか、文字ツールでテキスト内をクリックしてください
+	Select text to set its OpenType features.	テキストを選択すると、OpenType 機能を設定できます。
+	Select the art (and, on top of it, the mask object)	アート (とその上にマスクオブジェクト) を選択してください
+	Select:	選択:
+	Selected Artwork	選択したアートワーク
+	Selected Styles Only	選択したスタイルのみ
+	Selected Swatches	選択したスウォッチ
+	Selected Swatches Only	選択したスウォッチのみ
+	Selection	選択範囲
+	Selection Only	選択範囲のみ
+	Send Backward	背面へ
+	Send to Back	最背面へ
+	Send to Current Layer	現在のレイヤーへ移動
+	Sentence case	文頭のみ大文字
+	Separate colors into rows	カラーを行に分ける
+	Separate several keywords with commas.	複数のキーワードはカンマで区切ります。
+	Separations Preview	分版プレビュー
+	Separations list the document's inks here: one page per ink that prints.	ここにドキュメントのインキが一覧表示されます。印刷されるインキごとに1ページになります。
+	Server-side (.map)	サーバーサイド (.map)
+	Set 1	セット 1
+	Set Keyboard Shortcut	キーボードショートカットを設定
+	Set Zoom	拡大率を設定
+	Set base color to the current color	ベースカラーを現在のカラーに設定
+	Set the selected color to the current color	選択したカラーを現在のカラーに設定
+	Settings…	設定…
+	Setup…	セットアップ…
+	Shape	シェイプ
+	Shape Modes:	シェイプモード:
+	Shape Properties:	シェイプのプロパティ:
+	Shapes	シェイプ
+	Shear	シアー
+	Shear…	シアー…
+	Shift	Shift
+	Shifts the tints of global and spot colors; other colors stay.	グローバルカラーと特色の濃淡を変更します。ほかのカラーは変わりません。
+	Show	表示
+	Show Active Plane Widget	アクティブプレーンウィジェットを表示
+	Show All	すべてを表示
+	Show All Hidden Attributes	隠れている属性をすべて表示
+	Show All Plates	すべての版を表示
+	Show All Swatches	すべてのスウォッチを表示
+	Show Artboards	アートボードを表示
+	Show Bounding Box	バウンディングボックスを表示
+	Show Brush Size	ブラシサイズを表示
+	Show Center	中心点を表示
+	Show Code	コードを表示
+	Show Color Groups	カラーグループを表示
+	Show Color Swatches	カラースウォッチを表示
+	Show Corner Widget	コーナーウィジェットを表示
+	Show Edges	エッジを表示
+	Show Embedded	埋め込みを表示
+	Show Find Field	検索フィールドを表示
+	Show Gradient Annotator	グラデーションアノテーターを表示
+	Show Gradient Swatches	グラデーションスウォッチを表示
+	Show Grid	グリッドを表示
+	Show Grid (⌘')	グリッドを表示 (⌘')
+	Show Guides	ガイドを表示
+	Show Hidden Characters	制御文字を表示
+	Show Images in Outline Mode	アウトライン表示で画像を表示
+	Show Link Info	リンク情報を表示
+	Show List View	リスト表示を表示
+	Show Mesh	メッシュを表示
+	Show Missing	見つからないものを表示
+	Show Modified	変更されたものを表示
+	Show Note	メモを表示
+	Show Options	オプションを表示
+	Show Package	パッケージを表示
+	Show Panel	パネルを表示
+	Show Pattern Swatches	パターンスウォッチを表示
+	Show Print Tiling	印刷分割を表示
+	Show Rulers	ルーラーを表示
+	Show Rulers (⌘R)	ルーラーを表示 (⌘R)
+	Show Slices	スライスを表示
+	Show Swatch Bounds	スウォッチの境界を表示
+	Show Swatch Kinds	スウォッチの種類を表示
+	Show Text Threads	テキストスレッドを表示
+	Show Thumbnail	サムネールを表示
+	Show Thumbnail View	サムネール表示を表示
+	Show Thumbnails	サムネールを表示
+	Show Tile Edge	タイルの端を表示
+	Show Tints/Shades	濃淡/シェードを表示
+	Show Transparency Grid	透明グリッドを表示
+	Show Video Rulers	ビデオルーラーを表示
+	Show Vivid/Muted	鮮やか/くすみを表示
+	Show Warm/Cool	暖色/寒色を表示
+	Show all plates	すべての版を表示
+	Show and print from the Lab definition; PDF files carry it as the ink's alternate color.	Lab 定義で表示・印刷します。PDF ファイルではインキの代替カラーとして保持されます。
+	Show and separate through the working CMYK space, as in older documents.	以前のドキュメントと同様に、作業用 CMYK 空間を通して表示・分版します。
+	Show in Folder	フォルダーで表示
+	Show {label} Brushes	{label} ブラシを表示
+	Show/hide plate (Alt-click: only this plate)	版の表示/非表示 (Alt+クリック: この版のみ)
+	Show:	表示:
+	Shown with the optimised preview.	最適化プレビューで表示されます。
+	Side 1:	辺 1:
+	Side 2:	辺 2:
+	Sides:	辺の数:
+	Simplify	簡略化
+	Simplify:	簡略化:
+	Simplify…	簡略化…
+	Simulate Colored Paper	色付き用紙をシミュレート
+	Simulate Paper	用紙をシミュレート
+	Single / Double Column	1列/2列
+	Single Left Quotation Mark	左一重引用符
+	Single Quotes:	一重引用符:
+	Single Right Quotation Mark	右一重引用符
+	Single-line Composer	1行コンポーザー
+	Sixth Space	六分アキ
+	Size	サイズ
+	Size Tile to Art	タイルをアートに合わせる
+	Size:	サイズ:
+	Size: {}  Tracking: {:.0}	サイズ: {}  トラッキング: {:.0}
+	Skew	傾斜
+	Skip Blank Artboards	空白のアートボードをスキップ
+	Slice	スライス
+	Slice Options	スライスオプション
+	Slice Options…	スライスオプション…
+	Slice Type:	スライスの種類:
+	Slices	スライス
+	Slices:	スライス:
+	Small Caps	スモールキャップ
+	Small Caps (on the roadmap)	スモールキャップ (開発予定)
+	Small Caps:	スモールキャップ:
+	Small List View	小リスト表示
+	Small Thumbnail View	小サムネール表示
+	Small Thumbnails	小サムネール
+	Smaller ↔ Larger	小 ↔ 大
+	Smart Guides	スマートガイド
+	Smart Guides (⌘U)	スマートガイド (⌘U)
+	Smart Punctuation…	スマート句読点…
+	Smooth Color	スムーズカラー
+	Snap Curves To Lines	曲線を直線にスナップ
+	Snap Options	スナップオプション
+	Snap to Glyph	グリフにスナップ
+	Snap to Grid	グリッドにスナップ
+	Snap to Pixel	ピクセルにスナップ
+	Snap to Point	ポイントにスナップ
+	Social Square Post 1080×1080	SNS 正方形投稿 1080×1080
+	Sort by Kind	種類順に並べ替え
+	Sort by Name	名前順に並べ替え
+	Sort by Status	状態順に並べ替え
+	Source code on GitHub	GitHub のソースコード
+	Space After Paragraph	段落後のアキ
+	Space Before Paragraph	段落前のアキ
+	Spaces	スペース
+	Spacing:	間隔:
+	Specified Distance	距離を指定
+	Specified Steps	ステップ数を指定
+	Specify:	指定:
+	Spelling	スペル
+	Split Into Grid	グリッドに分割
+	Split Into Grid…	グリッドに分割…
+	Spot Color	特色
+	Spot Colors	特色
+	Spot Colors…	特色…
+	Spread:	広がり:
+	Square	正方形
+	Stair Step	階段状
+	Standard Ligatures	標準合字
+	Standard Vertical Roman Alignment	標準の縦組み欧文の配置
+	Standard:	規格:
+	Star	スター
+	Start Global Edit	グローバル編集を開始
+	Start arrowhead	始点の矢印
+	Status	状態
+	Steps:	ステップ数:
+	Stop Playing/Recording	再生/記録を停止
+	Stop editing the opacity mask	不透明マスクの編集を終了
+	Stray Points	孤立ポイント
+	Strikethrough	打ち消し線
+	Stroke	線
+	Stroke (X), double-click for the Color Picker	線 (X)。ダブルクリックでカラーピッカー
+	Stroke Color	線の色
+	Stroke Options	線オプション
+	Stroke Weight	線幅
+	Stroke options	線オプション
+	Stroke:	線:
+	Stroke: click for swatches, Shift-click for the color mixer	線: クリックでスウォッチ、Shift+クリックでカラーミキサー
+	Style Attributes	スタイル属性
+	Style Attributes (Entity References)	スタイル属性 (エンティティ参照)
+	Style Name:	スタイル名:
+	Style:	スタイル:
+	Styling:	スタイル設定:
+	Stylize	スタイライズ
+	Subscript	下付き
+	Subscript (on the roadmap)	下付き (開発予定)
+	Subscript:	下付き:
+	Subset fonts below:	次の割合未満のフォントをサブセット化:
+	Suffix	接尾辞
+	Summary	概要
+	Superscript	上付き
+	Superscript (on the roadmap)	上付き (開発予定)
+	Superscript:	上付き:
+	Swap Fill and Stroke (Shift+X)	塗りと線を入れ替え (Shift+X)
+	Swap start and end arrowheads	始点と終点の矢印を入れ替え
+	Swap the selected object for the file, keeping its place and transform	選択したオブジェクトを、位置と変形を保ったままファイルに置き換え
+	Swash	スワッシュ
+	Swatch Conflict	スウォッチの競合
+	Swatch Libraries	スウォッチライブラリ
+	Swatch Libraries Menu	スウォッチライブラリメニュー
+	Swatch Library	スウォッチライブラリ
+	Swatch Name:	スウォッチ名:
+	Swatch Options	スウォッチオプション
+	Swatch Options…	スウォッチオプション…
+	Swatch Tiles	スウォッチタイル
+	Swatches	スウォッチ
+	Switch workspace	ワークスペースを切り替え
+	Symbol Instance	シンボルインスタンス
+	Symbol Libraries	シンボルライブラリ
+	Symbol Libraries (on the roadmap)	シンボルライブラリ (開発予定)
+	Symbols	シンボル
+	System Layout	システムのレイアウト
+	Tab	タブ
+	Tabs	タブ
+	Tabular Lining	等幅ライニング数字
+	Tabular Oldstyle	等幅オールドスタイル数字
+	Target:	ターゲット:
+	Tate-chu-yoko	縦中横
+	Temperature	色温度
+	Template	テンプレート
+	Templates	テンプレート
+	Templates…	テンプレート…
+	Text Displayed in Cell:	セルに表示するテキスト:
+	Text Export Options	テキスト書き出しオプション
+	Text Fill Color	文字の塗りの色
+	Text Import Options	テキスト読み込みオプション
+	Text Stroke Color	文字の線の色
+	Text Wrap	テキストの回り込み
+	Text Wrap Options	テキストの回り込みオプション
+	Text Wrap Options…	テキストの回り込みオプション…
+	The Print Tiling tool placed the pages.	印刷分割ツールでページが配置されました。
+	The bounds of the visible art.	表示されているアートの境界。
+	The cell shows the type object's text as HTML.	セルには文字オブジェクトのテキストが HTML として表示されます。
+	The document has no colour swatches.	このドキュメントにはカラースウォッチがありません。
+	The edge of the paper the printer can't reach: the art goes inside it, and the preview shows it dashed.	プリンターが印刷できない用紙の端です。アートはその内側に収まり、プレビューでは破線で表示されます。
+	The page as it prints	印刷されるとおりのページ
+	The selected objects have no CSS of their own (see below).	選択したオブジェクトには固有の CSS がありません (下を参照)。
+	The system's settings of this printer	このプリンターのシステム設定
+	Thin Space	細いスペース
+	Third Space	三分アキ
+	Third Vanishing Point:	3番目の消失点:
+	This library is empty.	このライブラリは空です。
+	This panel is on the roadmap (see the parity plan).	このパネルは開発予定です (機能互換計画を参照)。
+	Threaded Text	スレッドテキスト
+	Three Point	3点
+	Three Point Perspective	3点透視図
+	Three Point Perspective Preset 1	3点透視図プリセット 1
+	Three Point Perspective Preset 2	3点透視図プリセット 2
+	Three Point Perspective Preset 3	3点透視図プリセット 3
+	Three Point Perspective Preset 4	3点透視図プリセット 4
+	Three Point Perspective Preset 5	3点透視図プリセット 5
+	Threshold	しきい値
+	Thumbnail View	サムネール表示
+	Tile	並べて表示
+	Tile Edge Color	タイルの端の色
+	Tile Edge Color…	タイルの端の色…
+	Tile Range:	タイル範囲:
+	Tile Type:	タイルの種類:
+	Tiles are numbered across, then down; leave the range empty for every tile.	タイルは左から右、上から下の順に番号が付きます。範囲を空にするとすべてのタイルが対象です。
+	Tint	濃淡
+	Tip extends past the end point	先端を終点より先に伸ばす
+	Tip on the end point	先端を終点に合わせる
+	Title Case	各単語の先頭を大文字
+	Toggle single/double column	1列/2列を切り替え
+	Tolerance:	許容値:
+	Tool Option	ツールオプション
+	Tool Options…	ツールオプション…
+	Toolbar: Advanced / Basic	ツールバー: 詳細/基本
+	Toolbar: Single/Double Column	ツールバー: 1列/2列
+	Toolbars	ツールバー
+	Tools	ツール
+	Top	上
+	Top in Front	上を前面に
+	Top:	上:
+	Total Width:	全体の幅:
+	Trace	トレース
+	Tracing	トレース中
+	Tracking	トラッキング
+	Trademark Symbol	商標記号
+	Transform	変形
+	Transform Again	再変形
+	Transform Both	両方を変形
+	Transform Each	個別に変形
+	Transform Each…	個別に変形…
+	Transform Object Only	オブジェクトのみ変形
+	Transform Pattern Only	パターンのみ変形
+	Transforms	変形
+	Transparency	透明
+	Transparency Flattener Presets	透明の分割・統合プリセット
+	Transparency Flattener Presets…	透明の分割・統合プリセット…
+	Transparency Grid	透明グリッド
+	Transparency Options	透明オプション
+	Transparency is flattened with the preset. Type is written as outlines; gradients as bands of colour.	透明はプリセットで分割・統合されます。文字はアウトラインで、グラデーションは色の帯として書き出されます。
+	Transparency is flattened with the preset. Type is written as outlines; gradients stay smooth.	透明はプリセットで分割・統合されます。文字はアウトラインで、グラデーションは滑らかなまま書き出されます。
+	Transparent	透明
+	Transparent (Default)	透明 (初期設定)
+	Transparent Background	透明な背景
+	Transverse (the page a quarter turn on the paper)	横置き (ページを用紙上で90°回転)
+	Trap…	トラップ…
+	Trim	トリム
+	Trim View	トリム表示
+	Trim mark weight:	トリムマークの線幅:
+	Trim marks	トリムマーク
+	True colour needs version 2004 or later: the nearest of 256 colours is written.	トゥルーカラーにはバージョン 2004 以降が必要です。256色のうち最も近い色で書き出されます。
+	Twirl Rate:	渦巻きの割合:
+	Two Point	2点
+	Two Point Perspective	2点透視図
+	Two Point Perspective Preset 1	2点透視図プリセット 1
+	Two Point Perspective Preset 2	2点透視図プリセット 2
+	Two Point Perspective Preset 3	2点透視図プリセット 3
+	Two Point Perspective Preset 4	2点透視図プリセット 4
+	Two Point Perspective Preset 5	2点透視図プリセット 5
+	Type	文字
+	Type Orientation	文字の方向
+	Type becomes outlines, and strokes a CAD line can't draw become filled shapes.	文字はアウトラインになり、CAD の線で描けない線は塗りのシェイプになります。
+	Type on a Path	パス上文字
+	Type on a Path Options…	パス上文字オプション…
+	Type stays text, and every stroke is a line with its lineweight and dashes.	文字はテキストのまま残り、すべての線は線幅と破線を保った線になります。
+	Type:	種類:
+	Type…	文字…
+	Typography	タイポグラフィ
+	U+{:04X}  glyph {g}  ·  {} glyphs	U+{:04X}  グリフ {g}  ·  {} グリフ
+	U+{:04X}  {c}  (glyph {gid})\nDouble-click to insert	U+{:04X}  {c}  (グリフ {gid})\nダブルクリックで挿入
+	UI Brightness	UI の明るさ
+	UPPERCASE	大文字
+	UTF-16 (Unicode)	UTF-16 (Unicode)
+	Underline	下線
+	Undo	取り消し
+	Undo {}	取り消し: {}
+	Unembedded to {}	{} に埋め込み解除しました
+	Unembed…	埋め込み解除…
+	Ungroup	グループ解除
+	Ungroup Color Group	カラーグループを解除
+	Uniform	均等
+	Unique	固有
+	Unite	合体
+	Unite and Simplify	合体して簡略化
+	Units	単位
+	Units:	単位:
+	Unlink Opacity Mask	不透明マスクのリンクを解除
+	Unlink harmony colors	ハーモニーカラーのリンクを解除
+	Unlink the mask	マスクのリンクを解除
+	Unlock	ロック解除
+	Unlock All	すべてロック解除
+	Unlock Grid	グリッドのロックを解除
+	Unlock Guides	ガイドのロックを解除
+	Unnamed Objects	名前のないオブジェクト
+	Unprintable margin:	印刷不可の余白:
+	Unshift	シフト解除
+	Untitled	名称未設定
+	Update Link	リンクを更新
+	Update Modified Links	変更されたリンクを更新
+	Updated {} image(s)	画像 {} 個を更新しました
+	Use Artboards	アートボードを使用
+	Use Black Point Compensation	ブラックポイントの補正を使用
+	Use Compression	圧縮を使用
+	Use Even-Odd Fill Rule	偶奇規則の塗りを使用
+	Use Non-Zero Winding Fill Rule	非ゼロ巻き数規則の塗りを使用
+	Use Pressure Pen	筆圧ペンを使用
+	Use Preview Bounds	プレビュー境界を使用
+	Use Registration Point for Symbol	シンボルに基準点を使用
+	Use Square for Previews	プレビューに正方形を使用
+	Use Text for Previews	プレビューにテキストを使用
+	Use Typographer's Quotes	欧文の引用符を使用
+	Use document bleed settings	ドキュメントの裁ち落とし設定を使用
+	Use the Selected Text's Font	選択したテキストのフォントを使用
+	Use the document's swatch: pasted colors take its color.	ドキュメントのスウォッチを使用: ペーストしたカラーはその色になります。
+	User Defined	ユーザー定義
+	User Defined Libraries	ユーザー定義ライブラリ
+	User Graphic Style Library {}	ユーザーグラフィックスタイルライブラリ {}
+	User Library	ユーザーライブラリ
+	User Preset	ユーザープリセット
+	User Swatch Library {}	ユーザースウォッチライブラリ {}
+	V Spacing:	垂直間隔:
+	Variable Width Profile	可変幅プロファイル
+	Variables	変数
+	Variation:	バリエーション:
+	Vector Effects	ベクトル効果
+	Vector Halftone	ベクトルハーフトーン
+	Vector Halftone…	ベクトルハーフトーン…
+	Vector illustration — fast, open, scriptable.	ベクトルイラストレーション — 高速・オープン・スクリプト対応。
+	VectorCraft Defaults	VectorCraft の初期設定
+	VectorCraft Help…	VectorCraft ヘルプ…
+	VectorCraft Save for Web	VectorCraft の Web 用に保存
+	VectorCraft didn't quit normally last time. These documents had unsaved changes:	VectorCraft は前回正常に終了しませんでした。次のドキュメントに未保存の変更がありました:
+	VectorCraft on GitHub	GitHub の VectorCraft
+	Vectors	ベクトル
+	Version:	バージョン:
+	Vertical	垂直
+	Vertical %	垂直 %
+	Vertical Align Bottom	垂直方向下に整列
+	Vertical Align Center	垂直方向中央に整列
+	Vertical Align Top	垂直方向上に整列
+	Vertical Distribute Bottom	垂直方向下に分布
+	Vertical Distribute Center	垂直方向中央に分布
+	Vertical Distribute Space	垂直方向の間隔を分布
+	Vertical Distribute Top	垂直方向上に分布
+	Vertical Scale %	垂直比率 %
+	Vertical:	垂直:
+	Very High	非常に高い
+	View	表示
+	View Artboard Only	アートボードのみ表示
+	View PDF after saving	保存後に PDF を表示
+	View {n}	ビュー {n}
+	Viewing Angle:	視角:
+	Viewing Distance:	視距離:
+	Warnings	警告
+	Warp	ワープ
+	Warp Options	ワープオプション
+	Web 1920×1080	Web 1920×1080
+	Web Safe RGB	Web セーフ RGB
+	Web Shift	Web シフト
+	Web Snap:	Web スナップ:
+	Weight	ウェイト
+	Weight:	ウェイト:
+	Welcome to VectorCraft	VectorCraft へようこそ
+	White	ホワイト
+	Widget Position:	ウィジェットの位置:
+	Width	幅
+	Width Point Edit	幅ポイント編集
+	Width Point Edit…	幅ポイント編集…
+	Width and Height	幅と高さ
+	Width:	幅:
+	Window	ウィンドウ
+	Windows	ウィンドウ
+	Working CMYK	作業用 CMYK
+	Working CMYK (don't tag)	作業用 CMYK (タグなし)
+	Workspace	ワークスペース
+	Workspace {i}	ワークスペース {i}
+	Write Layers	レイヤーを書き出す
+	Yellow	イエロー
+	Your browser downloads the files (several as one .zip).	ブラウザーがファイルをダウンロードします (複数の場合は1つの .zip)。
+	Your changes will be lost if you don't save them.	保存しないと、変更は失われます。
+	Zoom In	ズームイン
+	Zoom Out	ズームアウト
+	[Default] is protected: New… starts an editable copy.	[初期設定] は保護されています。「新規…」で編集可能なコピーを作成できます。
+	[Normal Character Style]	[標準の文字スタイル]
+	[Normal Paragraph Style]	[標準の段落スタイル]
+	add a format to export	書き出す形式を追加してください
+	bad color {v}	不正なカラー {v}
+	check an asset to export	書き出すアセットにチェックを付けてください
+	choose a direction to divide in	分割する方向を選択してください
+	choose a folder to export to	書き出し先のフォルダーを選択してください
+	choose a location for the package	パッケージの保存場所を選択してください
+	flattener presets	分割・統合プリセット
+	internal error: {msg} (please report this bug)	内部エラー: {msg} (このバグを報告してください)
+	multiple windows land with M11.5	複数ウィンドウは M11.5 で対応予定です
+	name the file	ファイル名を入力してください
+	no CSS to copy: select objects with CSS of their own	コピーできる CSS がありません。固有の CSS を持つオブジェクトを選択してください
+	no PNG encoder	PNG エンコーダーがありません
+	no active perspective plane	アクティブな遠近プレーンがありません
+	no app to open files here	ここでファイルを開けるアプリがありません
+	no artboard	アートボードがありません
+	no blend options	ブレンドオプションがありません
+	no canvas yet	キャンバスがまだありません
+	no data	データがありません
+	no dialog open	開いているダイアログがありません
+	no document	ドキュメントがありません
+	no document open	開いているドキュメントがありません
+	no effect applied yet	適用済みの効果がありません
+	no effect at index {k}	位置 {k} に効果がありません
+	no file manager here	ここにはファイルマネージャーがありません
+	no file reader	ファイル読み込み機能がありません
+	no file system here	ここにはファイルシステムがありません
+	no file writer	ファイル書き込み機能がありません
+	no files to place	配置するファイルがありません
+	no format to export to	書き出す形式がありません
+	no gradient stop or freeform point is selected	グラデーションの分岐点もフリーフォームのポイントも選択されていません
+	no plug-in {id:?} is installed	プラグイン {id:?} はインストールされていません
+	no preset editor	プリセットエディターがありません
+	no print service	印刷サービスがありません
+	no revert command	復帰コマンドがありません
+	no such action	そのアクションはありません
+	no such document	そのドキュメントはありません
+	no such perspective grid preset	その遠近グリッドプリセットはありません
+	no such recent file	その最近使ったファイルはありません
+	no such recent font	その最近使ったフォントはありません
+	no such user library	そのユーザーライブラリはありません
+	no such view	そのビューはありません
+	no such width point	その幅ポイントはありません
+	no writer	書き込み機能がありません
+	no writer configured	書き込み機能が設定されていません
+	not found	見つかりません
+	nothing to export: the document has no visible art (or turn on Use Artboards)	書き出すものがありません。ドキュメントに表示アートがありません (または「アートボードを使用」をオンにしてください)
+	nothing to preview	プレビューするものがありません
+	of characters used	(使用文字数に対する割合)
+	of {count}	/ {count}
+	or more spaces with a tab	個以上のスペースをタブに置換
+	paths: give at least one file	paths: 少なくとも1つのファイルを指定してください
+	per slice	スライスごと
+	perspective grid presets	遠近グリッドプリセット
+	pick a colour, gradient or pattern to save as a swatch	スウォッチとして保存するカラー、グラデーション、パターンを選んでください
+	plane must be left, right or ground	プレーンは left、right、ground のいずれかを指定してください
+	print presets	印刷プリセット
+	print settings are not an object	印刷設定がオブジェクトではありません
+	printing isn't available here	ここでは印刷できません
+	render {:.1} ms · ui {:.1} ms · {:.0} fps	描画 {:.1} ms · UI {:.1} ms · {:.0} fps
+	select a linked image: an embedded one has no file	リンク画像を選択してください。埋め込み画像にはファイルがありません
+	select an envelope	エンベロープを選択してください
+	select artwork (or a colour group) to recolor	再配色するアートワーク (またはカラーグループ) を選択してください
+	select two or more graphic styles to merge	統合するグラフィックスタイルを2つ以上選択してください
+	slices across, evenly spaced	横方向に等間隔のスライス
+	slices down, evenly spaced	縦方向に等間隔のスライス
+	the PDF is no longer loaded	PDF は読み込まれていません
+	the Save PDF dialog didn't open	PDF 保存ダイアログが開きませんでした
+	the background worker stopped	バックグラウンド処理が停止しました
+	the document has never been saved	このドキュメントは一度も保存されていません
+	the drawing is no longer loaded	描画データは読み込まれていません
+	the export returned unreadable data	書き出しで読み取れないデータが返されました
+	the package came back damaged	パッケージが破損して返されました
+	the preset	そのプリセット
+	the print job has no data	印刷ジョブにデータがありません
+	the selection has no URL (or they differ)	選択範囲に URL がありません (または異なっています)
+	the {tool} tool has no options	{tool} ツールにはオプションがありません
+	there are no printer settings to open here	ここで開けるプリンター設定はありません
+	tile {tile}	タイル {tile}
+	transparency grid	透明グリッド
+	unknown format	不明な形式
+	unknown workspace (one of {})	不明なワークスペース ({} のいずれか)
+	workspace name can't be empty	ワークスペース名を空にすることはできません
+	{n} Layer{}	{n} レイヤー
+	{n} Objects	{n} オブジェクト
+	{n} colour(s) are out of the CMYK gamut	{n} 色が CMYK の色域外です
+	{n} file(s) in {folder}{note}. Show the package folder?	{folder} にファイル {n} 個{note}。パッケージのフォルダーを表示しますか?
+	{path} can't be found: relink it first	{path} が見つかりません。先に再リンクしてください
+	{stem} Folder	{stem} フォルダー
+	{title} (selection)	{title} (選択範囲)
+	{warning}: click to correct to the closest color ({})	{warning}: クリックして最も近い色 ({}) に補正
+	{}   PPI: {}	{}   PPI: {}
+	{} (spot)	{} (特色)
+	{} Advanced	{} 詳細
+	{} Gradient	{} グラデーション
+	{} Options	{} オプション
+	{} Style Options	{}スタイルオプション
+	{} Style Options…	{}スタイルオプション…
+	{} Tool Options	{} ツールオプション
+	{} colors	{} 色
+	{} failed: {e}	{} に失敗しました: {e}
+	{} files	{} ファイル
+	{} font families available	使用可能なフォントファミリ {} 個
+	{} glyphs	{} グリフ
+	{} in all, {per_copy} per copy	合計 {}、1部あたり {per_copy}
+	{} is a live effect (Effect › Plug-ins)	{} はライブ効果です (効果 › プラグイン)
+	{} is already applied	{} は適用済みです
+	{} linked file(s) can't be read here: their previews show	リンクファイル {} 個をここでは読み込めません。プレビューを表示します
+	{} linked image(s) changed on disk: Update Links shows the new versions	リンク画像 {} 個がディスク上で変更されました。「リンクを更新」で新しい版を表示できます
+	{} linked image(s) changed since this document was saved. Show the new versions?	このドキュメントの保存後に、リンク画像 {} 個が変更されました。新しい版を表示しますか?
+	{} more rules: Export writes every one.	ほか {} 個のルール: 書き出しではすべて出力されます。
+	{} of {count}	{} / {count}
+	{} sec	{} 秒
+	{} step{}	{} ステップ
+	{} unnamed objects left out: name them, or turn on Unnamed Objects in the panel menu.	名前のないオブジェクト {} 個を除外しました。名前を付けるか、パネルメニューの「名前のないオブジェクト」をオンにしてください。
+	{}% opacity	不透明度 {}%
+	{}: not saved, so not closed	{}: 保存されていないため閉じていません
+	{}\nDouble-click to rename	{}\nダブルクリックで名前を変更
+	{}… (+{more})	{}… (ほか {more})
+	“{file}” is protected by a password.	「{file}」はパスワードで保護されています。
+	● Recording	● 記録中
+	Activate Document	ドキュメントをアクティブにする
+	Active Perspective Plane	アクティブな遠近プレーン
+	Add Anchor (Pen)	アンカーを追加 (ペン)
+	Add Anchor Point	アンカーポイントを追加
+	Add Anchor Point Tool	アンカーポイントの追加ツール
+	Add Effect	効果を追加
+	Add Freeform Line	フリーフォームの線を追加
+	Add Freeform Point	フリーフォームのポイントを追加
+	Add Guide	ガイドを追加
+	Add Mesh Line	メッシュ線を追加
+	Add Spine Point	スパインポイントを追加
+	Add to Profiles	プロファイルに追加
+	Add to Selection	選択範囲に追加
+	Additional Plug-ins Folder	追加のプラグインフォルダー
+	Alignment Guides	整列ガイド
+	Anchor Point Tool	アンカーポイントツール
+	Anchor Points, Handle, and Bounding Box Display	アンカーポイント、ハンドル、バウンディングボックスの表示
+	Anchor/Path Labels	アンカー/パスのラベル
+	Angles	角度
+	Animated Zoom	アニメーションズーム
+	Anti-aliased Artwork	アートワークをアンチエイリアス
+	Appearance Item	アピアランス項目
+	Appearance Panel	アピアランスパネル
+	Apply Brush	ブラシを適用
+	Apply Effect	効果を適用
+	Apply Graphic Style	グラフィックスタイルを適用
+	Apply Last Color	前回のカラーを適用
+	Apply Last Gradient	前回のグラデーションを適用
+	Arc	円弧
+	Arc Tool	円弧ツール
+	Area / Path Type	エリア内文字/パス上文字
+	Area Graph Tool	面グラフツール
+	Area Type Tool	エリア内文字ツール
+	Artboard Tool	アートボードツール
+	Artwork Colors	アートワークのカラー
+	Ask When Modified	変更時に確認
+	Asset Export Settings	アセット書き出し設定
+	Auto Size New Area Type	新規エリア内文字のサイズを自動調整
+	Auto-Collapse Iconic Panels	アイコンパネルを自動的に折りたたむ
+	Automatically	自動
+	Automatically Save Recovery Data	復元用データを自動保存
+	Bar Graph Tool	棒グラフツール
+	Batch	バッチ
+	Blend Info	ブレンド情報
+	Blend Tool	ブレンドツール
+	Bloat Tool	膨張ツール
+	Blob Brush	ブロブブラシ
+	Blob Brush Tool	ブロブブラシツール
+	Brush Definition	ブラシ定義
+	Brush Options…	ブラシオプション…
+	Canvas Color	キャンバスの色
+	Centimeters	センチメートル
+	Character / Paragraph	文字/段落
+	Check Links	リンクを確認
+	Clipboard Formats	クリップボード形式
+	Clipboard Handling	クリップボードの処理
+	Clipboard as PDF	クリップボードを PDF にする
+	Clipboard as PNG	クリップボードを PNG にする
+	Clipboard as SVG	クリップボードを SVG にする
+	Clipboard as Text	クリップボードをテキストにする
+	Close Path	パスを閉じる
+	Column Graph Tool	縦棒グラフツール
+	Command Click to Select Objects Behind	⌘クリックで背面のオブジェクトを選択
+	Constrain Angle	角度の制限
+	Construction Guides	作図ガイド
+	Convert Anchor Point	アンカーポイントを切り替え
+	Convert Anchor Points	アンカーポイントを切り替え
+	Convert Color	カラーを変換
+	Convert Document Color Mode	ドキュメントのカラーモードを変換
+	Copy Width Point	幅ポイントをコピー
+	Corner Radius	角の半径
+	Create Graph	グラフを作成
+	Create Path	パスを作成
+	Create Slice	スライスを作成
+	Create Text	テキストを作成
+	Crystallize Tool	結晶ツール
+	Current Brush	現在のブラシ
+	Current Symbol	現在のシンボル
+	Curvature	曲線
+	Curvature Tool	曲線ツール
+	Cut Path at Selected Anchor Points	選択したアンカーポイントでパスを切断
+	DXF Info	DXF 情報
+	Data Recovery	データ復元
+	Default Fill and Stroke	初期設定の塗りと線
+	Default Language	既定の言語
+	Delete Anchor Point	アンカーポイントを削除
+	Delete Anchor Point Tool	アンカーポイントの削除ツール
+	Delete Freeform Point	フリーフォームのポイントを削除
+	Delete Mesh Point	メッシュポイントを削除
+	Delete PDF Preset	PDF プリセットを削除
+	Delete Pattern	パターンを削除
+	Delete Perspective Grid Preset	遠近グリッドプリセットを削除
+	Delete Preset	プリセットを削除
+	Delete Print Preset	印刷プリセットを削除
+	Delete Save for Web Preset	Web 用に保存プリセットを削除
+	Delete Slices	スライスを削除
+	Delete Spine Point	スパインポイントを削除
+	Delete Transparency Flattener Preset	透明の分割・統合プリセットを削除
+	Delete Width Point	幅ポイントを削除
+	Devices	デバイス
+	Direct Selection Tool	ダイレクト選択ツール
+	Disable Auto Add/Delete	アンカーポイントの自動追加/削除を無効にする
+	Discard Empty Type	空の文字を破棄
+	Discard Recovered Documents	復元したドキュメントを破棄
+	Display All Blacks Accurately	すべてのブラックを正確に表示
+	Display All Blacks as Rich Black	すべてのブラックをリッチブラックとして表示
+	Display Bitmaps as Anti-aliased Images in Pixel Preview	ピクセルプレビューでビットマップをアンチエイリアス画像として表示
+	Display Options	表示オプション
+	Display Print Size at 100% Zoom	100% ズームで印刷サイズを表示
+	Distribute	分布
+	Distribute Spacing	間隔を分布
+	Document JSON	ドキュメント JSON
+	Dots	ドット
+	Double Click To Isolate	ダブルクリックで分離モードに入る
+	Draw in Perspective	遠近で描画
+	Drawing Mode	描画モード
+	Duplicate Artboard	アートボードを複製
+	Duplicate Effect	効果を複製
+	East Asian Type	東アジア言語の文字
+	Edit Color Group	カラーグループを編集
+	Edit Freeform Point	フリーフォームのポイントを編集
+	Edit Opacity Mask	不透明マスクを編集
+	Effect Options	効果オプション
+	Effects	効果
+	Ellipse Tool	楕円形ツール
+	Embed Image	画像を埋め込み
+	Enable Background Export	バックグラウンド書き出しを有効にする
+	Enable Background Save	バックグラウンド保存を有効にする
+	Enable Missing Glyph Protection	欠落グリフの保護を有効にする
+	Enable Rubber Band for	ラバーバンドを有効にする:
+	Enable Touch Gestures	タッチジェスチャを有効にする
+	Enable Touch Workspace	タッチワークスペースを有効にする
+	Enable in-menu font previews	メニュー内のフォントプレビューを有効にする
+	Enter Isolation Mode	分離モードに入る
+	Envelope Info	エンベロープ情報
+	Eraser	消しゴム
+	Eraser Tool	消しゴムツール
+	Every (minutes)	間隔 (分)
+	Exceptions (comma separated)	例外 (カンマ区切り)
+	Exit Isolation Mode	分離モードを終了
+	Expand Gradient Mesh	グラデーションメッシュを分割
+	Expand Options	分割オプション
+	Expand Repeat	リピートを分割
+	Export Assets	アセットを書き出し
+	Export CSS	CSS を書き出し
+	Export DXF	DXF を書き出し
+	Export Document	ドキュメントを書き出し
+	Export EPS	EPS を書き出し
+	Export PDF	PDF を書き出し
+	Export PDF Presets	PDF プリセットを書き出し
+	Export Perspective Grid Presets	遠近グリッドプリセットを書き出し
+	Export Print Presets	印刷プリセットを書き出し
+	Export Transparency Flattener Presets	透明の分割・統合プリセットを書き出し
+	Export for Screens Settings	スクリーン用に書き出し設定
+	Eyedropper	スポイト
+	Eyedropper Tool	スポイトツール
+	Feet	フィート
+	Feet & Inches	フィートとインチ
+	File Formats	ファイル形式
+	File Handling	ファイル管理
+	Fill New Type Objects With Placeholder Text	新規文字オブジェクトを仮テキストで埋める
+	Fill Rule	塗りの規則
+	Fill and Stroke	塗りと線
+	Flare	光彩
+	Flare Tool	光彩ツール
+	Folder	フォルダー
+	Font List	フォント一覧
+	Font Preview Size	フォントプレビューのサイズ
+	Fonts in Document	ドキュメント内のフォント
+	Format Options	形式オプション
+	Free Distort	自由ゆがみ
+	Free Transform Tool	自由変形ツール
+	GPU Performance	GPU パフォーマンス
+	Gamut Warning	色域外警告
+	Get Preferences	環境設定を取得
+	Get Text Range	テキスト範囲を取得
+	Gradient Tool	グラデーションツール
+	Gradient Vector	グラデーションベクトル
+	Graphic Styles Options	グラフィックスタイルオプション
+	Gridline every	グリッド線の間隔
+	Grids In Back	グリッドを背面に表示
+	Group Selection Tool	グループ選択ツール
+	Hand Tool	手のひらツール
+	Handles	ハンドル
+	Hide Corner Widget for angles greater than	コーナーウィジェットを隠す角度のしきい値
+	Highlight Alternate Glyphs	代替グリフをハイライト
+	Highlight anchors on mouse over	マウスオーバー時にアンカーをハイライト
+	History States	履歴の数
+	Hollow	中空
+	Hyphenation	ハイフネーション
+	Identify Objects By	オブジェクトの識別方法
+	Image Info	画像情報
+	Image Trace Presets	画像トレースプリセット
+	Import PDF Presets	PDF プリセットを読み込み
+	Import Perspective Grid Presets	遠近グリッドプリセットを読み込み
+	Import Print Presets	印刷プリセットを読み込み
+	Import Transparency Flattener Presets	透明の分割・統合プリセットを読み込み
+	Inches	インチ
+	Include SVG Code	SVG コードを含める
+	Insert Character	文字を挿入
+	Inspect Document	ドキュメントを検査
+	Inspect Object	オブジェクトを検査
+	Install Plug-in	プラグインをインストール
+	Join Tool	連結ツール
+	Keep Formatting	書式を保持
+	Keep Plain Text	プレーンテキストを保持
+	Knife	ナイフ
+	Language Options	言語オプション
+	Large	大
+	Large Tabs	大きいタブ
+	Lasso Tool	なげなわツール
+	Layer Options…	レイヤーオプション…
+	Legacy vector clipboard	従来のベクトルクリップボード
+	Legacy vector clipboard (no transparency)	従来のベクトルクリップボード (透明なし)
+	Line Color	線の色
+	Line Cut	直線で切り取り
+	Line Cut Tool	直線切り取りツール
+	Line Graph Tool	折れ線グラフツール
+	Line Segment	直線
+	Line Segment Tool	直線ツール
+	Lines	直線
+	Link Info	リンク情報
+	Liquify	変形 (リキファイ)
+	List Graphic Styles	グラフィックスタイル一覧
+	List Patterns	パターン一覧
+	List Plug-ins	プラグイン一覧
+	List Preferences	環境設定一覧
+	List Slices	スライス一覧
+	Live Paint Bucket	ライブペイントバケツ
+	Live Paint Bucket (Stroke)	ライブペイントバケツ (線)
+	Live Paint Info	ライブペイント情報
+	Live Paint Selection Tool	ライブペイント選択ツール
+	Live Shape Properties	ライブシェイプのプロパティ
+	Load Color Profile…	カラープロファイルを読み込み…
+	Load Image into Clipboard	画像をクリップボードに読み込み
+	Load Metafile into Clipboard	メタファイルをクリップボードに読み込み
+	Load PDF into Clipboard	PDF をクリップボードに読み込み
+	Load Place Cursor	配置カーソルを読み込み
+	Load SVG into Clipboard	SVG をクリップボードに読み込み
+	Load Text into Clipboard	テキストをクリップボードに読み込み
+	Magic Wand Options	自動選択オプション
+	Magic Wand Settings	自動選択の設定
+	Magic Wand Tool	自動選択ツール
+	Make and Expand	作成して分割
+	Manually	手動
+	Mark Older Files as [Converted] When Opened	古いファイルを開くときに [変換済み] と表示
+	Match User Interface Brightness	ユーザーインターフェースの明るさに合わせる
+	Measure Tool	計測ツール
+	Measurement Labels	計測ラベル
+	Mesh Tool	メッシュツール
+	Meters	メートル
+	Millimeters	ミリメートル
+	Mirror & Cut	ミラーして切り取り
+	Mirror & Cut Tool	ミラー切り取りツール
+	Move Anchors	アンカーを移動
+	Move Appearance	アピアランスを移動
+	Move Artboard	アートボードを移動
+	Move Artboard Up/Down	アートボードを上下に移動
+	Move Direction Handle	方向ハンドルを移動
+	Move Effect	効果を移動
+	Move Envelope Mesh Point	エンベロープのメッシュポイントを移動
+	Move Graphic Style	グラフィックスタイルを移動
+	Move Guide	ガイドを移動
+	Move Locked and Hidden Artwork with Artboard	ロックされた/非表示のアートワークもアートボードと一緒に移動
+	Move Mesh Point	メッシュポイントを移動
+	Move Plane	プレーンを移動
+	Move Slices	スライスを移動
+	Move Spine Point	スパインポイントを移動
+	Move Swatch	スウォッチを移動
+	Move in Perspective	遠近を保って移動
+	New Art Appearance	新規アートのアピアランス
+	New Brush…	新規ブラシ…
+	New Document Presets	新規ドキュメントプリセット
+	New Graphic Style	新規グラフィックスタイル
+	Nudge	ナッジ
+	Nudge in Perspective	遠近を保ってナッジ
+	Number of Recent Files to Display	表示する最近使ったファイルの数
+	Number of Recent Fonts	最近使ったフォントの数
+	Numbers Without Units Are Points	単位のない数値はポイントとして扱う
+	Object Highlighting	オブジェクトのハイライト
+	Object Name	オブジェクト名
+	Object Properties	オブジェクトのプロパティ
+	Object Selection by Path Only	パス上のクリックでのみオブジェクトを選択
+	On Copy	コピー時
+	On Paste	ペースト時
+	On Screen	画面上
+	Opacity Mask Info	不透明マスク情報
+	Opacity Mask Options	不透明マスクオプション
+	Open Document	ドキュメントを開く
+	Open Documents As Tabs	ドキュメントをタブで開く
+	Output All Blacks Accurately	すべてのブラックを正確に出力
+	Output All Blacks as Rich Black	すべてのブラックをリッチブラックとして出力
+	PDF Info	PDF 情報
+	PDF Settings	PDF 設定
+	Paintbrush	ブラシ
+	Paintbrush Tool	ブラシツール
+	Paste Offset	ペーストのずれ幅
+	Path Eraser	パス消しゴム
+	Path Eraser Tool	パス消しゴムツール
+	Pattern Editing	パターン編集
+	Pen Tool	ペンツール
+	Pencil	鉛筆
+	Pencil Tool	鉛筆ツール
+	Performance	パフォーマンス
+	Performance & Storage	パフォーマンスとストレージ
+	Perspective Grid Tool	遠近グリッドツール
+	Perspective Selection Tool	遠近選択ツール
+	Picas	パイカ
+	Pie Graph Tool	円グラフツール
+	Pixels	ピクセル
+	Placed File Info	配置ファイル情報
+	Plates	版
+	Plug-in Info	プラグイン情報
+	Polar Grid	同心円グリッド
+	Polar Grid Tool	同心円グリッドツール
+	Polygon Tool	多角形ツール
+	Preserve Appearance and Overprints	アピアランスとオーバープリントを保持
+	Preserve Paths	パスを保持
+	Primary	プライマリ
+	Print Preview	印刷プレビュー
+	Print Setup	プリント設定
+	Print Tiling	印刷分割
+	Print Tiling Pages	印刷分割ページ
+	Print Tiling Tool	印刷分割ツール
+	Printing / Exporting	印刷/書き出し
+	Pucker Tool	しぼりツール
+	Puppet Warp	パペットワープ
+	Puppet Warp Pins	パペットワープのピン
+	Puppet Warp Tool	パペットワープツール
+	Radar Graph Tool	レーダーチャートツール
+	Randomize Colors	カラーをランダム化
+	Real-time Drawing and Editing	リアルタイムの描画と編集
+	Recall Selection	選択範囲を呼び出し
+	Recovery Data	復元用データ
+	Rectangle Cut	長方形で切り取り
+	Rectangle Cut Tool	長方形切り取りツール
+	Rectangle Tool	長方形ツール
+	Rectangular Grid	矩形グリッド
+	Rectangular Grid Tool	矩形グリッドツール
+	Reduce Colors	色数を減らす
+	Reflect Tool	リフレクトツール
+	Relink	再リンク
+	Remove Asset	アセットを削除
+	Remove Effect	効果を削除
+	Remove Guide	ガイドを削除
+	Remove Plug-in	プラグインを削除
+	Rename Asset	アセットの名前を変更
+	Rename Graphic Style	グラフィックスタイルの名前を変更
+	Render Threads (-1 = Automatic)	レンダリングスレッド数 (-1 = 自動)
+	Reorder	並べ替え
+	Reorder Appearance Item	アピアランス項目を並べ替え
+	Replace Font	フォントを置換
+	Reshape	形状変更
+	Reshape Segment	セグメントを変形
+	Reshape Tool	シェイプ変形ツール
+	Restore Recovered Documents	復元したドキュメントを元に戻す
+	Rotate Tool	回転ツール
+	Rotate View Tool	ビュー回転ツール
+	Rounded Rectangle Tool	角丸長方形ツール
+	Run Plug-in	プラグインを実行
+	Sample Color	カラーをサンプル
+	Save Document	ドキュメントを保存
+	Save PDF Preset	PDF プリセットを保存
+	Save Perspective Grid Preset	遠近グリッドプリセットを保存
+	Save Print Preset	印刷プリセットを保存
+	Save Recovery Data	復元用データを保存
+	Save Save for Web Preset	Web 用に保存プリセットを保存
+	Save Transparency Flattener Preset	透明の分割・統合プリセットを保存
+	Save for Web Presets	Web 用に保存プリセット
+	Save for Web Preview	Web 用に保存プレビュー
+	Save for Web Settings	Web 用に保存設定
+	Saved Selections	保存した選択範囲
+	Saved Views	保存したビュー
+	Scale Cursor Proportional to UI	カーソルを UI に比例して拡大・縮小
+	Scale Tool	拡大・縮小ツール
+	Scallop Tool	ひだツール
+	Scatter Graph Tool	散布図ツール
+	Scissors Tool	はさみツール
+	Scratch Disks	スクラッチディスク
+	Secondary	セカンダリ
+	Select All Art on Layer	レイヤー上のすべてのアートを選択
+	Select Anchors	アンカーを選択
+	Select Appearance Item	アピアランス項目を選択
+	Select Freeform Point	フリーフォームのポイントを選択
+	Select Gradient Stop	グラデーションの分岐点を選択
+	Select Objects	オブジェクトを選択
+	Select Same Tint %	同じ濃度%を選択
+	Select Slices	スライスを選択
+	Select Text by Font	フォントでテキストを選択
+	Selection & Anchor Display	選択範囲とアンカーの表示
+	Selection Tool	選択ツール
+	Serialize Document	ドキュメントをシリアライズ
+	Set Anchors	アンカーを設定
+	Set Bounds	境界を設定
+	Set Current Layer	現在のレイヤーを設定
+	Set Key Object	キーオブジェクトを設定
+	Set Mesh Point Color	メッシュポイントの色を設定
+	Set Preference	環境設定を変更
+	Set Slice Rectangle	スライスの矩形を設定
+	Set Tab Stops	タブ位置を設定
+	Set Text	テキストを設定
+	Shape Builder	シェイプ形成
+	Shape Builder Regions	シェイプ形成の領域
+	Shape Builder Tool	シェイプ形成ツール
+	Shaper Tool	Shaper ツール
+	Shear Tool	シアーツール
+	Show East Asian Options	東アジア言語のオプションを表示
+	Show Font Names in English	フォント名を英語で表示
+	Show Indic Options	インド系言語のオプションを表示
+	Show Perspective Grid	遠近グリッドを表示
+	Show Pixel Grid (Above 600% Zoom)	ピクセルグリッドを表示 (600% 以上のズーム時)
+	Show Slice Numbers	スライス番号を表示
+	Show The Home Screen When No Documents Are Open	ドキュメントが開いていないときにホーム画面を表示
+	Show Tool Tips	ツールヒントを表示
+	Show handles when multiple anchors are selected	複数のアンカーを選択したときにハンドルを表示
+	Size/Leading	サイズ/行送り
+	Slice Selection Tool	スライス選択ツール
+	Slice Tool	スライスツール
+	Small	小
+	Smooth	スムーズ
+	Smooth Tool	スムーズツール
+	Snapping Tolerance	スナップの許容値
+	Solid	実線
+	Spacing Guides	間隔ガイド
+	Spiral	スパイラル
+	Spiral Tool	スパイラルツール
+	Split Freeform Line	フリーフォームの線を分割
+	Split Path	パスを分割
+	Stacked Bar Graph Tool	積み上げ横棒グラフツール
+	Stacked Column Graph Tool	積み上げ縦棒グラフツール
+	Star Tool	スターツール
+	Stop Editing Opacity Mask	不透明マスクの編集を終了
+	Style	スタイル
+	Subdivisions	分割数
+	Swap Fill and Stroke	塗りと線を入れ替え
+	Swatch Conflicts	スウォッチの競合
+	Symbol Screener Tool	シンボルスクリーナーツール
+	Symbol Scruncher Tool	シンボルスクランチャーツール
+	Symbol Shifter Tool	シンボルシフターツール
+	Symbol Sizer Tool	シンボルリサイズツール
+	Symbol Spinner Tool	シンボルスピンツール
+	Symbol Sprayer	シンボルスプレー
+	Symbol Sprayer Tool	シンボルスプレーツール
+	Symbol Stainer Tool	シンボルステインツール
+	Symbol Styler Tool	シンボルスタイルツール
+	Symbolism Tool	シンボルツール
+	Tab Stops	タブ位置
+	Target	ターゲット
+	Target Contents	内容をターゲットに
+	Templates Folder	テンプレートフォルダー
+	Threads	スレッド
+	Toggle Fill/Stroke Focus	塗り/線の選択を切り替え
+	Toggle Selection	選択を切り替え
+	Tolerance	許容値
+	Touch Type Tool	文字タッチツール
+	Transform Panel	変形パネル
+	Transform Pattern Tiles	パターンタイルを変形
+	Transform Patterns	パターンを変形
+	Transform Tools	変形ツール
+	Transform in Perspective	遠近を保って変形
+	Transparency Info	透明情報
+	Turn off Data Recovery for complex documents	複雑なドキュメントではデータ復元をオフにする
+	Twirl Tool	旋回ツール
+	Type Object Selection by Path Only	パス上のクリックでのみ文字オブジェクトを選択
+	Type Tool	文字ツール
+	Type on a Path Tool	パス上文字ツール
+	UI Scaling	UI の拡大率
+	Unembed	埋め込み解除
+	Update Links	リンクを更新
+	Use Japanese Crop Marks	日本式トンボを使用
+	Use Low Resolution Proxy for Linked EPS	リンク EPS に低解像度プロキシを使用
+	Use Precise Cursors	精密カーソルを使用
+	User Interface	ユーザーインターフェース
+	Vertical Area Type Tool	縦書きエリア内文字ツール
+	Vertical Type Tool	縦書き文字ツール
+	Vertical Type on a Path Tool	縦書きパス上文字ツール
+	View Opacity Mask	不透明マスクを表示
+	Warp Tool	ワープツール
+	When pasting text	テキストのペースト時
+	Width Point	幅ポイント
+	Width Profile	幅プロファイル
+	Width Profiles	幅プロファイル
+	Width Tool	幅ツール
+	Wrinkle Tool	しわツール
+	XML ID	XML ID
+	Yards	ヤード
+	Zoom Tool	ズームツール
+	Zoom to Selection	選択範囲にズーム
+	Zoom with Mouse Wheel	マウスホイールでズーム
+	Dutch	オランダ語
+	French	フランス語
+	German	ドイツ語
+	Italian	イタリア語
+	Portuguese	ポルトガル語
+	Spanish	スペイン語
+	 the object to select	して選択するオブジェクトを選ぶ
+	 to select multiple objects	で複数のオブジェクトを選択
+	Shift+Click	Shift+クリック
+	Alt+Drag	Alt+ドラッグ
+	Alt+Click	Alt+クリック
+	Shift+Drag	Shift+ドラッグ
+	 an anchor or path segment to select it	してアンカーまたはパスのセグメントを選択
+	 to move	で移動
+	 to add a corner point	でコーナーポイントを追加
+	 to add a smooth point	でスムーズポイントを追加
+	 to close	で閉じる
+	 to add smooth points	でスムーズポイントを追加
+	 to toggle corner	でコーナーを切り替え
+	 to create point type	でポイント文字を作成
+	 to create area type	でエリア内文字を作成
+	 to draw	で描画
+	 to constrain proportions	で縦横比を固定
+	 from center	で中心から描画
+	 to set the reference point	で基準点を設定
+	 to transform	で変形
+	 to zoom in	で拡大
+	 to zoom out	で縮小
+	 an object to copy its attributes	してオブジェクトの属性をコピー
+	 to apply the selection's to it	で選択中の属性をそれに適用
+	 to select an artboard	でアートボードを選択
+	 a stroke to add a width point	して線に幅ポイントを追加
+	 to change one side	で片側を変更
+	 to select more points	でポイントを追加選択
+	 a point to edit it	してポイントを編集
+	 the art to add a pin	してアートにピンを追加
+	 to select more pins	でピンを追加選択
+	 a pin to warp	してピンをワープ
+	 near a selected pin to rotate	で選択したピンの近くを回転
+	 across paths to push them along	してパスを押し流す
+	 over paths, and hold still to keep going	でパス上をなぞり、止めて続行
+	 over paths to roughen their outlines	でパスの輪郭を粗くする
+	 to move in perspective	で遠近を保って移動
+	 to copy	でコピー
+	 while dragging to move perpendicular to the plane	をドラッグ中に押してプレーンに垂直に移動
+	 an object, then another to blend them	してオブジェクトを選び、続けて別のオブジェクトをクリックしてブレンド
+	 to blend from it	でそこからブレンド
+	Press 	ショートカット
+	Use 	メニュー
+	{}+Click	{}+クリック
+	{}+Drag	{}+ドラッグ
+	Esc	Esc
+	⇧Click	⇧クリック
+	⌥Click	⌥クリック
+	⇧Drag	⇧ドラッグ
+	⌥Drag	⌥ドラッグ
+	⌘Click	⌘クリック
+	⌘Drag	⌘ドラッグ
+	⌃Click	⌃クリック
+	⌃Drag	⌃ドラッグ
+	⌥⇧Drag	⌥⇧ドラッグ

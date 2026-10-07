@@ -1,0 +1,681 @@
+# Japanese (ja) gap-filler catalog. Columns, separated by a TAB:  context <TAB> source <TAB> translation
+#
+#   context  empty        a plain UI string; `source` is the English text shown by the code
+#            @pattern     `source` is a template with {name} placeholders that match any text (a
+#                         dynamic string such as `Undo {x}`); the placeholders are copied into the
+#                         translation. Names n, k, i, pc, ms, fps, w, h ... and num* only match text
+#                         containing a digit.
+#   escapes  \n  \t  \\  inside a column. `{name}` placeholders must appear in both columns.
+#   lines starting with # and blank lines are ignored.
+#
+# This file only fills gaps: strings already in ../../locales/ja.json (the call-site catalog) win.
+# Clean-room: every entry was written from the plain meaning of the English label using ordinary
+# Japanese computing and photography vocabulary. No proprietary localisation resource, string
+# table or product UI was consulted or copied. Entries shared with the sister apps (same author,
+# same vocabulary policy) were taken from their ja.tsv. Product and technology names stay in
+# Latin letters; the trailing "..." / "…" of dialog commands is kept.
+
+	Aligning	位置合わせ中
+	Analysing exposures	露出を解析中
+	Normalising exposures	露出を正規化中
+	Finding features	特徴点を検出中
+	Matching	マッチング中
+	Matrix Computations	行列演算
+	Projecting	投影中
+	Merging	合成中
+	Finishing	仕上げ中
+	Starting	開始中
+	Reading photos	写真を読み込み中
+	Writing DNG	DNG を書き込み中
+	Deghosting	ゴースト除去
+	Match Total Exposures	全体の露出を合わせる
+	Active	アクティブ
+	Add Mask	マスクを追加
+	Add Point Color Sample	ポイントカラーのサンプルを追加
+	Add Red Eye Correction	赤目補正を追加
+	Add Remove Spot	スポット除去を追加
+	Add to Local	ローカル補正に追加
+	Add to Target Album	ターゲットアルバムに追加
+	Angle	角度
+	Any Searchable Text	検索可能なすべてのテキスト
+	Aperture Value	絞り値
+	Aperture priority	絞り優先
+	Aperture-priority AE	絞り優先 AE
+	Apply Color Label Set	カラーラベルセットを適用
+	Apply Filter Preset	フィルタープリセットを適用
+	Apply Metadata Preset	メタデータプリセットを適用
+	Apply Point Curve Preset	ポイントカーブプリセットを適用
+	Apply Settings JSON	設定 JSON を適用
+	Artist	作者
+	Auto B&W Mix	自動白黒ミックス
+	Auto Import Now	今すぐ自動読み込み
+	Auto Import Settings	自動読み込みの設定
+	Auto Select	自動選択
+	Auto Straighten	自動傾き補正
+	Auto bracket	オートブラケット
+	Auto settings applied	自動補正を適用しました
+	Auto, did not fire	オート、発光せず
+	Auto, fired	オート、発光
+	Auto-Stack	自動スタック
+	Auto-Tag Photos from Tracklog	トラックログから写真に自動タグ付け
+	Availability	利用可否
+	Average	平均
+	Basic	基本
+	Begin Interaction	操作を開始
+	End Interaction	操作を終了
+	Cancel Interaction	操作をキャンセル
+	Best of Similar Shots	類似ショットのベスト
+	Bits Per Sample	サンプルあたりのビット数
+	Bleach Bypass	銀残し
+	Body Serial Number	ボディのシリアル番号
+	Bottom	下
+	Top	上
+	Left	左
+	Right	右
+	Brightness	明るさ
+	Brightness Value	輝度値
+	Browse Folder	フォルダを参照
+	Bulb	バルブ
+	CFA Pattern	CFA パターン
+	CFA Repeat Pattern Dim	CFA 繰り返しパターンの大きさ
+	CPU threads	CPU スレッド数
+	Camera Owner Name	カメラ所有者名
+	Camera Serial Number	カメラのシリアル番号
+	Camera make and model	カメラのメーカーと機種
+	Cancel Preview Build	プレビュー作成をキャンセル
+	Catalog Statistics	カタログの統計
+	Catchlight	キャッチライト
+	Center-weighted average	中央重点平均
+	Change	変更
+	Change Component Mode	コンポーネントのモードを変更
+	Check Output Path	出力先を確認
+	Checking names…	名前を確認中…
+	Choose settings to copy	コピーする設定を選択
+	Clear Preview Cache	プレビューキャッシュを消去
+	Cleared History	履歴を消去しました
+	Click to restore · double-click to rename	クリックで復元 · ダブルクリックで名前変更
+	Collapse Stack	スタックを折りたたむ
+	Expand Stack	スタックを展開
+	Expand/Collapse Stack	スタックを展開/折りたたむ
+	Color Filter Array	カラーフィルター配列
+	Color Label	カラーラベル
+	Color Label Names	カラーラベル名
+	Color Label Sets	カラーラベルセット
+	Color Overlay	カラーオーバーレイ
+	Color Overlay on B&W	白黒でカラーオーバーレイ
+	Color Space	色空間
+	Colors	カラー
+	Command Journal	コマンド履歴
+	Components Configuration	コンポーネント構成
+	Compressed Bits Per Pixel	圧縮ビット/ピクセル
+	Contents	内容
+	Convert to DNG	DNG に変換
+	Copy Before to After	編集前を編集後にコピー
+	Copyrighted	著作権あり
+	Create preset	プリセットを作成
+	Creator metadata	作成者メタデータ
+	Crop Aspect	切り抜きの縦横比
+	Crop, Rotate, Geometry	切り抜き・回転・ジオメトリ
+	Custom Rendered	カスタム処理
+	Custom template…	カスタムテンプレート…
+	Custom…	カスタム…
+	Cycle Crop Overlay	切り抜きオーバーレイを切り替え
+	Cycle Crop Overlay Orientation	切り抜きオーバーレイの向きを切り替え
+	Cycle Info Overlay	情報オーバーレイを切り替え
+	Cycle Mask Overlay Color	マスクオーバーレイの色を切り替え
+	Cycle Mask Overlay Mode	マスクオーバーレイのモードを切り替え
+	DNG Version	DNG バージョン
+	DNG presets	DNG プリセット
+	Date/Time Digitized	デジタル化日時
+	Date/Time Modified	変更日時
+	Date/Time Original	撮影日時
+	Decrease Brush Feather	ブラシのぼかしを減らす
+	Decrease Brush Size	ブラシサイズを小さくする
+	Increase Brush Feather	ブラシのぼかしを増やす
+	Increase Brush Size	ブラシサイズを大きくする
+	Deflate	Deflate
+	Delete Color Label Set	カラーラベルセットを削除
+	Delete Component	コンポーネントを削除
+	Delete Export Preset	書き出しプリセットを削除
+	Delete Filter Preset	フィルタープリセットを削除
+	Delete Imported Profile	読み込んだプロファイルを削除
+	Delete Keyword Set	キーワードセットを削除
+	Delete Metadata Preset	メタデータプリセットを削除
+	Delete Point Color	ポイントカラーを削除
+	Delete Point Color Sample	ポイントカラーのサンプルを削除
+	Delete Point Curve Preset	ポイントカーブプリセットを削除
+	Delete Red Eye	赤目補正を削除
+	Delete Red Eye Correction	赤目補正を削除
+	Delete Spot	スポットを削除
+	Desktop	デスクトップ
+	Documents	書類
+	Downloads	ダウンロード
+	Pictures	ピクチャ
+	Home	ホーム
+	Digital Zoom Ratio	デジタルズーム倍率
+	Discard Smart Previews ({scope})	スマートプレビューを破棄 ({scope})
+	Down	下へ
+	Up	上へ
+	Duplicate Component	コンポーネントを複製
+	Edit Color Label Names…	カラーラベル名を編集…
+	Edit Copy for External Editor	外部エディター用にコピーを編集
+	Edit Date	日時を編集
+	Edit Info	情報を編集
+	Edit Label Names	ラベル名を編集
+	Edit Mask	マスクを編集
+	Edit Mask Component	マスクのコンポーネントを編集
+	Edit Spot	スポットを編集
+	Edit settings copied	編集設定をコピーしました
+	Edited or not	編集済みかどうか
+	Enable	有効にする
+	Enable Profile Corrections	プロファイル補正を有効にする
+	Enabled	有効
+	Enter a date as YYYY-MM-DD HH:MM:SS	日付を YYYY-MM-DD HH:MM:SS の形式で入力
+	Exif	Exif
+	Exif Version	Exif バージョン
+	Export Point Curve Presets…	ポイントカーブプリセットを書き出し…
+	Import Point Curve Presets…	ポイントカーブプリセットを読み込み…
+	Export stopped unexpectedly	書き出しが予期せず停止しました
+	Exposure Compensation	露出補正
+	Exposure compensation	露出補正
+	Exposure Index	露出指数
+	Exposure Mode	露出モード
+	Exposure Program	露出プログラム
+	Exposure Time	露出時間
+	F-Number	F 値
+	False	いいえ
+	True	はい
+	Favorite Preset	お気に入りプリセット
+	Favorite Profile	お気に入りプロファイル
+	File Format	ファイル形式
+	File Source	ファイルソース
+	File Type	ファイルの種類
+	Filename	ファイル名
+	Fill	塗りつぶし
+	Film	フィルム
+	Filmstrip (/)	フィルムストリップ (/)
+	Find Missing Photos	見つからない写真を検索
+	Find Missing Photos is already searching	見つからない写真を検索中です
+	Fired	発光
+	Fired, return detected	発光、反射光検出
+	Fired, return not detected	発光、反射光未検出
+	Five stars	星 5 つ
+	Flagged as Pick	採用に設定
+	Flagged as Reject	不採用に設定
+	FlashPix Version	FlashPix バージョン
+	Flip	反転
+	Focal Length	焦点距離
+	Focal Length in 35mm Film	35mm 換算焦点距離
+	Focal Plane Resolution Unit	焦点面解像度の単位
+	Focal Plane X Resolution	焦点面 X 解像度
+	Focal Plane Y Resolution	焦点面 Y 解像度
+	Focus (assisted culling)	ピント (選別支援)
+	Food	料理
+	Forget Unchanged Local Photos	変更のないローカル写真を除外
+	Frame time	フレーム時間
+	Frame update	フレーム更新
+	GPS Altitude	GPS 高度
+	GPS Altitude Ref	GPS 高度の基準
+	GPS Date Stamp	GPS 日付
+	GPS Img Direction	GPS 画像方向
+	GPS Img Direction Ref	GPS 画像方向の基準
+	GPS Latitude	GPS 緯度
+	GPS Latitude Ref	GPS 緯度の基準
+	GPS Longitude	GPS 経度
+	GPS Longitude Ref	GPS 経度の基準
+	GPS Map Datum	GPS 測地系
+	GPS Speed	GPS 速度
+	GPS Speed Ref	GPS 速度の基準
+	GPS Time Stamp	GPS 時刻
+	GPS Version	GPS バージョン
+	GPU Rendering	GPU レンダリング
+	GPU rendering	GPU レンダリング
+	Gain Control	ゲイン調整
+	Gamma	ガンマ
+	Generated demo photo	生成されたデモ写真
+	Get Develop Settings	現像設定を取得
+	Go to History Step	履歴のステップへ移動
+	Group by Date: Automatic	日付でグループ化: 自動
+	Group name	グループ名
+	Guided Upright Guides	ガイド付きアップライトのガイド
+	HDR Merge Preview	HDR 合成プレビュー
+	HDR Panorama Merge Preview	HDR パノラマ合成プレビュー
+	HDR Panorama with Last Settings	前回の設定で HDR パノラマ
+	HDR Panoramas	HDR パノラマ
+	HDR merge needs photos of the same size	HDR 合成には同じサイズの写真が必要です
+	HDR panorama	HDR パノラマ
+	HDR panoramas	HDR パノラマ
+	HDR with Last Settings	前回の設定で HDR
+	HDR-Pano	HDR パノラマ
+	Has Edits	編集あり
+	Has GPS	GPS あり
+	History:	履歴:
+	Horizontal (normal)	水平 (標準)
+	Hours	時間
+	ISO Speed	ISO 感度
+	ISO speed	ISO 感度
+	Identifier	識別子
+	Image Description	画像の説明
+	Image Height	画像の高さ
+	Image Unique ID	画像固有 ID
+	Image Width	画像の幅
+	Image on Black	黒背景に画像
+	Image on White	白背景に画像
+	Import Profiles	プロファイルを読み込み
+	Imported	読み込み済み
+	Imported Presets	読み込んだプリセット
+	Imports	読み込み
+	Info Overlay Off	情報オーバーレイ: オフ
+	Info Overlay: Exposure	情報オーバーレイ: 露出
+	Info Overlay: File	情報オーバーレイ: ファイル
+	Insert at the cursor	カーソル位置に挿入
+	Inspect Photo	写真を調査
+	Interop	相互運用
+	Invert Component	コンポーネントを反転
+	JPEG (Large)	JPEG (大)
+	JPEG (Small)	JPEG (小)
+	JPEG (old-style)	JPEG (旧形式)
+	Keywords (K)	キーワード (K)
+	Label	ラベル
+	Last GPU fallback	直近の GPU フォールバック
+	Last loupe render	直近のルーペ描画
+	Lens Blur	レンズぼかし
+	Lens Make	レンズのメーカー
+	Lens Model	レンズの機種
+	Lens Serial Number	レンズのシリアル番号
+	Lens Specification	レンズの仕様
+	Library Info	ライブラリ情報
+	Library Preferences	ライブラリの環境設定
+	Library State	ライブラリの状態
+	Light Source	光源
+	Linear	リニア
+	Linear Raw	リニア RAW
+	List Albums	アルバムを一覧表示
+	List Develop Controls	現像コントロールを一覧表示
+	List History	履歴を一覧表示
+	List Presets	プリセットを一覧表示
+	List Profiles	プロファイルを一覧表示
+	Locate Photo	写真の場所を指定
+	Lock Crop Aspect	切り抜きの縦横比を固定
+	Look	ルック
+	Lossy JPEG	非可逆 JPEG
+	Make	メーカー
+	Make Model	メーカーと機種
+	Maker Note	メーカーノート
+	Mask Adjustment	マスク調整
+	Max Aperture Value	最大絞り値
+	Medium Contrast	コントラスト中
+	Memory Budget	メモリ上限
+	Memory Usage	メモリ使用量
+	Memory budget	メモリ上限
+	Merged	合成済み
+	Metering Mode	測光モード
+	Mirrored horizontally	左右反転
+	Mirrored vertically	上下反転
+	Rotated 180°	180° 回転
+	Rotated 90° CCW	反時計回りに 90° 回転
+	Rotated 90° CW	時計回りに 90° 回転
+	Model	機種
+	Move Album	アルバムを移動
+	Move Down	下へ移動
+	Move Up	上へ移動
+	Move Folder	フォルダを移動
+	Move Mask	マスクを移動
+	Move Preset to Group	プリセットをグループへ移動
+	Move Preset to New Group	プリセットを新規グループへ移動
+	Move in Stack	スタック内で移動
+	Multi-spot	複数スポット
+	My Photos Panel	マイフォトパネル
+	My Preset	マイプリセット
+	New Album	新規アルバム
+	New Folder	新規フォルダ
+	New Quick Collection	新規クイックコレクション
+	New time	新しい時刻
+	Next Photo	次の写真
+	Previous Photo	前の写真
+	Normal	標準
+	Not defined	未定義
+	Nudge Develop Value	現像値を微調整
+	Offset Time	オフセット時間
+	Offset Time Digitized	デジタル化のオフセット時間
+	Offset Time Original	撮影のオフセット時間
+	On, fired	オン、発光
+	Off, did not fire	オフ、発光せず
+	No flash	フラッシュなし
+	No flash function	フラッシュ機能なし
+	Optimize Library	ライブラリを最適化
+	Original + Settings	オリジナル + 設定
+	Other	その他
+	Pano	パノラマ
+	Panorama	パノラマ
+	Panorama Merge Preview	パノラマ合成プレビュー
+	Panorama with Last Settings	前回の設定でパノラマ
+	Panoramas	パノラマ
+	Parameters	パラメーター
+	Partial	一部
+	Paste Settings	設定をペースト
+	Paste Settings from Previous	前の写真から設定をペースト
+	Paste from Previous	前からペースト
+	Pattern	パターン
+	People	人物
+	Pet Eye Catchlight	ペットの目のキャッチライト
+	Photo Merge needs access to the photo files	写真の合成には写真ファイルへのアクセスが必要です
+	Photometric Interpretation	光学的解釈
+	Photos per bracket (0 = auto)	ブラケットあたりの写真数 (0 = 自動)
+	Pick Flag	採用フラグ
+	Pixel X Dimension	ピクセル X 寸法
+	Pixel Y Dimension	ピクセル Y 寸法
+	Planar	プレーナー
+	Planar Configuration	プレーナー構成
+	Portfolio	ポートフォリオ
+	Preview Build Progress	プレビュー作成の進行状況
+	Preview only: editing the camera's embedded JPEG	プレビューのみ: カメラ内蔵 JPEG を編集中
+	Primary Chromaticities	原色の色度
+	Print Image Matching	プリントイメージマッチング
+	Profile Browser	プロファイルブラウザー
+	Profile Menu	プロファイルメニュー
+	Program	プログラム
+	Program AE	プログラム AE
+	Proof copy created	校正用コピーを作成しました
+	Public Domain	パブリックドメイン
+	No copyright, use freely	著作権なし、自由に使用可
+	Query Photos	写真を検索
+	Quit Anyway	それでも終了
+	Quit with unsaved changes?	未保存の変更がありますが終了しますか?
+	Rating cleared	評価を解除しました
+	Raw	RAW
+	Recent	最近
+	Recent Keywords	最近のキーワード
+	Recommended Exposure Index	推奨露出指数
+	Reference Black/White	基準黒/白
+	Refine	調整
+	Refine Edges	エッジを調整
+	Refine Mask Edges	マスクのエッジを調整
+	Refine Saturation	彩度を調整
+	Refresh Source	ソースを更新
+	Reject	不採用
+	Relink Photo	写真を再リンク
+	Reload Changed Files	変更されたファイルを再読み込み
+	Reload from Disk	ディスクから再読み込み
+	Remove a filter above, or choose Clear all	上のフィルターを外すか「すべてクリア」を選択してください
+	Remove from Target Album	ターゲットアルバムから削除
+	Rename Component	コンポーネント名を変更
+	Rename Folder	フォルダ名を変更
+	Rename Mask	マスク名を変更
+	Rename Preset	プリセット名を変更
+	Rename Preview	名前変更のプレビュー
+	Rename Template Tags	名前変更テンプレートのタグ
+	Reorder Masks	マスクの順序を変更
+	Resampling	リサンプリング
+	Resolution Unit	解像度の単位
+	Resource	リソース
+	Restore Version	バージョンを復元
+	Review	レビュー
+	Rotate Crop	切り抜きを回転
+	Rotate Crop Aspect	切り抜きの縦横比を回転
+	Rows Per Strip	ストリップあたりの行数
+	Sample Mask Color	マスク色をサンプル
+	Samples Per Pixel	ピクセルあたりのサンプル数
+	Save Color Label Set	カラーラベルセットを保存
+	Save Export Preset	書き出しプリセットを保存
+	Save Filter Preset	フィルタープリセットを保存
+	Save Keyword Set	キーワードセットを保存
+	Save Metadata Preset	メタデータプリセットを保存
+	Save Metadata Preset…	メタデータプリセットを保存…
+	Save Point Curve Preset	ポイントカーブプリセットを保存
+	Save as Set…	セットとして保存…
+	Scan failed	スキャンに失敗しました
+	Scene Capture Type	撮影シーンタイプ
+	Scene Type	シーンタイプ
+	Seasons	季節
+	Select Mask	マスクを選択
+	Select Photos	写真を選択
+	Select Spot	スポットを選択
+	Sensing Method	センサー方式
+	Sensitivity Type	感度の種類
+	Set	設定
+	Set Album Cover	アルバムのカバーを設定
+	Set Before	編集前に設定
+	Set Crop	切り抜きを設定
+	Set Mask Adjustments	マスク調整を設定
+	Set Top of Stack	スタックの先頭に設定
+	Set date & time	日付と時刻を設定
+	Set name	セット名
+	Settings file problem	設定ファイルの問題
+	Settings pasted	設定をペーストしました
+	Show/Hide Mask	マスクの表示/非表示
+	Shutter Speed Value	シャッタースピード値
+	Shutter priority	シャッター優先
+	Shutter speed priority AE	シャッター速度優先 AE
+	Slideshow	スライドショー
+	Slideshow paused	スライドショーを一時停止しました
+	Slideshow resumed	スライドショーを再開しました
+	Slideshow · Space pauses · Esc ends	スライドショー · スペースで一時停止 · Esc で終了
+	Smart Album Rule Fields	スマートアルバムのルール項目
+	Smart Preview Status	スマートプレビューの状態
+	Smart Previews	スマートプレビュー
+	Smart Previews Location	スマートプレビューの保存場所
+	Smart preview available	スマートプレビューあり
+	Smart previews folder changed	スマートプレビューのフォルダが変更されました
+	Software	ソフトウェア
+	Space	スペース
+	Spectral Sensitivity	分光感度
+	Split Stack	スタックを分割
+	Spot	スポット
+	Stack with Sources	ソースとスタック
+	Stack — click to collapse (S)	スタック — クリックで折りたたむ (S)
+	Stack — click to expand (S)	スタック — クリックで展開 (S)
+	Star rating (0–5)	星評価 (0〜5)
+	Sub-second Time	秒未満の時刻
+	Sub-second Time Digitized	デジタル化の秒未満の時刻
+	Sub-second Time Original	撮影の秒未満の時刻
+	Subfile Type	サブファイルの種類
+	Subject Area	被写体領域
+	Subject Distance	被写体距離
+	Subject Distance Range	被写体距離範囲
+	Sublayers	サブレイヤー
+	Swap Before and After	編集前と編集後を入れ替え
+	Swap Compare Photos	比較する写真を入れ替え
+	Synthetic Bracket	合成ブラケット
+	System	システム
+	TIFF/EP Standard ID	TIFF/EP 標準 ID
+	Targeted Adjustment	ターゲット調整
+	Time zone	タイムゾーン
+	Title metadata	タイトルメタデータ
+	To Do	To Do
+	Toggle Keyword from Set	セットからキーワードを切り替え
+	Toggle Mask	マスクを切り替え
+	Toggle Section	セクションを切り替え
+	Toggle Zoom	ズームを切り替え
+	Try Saving Again	もう一度保存
+	Unedited raws	未編集の RAW
+	Uncalibrated	未校正
+	Uncompressed	非圧縮
+	Undo Exposure	露出を取り消す
+	Unique Camera Model	カメラの固有機種名
+	Unknown	不明
+	Unknown Date	日付不明
+	Untitled	名称未設定
+	Untitled Album	名称未設定のアルバム
+	Update Mask Shape	マスク形状を更新
+	Update Preset with Current Settings	現在の設定でプリセットを更新
+	Update Version with Current Settings	現在の設定でバージョンを更新
+	Use Keyword Set	キーワードセットを使用
+	User Comment	ユーザーコメント
+	Vignette Size	周辺光量補正のサイズ
+	Virtual Copy	仮想コピー
+	Visible	表示
+	White Point	白色点
+	White on Black	黒地に白
+	X Resolution	X 解像度
+	Y Resolution	Y 解像度
+	XMP Sidecar Preferences	XMP サイドカーの環境設定
+	YCbCr	YCbCr
+	YCbCr Positioning	YCbCr の位置
+	Your Name	あなたの名前
+	Window>Edit Sections	ウィンドウ>編集セクション
+	Window>Tools	ウィンドウ>ツール
+	Photo>Photo Merge	写真>写真を合成
+	Photo>Stack	写真>スタック
+	Edit>Language	編集>言語
+	Monday	月曜日
+	Tuesday	火曜日
+	Wednesday	水曜日
+	Thursday	木曜日
+	Friday	金曜日
+	Saturday	土曜日
+	Sunday	日曜日
+	January	1月
+	February	2月
+	March	3月
+	April	4月
+	May	5月
+	June	6月
+	July	7月
+	August	8月
+	September	9月
+	October	10月
+	November	11月
+	December	12月
+	Bold	太字
+	Regular	標準
+	Mincho	明朝
+	Version {}	バージョン {}
+	Capture date and time in your own format (directives below)	撮影日時を任意の書式で (指定子は下記)
+	Capture date as YYYYMMDD	撮影日 (YYYYMMDD)
+	Sequence number zero-padded to N digits (1–9)	連番を N 桁にゼロ埋め (1〜9)
+	Sequence number, counting from the start number	開始番号から数える連番
+	Original extension without the dot	ドットなしの元の拡張子
+	Original file name without its extension	拡張子なしの元のファイル名
+	Name of the folder the original is in	オリジナルがあるフォルダ名
+	Camera time zone, e.g. -07:00 (empty: UTC)	カメラのタイムゾーン (例: -07:00、空欄: UTC)
+	A blank template keeps the original names.	テンプレートが空の場合は元の名前を維持します。
+	Missing metadata ({camera}, {title}…) leaves an empty gap; a name that comes out empty keeps the original name.	メタデータがない場合 ({camera}、{title}…) は空欄になります。名前が空になる場合は元の名前を維持します。
+	Scores {scope} for focus and exposure and finds similar shots taken within seconds of each other (bursts).	{scope} のピントと露出を採点し、数秒以内に撮影された類似ショット (連写) を検出します。
+	There is no home folder to keep the library in. Choose a folder for it.	ライブラリを保存するホームフォルダがありません。保存先のフォルダを選択してください。
+	AVIF encoding is not available in this build	このビルドでは AVIF エンコードを利用できません
+	AVIF encoder needs 8- or 16-bit samples	AVIF エンコーダーには 8 ビットまたは 16 ビットのサンプルが必要です
+	PNG needs 8- or 16-bit samples	PNG には 8 ビットまたは 16 ビットのサンプルが必要です
+	WebP needs 8-bit samples	WebP には 8 ビットのサンプルが必要です
+	JPEG needs 8-bit samples	JPEG には 8 ビットのサンプルが必要です
+	JPEG dimensions are limited to 65535	JPEG の寸法は 65535 までに制限されています
+	ICC profile too large for JPEG	ICC プロファイルが JPEG には大きすぎます
+	GPX file too large or too deeply nested	GPX ファイルが大きすぎるか、階層が深すぎます
+	Nikon Huffman-compressed NEF	Nikon ハフマン圧縮 NEF
+	Date–Name	日付–名前
+	Title–Seq	タイトル–連番
+	Custom–Seq	カスタム–連番
+@pattern	Mask {n}	マスク {n}
+@pattern	Mask: {k}	マスク: {k}
+@pattern	Mask {next}	マスク {next}
+@pattern	Preset: {x}	プリセット: {x}
+@pattern	Quick Develop: {x}	クイック現像: {x}
+@pattern	Label Set: {name}	ラベルセット: {name}
+@pattern	Label: {x}	ラベル: {x}
+@pattern	Flag: {x}	フラグ: {x}
+@pattern	Point Curve: {x}	ポイントカーブ: {x}
+@pattern	Date: {x}	日付: {x}
+@pattern	Type: {n}	種類: {n}
+@pattern	Rules: {x}	ルール: {x}
+@pattern	History: {x}	履歴: {x}
+@pattern	GPU: {x}	GPU: {x}
+@pattern	Focus {x}	ピント {x}
+@pattern	ISO {i}	ISO {i}
+@pattern	Copy {n}	コピー {n}
+@pattern	Added {what} to {name}	{name} に {what} を追加しました
+@pattern	Removed {what} from {name}	{name} から {what} を削除しました
+@pattern	Build 1:1 Previews ({scope})	1:1 プレビューを作成 ({scope})
+@pattern	Build Smart Previews ({scope})	スマートプレビューを作成 ({scope})
+@pattern	Build Standard-Sized Previews ({scope})	標準サイズのプレビューを作成 ({scope})
+@pattern	Discard Smart Previews ({scope})	スマートプレビューを破棄 ({scope})
+@pattern	Captured from {a}	{a} 以降に撮影
+@pattern	Captured until {b}	{b} 以前に撮影
+@pattern	Captured {a} – {b}	{a} 〜 {b} に撮影
+@pattern	Couldn't open the editor: {e}	エディターを開けませんでした: {e}
+@pattern	Import failed: {e}	読み込みに失敗しました: {e}
+@pattern	XMP is not well-formed XML: {e}	XMP が整形式の XML ではありません: {e}
+@pattern	Reset Tone Curve ({channel})	トーンカーブをリセット ({channel})
+@pattern	Reset {x}	{x} をリセット
+@pattern	Restore {x}	{x} を復元
+@pattern	Replace {x} with:	{x} を次に置き換え:
+@pattern	Shift by {x}	{x} ずらす
+@pattern	Imported: {x}	読み込み済み: {x}
+@pattern	Merged from {x}	{x} から合成
+@pattern	Only {x} photos	{x} 枚のみ
+@pattern	AI mask ({x})	AI マスク ({x})
+@pattern	Auto ({x})	自動 ({x})
+@pattern	Any {x}	任意の {x}
+@pattern	Unknown tag {x} stays as typed	不明なタグ {x} は入力どおりになります
+@pattern	Unknown tags stay as typed — check the preview for a {typo}.	不明なタグは入力どおりになります — {typo} がないかプレビューを確認してください。
+@pattern	The original extension is always added; {ext} only puts it inside the name as well.	元の拡張子は常に付加されます。{ext} は名前の中にも含めるだけです。
+@pattern	This library is already open in {x}. Close it there first.	このライブラリは既に {x} で開かれています。先にそちらを閉じてください。
+@pattern	The app settings ({x}) couldn't be read: {e}. Defaults are used, and the file isn't overwritten.	アプリの設定 ({x}) を読み込めませんでした: {e}。既定値を使用し、ファイルは上書きしません。
+@pattern	Creates {a} stacks from {b} of {scope}	{scope} の {b} から {a} 個のスタックを作成します
+@pattern	Smart previews folder changed; deleted {n}	スマートプレビューのフォルダが変更されました。{n} 件を削除しました
+@pattern	Smart previews folder changed; moved {n}	スマートプレビューのフォルダが変更されました。{n} 件を移動しました
+@pattern	Moved; {n} photo(s) relinked	移動しました。{n} 枚の写真を再リンクしました
+@pattern	N files and folders	N 個のファイルとフォルダ
+@pattern	Wednesday, 30 September 2026 · {n} photos	2026年9月30日(水) · {n} 枚
+	Autumn Gold	秋の黄金
+	Bleached	ブリーチ
+	Blue Hour Boost	ブルーアワー強調
+	Bright & Airy	明るく軽やか
+	Cinematic	シネマティック
+	Clean Studio	クリーンスタジオ
+	Concrete Cool	コンクリートクール
+	Cool Fade	クールフェード
+	Cool Morning	涼しい朝
+	Crisp Landscape	くっきり風景
+	Crisp Vista	くっきり眺望
+	Cross Process	クロスプロセス
+	Dark & Moody	暗く重厚
+	Deep Sky	深い空
+	Desert Heat	砂漠の熱気
+	Desert Warmth	砂漠の温もり
+	Faded Matte	色褪せマット
+	Faded Slide	色褪せスライド
+	Faded Urban	色褪せた都会
+	Fresh & Bright	爽やかで明るい
+	Golden Glow	黄金の輝き
+	Golden Hour	ゴールデンアワー
+	Gritty Street	ざらついたストリート
+	High Contrast B&W	ハイコントラスト白黒
+	Instant ’70s	インスタント '70s
+	Lush Greens	豊かな緑
+	Matte Soft	マットソフト
+	Misty Morning	霧の朝
+	Mono Red Filter	モノクロ赤フィルター
+	Mono Rich	モノクロリッチ
+	Mono Soft	モノクロソフト
+	Moody	ムーディー
+	Moody Portrait	ムーディーポートレート
+	Muted	くすんだ色
+	Muted Film	くすんだフィルム
+	Neon Dusk	ネオンの夕暮れ
+	Neon Night	ネオンの夜
+	Night Blue	ナイトブルー
+	Pastel Haze	パステルの霞
+	Quiet Green	静かな緑
+	Selenium Tone	セレニウムトーン
+	Sepia Tone	セピアトーン
+	Soft B&W	ソフト白黒
+	Soft Pastel	ソフトパステル
+	Soft Skin	なめらかな肌
+	Spring Fresh	春の爽やかさ
+	Summer Haze	夏の霞
+	Teal & Amber	ティール&アンバー
+	Teal & Orange	ティール&オレンジ
+	Urban	アーバン
+	Vintage	ビンテージ
+	Vivid Pop	ビビッドポップ
+	Warm Film	ウォームフィルム
+	Warm Glow	温かな輝き
+	Warm Print	ウォームプリント
+	Warm Table	温かなテーブル
+	Winter Blue	冬の青
+	Radial	円形
+	all	すべて
+	on	オン
+	is ≥	次の値以上
+	1 min	1分
+	Shift by	次の値だけずらす

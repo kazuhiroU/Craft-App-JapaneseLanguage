@@ -1,0 +1,1011 @@
+diff --git a/Cargo.lock b/Cargo.lock
+index c10c047..495320b 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -1515,8 +1515,6 @@ dependencies = [
+ [[package]]
+ name = "epaint"
+ version = "0.36.2"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "a0ec0308dc23130fc1a7d4623a8534c2ed069c6dc84e258ee4f3de99615aa1a3"
+ dependencies = [
+  "ahash",
+  "bytemuck",
+diff --git a/Cargo.toml b/Cargo.toml
+index dd95c6e..07a4bf6 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -69,6 +69,10 @@ eframe = { version = "0.36", default-features = false }
+ egui_kittest = "0.36"
+ rfd = "0.17"
+ 
++# FilmCraft i18n: epaint with a text-translator hook in Fonts::layout_job (vendor/epaint).
++[patch.crates-io]
++epaint = { path = "vendor/epaint" }
++
+ [workspace.lints.rust]
+ unsafe_code = "forbid"
+ 
+diff --git a/apps/filmcraft/src/native_menu.rs b/apps/filmcraft/src/native_menu.rs
+index 52d31f7..2505a61 100644
+--- a/apps/filmcraft/src/native_menu.rs
++++ b/apps/filmcraft/src/native_menu.rs
+@@ -37,16 +37,19 @@ pub fn install(app: &FilmcraftApp, ctx: egui::Context) -> (Receiver<String>, Sho
+         native.push((it.id.clone(), mi.clone()));
+         let _ = settings.append(&mi);
+     }
++    let t = |s: &str| filmcraft_ui_egui::i18n::t(s);
++    let about = MenuItem::with_id("app.about", t("About FilmCraft"), true, None);
++    let discord = MenuItem::with_id("help.discord", t("Join the ArtCraft Discord…"), true, None);
+     let _ = app_menu.append_items(&[
+-        &MenuItem::with_id("app.about", "About FilmCraft", true, None),
+-        &MenuItem::with_id("help.discord", "Join the ArtCraft Discord…", true, None),
++        &about,
++        &discord,
+         &PredefinedMenuItem::separator(),
+         &settings,
+         &PredefinedMenuItem::separator(),
+-        &PredefinedMenuItem::hide(None),
+-        &PredefinedMenuItem::hide_others(None),
++        &PredefinedMenuItem::hide(Some(&t("Hide FilmCraft"))),
++        &PredefinedMenuItem::hide_others(Some(&t("Hide Others"))),
+         &PredefinedMenuItem::separator(),
+-        &PredefinedMenuItem::quit(None),
++        &PredefinedMenuItem::quit(Some(&t("Quit FilmCraft"))),
+     ]);
+     let _ = bar.append(&app_menu);
+     for top in MENUS {
+@@ -92,13 +95,10 @@ pub fn install(app: &FilmcraftApp, ctx: egui::Context) -> (Receiver<String>, Sho
+         }
+     });
+     let update: ShortcutUpdater = Box::new(move |items: &[Item]| {
+-        let language = if items.iter().any(|it| it.id == "app.language.japanese" && it.checked == Some(true)) {
+-            filmcraft_ui_egui::i18n::Language::Ja
+-        } else {
+-            filmcraft_ui_egui::i18n::Language::En
+-        };
++        about.set_text(filmcraft_ui_egui::i18n::t("About FilmCraft"));
++        discord.set_text(filmcraft_ui_egui::i18n::t("Join the ArtCraft Discord…"));
+         for (title, submenu) in &titles {
+-            submenu.set_text(language.tr(title));
++            submenu.set_text(filmcraft_ui_egui::i18n::t(title));
+         }
+         for (id, mi) in &native {
+             if let Some(it) = items.iter().find(|i| &i.id == id) {
+diff --git a/crates/ui-egui/src/i18n.rs b/crates/ui-egui/src/i18n.rs
+deleted file mode 100644
+index 644268b..0000000
+--- a/crates/ui-egui/src/i18n.rs
++++ /dev/null
+@@ -1,282 +0,0 @@
+-//! Interface translations. Command ids, document text and file names remain stable.
+-//! Untranslated labels fall back to English so coverage can grow incrementally.
+-//!
+-//! Japanese text uses the Japanese craft-fonts when FilmCraft was built with them (`CRAFT_FONTS_DIR`;
+-//! `theme::install` already puts them in every font family, see [`craft_japanese_font`]), otherwise
+-//! a font already installed on the system ([`system_japanese_font`]); with neither, switching to
+-//! Japanese is refused with a message.
+-
+-use std::sync::{Arc, OnceLock};
+-
+-#[derive(Clone, Copy, Debug, Default, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+-#[serde(rename_all = "lowercase")]
+-pub enum Language {
+-    #[default]
+-    En,
+-    Ja,
+-}
+-
+-impl Language {
+-    pub const ALL: [Self; 2] = [Self::En, Self::Ja];
+-
+-    pub fn name(self) -> &'static str {
+-        match self {
+-            Self::En => "English",
+-            Self::Ja => "日本語",
+-        }
+-    }
+-
+-    pub fn parse(code: &str) -> Option<Self> {
+-        match code {
+-            "en" => Some(Self::En),
+-            "ja" => Some(Self::Ja),
+-            _ => None,
+-        }
+-    }
+-
+-    pub fn tr(self, text: &str) -> &str {
+-        if self == Self::Ja
+-            && let Some((_, japanese)) = JAPANESE.iter().find(|(english, _)| *english == text)
+-        {
+-            return japanese;
+-        }
+-        text
+-    }
+-}
+-
+-/// Text every Japanese interface font must cover (menus use kanji, hiragana and katakana).
+-const JAPANESE_SAMPLE: &str = "日本語ファイル編集あア";
+-
+-/// Installed families preferred for Japanese interface text, best first (Gothic / sans-serif faces
+-/// read best at menu sizes). Any other installed face that covers [`JAPANESE_SAMPLE`] is used if
+-/// none of these is present.
+-const PREFERRED_JAPANESE: &[&str] = &[
+-    "Hiragino Sans",
+-    "Hiragino Kaku Gothic ProN",
+-    "Hiragino Kaku Gothic Pro",
+-    "Yu Gothic UI",
+-    "Yu Gothic",
+-    "Meiryo UI",
+-    "Meiryo",
+-    "Noto Sans CJK JP",
+-    "Noto Sans JP",
+-    "Source Han Sans JP",
+-    "Source Han Sans",
+-    "IPAexGothic",
+-    "IPAGothic",
+-    "TakaoGothic",
+-    "VL Gothic",
+-];
+-
+-const JAPANESE_FONT: &str = "system-japanese";
+-
+-/// A Japanese font already installed on this system, for the interface (none is bundled). Looked up
+-/// once per process: the system font folders are scanned on first use (name tables only), then the
+-/// chosen face's file is read. `None` on the web and on systems without a Japanese font.
+-pub fn system_japanese_font() -> Option<Arc<egui::FontData>> {
+-    static FONT: OnceLock<Option<Arc<egui::FontData>>> = OnceLock::new();
+-    FONT.get_or_init(|| {
+-        filmcraft_text::fonts::scan_system();
+-        let faces: Vec<_> = filmcraft_text::fonts::all_faces().into_iter().filter(|f| f.info.origin == "system" && !f.info.italic).collect();
+-        let covers = |f: &filmcraft_text::fonts::Face| JAPANESE_SAMPLE.chars().all(|c| f.has_char(c));
+-        // within a family, the face closest to regular weight
+-        let by_weight = |f: &&Arc<filmcraft_text::fonts::Face>| f.info.weight.abs_diff(400);
+-        let preferred =
+-            PREFERRED_JAPANESE.iter().find_map(|name| faces.iter().filter(|f| f.info.family.eq_ignore_ascii_case(name) && covers(f)).min_by_key(by_weight));
+-        let face = preferred.or_else(|| faces.iter().filter(|f| covers(f)).min_by_key(by_weight))?;
+-        // kept for the life of the process (one font, read once) so installing it again after a
+-        // theme change shares the bytes instead of copying the whole file
+-        let bytes: &'static [u8] = Box::leak(face.data()?.into_boxed_slice());
+-        Some(Arc::new(egui::FontData { font: std::borrow::Cow::Borrowed(bytes), index: face.info.index, tweak: Default::default() }))
+-    })
+-    .clone()
+-}
+-
+-/// Whether the craft-fonts build input (empty unless built with `CRAFT_FONTS_DIR`) supplies a
+-/// Japanese interface font: some craft-fonts face covers [`JAPANESE_SAMPLE`]. `theme::install` adds
+-/// these faces to every font family, so nothing else needs installing (and no system scan runs).
+-pub fn craft_japanese_font() -> bool {
+-    filmcraft_text::fonts::craft_japanese().next().is_some()
+-        && filmcraft_text::fonts::all_faces()
+-            .iter()
+-            .any(|f| f.info.origin == filmcraft_text::fonts::CRAFT_ORIGIN && JAPANESE_SAMPLE.chars().all(|c| f.has_char(c)))
+-}
+-
+-/// Japanese for the interface: true when built with the craft-fonts (already installed by
+-/// `theme::install`). Otherwise add the system's Japanese font as the last fallback of every theme font family, from the next
+-/// pass on. Returns false (and changes nothing) when no Japanese font is installed. Call it again
+-/// after `theme::install`, which replaces the font definitions.
+-pub fn install_japanese_font(ctx: &egui::Context) -> bool {
+-    if craft_japanese_font() {
+-        return true;
+-    }
+-    let Some(font) = system_japanese_font() else { return false };
+-    let families = crate::theme::font_families()
+-        .into_iter()
+-        .map(|family| egui::epaint::text::InsertFontFamily { family, priority: egui::epaint::text::FontPriority::Lowest })
+-        .collect();
+-    // queued for the next pass (works before the first frame); a no-op when already installed
+-    ctx.add_font(egui::epaint::text::FontInsert { name: JAPANESE_FONT.into(), data: (*font).clone(), families });
+-    true
+-}
+-
+-const JAPANESE: &[(&str, &str)] = &[
+-    ("Clip", "クリップ"),
+-    ("Sequence", "シーケンス"),
+-    ("Markers", "マーカー"),
+-    ("Graphics and Titles", "グラフィックスとタイトル"),
+-    ("Settings", "環境設定"),
+-    ("Object", "オブジェクト"),
+-    ("Effect", "効果"),
+-    ("Settings…", "環境設定…"),
+-    ("Image", "画像"),
+-    ("Layer", "レイヤー"),
+-    ("Type", "書式"),
+-    ("Select", "選択"),
+-    ("Filter", "フィルター"),
+-    ("Window", "ウィンドウ"),
+-    ("Language", "表示言語"),
+-    ("Save As…", "別名で保存…"),
+-    ("Exit", "終了"),
+-    ("New…", "新規…"),
+-    ("New", "新規"),
+-    ("Horizontal", "横書き"),
+-    ("Vertical", "縦書き"),
+-    ("Orientation", "組み方向"),
+-    ("Layers", "レイヤー"),
+-    ("History", "履歴"),
+-    ("Properties", "プロパティ"),
+-    ("Color", "カラー"),
+-    ("Brush Settings", "ブラシ設定"),
+-    ("Tools", "ツール"),
+-    ("Options", "オプション"),
+-    ("Zoom In", "ズームイン"),
+-    ("Zoom Out", "ズームアウト"),
+-    ("Fit on Screen", "画面に合わせる"),
+-    ("Copy", "コピー"),
+-    ("Cut", "切り取り"),
+-    ("Paste", "貼り付け"),
+-    ("Select All", "すべて選択"),
+-    ("Deselect", "選択を解除"),
+-    ("Export", "書き出し"),
+-    ("Export As…", "形式を指定して書き出し…"),
+-    ("Search…", "検索…"),
+-    ("Theme", "テーマ"),
+-    ("Menu", "メニュー"),
+-    ("File", "ファイル"),
+-    ("Edit", "編集"),
+-    ("Pages", "ページ"),
+-    ("View", "表示"),
+-    ("Help", "ヘルプ"),
+-    ("Preferences", "環境設定"),
+-    ("Preferences…", "環境設定…"),
+-    ("Interface language", "表示言語"),
+-    ("Open…", "開く…"),
+-    ("New blank PDF", "空白の PDF を作成"),
+-    ("Create PDF from file…", "ファイルから PDF を作成…"),
+-    ("Create PDF from images…", "画像から PDF を作成…"),
+-    ("Create PDF from clipboard", "クリップボードから PDF を作成"),
+-    ("Combine files…", "ファイルを結合…"),
+-    ("Save", "保存"),
+-    ("Save as…", "別名で保存…"),
+-    ("Close file", "ファイルを閉じる"),
+-    ("Close all", "すべて閉じる"),
+-    ("Revert", "保存済みの状態に戻す"),
+-    ("Print…", "印刷…"),
+-    ("Document properties…", "文書のプロパティ…"),
+-    ("Undo", "取り消し"),
+-    ("Redo", "やり直し"),
+-    ("Find…", "検索…"),
+-    ("Advanced search…", "高度な検索…"),
+-    ("Copy pages", "ページをコピー"),
+-    ("Cut pages", "ページを切り取り"),
+-    ("Paste pages", "ページを貼り付け"),
+-    ("Fit visible", "表示範囲に合わせる"),
+-    ("Marquee zoom", "範囲指定ズーム"),
+-    ("Take a snapshot", "スナップショットを作成"),
+-    ("Full screen mode", "全画面表示"),
+-    ("Read mode", "閲覧モード"),
+-    ("Switch light / dark theme", "明るい／暗いテーマを切り替え"),
+-    ("Comments panel", "コメントパネル"),
+-    ("Form fields panel", "フォームフィールドパネル"),
+-    ("Clear form", "フォームをクリア"),
+-    ("Find tools and commands…", "ツールとコマンドを検索…"),
+-    ("Zoom", "ズーム"),
+-    ("Actual size", "実際のサイズ"),
+-    ("Zoom to page level", "ページ全体を表示"),
+-    ("Fit to width", "幅に合わせる"),
+-    ("Display theme", "表示テーマ"),
+-    ("Side panels", "サイドパネル"),
+-    ("OK", "OK"),
+-];
+-
+-#[cfg(test)]
+-mod tests {
+-    use super::*;
+-
+-    #[test]
+-    fn translations_are_unique_and_preserve_unknown_text() {
+-        for (i, (en, ja)) in JAPANESE.iter().enumerate() {
+-            assert!(!ja.is_empty());
+-            assert!(JAPANESE.iter().take(i).all(|(other, _)| en != other));
+-            assert_eq!(Language::En.tr(en), *en);
+-        }
+-        assert_eq!(Language::Ja.tr("File"), "ファイル");
+-        assert_eq!(Language::Ja.tr("日本語の文書.pdf"), "日本語の文書.pdf");
+-        assert_eq!(Language::parse("xx"), None);
+-    }
+-
+-    #[test]
+-    fn language_commands_switch_and_persist_without_a_document() {
+-        let mut app = crate::FilmcraftApp::new(filmcraft_engine::Session::default());
+-        let ctx = egui::Context::default();
+-        crate::menus::invoke(&mut app, &ctx, "app.language.japanese", serde_json::json!({})).unwrap();
+-        assert_eq!(app.ui.language, Language::Ja);
+-        let saved = serde_json::to_string(&app.ui).unwrap();
+-        let restored: crate::state::UiState = serde_json::from_str(&saved).unwrap();
+-        assert_eq!(restored.language, Language::Ja);
+-        crate::menus::invoke(&mut app, &ctx, "app.language.english", serde_json::json!({})).unwrap();
+-        assert_eq!(app.ui.language, Language::En);
+-    }
+-
+-    #[test]
+-    fn japanese_needs_an_installed_font() {
+-        let mut app = crate::FilmcraftApp::new(filmcraft_engine::Session::default());
+-        let ctx = egui::Context::default();
+-        crate::theme::install(&ctx, &crate::theme::Tokens::for_kind(crate::theme::ThemeKind::default()));
+-        let r = crate::menus::invoke(&mut app, &ctx, "app.language.japanese", serde_json::json!({}));
+-        let craft = craft_japanese_font();
+-        if !craft && system_japanese_font().is_none() {
+-            // no craft-fonts and no system font: refused, and the interface stays English
+-            assert!(r.is_err(), "{r:?}");
+-            assert_eq!(app.ui.language, Language::En);
+-            return;
+-        }
+-        assert!(r.is_ok(), "{r:?}");
+-        let mut output = ctx.run_ui(egui::RawInput::default(), |_| {});
+-        output.textures_delta.clear();
+-        ctx.fonts_mut(|fonts| {
+-            // every theme family falls back to the craft-fonts (when built with them; no system
+-            // font is added then) or to the system Japanese font
+-            for family in crate::theme::font_families() {
+-                let stack = fonts.definitions().families.get(&family).cloned().unwrap_or_default();
+-                if craft {
+-                    assert!(stack.last().is_some_and(|n| n.starts_with("craft:")), "{family:?}: {stack:?}");
+-                    assert!(!stack.iter().any(|n| n == JAPANESE_FONT), "{family:?}: {stack:?}");
+-                } else {
+-                    assert_eq!(stack.last().map(String::as_str), Some(JAPANESE_FONT), "{family:?}: {stack:?}");
+-                }
+-            }
+-            // and the glyphs resolve. (Only families whose replacement-box face is another font:
+-            // egui's `has_glyph` reports false for any character served by the face it also uses
+-            // for the replacement box, which in the Inter-only "medium"/"semibold" stacks is the
+-            // Japanese font itself.)
+-            for family in [egui::FontFamily::Proportional, egui::FontFamily::Monospace] {
+-                let font = egui::FontId::new(13.0, family);
+-                for ch in JAPANESE_SAMPLE.chars() {
+-                    assert!(fonts.has_glyph(&font, ch), "missing {ch} in {font:?}");
+-                }
+-            }
+-        });
+-    }
+-}
+diff --git a/crates/ui-egui/src/i18n/mod.rs b/crates/ui-egui/src/i18n/mod.rs
+new file mode 100644
+index 0000000..331c0c1
+--- /dev/null
++++ b/crates/ui-egui/src/i18n/mod.rs
+@@ -0,0 +1,585 @@
++//! UI localisation.
++//!
++//! Strings in code stay English and are the lookup keys. Instead of wrapping every call site,
++//! one hook installed into the (vendored) text layout (`epaint::text::set_text_translator`)
++//! maps each laid-out piece of text through the catalog of the current language, so menus,
++//! panels, dialogs, tool names, effect and property names (which come from data tables in the
++//! engine and effects crates) are all covered. A string without a translation is shown in English.
++//! Command ids, the control channel, the CLI and MCP never see translated text.
++//!
++//! Catalog format (`ja.tsv`, same as PhotoCraft): `context<TAB>source<TAB>translation`.
++//! - empty context: a plain string, matched exactly
++//! - `@pattern`: a template with `{name}` placeholders matching any text (dynamic strings such as
++//!   `{n} items` or `Delete "{name}"?`); the placeholders are copied into the translation
++//!
++//! Language: UI setting `Edit > Language` (`auto`, `en`, `ja`; saved with the UI state); `auto`
++//! follows the system locale. The environment variable `FILMCRAFT_LANG` overrides it. `FILMCRAFT_I18N_DUMP=path`
++//! appends every untranslated string that was drawn to that file (to find gaps).
++
++use std::collections::HashMap;
++use std::sync::atomic::{AtomicU8, Ordering};
++use std::sync::{Arc, Mutex, OnceLock};
++
++/// A UI language.
++#[derive(Clone, Copy, Debug, PartialEq, Eq)]
++pub enum Lang {
++    En,
++    Ja,
++}
++
++impl Lang {
++    pub fn code(self) -> &'static str {
++        match self {
++            Lang::En => "en",
++            Lang::Ja => "ja",
++        }
++    }
++
++    pub fn from_code(code: &str) -> Option<Lang> {
++        match code.trim().to_ascii_lowercase().as_str() {
++            "en" => Some(Lang::En),
++            "ja" => Some(Lang::Ja),
++            _ => None,
++        }
++    }
++
++    /// Resolve `interface language` preference: a code, or `auto` (and anything unknown) for the
++    /// system language.
++    pub fn from_pref(pref: &str) -> Lang {
++        if let Some(l) = std::env::var("FILMCRAFT_LANG").ok().and_then(|v| Lang::from_code(&v)) {
++            return l;
++        }
++        Lang::from_code(pref).unwrap_or_else(system_lang)
++    }
++}
++
++/// Language for a locale tag such as `ja_JP.UTF-8` or `ja-JP`.
++pub fn lang_from_tag(tag: &str) -> Option<Lang> {
++    let base = tag.split(['.', '@']).next().unwrap_or("").replace('_', "-").to_ascii_lowercase();
++    let primary = base.split('-').next().unwrap_or("");
++    match primary {
++        "ja" => Some(Lang::Ja),
++        "en" | "c" | "posix" => Some(Lang::En),
++        _ => None,
++    }
++}
++
++/// The system language (cached). English when it can't be determined.
++pub fn system_lang() -> Lang {
++    static SYSTEM: OnceLock<Lang> = OnceLock::new();
++    *SYSTEM.get_or_init(detect_system_lang)
++}
++
++#[cfg(not(target_arch = "wasm32"))]
++fn detect_system_lang() -> Lang {
++    for var in ["LC_ALL", "LC_MESSAGES", "LANG"] {
++        if let Some(l) = std::env::var(var).ok().filter(|v| !v.is_empty()).and_then(|v| lang_from_tag(&v)) {
++            return l;
++        }
++    }
++    // Apps started from the Finder don't inherit LANG: use the macOS preferred-languages list.
++    #[cfg(target_os = "macos")]
++    if let Ok(out) = std::process::Command::new("/usr/bin/defaults").args(["read", "-g", "AppleLanguages"]).output()
++        && out.status.success()
++        && let Some(l) = first_supported(&String::from_utf8_lossy(&out.stdout))
++    {
++        return l;
++    }
++    Lang::En
++}
++
++#[cfg(target_arch = "wasm32")]
++fn detect_system_lang() -> Lang {
++    Lang::En
++}
++
++/// The first supported language in a `defaults read` list like `(\n    "ja-JP",\n    "en-US"\n)`.
++#[cfg_attr(not(target_os = "macos"), allow(dead_code))]
++fn first_supported(list: &str) -> Option<Lang> {
++    list.split(['(', ')', ',', '"', '\n']).map(str::trim).filter(|s| !s.is_empty()).find_map(lang_from_tag)
++}
++
++// ---------------------------------------------------------------------------------------------
++// Catalog
++
++#[derive(Default)]
++struct Pattern {
++    /// literal pieces between placeholders (`pieces.len() == names.len() + 1`)
++    pieces: Vec<String>,
++    names: Vec<String>,
++    translation: String,
++}
++
++#[derive(Default)]
++struct Catalog {
++    plain: HashMap<String, String>,
++    patterns: Vec<Pattern>,
++    /// memo of lookups, including misses (cleared when it grows large: timecodes etc.)
++    memo: Mutex<HashMap<String, Option<String>>>,
++}
++
++fn unescape(s: &str) -> String {
++    let mut out = String::with_capacity(s.len());
++    let mut it = s.chars();
++    while let Some(c) = it.next() {
++        if c != '\\' {
++            out.push(c);
++            continue;
++        }
++        match it.next() {
++            Some('n') => out.push('\n'),
++            Some('t') => out.push('\t'),
++            Some('\\') => out.push('\\'),
++            Some(o) => {
++                out.push('\\');
++                out.push(o);
++            }
++            None => out.push('\\'),
++        }
++    }
++    out
++}
++
++/// Entries of a catalog file as (context, source, translation) plus line errors.
++pub fn parse_entries(text: &str) -> (Vec<(String, String, String)>, Vec<String>) {
++    let mut entries = Vec::new();
++    let mut errors = Vec::new();
++    for (n, line) in text.lines().enumerate() {
++        if line.trim().is_empty() || line.starts_with('#') {
++            continue;
++        }
++        let mut cols = line.split('\t');
++        match (cols.next(), cols.next(), cols.next(), cols.next()) {
++            (Some(ctx), Some(src), Some(tr), None) if !src.is_empty() && !tr.is_empty() => {
++                entries.push((unescape(ctx), unescape(src), unescape(tr)));
++            }
++            _ => errors.push(format!("line {}: expected `context<TAB>source<TAB>translation`", n + 1)),
++        }
++    }
++    (entries, errors)
++}
++
++/// `{name}` placeholders of a template, in order.
++fn placeholders(s: &str) -> Vec<&str> {
++    let mut out = Vec::new();
++    let mut rest = s;
++    while let Some(a) = rest.find('{') {
++        let after = &rest[a + 1..];
++        match after.find('}') {
++            Some(b) => {
++                out.push(&after[..b]);
++                rest = &after[b + 1..];
++            }
++            None => break,
++        }
++    }
++    out
++}
++
++fn split_template(src: &str) -> (Vec<String>, Vec<String>) {
++    let mut pieces = Vec::new();
++    let mut names = Vec::new();
++    let mut rest = src;
++    loop {
++        match rest.find('{').and_then(|a| rest[a..].find('}').map(|b| (a, a + b))) {
++            Some((a, b)) => {
++                pieces.push(rest[..a].to_string());
++                names.push(rest[a + 1..b].to_string());
++                rest = &rest[b + 1..];
++            }
++            None => {
++                pieces.push(rest.to_string());
++                break;
++            }
++        }
++    }
++    (pieces, names)
++}
++
++impl Catalog {
++    fn parse(text: &str) -> Catalog {
++        let mut c = Catalog::default();
++        for (ctx, src, tr) in parse_entries(text).0 {
++            match ctx.as_str() {
++                "@pattern" => {
++                    let (pieces, names) = split_template(&src);
++                    c.patterns.push(Pattern { pieces, names, translation: tr });
++                }
++                // contexts other than plain/pattern: keep the plain form as a fallback
++                _ => {
++                    c.plain.entry(src).or_insert(tr);
++                }
++            }
++        }
++        // Longer literal text first so the most specific pattern wins.
++        c.patterns.sort_by_key(|p| std::cmp::Reverse(p.pieces.iter().map(String::len).sum::<usize>()));
++        c
++    }
++
++    fn lookup(&self, s: &str) -> Option<String> {
++        if let Some(t) = self.plain.get(s) {
++            return Some(t.clone());
++        }
++        // Numbers, timecodes and other symbol-only strings are never translated.
++        if !s.chars().any(|c| c.is_alphabetic()) {
++            return None;
++        }
++        // Trailing/leading whitespace and bullets are kept around the translated core.
++        let trimmed = s.trim();
++        if trimmed.len() != s.len() && !trimmed.is_empty() {
++            let lead = &s[..s.len() - s.trim_start().len()];
++            let trail = &s[s.trim_end().len()..];
++            if let Some(t) = self.lookup(trimmed) {
++                return Some(format!("{lead}{t}{trail}"));
++            }
++        }
++        for p in &self.patterns {
++            if let Some(caps) = match_pattern(p, s) {
++                let mut out = p.translation.clone();
++                for (name, val) in p.names.iter().zip(caps) {
++                    // A captured value that is itself a known string is translated too.
++                    let shown = self.plain.get(val).map(String::as_str).unwrap_or(val);
++                    out = out.replace(&format!("{{{name}}}"), shown);
++                }
++                return Some(out);
++            }
++        }
++        None
++    }
++
++    fn translate(&self, s: &str) -> Option<String> {
++        {
++            let memo = self.memo.lock().ok()?;
++            if let Some(hit) = memo.get(s) {
++                return hit.clone();
++            }
++        }
++        let r = self.lookup(s);
++        if let Ok(mut memo) = self.memo.lock() {
++            if memo.len() > 20_000 {
++                memo.clear();
++            }
++            memo.insert(s.to_string(), r.clone());
++        }
++        r
++    }
++}
++
++/// Placeholders that stand for counts, times and sizes only match text with a digit in it, so a
++/// pattern such as `Layer {l}` doesn't swallow an unrelated `Layer Styles`.
++fn is_numeric_name(name: &str) -> bool {
++    name.starts_with("num")
++        || matches!(name, "n" | "k" | "i" | "pc" | "ms" | "fps" | "kbps" | "w" | "h" | "b" | "yy" | "threads" | "need" | "fit" | "started" | "done" | "copied" | "failed" | "rq")
++}
++
++fn match_pattern<'a>(p: &Pattern, s: &'a str) -> Option<Vec<&'a str>> {
++    let first = p.pieces.first()?;
++    let last = p.pieces.last()?;
++    if !s.starts_with(first.as_str()) || s.len() < first.len() + last.len() || !s[first.len()..].ends_with(last.as_str()) {
++        return None;
++    }
++    let end = s.len() - last.len();
++    let mut pos = first.len();
++    let mut caps = Vec::with_capacity(p.names.len());
++    for i in 0..p.names.len() {
++        let next = &p.pieces[i + 1];
++        let is_last = i + 1 == p.names.len();
++        let cap_end = if is_last {
++            end
++        } else {
++            let from = pos + 1; // a placeholder matches at least one character
++            let found = s.get(from..end)?.find(next.as_str())?;
++            from + found
++        };
++        if cap_end <= pos {
++            return None;
++        }
++        let cap = s.get(pos..cap_end)?;
++        if is_numeric_name(&p.names[i]) && !cap.chars().any(|c| c.is_ascii_digit()) {
++            return None;
++        }
++        caps.push(cap);
++        pos = cap_end + if is_last { 0 } else { next.len() };
++    }
++    if p.names.is_empty() && s != first {
++        return None;
++    }
++    Some(caps)
++}
++
++static JA: OnceLock<Catalog> = OnceLock::new();
++
++fn ja() -> &'static Catalog {
++    JA.get_or_init(|| Catalog::parse(include_str!("ja.tsv")))
++}
++
++// ---------------------------------------------------------------------------------------------
++// Current language and the text hook
++
++static CURRENT: AtomicU8 = AtomicU8::new(0);
++
++/// Select the UI language for drawing (call when the preference changes) and switch the text hook.
++pub fn set_current(lang: Lang) {
++    CURRENT.store(lang as u8, Ordering::Relaxed);
++    static INSTALLED: OnceLock<()> = OnceLock::new();
++    INSTALLED.get_or_init(|| egui::epaint::text::set_text_translator(hook));
++    // Translation stays on in English too when the dump is requested (to list the gaps).
++    egui::epaint::text::set_text_translation_enabled(lang != Lang::En || dump_path().is_some());
++}
++
++pub fn current() -> Lang {
++    if CURRENT.load(Ordering::Relaxed) == Lang::Ja as u8 { Lang::Ja } else { Lang::En }
++}
++
++/// Translate an English UI string into the current language; unknown strings come back as they were.
++pub fn t(s: &str) -> String {
++    translate(current(), s).unwrap_or_else(|| s.to_string())
++}
++
++pub fn translate(lang: Lang, s: &str) -> Option<String> {
++    match lang {
++        Lang::En => None,
++        Lang::Ja => ja().translate(s),
++    }
++}
++
++fn hook(s: &str) -> Option<String> {
++    let lang = current();
++    let r = translate(lang, s);
++    if r.is_none() {
++        dump(s);
++    }
++    r
++}
++
++fn dump_path() -> Option<&'static str> {
++    static P: OnceLock<Option<String>> = OnceLock::new();
++    P.get_or_init(|| std::env::var("FILMCRAFT_I18N_DUMP").ok().filter(|v| !v.is_empty())).as_deref()
++}
++
++fn dump(s: &str) {
++    let Some(path) = dump_path() else { return };
++    if !s.chars().any(|c| c.is_alphabetic()) || s.len() > 200 {
++        return;
++    }
++    static SEEN: OnceLock<Mutex<std::collections::HashSet<String>>> = OnceLock::new();
++    let seen = SEEN.get_or_init(Default::default);
++    let Ok(mut seen) = seen.lock() else { return };
++    if seen.len() < 50_000 && seen.insert(s.to_string()) {
++        use std::io::Write;
++        if let Ok(mut f) = std::fs::OpenOptions::new().create(true).append(true).open(path) {
++            let _ = writeln!(f, "{}", s.replace('\\', "\\\\").replace('\n', "\\n").replace('\t', "\\t"));
++        }
++    }
++}
++
++
++/// The interface language setting: `Auto` follows the system language.
++#[derive(Clone, Copy, Debug, Default, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
++#[serde(rename_all = "lowercase")]
++pub enum Language {
++    #[default]
++    Auto,
++    En,
++    Ja,
++}
++
++impl Language {
++    pub const ALL: [Self; 3] = [Self::Auto, Self::En, Self::Ja];
++
++    pub fn name(self) -> &'static str {
++        match self {
++            Self::Auto => "Auto (System)",
++            Self::En => "English",
++            Self::Ja => "日本語",
++        }
++    }
++
++    pub fn parse(code: &str) -> Option<Self> {
++        match code {
++            "auto" => Some(Self::Auto),
++            "en" => Some(Self::En),
++            "ja" => Some(Self::Ja),
++            _ => None,
++        }
++    }
++
++    /// The language actually shown (`FILMCRAFT_LANG` overrides the setting).
++    pub fn effective(self) -> Lang {
++        match self {
++            Self::Auto => Lang::from_pref("auto"),
++            Self::En => Lang::from_pref("en"),
++            Self::Ja => Lang::from_pref("ja"),
++        }
++    }
++
++    /// Translate a label for this setting; unknown text comes back unchanged.
++    pub fn tr(self, text: &str) -> String {
++        translate(self.effective(), text).unwrap_or_else(|| text.to_string())
++    }
++}
++
++/// Text every Japanese interface font must cover (menus use kanji, hiragana and katakana).
++const JAPANESE_SAMPLE: &str = "日本語ファイル編集あア";
++
++/// Installed families preferred for Japanese interface text, best first (Gothic / sans-serif faces
++/// read best at menu sizes). Any other installed face that covers [`JAPANESE_SAMPLE`] is used if
++/// none of these is present.
++const PREFERRED_JAPANESE: &[&str] = &[
++    "Hiragino Sans",
++    "Hiragino Kaku Gothic ProN",
++    "Hiragino Kaku Gothic Pro",
++    "Yu Gothic UI",
++    "Yu Gothic",
++    "Meiryo UI",
++    "Meiryo",
++    "Noto Sans CJK JP",
++    "Noto Sans JP",
++    "Source Han Sans JP",
++    "Source Han Sans",
++    "IPAexGothic",
++    "IPAGothic",
++    "TakaoGothic",
++    "VL Gothic",
++];
++
++const JAPANESE_FONT: &str = "system-japanese";
++
++/// A Japanese font already installed on this system, for the interface (none is bundled). Looked up
++/// once per process: the system font folders are scanned on first use (name tables only), then the
++/// chosen face's file is read. `None` on the web and on systems without a Japanese font.
++pub fn system_japanese_font() -> Option<Arc<egui::FontData>> {
++    static FONT: OnceLock<Option<Arc<egui::FontData>>> = OnceLock::new();
++    FONT.get_or_init(|| {
++        filmcraft_text::fonts::scan_system();
++        let faces: Vec<_> = filmcraft_text::fonts::all_faces().into_iter().filter(|f| f.info.origin == "system" && !f.info.italic).collect();
++        let covers = |f: &filmcraft_text::fonts::Face| JAPANESE_SAMPLE.chars().all(|c| f.has_char(c));
++        // within a family, the face closest to regular weight
++        let by_weight = |f: &&Arc<filmcraft_text::fonts::Face>| f.info.weight.abs_diff(400);
++        let preferred =
++            PREFERRED_JAPANESE.iter().find_map(|name| faces.iter().filter(|f| f.info.family.eq_ignore_ascii_case(name) && covers(f)).min_by_key(by_weight));
++        let face = preferred.or_else(|| faces.iter().filter(|f| covers(f)).min_by_key(by_weight))?;
++        // kept for the life of the process (one font, read once) so installing it again after a
++        // theme change shares the bytes instead of copying the whole file
++        let bytes: &'static [u8] = Box::leak(face.data()?.into_boxed_slice());
++        Some(Arc::new(egui::FontData { font: std::borrow::Cow::Borrowed(bytes), index: face.info.index, tweak: Default::default() }))
++    })
++    .clone()
++}
++
++/// Whether the craft-fonts build input (empty unless built with `CRAFT_FONTS_DIR`) supplies a
++/// Japanese interface font: some craft-fonts face covers [`JAPANESE_SAMPLE`]. `theme::install` adds
++/// these faces to every font family, so nothing else needs installing (and no system scan runs).
++pub fn craft_japanese_font() -> bool {
++    filmcraft_text::fonts::craft_japanese().next().is_some()
++        && filmcraft_text::fonts::all_faces()
++            .iter()
++            .any(|f| f.info.origin == filmcraft_text::fonts::CRAFT_ORIGIN && JAPANESE_SAMPLE.chars().all(|c| f.has_char(c)))
++}
++
++/// Japanese for the interface: true when built with the craft-fonts (already installed by
++/// `theme::install`). Otherwise add the system's Japanese font as the last fallback of every theme font family, from the next
++/// pass on. Returns false (and changes nothing) when no Japanese font is installed. Call it again
++/// after `theme::install`, which replaces the font definitions.
++pub fn install_japanese_font(ctx: &egui::Context) -> bool {
++    if craft_japanese_font() {
++        return true;
++    }
++    let Some(font) = system_japanese_font() else { return false };
++    let families = crate::theme::font_families()
++        .into_iter()
++        .map(|family| egui::epaint::text::InsertFontFamily { family, priority: egui::epaint::text::FontPriority::Lowest })
++        .collect();
++    // queued for the next pass (works before the first frame); a no-op when already installed
++    ctx.add_font(egui::epaint::text::FontInsert { name: JAPANESE_FONT.into(), data: (*font).clone(), families });
++    true
++}
++
++#[cfg(test)]
++mod tests {
++    use super::*;
++
++    #[test]
++    fn bundled_catalog_is_well_formed() {
++        let (entries, errors) = parse_entries(include_str!("ja.tsv"));
++        assert!(errors.is_empty(), "{errors:?}");
++        let mut seen = std::collections::HashSet::new();
++        for (ctx, src, tr) in &entries {
++            assert!(seen.insert((ctx.clone(), src.clone())), "duplicate {ctx:?} {src:?}");
++            let (mut want, mut got) = (placeholders(src), placeholders(tr));
++            want.sort_unstable();
++            got.sort_unstable();
++            assert_eq!(want, got, "placeholders differ in {src:?}");
++        }
++    }
++
++    #[test]
++    fn patterns_capture_and_substitute() {
++        let c = Catalog::parse("@pattern\tDelete \"{name}\"?\t\u{300c}{name}\u{300d}\u{3092}\u{524a}\u{9664}\u{3057}\u{307e}\u{3059}\u{304b}?\n\tLayer\tレイヤー\n");
++        assert_eq!(c.translate("Delete \"Layer\"?").as_deref(), Some("\u{300c}レイヤー\u{300d}を削除しますか?"));
++        assert_eq!(c.translate("Delete \"x\"?").as_deref(), Some("\u{300c}x\u{300d}を削除しますか?"));
++        assert_eq!(c.translate(" Layer ").as_deref(), Some(" レイヤー "));
++        assert_eq!(c.translate("00:01"), None);
++    }
++
++    #[test]
++    fn tags() {
++        assert_eq!(lang_from_tag("ja_JP.UTF-8"), Some(Lang::Ja));
++        assert_eq!(lang_from_tag("fr_FR"), None);
++        assert_eq!(first_supported("(\n    \"ja-JP\",\n    \"en-US\"\n)\n"), Some(Lang::Ja));
++    }
++
++    #[test]
++    fn language_commands_switch_and_persist_without_a_document() {
++        let mut app = crate::FilmcraftApp::new(filmcraft_engine::Session::default());
++        let ctx = egui::Context::default();
++        crate::menus::invoke(&mut app, &ctx, "app.language.japanese", serde_json::json!({})).unwrap();
++        assert_eq!(app.ui.language, Language::Ja);
++        let saved = serde_json::to_string(&app.ui).unwrap();
++        let restored: crate::state::UiState = serde_json::from_str(&saved).unwrap();
++        assert_eq!(restored.language, Language::Ja);
++        crate::menus::invoke(&mut app, &ctx, "app.language.english", serde_json::json!({})).unwrap();
++        assert_eq!(app.ui.language, Language::En);
++    }
++
++    #[test]
++    fn japanese_needs_an_installed_font() {
++        let mut app = crate::FilmcraftApp::new(filmcraft_engine::Session::default());
++        let ctx = egui::Context::default();
++        crate::theme::install(&ctx, &crate::theme::Tokens::for_kind(crate::theme::ThemeKind::default()));
++        let r = crate::menus::invoke(&mut app, &ctx, "app.language.japanese", serde_json::json!({}));
++        let craft = craft_japanese_font();
++        if !craft && system_japanese_font().is_none() {
++            // no craft-fonts and no system font: refused, and the interface stays English
++            assert!(r.is_err(), "{r:?}");
++            assert_eq!(app.ui.language, Language::En);
++            return;
++        }
++        assert!(r.is_ok(), "{r:?}");
++        let mut output = ctx.run_ui(egui::RawInput::default(), |_| {});
++        output.textures_delta.clear();
++        ctx.fonts_mut(|fonts| {
++            // every theme family falls back to the craft-fonts (when built with them; no system
++            // font is added then) or to the system Japanese font
++            for family in crate::theme::font_families() {
++                let stack = fonts.definitions().families.get(&family).cloned().unwrap_or_default();
++                if craft {
++                    assert!(stack.last().is_some_and(|n| n.starts_with("craft:")), "{family:?}: {stack:?}");
++                    assert!(!stack.iter().any(|n| n == JAPANESE_FONT), "{family:?}: {stack:?}");
++                } else {
++                    assert_eq!(stack.last().map(String::as_str), Some(JAPANESE_FONT), "{family:?}: {stack:?}");
++                }
++            }
++            // and the glyphs resolve. (Only families whose replacement-box face is another font:
++            // egui's `has_glyph` reports false for any character served by the face it also uses
++            // for the replacement box, which in the Inter-only "medium"/"semibold" stacks is the
++            // Japanese font itself.)
++            for family in [egui::FontFamily::Proportional, egui::FontFamily::Monospace] {
++                let font = egui::FontId::new(13.0, family);
++                for ch in JAPANESE_SAMPLE.chars() {
++                    assert!(fonts.has_glyph(&font, ch), "missing {ch} in {font:?}");
++                }
++            }
++        });
++    }
++}
+diff --git a/crates/ui-egui/src/lib.rs b/crates/ui-egui/src/lib.rs
+index fc9f6fc..28fc8db 100644
+--- a/crates/ui-egui/src/lib.rs
++++ b/crates/ui-egui/src/lib.rs
+@@ -1238,9 +1238,10 @@ impl eframe::App for FilmcraftApp {
+             theme::install(ctx, &self.tokens);
+             // theme::install replaces the fonts: add the system Japanese font back (or fall back to
+             // English when a saved Japanese setting meets a system without one)
+-            if self.ui.language == i18n::Language::Ja && !i18n::install_japanese_font(ctx) {
++            if self.ui.language.effective() == i18n::Lang::Ja && !i18n::install_japanese_font(ctx) {
+                 self.ui.language = i18n::Language::En;
+             }
++            i18n::set_current(self.ui.language.effective());
+             self.styled = true;
+             ctx.request_repaint();
+         } else {
+diff --git a/crates/ui-egui/src/menus.rs b/crates/ui-egui/src/menus.rs
+index 14966f3..b9b1c04 100644
+--- a/crates/ui-egui/src/menus.rs
++++ b/crates/ui-egui/src/menus.rs
+@@ -22,6 +22,7 @@ macro_rules! uic {
+ }
+ 
+ pub const UI_COMMANDS: &[UiCommand] = &[
++    uic!("app.language.auto", "Auto (System)", ["Edit", "Language"], None),
+     uic!("app.language.english", "English", ["Edit", "Language"], None),
+     uic!("app.language.japanese", "日本語", ["Edit", "Language"], None),
+     uic!("playback.toggle", "Play/Stop", [], Some("Space")),
+@@ -146,12 +147,18 @@ pub fn panel_command_id(p: PanelKind) -> String {
+ 
+ /// Execute a UI or engine command by id.
+ pub fn invoke(app: &mut FilmcraftApp, ctx: &egui::Context, id: &str, params: Value) -> Result<Value, String> {
+-    if matches!(id, "app.language.english" | "app.language.japanese") {
++    if matches!(id, "app.language.auto" | "app.language.english" | "app.language.japanese") {
++        let wanted = match id {
++            "app.language.japanese" => crate::i18n::Language::Ja,
++            "app.language.english" => crate::i18n::Language::En,
++            _ => crate::i18n::Language::Auto,
++        };
+         // Japanese needs the craft-fonts (built with CRAFT_FONTS_DIR) or a font installed on the system
+-        if id == "app.language.japanese" && !crate::i18n::install_japanese_font(ctx) {
++        if wanted.effective() == crate::i18n::Lang::Ja && !crate::i18n::install_japanese_font(ctx) {
+             return Err("no Japanese font is installed on this system (for example Noto Sans CJK JP); the interface stays in English".into());
+         }
+-        app.ui.language = if id == "app.language.japanese" { crate::i18n::Language::Ja } else { crate::i18n::Language::En };
++        app.ui.language = wanted;
++        crate::i18n::set_current(wanted.effective());
+         let items = menu_items(app);
+         if let Some(hook) = app.hooks.shortcuts_changed.as_mut() {
+             hook(&items);
+@@ -399,6 +406,7 @@ pub fn menu_items(app: &FilmcraftApp) -> Vec<MenuItem> {
+     for it in &mut v {
+         it.label = app.ui.language.tr(&it.label).to_string();
+         match it.id.as_str() {
++            "app.language.auto" => it.checked = Some(app.ui.language == crate::i18n::Language::Auto),
+             "app.language.english" => it.checked = Some(app.ui.language == crate::i18n::Language::En),
+             "app.language.japanese" => it.checked = Some(app.ui.language == crate::i18n::Language::Ja),
+             _ => {}
