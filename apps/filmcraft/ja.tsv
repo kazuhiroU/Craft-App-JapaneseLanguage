@@ -2640,3 +2640,10 @@
 @pattern	{n} items	{n} 項目
 @pattern	{n} item	{n} 項目
 	EDITING	編集
+
+# Tooltips and strings added for hover text
+	Join the ArtCraft Discord	ArtCraft の Discord に参加
+	Join the ArtCraft Discord (discord.gg/artcraft)	ArtCraft の Discord に参加 (discord.gg/artcraft)
+	Cancel {}	{} をキャンセル
+	Show or hide {} markers	{} マーカーを表示/非表示
+	Tracking method: {}	トラッキング方法: {}

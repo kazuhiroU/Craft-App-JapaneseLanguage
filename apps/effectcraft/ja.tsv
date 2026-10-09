@@ -6352,3 +6352,13 @@
 @pattern	Y : {yy}	Y : {yy}
 @pattern	{n} / {n2} frames cached	{n} / {n2} フレームをキャッシュ済み
 @pattern	“{name}” is a built-in template	“{name}” は内蔵テンプレートです
+
+# Tooltips and strings added for hover text
+	Join the ArtCraft community on Discord	ArtCraft コミュニティに Discord で参加
+	Join the ArtCraft Discord	ArtCraft の Discord に参加
+	EffectCraft on getartcraft.com	getartcraft.com の EffectCraft
+	⌘/Ctrl-drag a pin to record its motion	⌘/Ctrl を押しながらピンをドラッグして動きを記録
+	Proxy: {} ({})	プロキシ: {} ({})
+	Template: {}	テンプレート: {}
+	Click to edit	クリックして編集
+	{} — double-click to open, {}-click to reveal	{} — ダブルクリックで開く、{}+クリックで場所を表示

@@ -679,3 +679,15 @@
 	is ≥	次の値以上
 	1 min	1分
 	Shift by	次の値だけずらす
+
+# Tooltips and strings added for hover text
+	Join the ArtCraft community on Discord	ArtCraft コミュニティに Discord で参加
+	Join the ArtCraft Discord	ArtCraft の Discord に参加
+	(library default)	(ライブラリの既定)
+	ArtCraft — more creative apps	ArtCraft — ほかのクリエイティブアプリ
+	Decoder: {}	デコーダー: {}
+	Preview only — {}	プレビューのみ — {}
+	Smart album: {}	スマートアルバム: {}
+	{} (includes the keywords below it)	{} (下位のキーワードを含む)
+	{} — double-click to reset it	{} — ダブルクリックでリセット
+	{} label (click more labels to show any of them)	{} ラベル (クリックで他のラベルも表示)

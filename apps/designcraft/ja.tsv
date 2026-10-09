@@ -1697,3 +1697,11 @@
 	Unassigned	未指定
 	Grids, type and color	グリッド、文字、カラー
 	No style named	該当するスタイルがありません
+
+# Tooltips and strings added for hover text
+	Join the ArtCraft Discord	ArtCraft の Discord に参加
+	Join the ArtCraft community	ArtCraft コミュニティに参加
+	Page layout for print and screen — fast, open and scriptable.	印刷と画面向けのページレイアウト。高速、オープン、スクリプト対応。
+	Fill: {}	塗り: {}
+	Stroke: {}	線: {}
+	Page {}	ページ {}

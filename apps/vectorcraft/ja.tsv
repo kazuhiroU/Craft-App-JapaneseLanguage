@@ -2779,3 +2779,14 @@
 	⌃Click	⌃クリック
 	⌃Drag	⌃ドラッグ
 	⌥⇧Drag	⌥⇧ドラッグ
+
+# Tooltips and strings added for hover text
+	Join the ArtCraft community on Discord (discord.gg/artcraft)	ArtCraft コミュニティに Discord で参加 (discord.gg/artcraft)
+	Click, then press the new shortcut (Esc cancels)	クリックしてから新しいショートカットを押します (Esc で取り消し)
+	Remove the shortcut	ショートカットを削除
+	Global Process Color, CMYK	グローバルプロセスカラー、CMYK
+	Color (,)	カラー (,)
+	Gradient (.)	グラデーション (.)
+	Double-click to insert	ダブルクリックで挿入
+	Double-click to rename	ダブルクリックで名前を変更
+	{} stars	星 {} 個
