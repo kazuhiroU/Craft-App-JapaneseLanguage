@@ -13,7 +13,7 @@
 ## 対象アプリ
 | アプリ | 状態 |
 |---|---|
-| [PhotoCraft](apps/photocraft) | 上流に日本語化が入っています。手順だけ案内します |
+| [PhotoCraft](apps/photocraft) | 上流に日本語化が入っています(v0.5.0 以降)。手順だけ案内します |
 | [VectorCraft](apps/vectorcraft) | 辞書 + パッチ |
 | [EffectCraft](apps/effectcraft) | 辞書 + パッチ |
 | [LightCraft](apps/lightcraft) | 辞書 + パッチ(上流の日本語化を補完) |
@@ -38,7 +38,7 @@ cargo build --release -p effectcraft
 - ビルドには時間(10〜20分)とディスク(1〜2GB)が必要です。
 
 ## PhotoCraft の場合
-上流の最新ソース(`main`)に日本語化が入っています。リリース版(v0.2.0)には入っていません。最新ソースをビルドして、Edit › Preferences › Settings… › Interface › Language を「日本語」にします(日本語環境なら自動)。
+上流のリリース v0.5.0 以降と最新ソース(`main`)に日本語化が入っています。リリースページから入れて、Edit › Preferences › Settings… › Interface › Language を「日本語」にします(日本語環境なら自動)。v0.2.0 のリリースには入っていません。
 
 ## 翻訳について
 翻訳は、英語の表示文を一般的な日本語のコンピュータ用語に置き換えて書いています。辞書の一部は、上流の日本語辞書(PhotoCraft など)から取り入れたものです(`NOTICE` 参照)。誤訳・未訳の指摘や修正は、Issue か Pull Request で歓迎します。
